@@ -1,7 +1,7 @@
 {
   "app": {
     "bundleName": "com.menvic.padelscoregt5",
-    "vendor": "example",
+    "vendor": "Menvic",
     "version": {
       "code": 1000000,
       "name": "1.0.0"

@@ -3,6 +3,8 @@ build/
 .cache/
 entry/.preview/
 .idea/
+.hvigor/
+local.properties
 *.hap
 *.app
 *.p12

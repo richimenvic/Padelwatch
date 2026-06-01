@@ -1,0 +1,14 @@
+{
+  "appID": "com.menvic.padelscoregt5",
+  "package": "com.menvic.padelscoregt5",
+  "versionName": "1.0.0",
+  "versionCode": 1000000,
+  "minPlatformVersion": 18,
+  "appName": "$string:MainAbility_label",
+  "deviceType": [
+    "liteWearable"
+  ],
+  "pages": [
+    "pages/index/index"
+  ]
+}

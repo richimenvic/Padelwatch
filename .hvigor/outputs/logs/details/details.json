@@ -1,0 +1,82 @@
+{
+  "HVIGOR_OHOS_PLUGIN": {
+    "MODULES": [
+      {
+        "MODULE_NAME": "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf",
+        "API_TYPE": "faMode"
+      }
+    ],
+    "NATIVE_COMPILER": "Default",
+    "BUILD_MODE": "release"
+  },
+  "HVIGOR": {
+    "IS_INCREMENTAL": true,
+    "IS_DAEMON": true,
+    "IS_PARALLEL": true,
+    "IS_HVIGORFILE_TYPE_CHECK": false,
+    "TASK_TIME": {
+      "APP": {
+        "PreBuildApp": 1180200,
+        "DuplicateDependencyCheck": 660200,
+        "MakeProjectPackInfo": 9471100,
+        "ProcessProjectPrivacyProfile": 12057500,
+        "GeneratePackRes": 933900,
+        "PackageApp": 539032000,
+        "SignApp": 108406700,
+        "assembleApp": 352000
+      },
+      "923fe53966c6cd9343e11af776cd4b05be315ea4b200b02e4d5dfb0f929b73bf": {
+        "LegacyGenerateMetadata": 6322500,
+        "PreCheckSyscap": 509700,
+        "LegacyMergeProfile": 4415300,
+        "LegacyGenerateJsManifest": 4030200,
+        "BuildNativeWithCmake": 430800,
+        "LegacySyscapTransform": 25396800,
+        "LegacyMakePackInfo": 6331300,
+        "LegacyProcessProfile": 5301400,
+        "LegacyGenerateLoaderJson": 3833000,
+        "BuildNativeWithNinja": 2300800,
+        "LegacyProcessResource": 7378200,
+        "ProcessLibs": 24713300,
+        "LegacyCompileResource": 244343200,
+        "DoNativeStrip": 9911700,
+        "LegacyHookCompileResource": 579300,
+        "LegacyCompileArkTS": 3120900,
+        "LegacyBuildJS": 2868400,
+        "LegacyProcessNodeAssets": 1654000,
+        "CacheNativeLibs": 1847161300,
+        "LegacyCompileLiteJS": 10224829600,
+        "LegacyGenerateLiteCode": 37100200,
+        "LegacySignLiteBin": 2484400,
+        "LegacyPackageHap": 1285670900,
+        "SignHap": 185391200,
+        "assembleHap": 418400
+      }
+    },
+    "APIS": [
+      "getHvigorConfig",
+      "getRootNodeDescriptor",
+      "getChildNode",
+      "getNodeByName",
+      "getAllNodes",
+      "getRootNode",
+      "getNodeName",
+      "getStartParams",
+      "buildFinished",
+      "getNodePath",
+      "subNodes",
+      "getExtraOption",
+      "getExtParam",
+      "getExtParams",
+      "getProperty",
+      "getProperties",
+      "getProductName",
+      "nodesEvaluated",
+      "getParameter",
+      "getCommandEntryTask"
+    ],
+    "CONFIG_PROPERTIES": {},
+    "BUILD_ID": "202606020037597340",
+    "TOTAL_TIME": 16612953600
+  }
+}

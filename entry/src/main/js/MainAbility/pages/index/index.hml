@@ -1,0 +1,118 @@
+<div class="container">
+    <div class="topbar">
+        <text class="top-text">{{ estadoSet }}</text>
+    </div>
+
+    <div class="topbar second">
+        <text class="top-text">{{ estadoJuegos }}</text>
+    </div>
+
+    <div if="{{ showResetConfirm }}" class="decision-card">
+        <text class="decision-title reset-title">Reset</text>
+        <text class="decision-subtitle">¿Borrar marcador?</text>
+
+        <input
+                type="button"
+                class="decision-btn danger"
+                value="Sí, reset"
+                onclick="confirmReset">
+        </input>
+
+        <input
+                type="button"
+                class="decision-btn dark"
+                value="Cancelar"
+                onclick="cancelReset">
+        </input>
+    </div>
+
+    <div if="{{ showDecision }}" class="decision-card">
+        <text class="decision-title">6 - 6</text>
+        <text class="decision-subtitle">¿Cómo termina el set?</text>
+
+        <input
+                type="button"
+                class="decision-btn"
+                value="Tie-break"
+                onclick="chooseTieBreak">
+        </input>
+
+        <input
+                type="button"
+                class="decision-btn dark"
+                value="Diferencia 2"
+                onclick="chooseDifferenceTwo">
+        </input>
+    </div>
+
+    <div if="{{ showMatchModeDecision }}" class="decision-card">
+        <text class="decision-title">1 - 1</text>
+        <text class="decision-subtitle">¿Set 3 o Super TB?</text>
+
+        <input
+                type="button"
+                class="decision-btn"
+                value="Set 3 normal"
+                onclick="chooseThirdSet">
+        </input>
+
+        <input
+                type="button"
+                class="decision-btn dark"
+                value="Super TB"
+                onclick="chooseSuperTieBreak">
+        </input>
+    </div>
+
+    <div if="{{ showFinalSummary }}" class="final-card">
+        <div if="{{ finalGanamos }}" class="final-badge final-win">
+            <text class="final-badge-text">GANAMOS</text>
+        </div>
+
+        <div if="{{ finalRivales }}" class="final-badge final-rival">
+            <text class="final-badge-text">RIVALES</text>
+        </div>
+
+        <text class="final-line">{{ finalLine1 }}</text>
+        <text class="final-line">{{ finalLine2 }}</text>
+        <text if="{{ showFinalLine3 }}" class="final-line">{{ finalLine3 }}</text>
+    </div>
+
+    <div if="{{ showScore }}" class="card nosotros-card" onclick="addPoint('nosotros')">
+        <div class="card-left">
+            <text class="team-label">Nosotros</text>
+            <text class="big-point">{{ puntosNosotros }}</text>
+        </div>
+
+        <div class="plus-zone">
+            <text class="plus-visual">+</text>
+        </div>
+    </div>
+
+    <div if="{{ showScore }}" class="card rivales-card" onclick="addPoint('rivales')">
+        <div class="card-left">
+            <text class="team-label">Rivales</text>
+            <text class="big-point">{{ puntosRivales }}</text>
+        </div>
+
+        <div class="plus-zone">
+            <text class="plus-visual">+</text>
+        </div>
+    </div>
+
+    <div class="bottom-row">
+        <input
+                type="button"
+                class="small-btn"
+                value="Deshacer"
+                onclick="undoPoint">
+        </input>
+
+        <input
+                type="button"
+                class="small-btn"
+                value="Reset"
+                onclick="askReset">
+        </input>
+    </div>
+</div>

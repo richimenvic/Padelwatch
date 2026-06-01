@@ -1,0 +1,186 @@
+.container {
+ width: 454px;
+ height: 454px;
+ background-color: #000000;
+ flex-direction: column;
+ align-items: center;
+ justify-content: flex-start;
+ padding-top: 42px;
+}
+
+.topbar {
+ width: 320px;
+ height: 30px;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ margin-bottom: 0px;
+}
+
+.second {
+ justify-content: center;
+ margin-bottom: 8px;
+}
+
+.top-text {
+ color: #ffffff;
+ font-size: 21px;
+}
+
+.card {
+ width: 315px;
+ height: 106px;
+ border-radius: 26px;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-between;
+ margin-bottom: 12px;
+ padding-left: 18px;
+ padding-right: 10px;
+}
+
+.nosotros-card {
+ background-color: #d91bcf;
+}
+
+.rivales-card {
+ background-color: #ff8200;
+}
+
+.card-left {
+ width: 130px;
+ height: 98px;
+ flex-direction: column;
+ justify-content: center;
+}
+
+.team-label {
+ color: #ffffff;
+ font-size: 21px;
+ margin-bottom: 0px;
+}
+
+.big-point {
+ color: #ffffff;
+ font-size: 64px;
+}
+
+.plus-zone {
+ width: 145px;
+ height: 86px;
+ border-radius: 22px;
+ background-color: rgba(255, 255, 255, 0.18);
+ align-items: center;
+ justify-content: center;
+}
+
+.plus-visual {
+ color: #ffffff;
+ font-size: 48px;
+}
+
+.bottom-row {
+ width: 260px;
+ height: 44px;
+ flex-direction: row;
+ justify-content: space-between;
+ margin-top: 0px;
+}
+
+.small-btn {
+ width: 118px;
+ height: 38px;
+ border-radius: 18px;
+ background-color: #333333;
+ color: #ffffff;
+ font-size: 15px;
+}
+
+.decision-card {
+ width: 315px;
+ height: 220px;
+ border-radius: 28px;
+ background-color: #202020;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ margin-bottom: 12px;
+}
+
+.decision-title {
+ color: #ffffff;
+ font-size: 46px;
+ margin-bottom: 4px;
+}
+
+.reset-title {
+ font-size: 42px;
+}
+
+.decision-subtitle {
+ color: #d0d0d0;
+ font-size: 18px;
+ margin-bottom: 14px;
+}
+
+.decision-btn {
+ width: 230px;
+ height: 52px;
+ border-radius: 22px;
+ background-color: #d91bcf;
+ color: #ffffff;
+ font-size: 20px;
+ margin-bottom: 10px;
+ text-align: center;
+ padding-left: 0px;
+ padding-right: 0px;
+}
+
+.final-card {
+ width: 315px;
+ height: 214px;
+ border-radius: 30px;
+ background-color: #202020;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ margin-bottom: 10px;
+ border-width: 2px;
+ border-color: #555555;
+}
+
+.final-badge {
+ width: 245px;
+ height: 44px;
+ border-radius: 22px;
+ align-items: center;
+ justify-content: center;
+ margin-bottom: 9px;
+}
+
+.final-win {
+ background-color: #d91bcf;
+}
+
+.final-rival {
+ background-color: #ff8200;
+}
+
+.final-badge-text {
+ color: #ffffff;
+ font-size: 25px;
+}
+
+.final-line {
+ color: #ffffff;
+ font-size: 22px;
+ margin-bottom: 7px;
+}
+
+.dark {
+ background-color: #333333;
+}
+
+.danger {
+ background-color: #ff1f3d;
+}

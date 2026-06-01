@@ -1,0 +1,13 @@
+entry/build/
+build/
+.cache/
+entry/.preview/
+.idea/
+*.hap
+*.app
+*.p12
+*.csr
+*.cer
+*.p7b
+node_modules/
+oh_modules/

@@ -1,0 +1,56 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storeFile": "C:/DATA/DEVECO_SIGN/padelscoregt5_new.p12",
+          "storePassword": "000000190EB24BD5061EB1E45ABB8D9356002FDE71770DF1CEDD7F45646A27E9E28F9C490657102476",
+          "keyAlias": "padelscoregt5",
+          "keyPassword": "00000019874684101DCF9A7DCE30CEAA9F343A668ADA18CF8CC79C27E7313EA090C09D1BECF625F7DA",
+          "signAlg": "SHA256withECDSA",
+          "profile": "C:/DATA/DEVECO_SIGN/padelscoregt5_new_profileDebug.p7b",
+          "certpath": "C:/DATA/DEVECO_SIGN/PadelScoreGT5_Debug_New.cer"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "5.1.0(18)",
+        "compatibleSdkVersion": "5.1.0(18)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": false
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

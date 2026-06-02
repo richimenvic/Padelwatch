@@ -3,99 +3,221 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PadelScoreGT5</title>
+  <title>pyMenvic</title>
   <style>
     :root {
       color-scheme: dark;
       --background: #07111f;
-      --card: #101d2e;
-      --card-border: #26364d;
-      --text: #f4f7fb;
+      --surface: rgba(15, 27, 45, 0.88);
+      --surface-strong: rgba(21, 36, 58, 0.94);
+      --border: rgba(139, 157, 185, 0.22);
+      --text: #f5f8fc;
       --muted: #b8c4d6;
-      --accent: #58d68d;
-      --accent-strong: #7ef0aa;
+      --accent: #7ef0aa;
+      --accent-soft: rgba(126, 240, 170, 0.12);
+      --accent-border: rgba(126, 240, 170, 0.45);
+      --shadow: rgba(0, 0, 0, 0.28);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(88, 214, 141, 0.18), transparent 30rem),
-        linear-gradient(135deg, #07111f 0%, #0c1728 55%, #101827 100%);
-    }
-
-    main {
-      width: min(960px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 56px 0;
-    }
-
-    .hero,
-    .panel {
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      background: rgba(16, 29, 46, 0.86);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
-    }
-
-    .hero {
-      padding: clamp(28px, 6vw, 56px);
-    }
-
-    h1,
-    h2 {
-      margin: 0;
-      line-height: 1.15;
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      letter-spacing: -0.06em;
-    }
-
-    .subtitle {
-      margin: 12px 0 0;
-      font-size: clamp(1.15rem, 3vw, 1.6rem);
-      color: var(--accent-strong);
-      font-weight: 700;
-    }
-
-    p {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 32px;
+        radial-gradient(circle at top left, rgba(126, 240, 170, 0.16), transparent 28rem),
+        radial-gradient(circle at 82% 8%, rgba(85, 132, 255, 0.13), transparent 24rem),
+        linear-gradient(135deg, #07111f 0%, #0a1424 48%, #101827 100%);
     }
 
     a {
       color: inherit;
     }
 
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(32px, 6vw, 72px) 0 32px;
+    }
+
+    .hero,
+    .section-card,
+    .tool-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      box-shadow: 0 24px 80px var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero {
+      padding: clamp(28px, 6vw, 64px);
+      border-radius: 28px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 18px;
+      padding: 6px 12px;
+      border: 1px solid var(--accent-border);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
+    }
+
+    h1 {
+      margin-bottom: 12px;
+      font-size: clamp(2.8rem, 9vw, 6rem);
+      letter-spacing: -0.07em;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: clamp(1.6rem, 4vw, 2.35rem);
+      letter-spacing: -0.035em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.35rem;
+    }
+
+    .subtitle {
+      margin-bottom: 22px;
+      color: var(--accent);
+      font-size: clamp(1.15rem, 3vw, 1.65rem);
+      font-weight: 800;
+    }
+
+    .description,
+    .section-intro,
+    .card-description,
+    footer p {
+      color: var(--muted);
+    }
+
+    .description {
+      max-width: 760px;
+      margin-bottom: 0;
+      font-size: 1.08rem;
+    }
+
+    .section-card {
+      margin-top: 28px;
+      padding: clamp(24px, 5vw, 40px);
+      border-radius: 24px;
+    }
+
+    .section-intro {
+      max-width: 740px;
+      margin-bottom: 22px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+      gap: 18px;
+    }
+
+    .tool-card {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      padding: 22px;
+      border-radius: 20px;
+      background: var(--surface-strong);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .label {
+      display: inline-flex;
+      flex-shrink: 0;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10px;
+      border: 1px solid var(--accent-border);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .card-description {
+      margin-bottom: 18px;
+    }
+
+    .note {
+      margin-top: auto;
+      padding: 14px 16px;
+      border: 1px solid var(--accent-border);
+      border-radius: 16px;
+      color: var(--text);
+      background: var(--accent-soft);
+      font-size: 0.96rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 12px 18px;
-      border: 1px solid rgba(126, 240, 170, 0.5);
+      min-height: 46px;
+      padding: 11px 16px;
+      border: 1px solid var(--accent-border);
       border-radius: 999px;
-      color: #06120c;
-      background: var(--accent-strong);
+      color: #07111f;
+      background: var(--accent);
       font-weight: 800;
       text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(126, 240, 170, 0.18);
     }
 
     .button.secondary {
@@ -103,34 +225,25 @@
       background: transparent;
     }
 
-    .panel {
-      margin-top: 24px;
-      padding: clamp(24px, 5vw, 36px);
-    }
-
-    h2 {
-      font-size: clamp(1.35rem, 4vw, 2rem);
-    }
-
-    .note {
-      border-left: 4px solid var(--accent);
-      padding: 14px 18px;
-      border-radius: 14px;
-      background: rgba(88, 214, 141, 0.1);
-      color: var(--text);
-    }
-
     footer {
-      margin-top: 28px;
-      color: var(--muted);
-      font-size: 0.95rem;
+      padding: 28px 0 0;
       text-align: center;
+      font-size: 0.95rem;
     }
 
-    @media (max-width: 560px) {
-      main {
-        width: min(100% - 24px, 960px);
-        padding: 28px 0;
+    footer p {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(100% - 24px, 1120px);
+      }
+
+      .card-header,
+      .links {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       .button {
@@ -140,35 +253,70 @@
   </style>
 </head>
 <body>
-  <main>
+  <main class="page">
     <section class="hero" aria-labelledby="page-title">
-      <h1 id="page-title">PadelScoreGT5</h1>
-      <p class="subtitle">Simple padel scorekeeper for Huawei Watch</p>
-      <p>
-        PadelScoreGT5 is a simple standalone padel scorekeeper designed for Huawei Watch.
-        It helps users track points, games, sets, tie-breaks, and super tie-breaks directly
-        from the watch.
+      <p class="eyebrow">Digital tools by Menvic</p>
+      <h1 id="page-title">pyMenvic</h1>
+      <p class="subtitle">Practical apps and digital tools by Menvic</p>
+      <p class="description">
+        pyMenvic is a small collection of practical apps, digital tools, and Revit/pyRevit
+        utilities developed by Menvic. This page provides access to app information, support
+        pages, privacy policies, and future tool documentation.
       </p>
-      <p class="note">
-        The app does not require login, account registration, payments, network access, or
-        personal data collection.
-      </p>
-      <nav class="links" aria-label="PadelScoreGT5 links">
-        <a class="button" href="/padelscoregt5/privacy/">Privacy Policy</a>
-        <a class="button secondary" href="/padelscoregt5/support/">Support and Data Requests</a>
-      </nav>
     </section>
 
-    <section class="panel" lang="es" aria-labelledby="spanish-title">
-      <h2 id="spanish-title">Información en español</h2>
-      <p>
-        PadelScoreGT5 es un marcador simple de pádel para Huawei Watch. Permite llevar
-        puntos, juegos, sets, tie-break y super tie-break directamente desde el reloj.
+    <section class="section-card" aria-labelledby="apps-title">
+      <h2 id="apps-title">Apps</h2>
+      <p class="section-intro">
+        Current mobile and wearable apps published by Menvic, with direct access to support
+        information and privacy resources.
       </p>
+
+      <div class="cards">
+        <article class="tool-card">
+          <div class="card-header">
+            <h3>PadelScoreGT5</h3>
+            <span class="label">Huawei Watch app</span>
+          </div>
+          <p class="card-description">
+            A simple standalone padel scorekeeper for Huawei Watch. It helps users track points,
+            games, sets, tie-breaks, and super tie-breaks directly from the watch.
+          </p>
+          <p class="note">
+            PadelScoreGT5 does not require login, account registration, payments, network access,
+            or personal data collection.
+          </p>
+          <nav class="links" aria-label="PadelScoreGT5 links">
+            <a class="button" href="/padelscoregt5/privacy/">Privacy Policy</a>
+            <a class="button secondary" href="/padelscoregt5/support/">Support and Data Requests</a>
+          </nav>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" aria-labelledby="revit-title">
+      <h2 id="revit-title">Revit / pyRevit Tools</h2>
+      <p class="section-intro">
+        Future pyMenvic utilities for BIM, documentation, and architectural production workflows
+        will be listed here as they become available.
+      </p>
+
+      <div class="cards">
+        <article class="tool-card">
+          <div class="card-header">
+            <h3>pyMenvic for Revit</h3>
+            <span class="label">Coming soon</span>
+          </div>
+          <p class="card-description">
+            A collection of Revit and pyRevit productivity tools developed for architectural
+            workflows, documentation, auditing, and BIM support.
+          </p>
+        </article>
+      </div>
     </section>
 
     <footer>
-      <p>Public information page for PadelScoreGT5.</p>
+      <p>&copy; Menvic. For support: <a href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
     </footer>
   </main>
 </body>

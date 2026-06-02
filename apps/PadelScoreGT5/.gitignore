@@ -1,0 +1,26 @@
+# DevEco / HarmonyOS build files
+entry/build/
+build/
+.hvigor/
+.cache/
+entry/.preview/
+
+# Local IDE / user files
+.idea/
+*.iml
+local.properties
+
+# Generated packages
+*.hap
+*.app
+*.har
+*.hsp
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+oh_modules/

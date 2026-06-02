@@ -1,0 +1,621 @@
+@Entry
+@Component
+struct Index {
+  @State puntosNosotros: string = '0'
+  @State puntosRivales: string = '0'
+
+  @State juegosNosotros: number = 0
+  @State juegosRivales: number = 0
+
+  @State setsNosotros: number = 0
+  @State setsRivales: number = 0
+
+  @State setActual: number = 1
+
+  @State enTieBreak: boolean = false
+  @State tieBreakNosotros: number = 0
+  @State tieBreakRivales: number = 0
+
+  @State enSuperTieBreak: boolean = false
+  @State superTieNosotros: number = 0
+  @State superTieRivales: number = 0
+
+  @State decidirModoSet: boolean = false
+  @State showMatchModeDecision: boolean = false
+  @State partidoTerminado: boolean = false
+  @State jugarConDiferenciaDos: boolean = false
+
+  @State finalLine1: string = 'Set 1: -'
+  @State finalLine2: string = 'Set 2: -'
+  @State finalLine3: string = 'Set 3: -'
+  @State mensaje: string = ''
+
+  @State prevPuntosNosotros: string = '0'
+  @State prevPuntosRivales: string = '0'
+  @State prevJuegosNosotros: number = 0
+  @State prevJuegosRivales: number = 0
+  @State prevSetsNosotros: number = 0
+  @State prevSetsRivales: number = 0
+  @State prevSetActual: number = 1
+  @State prevEnTieBreak: boolean = false
+  @State prevTieBreakNosotros: number = 0
+  @State prevTieBreakRivales: number = 0
+  @State prevEnSuperTieBreak: boolean = false
+  @State prevSuperTieNosotros: number = 0
+  @State prevSuperTieRivales: number = 0
+  @State prevDecidirModoSet: boolean = false
+  @State prevShowMatchModeDecision: boolean = false
+  @State prevPartidoTerminado: boolean = false
+  @State prevJugarConDiferenciaDos: boolean = false
+  @State prevFinalLine1: string = 'Set 1: -'
+  @State prevFinalLine2: string = 'Set 2: -'
+  @State prevFinalLine3: string = 'Set 3: -'
+  @State hayDeshacer: boolean = false
+
+  saveUndoState(): void {
+    this.prevPuntosNosotros = this.puntosNosotros
+    this.prevPuntosRivales = this.puntosRivales
+    this.prevJuegosNosotros = this.juegosNosotros
+    this.prevJuegosRivales = this.juegosRivales
+    this.prevSetsNosotros = this.setsNosotros
+    this.prevSetsRivales = this.setsRivales
+    this.prevSetActual = this.setActual
+    this.prevEnTieBreak = this.enTieBreak
+    this.prevTieBreakNosotros = this.tieBreakNosotros
+    this.prevTieBreakRivales = this.tieBreakRivales
+    this.prevEnSuperTieBreak = this.enSuperTieBreak
+    this.prevSuperTieNosotros = this.superTieNosotros
+    this.prevSuperTieRivales = this.superTieRivales
+    this.prevDecidirModoSet = this.decidirModoSet
+    this.prevShowMatchModeDecision = this.showMatchModeDecision
+    this.prevPartidoTerminado = this.partidoTerminado
+    this.prevJugarConDiferenciaDos = this.jugarConDiferenciaDos
+    this.prevFinalLine1 = this.finalLine1
+    this.prevFinalLine2 = this.finalLine2
+    this.prevFinalLine3 = this.finalLine3
+    this.hayDeshacer = true
+  }
+
+  addPoint(equipo: string): void {
+    if (this.partidoTerminado || this.decidirModoSet || this.showMatchModeDecision) {
+      return
+    }
+
+    this.saveUndoState()
+
+    if (this.enSuperTieBreak) {
+      this.addSuperTieBreakPoint(equipo)
+      return
+    }
+
+    if (this.enTieBreak) {
+      this.addTieBreakPoint(equipo)
+      return
+    }
+
+    this.addNormalPoint(equipo)
+  }
+
+  addNormalPoint(equipo: string): void {
+    if (equipo === 'nosotros') {
+      if (this.puntosNosotros === '40') {
+        this.winGame('nosotros')
+        return
+      }
+      this.puntosNosotros = this.nextPoint(this.puntosNosotros)
+      return
+    }
+
+    if (this.puntosRivales === '40') {
+      this.winGame('rivales')
+      return
+    }
+
+    this.puntosRivales = this.nextPoint(this.puntosRivales)
+  }
+
+  nextPoint(punto: string): string {
+    if (punto === '0') {
+      return '15'
+    }
+    if (punto === '15') {
+      return '30'
+    }
+    if (punto === '30') {
+      return '40'
+    }
+    return '0'
+  }
+
+  winGame(equipo: string): void {
+    if (equipo === 'nosotros') {
+      this.juegosNosotros++
+    } else {
+      this.juegosRivales++
+    }
+
+    this.puntosNosotros = '0'
+    this.puntosRivales = '0'
+
+    if (this.juegosNosotros === 6 && this.juegosRivales === 6 && !this.jugarConDiferenciaDos) {
+      this.decidirModoSet = true
+      this.mensaje = 'Elige modo 6-6'
+      return
+    }
+
+    this.checkSetWinner()
+  }
+
+  chooseTieBreak(): void {
+    this.saveUndoState()
+    this.decidirModoSet = false
+    this.enTieBreak = true
+    this.jugarConDiferenciaDos = false
+    this.tieBreakNosotros = 0
+    this.tieBreakRivales = 0
+    this.puntosNosotros = '0'
+    this.puntosRivales = '0'
+    this.mensaje = ''
+  }
+
+  chooseDifferenceTwo(): void {
+    this.saveUndoState()
+    this.decidirModoSet = false
+    this.enTieBreak = false
+    this.jugarConDiferenciaDos = true
+    this.puntosNosotros = '0'
+    this.puntosRivales = '0'
+    this.mensaje = ''
+  }
+
+  addTieBreakPoint(equipo: string): void {
+    if (equipo === 'nosotros') {
+      this.tieBreakNosotros++
+    } else {
+      this.tieBreakRivales++
+    }
+
+    this.puntosNosotros = this.tieBreakNosotros.toString()
+    this.puntosRivales = this.tieBreakRivales.toString()
+
+    if (this.tieBreakNosotros >= 7 && this.tieBreakNosotros - this.tieBreakRivales >= 2) {
+      this.juegosNosotros = 7
+      this.juegosRivales = 6
+      this.winSet('nosotros')
+      return
+    }
+
+    if (this.tieBreakRivales >= 7 && this.tieBreakRivales - this.tieBreakNosotros >= 2) {
+      this.juegosNosotros = 6
+      this.juegosRivales = 7
+      this.winSet('rivales')
+      return
+    }
+  }
+
+  addSuperTieBreakPoint(equipo: string): void {
+    if (equipo === 'nosotros') {
+      this.superTieNosotros++
+    } else {
+      this.superTieRivales++
+    }
+
+    this.puntosNosotros = this.superTieNosotros.toString()
+    this.puntosRivales = this.superTieRivales.toString()
+
+    if (this.superTieNosotros >= 10 && this.superTieNosotros - this.superTieRivales >= 2) {
+      this.finishMatchBySuperTieBreak('nosotros')
+      return
+    }
+
+    if (this.superTieRivales >= 10 && this.superTieRivales - this.superTieNosotros >= 2) {
+      this.finishMatchBySuperTieBreak('rivales')
+      return
+    }
+  }
+
+  checkSetWinner(): void {
+    if (this.juegosNosotros >= 6 && this.juegosNosotros - this.juegosRivales >= 2) {
+      this.winSet('nosotros')
+      return
+    }
+
+    if (this.juegosRivales >= 6 && this.juegosRivales - this.juegosNosotros >= 2) {
+      this.winSet('rivales')
+      return
+    }
+  }
+
+  saveSetResult(): void {
+    if (this.setActual === 1) {
+      this.finalLine1 = 'Set 1: ' + this.juegosNosotros + '-' + this.juegosRivales
+    }
+
+    if (this.setActual === 2) {
+      this.finalLine2 = 'Set 2: ' + this.juegosNosotros + '-' + this.juegosRivales
+    }
+
+    if (this.setActual === 3) {
+      this.finalLine3 = 'Set 3: ' + this.juegosNosotros + '-' + this.juegosRivales
+    }
+  }
+
+  winSet(equipo: string): void {
+    this.saveSetResult()
+
+    if (equipo === 'nosotros') {
+      this.setsNosotros++
+    } else {
+      this.setsRivales++
+    }
+
+    this.enTieBreak = false
+    this.tieBreakNosotros = 0
+    this.tieBreakRivales = 0
+    this.jugarConDiferenciaDos = false
+    this.puntosNosotros = '0'
+    this.puntosRivales = '0'
+
+    if (this.setsNosotros === 2 || this.setsRivales === 2) {
+      this.partidoTerminado = true
+      this.mensaje = this.setsNosotros === 2 ? 'Ganamos' : 'Rivales ganan'
+      return
+    }
+
+    if (this.setsNosotros === 1 && this.setsRivales === 1) {
+      this.showMatchModeDecision = true
+      this.mensaje = 'Elige final'
+      return
+    }
+
+    this.setActual++
+    this.juegosNosotros = 0
+    this.juegosRivales = 0
+  }
+
+  chooseThirdSet(): void {
+    this.saveUndoState()
+    this.showMatchModeDecision = false
+    this.setActual = 3
+    this.juegosNosotros = 0
+    this.juegosRivales = 0
+    this.puntosNosotros = '0'
+    this.puntosRivales = '0'
+    this.mensaje = ''
+  }
+
+  chooseSuperTieBreak(): void {
+    this.saveUndoState()
+    this.showMatchModeDecision = false
+    this.enSuperTieBreak = true
+    this.setActual = 3
+    this.juegosNosotros = 0
+    this.juegosRivales = 0
+    this.superTieNosotros = 0
+    this.superTieRivales = 0
+    this.puntosNosotros = '0'
+    this.puntosRivales = '0'
+    this.mensaje = ''
+  }
+
+  finishMatchBySuperTieBreak(equipo: string): void {
+    this.finalLine3 = 'Super TB: ' + this.superTieNosotros + '-' + this.superTieRivales
+
+    if (equipo === 'nosotros') {
+      this.setsNosotros = 2
+      this.setsRivales = 1
+      this.mensaje = 'Ganamos'
+    } else {
+      this.setsNosotros = 1
+      this.setsRivales = 2
+      this.mensaje = 'Rivales ganan'
+    }
+
+    this.enSuperTieBreak = false
+    this.partidoTerminado = true
+  }
+
+  undoPoint(): void {
+    if (!this.hayDeshacer) {
+      return
+    }
+
+    this.puntosNosotros = this.prevPuntosNosotros
+    this.puntosRivales = this.prevPuntosRivales
+    this.juegosNosotros = this.prevJuegosNosotros
+    this.juegosRivales = this.prevJuegosRivales
+    this.setsNosotros = this.prevSetsNosotros
+    this.setsRivales = this.prevSetsRivales
+    this.setActual = this.prevSetActual
+    this.enTieBreak = this.prevEnTieBreak
+    this.tieBreakNosotros = this.prevTieBreakNosotros
+    this.tieBreakRivales = this.prevTieBreakRivales
+    this.enSuperTieBreak = this.prevEnSuperTieBreak
+    this.superTieNosotros = this.prevSuperTieNosotros
+    this.superTieRivales = this.prevSuperTieRivales
+    this.decidirModoSet = this.prevDecidirModoSet
+    this.showMatchModeDecision = this.prevShowMatchModeDecision
+    this.partidoTerminado = this.prevPartidoTerminado
+    this.jugarConDiferenciaDos = this.prevJugarConDiferenciaDos
+    this.finalLine1 = this.prevFinalLine1
+    this.finalLine2 = this.prevFinalLine2
+    this.finalLine3 = this.prevFinalLine3
+    this.hayDeshacer = false
+  }
+
+  resetMatch(): void {
+    this.puntosNosotros = '0'
+    this.puntosRivales = '0'
+    this.juegosNosotros = 0
+    this.juegosRivales = 0
+    this.setsNosotros = 0
+    this.setsRivales = 0
+    this.setActual = 1
+    this.enTieBreak = false
+    this.tieBreakNosotros = 0
+    this.tieBreakRivales = 0
+    this.enSuperTieBreak = false
+    this.superTieNosotros = 0
+    this.superTieRivales = 0
+    this.decidirModoSet = false
+    this.showMatchModeDecision = false
+    this.partidoTerminado = false
+    this.jugarConDiferenciaDos = false
+    this.finalLine1 = 'Set 1: -'
+    this.finalLine2 = 'Set 2: -'
+    this.finalLine3 = 'Set 3: -'
+    this.mensaje = ''
+    this.hayDeshacer = false
+  }
+
+  estadoSuperior(): string {
+    if (this.partidoTerminado) {
+      return 'Resultado'
+    }
+
+    if (this.enSuperTieBreak) {
+      return 'Super TB'
+    }
+
+    if (this.enTieBreak) {
+      return 'Tie-break'
+    }
+
+    return 'Set ' + this.setActual
+  }
+
+  estadoJuegos(): string {
+    if (this.enSuperTieBreak) {
+      return 'Super TB ' + this.superTieNosotros + '-' + this.superTieRivales
+    }
+
+    if (this.enTieBreak) {
+      return 'Tie-break ' + this.tieBreakNosotros + '-' + this.tieBreakRivales
+    }
+
+    if (this.jugarConDiferenciaDos) {
+      return 'Dif. 2  ' + this.juegosNosotros + '-' + this.juegosRivales
+    }
+
+    return 'Juegos ' + this.juegosNosotros + '-' + this.juegosRivales
+  }
+
+  build() {
+    Column() {
+      Text(this.estadoSuperior() + '   Sets ' + this.setsNosotros + '-' + this.setsRivales)
+        .fontSize(15)
+        .fontWeight(FontWeight.Bold)
+        .fontColor(Color.White)
+        .maxLines(1)
+        .textAlign(TextAlign.Center)
+        .width('100%')
+        .height(24)
+
+      Text(this.estadoJuegos())
+        .fontSize(12)
+        .fontColor(Color.White)
+        .maxLines(1)
+        .textAlign(TextAlign.Center)
+        .width('100%')
+        .height(20)
+
+      if (this.partidoTerminado) {
+        Column() {
+          Text(this.mensaje)
+            .fontSize(22)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(Color.White)
+            .maxLines(1)
+            .margin({ bottom: 4 })
+
+          Text(this.finalLine1)
+            .fontSize(12)
+            .fontColor(Color.White)
+
+          Text(this.finalLine2)
+            .fontSize(12)
+            .fontColor(Color.White)
+
+          Text(this.finalLine3)
+            .fontSize(12)
+            .fontColor(Color.White)
+
+          Button('Nuevo')
+            .fontSize(12)
+            .width(88)
+            .height(28)
+            .margin({ top: 6 })
+            .onClick(() => {
+              this.resetMatch()
+            })
+        }
+        .width('100%')
+        .height(142)
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      } else if (this.decidirModoSet) {
+        Column() {
+          Text('6 - 6')
+            .fontSize(22)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(Color.White)
+            .margin({ bottom: 8 })
+
+          Button('Tie-break')
+            .fontSize(12)
+            .width(100)
+            .height(30)
+            .margin({ bottom: 6 })
+            .onClick(() => {
+              this.chooseTieBreak()
+            })
+
+          Button('Dif. 2')
+            .fontSize(12)
+            .width(100)
+            .height(30)
+            .onClick(() => {
+              this.chooseDifferenceTwo()
+            })
+        }
+        .width('100%')
+        .height(142)
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      } else if (this.showMatchModeDecision) {
+        Column() {
+          Text('Sets 1 - 1')
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(Color.White)
+            .margin({ bottom: 8 })
+
+          Button('3er Set')
+            .fontSize(12)
+            .width(100)
+            .height(30)
+            .margin({ bottom: 6 })
+            .onClick(() => {
+              this.chooseThirdSet()
+            })
+
+          Button('Super TB')
+            .fontSize(12)
+            .width(100)
+            .height(30)
+            .onClick(() => {
+              this.chooseSuperTieBreak()
+            })
+        }
+        .width('100%')
+        .height(142)
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      } else {
+        Column() {
+          Column() {
+            Text('Nosotros')
+              .fontSize(12)
+              .fontColor(Color.White)
+              .maxLines(1)
+              .position({ x: 14, y: 3 })
+
+            Row() {
+              Text(this.puntosNosotros)
+                .fontSize(30)
+                .fontColor(Color.White)
+                .maxLines(1)
+                .width(78)
+                .textAlign(TextAlign.Start)
+
+              Button('+')
+                .fontSize(22)
+                .width(82)
+                .height(42)
+                .backgroundColor('#D83BE8')
+                .onClick(() => {
+                  this.addPoint('nosotros')
+                })
+            }
+            .width('100%')
+            .height(52)
+            .padding({ left: 16, right: 10, top: 8, bottom: 2 })
+          }
+          .width('100%')
+          .height(72)
+          .borderRadius(16)
+          .backgroundColor('#C600D9')
+          .margin({ bottom: 8 })
+
+          Column() {
+            Text('Rivales')
+              .fontSize(12)
+              .fontColor(Color.White)
+              .maxLines(1)
+              .position({ x: 14, y: 3 })
+
+            Row() {
+              Text(this.puntosRivales)
+                .fontSize(30)
+                .fontColor(Color.White)
+                .maxLines(1)
+                .width(78)
+                .textAlign(TextAlign.Start)
+
+              Button('+')
+                .fontSize(22)
+                .width(82)
+                .height(42)
+                .backgroundColor('#FFA51E')
+                .onClick(() => {
+                  this.addPoint('rivales')
+                })
+            }
+            .width('100%')
+            .height(52)
+            .padding({ left: 16, right: 10, top: 8, bottom: 2 })
+          }
+          .width('100%')
+          .height(72)
+          .borderRadius(16)
+          .backgroundColor('#FF9300')
+        }
+        .width('100%')
+        .height(136)
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      }
+
+      Row() {
+        Button('↶')
+          .fontSize(10)
+          .width(78)
+          .height(28)
+          .backgroundColor('#333333')
+          .enabled(this.hayDeshacer)
+          .onClick(() => {
+            this.undoPoint()
+          })
+
+        Button('R')
+          .fontSize(10)
+          .width(78)
+          .height(28)
+          .backgroundColor('#333333')
+          .margin({ left: 10 })
+          .onClick(() => {
+            this.resetMatch()
+          })
+      }
+      .width('100%')
+      .height(32)
+      .justifyContent(FlexAlign.Center)
+      .margin({ top: 8 })
+    }
+    .width('100%')
+    .height('100%')
+    .padding({ left: 34, right: 34, top: 76, bottom: 34 })
+    .backgroundColor('#000000')
+  }
+}
+

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="pyMenvic is a simple public hub for practical apps, planned Revit tools, learning resources, and support information by Menvic.">
-  <title>pyMenvic | Digital tools by Menvic</title>
+  <meta name="description" content="pyMenvic is a professional hub for BIM / Revit tools, practical apps, learning resources, and support information by Menvic.">
+  <title>pyMenvic | BIM tools and practical apps by Menvic</title>
   <style>
 
     :root {
@@ -21,6 +21,8 @@
       --purple: #a855f7;
       --magenta: #ec4899;
       --orange: #f97316;
+      --cyan: #22d3ee;
+      --green: #34d399;
       --accent-glow: rgba(236, 72, 153, 0.24);
       --orange-glow: rgba(249, 115, 22, 0.18);
       --shadow: rgba(0, 0, 0, 0.36);
@@ -208,8 +210,10 @@
       font-weight: 850;
     }
 
-    .hero-text, .section-intro, .card-description, .small-note, footer p { color: var(--muted); }
+    .hero-text, .section-intro, .card-description, .identity-list, .small-note, footer p { color: var(--muted); }
     .hero-text { max-width: 760px; margin-bottom: 0; font-size: 1.07rem; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 
     .hero-panel, .feature {
       border: 1px solid rgba(249, 115, 22, 0.3);
@@ -223,13 +227,27 @@
     .hero-panel strong { display: block; margin-bottom: 8px; color: var(--text); font-size: 1.04rem; }
     .hero-panel p { margin-bottom: 0; color: var(--muted-strong); }
 
+    .hub-map { display: grid; gap: 12px; margin-top: 16px; }
+
+    .hub-map-item {
+      padding: 13px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .hub-map-item span { display: block; color: var(--text); font-weight: 900; }
+    .hub-map-item small { color: var(--muted); font-weight: 700; }
+
     .section { padding-top: 28px; }
     .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
     .section-intro { max-width: 720px; margin-bottom: 0; }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 265px), 1fr)); gap: 16px; }
+    .cards, .identity-grid { display: grid; gap: 16px; }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
+    .identity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-    .card, .feature {
+    .card, .identity-card, .feature {
       display: flex;
       min-height: 100%;
       flex-direction: column;
@@ -237,13 +255,30 @@
       box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
     }
 
-    .card {
+    .card, .identity-card {
       border: 1px solid var(--border);
       border-radius: 22px;
       background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.078), rgba(255, 255, 255, 0.026)),
         var(--surface-strong);
     }
+
+    .identity-card { position: relative; overflow: hidden; padding: 26px; }
+
+    .identity-card::before {
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      content: "";
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+    }
+
+    .identity-card.apps::before { background: linear-gradient(90deg, var(--magenta), var(--orange)); }
+    .identity-kicker { margin-bottom: 8px; color: #bae6fd; font-size: 0.78rem; font-weight: 950; letter-spacing: 0.12em; text-transform: uppercase; }
+    .identity-card.apps .identity-kicker { color: #fed7aa; }
+    .identity-list { display: grid; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
+    .identity-list li { display: flex; gap: 10px; }
+    .identity-list li::before { flex: 0 0 auto; color: var(--green); content: "•"; font-weight: 950; }
 
     .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
     .card-description { margin-bottom: 16px; }
@@ -318,12 +353,12 @@
     @media (max-width: 780px) {
       .topbar, .section-heading { align-items: flex-start; flex-direction: column; }
       .top-nav { justify-content: flex-start; }
-      .hero { grid-template-columns: 1fr; }
+      .hero, .identity-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 560px) {
       .page { width: min(100% - 24px, 1120px); }
-      .hero, .card, .feature, .footer { border-radius: 22px; }
+      .hero, .card, .identity-card, .feature, .footer { border-radius: 22px; }
       .card-header, .links { align-items: flex-start; flex-direction: column; }
       .button { width: 100%; }
     }
@@ -349,42 +384,85 @@
 
     <section class="hero" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">Digital tools by Menvic</p>
+        <p class="eyebrow">BIM tools + practical apps</p>
         <h1 id="page-title">pyMenvic</h1>
-        <p class="subtitle">A fast public hub for practical apps, Revit tools, and learning resources.</p>
-        <p class="hero-text">pyMenvic is a collection of independent digital tools and resources by Menvic, focused on small useful apps, BIM and Revit productivity, development notes, and clear public support information.</p>
+        <p class="subtitle">A professional home for Menvic BIM utilities, Revit workflows, and focused digital products.</p>
+        <p class="hero-text">pyMenvic connects two sides of the same work: dependable BIM / Revit tooling for architectural production and small practical apps that solve everyday problems with clear support and privacy information.</p>
+        <nav class="hero-actions" aria-label="Primary homepage links">
+          <a class="button" href="/revit-tools/">Explore BIM Tools</a>
+          <a class="button secondary" href="/apps/">Explore Apps</a>
+        </nav>
       </div>
 
       <aside class="hero-panel" aria-label="What is pyMenvic">
-        <strong>What is pyMenvic?</strong>
-        <p>A simple static information hub for Menvic tools: app pages, privacy and support links, planned Revit utilities, and future learning material.</p>
+        <strong>Two focused tracks</strong>
+        <p>A static product hub for BIM workflows, app releases, learning notes, and direct support links.</p>
+        <div class="hub-map" aria-label="pyMenvic focus areas">
+          <div class="hub-map-item"><span>BIM / Revit tools</span><small>Automation, standards, auditing, documentation.</small></div>
+          <div class="hub-map-item"><span>Apps / digital tools</span><small>PadelScoreGT5 now, more practical tools later.</small></div>
+        </div>
       </aside>
+    </section>
+
+    <section class="section" id="identity" aria-labelledby="identity-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="identity-title">One hub, two identities</h2>
+          <p class="section-intro">pyMenvic is organized around the technical work Menvic builds for architecture teams and the standalone apps that make specific tasks easier.</p>
+        </div>
+      </div>
+
+      <div class="identity-grid" aria-label="pyMenvic identity areas">
+        <article class="identity-card">
+          <p class="identity-kicker">BIM / Revit tools</p>
+          <h3>Production support for architectural workflows</h3>
+          <p class="card-description">Utilities and guidance for Revit, pyRevit, project documentation, model auditing, and office standards.</p>
+          <ul class="identity-list">
+            <li>Revit and pyRevit productivity tools.</li>
+            <li>Architectural documentation and QA workflows.</li>
+            <li>Auditing patterns for healthier models and repeatable office standards.</li>
+          </ul>
+          <nav class="links" aria-label="BIM tools links"><a class="button" href="/revit-tools/">View Revit Tools</a></nav>
+        </article>
+
+        <article class="identity-card apps">
+          <p class="identity-kicker">Apps / digital tools</p>
+          <h3>Focused products for practical everyday use</h3>
+          <p class="card-description">Standalone apps and future digital tools with simple pages, clear support paths, and privacy-first product information.</p>
+          <ul class="identity-list">
+            <li>PadelScoreGT5 for tracking padel matches from a Huawei Watch.</li>
+            <li>Future tools aimed at small, useful, well-defined problems.</li>
+            <li>Public support, privacy, and product information without extra tracking.</li>
+          </ul>
+          <nav class="links" aria-label="Apps identity links"><a class="button" href="/apps/">View Apps</a></nav>
+        </article>
+      </div>
     </section>
 
     <section class="section" id="site-areas" aria-labelledby="site-areas-title">
       <div class="section-heading">
         <div>
-          <h2 id="site-areas-title">Explore pyMenvic</h2>
-          <p class="section-intro">Choose a main section to find app information, Revit tool plans, learning resources, or support links.</p>
+          <h2 id="site-areas-title">Navigate the site</h2>
+          <p class="section-intro">Use these separate pages for apps, BIM tools, learning material, and support.</p>
         </div>
       </div>
 
       <div class="cards" aria-label="pyMenvic sections">
         <article class="card">
           <div class="card-header"><h3>Apps</h3></div>
-          <p class="card-description">Apps and public support information.</p>
+          <p class="card-description">PadelScoreGT5 and future practical digital tools.</p>
           <nav class="links" aria-label="Apps links"><a class="button" href="/apps/">View Apps</a></nav>
         </article>
 
         <article class="card">
           <div class="card-header"><h3>Revit Tools</h3></div>
-          <p class="card-description">Planned Revit and pyRevit productivity tools.</p>
+          <p class="card-description">BIM utilities for Revit, pyRevit, auditing, documentation, and standards.</p>
           <nav class="links" aria-label="Revit Tools links"><a class="button" href="/revit-tools/">View Revit Tools</a></nav>
         </article>
 
         <article class="card">
           <div class="card-header"><h3>Learning</h3></div>
-          <p class="card-description">Future guides, notes, examples, and workflows.</p>
+          <p class="card-description">Future guides, notes, examples, and workflow references.</p>
           <nav class="links" aria-label="Learning links"><a class="button" href="/learning/">View Learning</a></nav>
         </article>
 
@@ -412,7 +490,7 @@
 
     <footer class="footer">
       <p>&copy; Menvic</p>
-      <p>pyMenvic is a collection of independent tools and resources by Menvic.</p>
+      <p>pyMenvic is a collection of BIM / Revit tools, practical apps, and learning resources by Menvic.</p>
       <p>Support: <a class="contact-link" href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/apps/">Apps</a>

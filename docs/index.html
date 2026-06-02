@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PadelScoreGT5</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #07111f;
+      --card: #101d2e;
+      --card-border: #26364d;
+      --text: #f4f7fb;
+      --muted: #b8c4d6;
+      --accent: #58d68d;
+      --accent-strong: #7ef0aa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(88, 214, 141, 0.18), transparent 30rem),
+        linear-gradient(135deg, #07111f 0%, #0c1728 55%, #101827 100%);
+    }
+
+    main {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0;
+    }
+
+    .hero,
+    .panel {
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      background: rgba(16, 29, 46, 0.86);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.26);
+    }
+
+    .hero {
+      padding: clamp(28px, 6vw, 56px);
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      letter-spacing: -0.06em;
+    }
+
+    .subtitle {
+      margin: 12px 0 0;
+      font-size: clamp(1.15rem, 3vw, 1.6rem);
+      color: var(--accent-strong);
+      font-weight: 700;
+    }
+
+    p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 1px solid rgba(126, 240, 170, 0.5);
+      border-radius: 999px;
+      color: #06120c;
+      background: var(--accent-strong);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      color: var(--text);
+      background: transparent;
+    }
+
+    .panel {
+      margin-top: 24px;
+      padding: clamp(24px, 5vw, 36px);
+    }
+
+    h2 {
+      font-size: clamp(1.35rem, 4vw, 2rem);
+    }
+
+    .note {
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(88, 214, 141, 0.1);
+      color: var(--text);
+    }
+
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    @media (max-width: 560px) {
+      main {
+        width: min(100% - 24px, 960px);
+        padding: 28px 0;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">PadelScoreGT5</h1>
+      <p class="subtitle">Simple padel scorekeeper for Huawei Watch</p>
+      <p>
+        PadelScoreGT5 is a simple standalone padel scorekeeper designed for Huawei Watch.
+        It helps users track points, games, sets, tie-breaks, and super tie-breaks directly
+        from the watch.
+      </p>
+      <p class="note">
+        The app does not require login, account registration, payments, network access, or
+        personal data collection.
+      </p>
+      <nav class="links" aria-label="PadelScoreGT5 links">
+        <a class="button" href="/padelscoregt5/privacy/">Privacy Policy</a>
+        <a class="button secondary" href="/padelscoregt5/support/">Support and Data Requests</a>
+      </nav>
+    </section>
+
+    <section class="panel" lang="es" aria-labelledby="spanish-title">
+      <h2 id="spanish-title">Información en español</h2>
+      <p>
+        PadelScoreGT5 es un marcador simple de pádel para Huawei Watch. Permite llevar
+        puntos, juegos, sets, tie-break y super tie-break directamente desde el reloj.
+      </p>
+    </section>
+
+    <footer>
+      <p>Public information page for PadelScoreGT5.</p>
+    </footer>
+  </main>
+</body>
+</html>

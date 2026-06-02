@@ -3,20 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="pyMenvic is a collection of practical apps, Revit tools, documentation, and learning resources by Menvic.">
   <title>pyMenvic</title>
   <style>
     :root {
       color-scheme: dark;
-      --background: #07111f;
-      --surface: rgba(15, 27, 45, 0.88);
-      --surface-strong: rgba(21, 36, 58, 0.94);
-      --border: rgba(139, 157, 185, 0.22);
-      --text: #f5f8fc;
-      --muted: #b8c4d6;
-      --accent: #7ef0aa;
-      --accent-soft: rgba(126, 240, 170, 0.12);
-      --accent-border: rgba(126, 240, 170, 0.45);
-      --shadow: rgba(0, 0, 0, 0.28);
+      --bg: #070914;
+      --bg-elevated: #0d1220;
+      --surface: rgba(15, 20, 35, 0.88);
+      --surface-strong: rgba(22, 28, 46, 0.94);
+      --border: rgba(255, 255, 255, 0.12);
+      --border-strong: rgba(255, 255, 255, 0.18);
+      --text: #f8fafc;
+      --muted: #b9c2d3;
+      --soft: #8792a8;
+      --purple: #a855f7;
+      --magenta: #ec4899;
+      --orange: #f97316;
+      --accent-glow: rgba(236, 72, 153, 0.24);
+      --orange-glow: rgba(249, 115, 22, 0.18);
+      --shadow: rgba(0, 0, 0, 0.34);
     }
 
     * {
@@ -30,13 +36,26 @@
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.6;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(126, 240, 170, 0.16), transparent 28rem),
-        radial-gradient(circle at 82% 8%, rgba(85, 132, 255, 0.13), transparent 24rem),
-        linear-gradient(135deg, #07111f 0%, #0a1424 48%, #101827 100%);
+        radial-gradient(circle at 15% 8%, var(--accent-glow), transparent 30rem),
+        radial-gradient(circle at 86% 18%, var(--orange-glow), transparent 28rem),
+        linear-gradient(135deg, var(--bg) 0%, #0a1020 46%, #111827 100%);
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      content: "";
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent 74%);
     }
 
     a {
@@ -44,66 +63,93 @@
     }
 
     .page {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1100px, calc(100% - 32px));
       margin: 0 auto;
-      padding: clamp(24px, 5vw, 56px) 0 32px;
+      padding: clamp(20px, 4vw, 44px) 0 32px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: clamp(28px, 5vw, 58px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 11px;
+      background:
+        linear-gradient(135deg, rgba(168, 85, 247, 0.95), rgba(236, 72, 153, 0.84) 48%, rgba(249, 115, 22, 0.92)),
+        var(--bg-elevated);
+      box-shadow: 0 10px 30px rgba(236, 72, 153, 0.22);
     }
 
     .top-nav {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
       justify-content: flex-end;
-      margin-bottom: 18px;
     }
 
     .nav-link {
-      padding: 8px 13px;
-      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border: 1px solid transparent;
       border-radius: 999px;
       color: var(--muted);
-      background: rgba(15, 27, 45, 0.58);
       font-size: 0.94rem;
       font-weight: 700;
       text-decoration: none;
-      transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
     }
 
     .nav-link:hover,
     .nav-link:focus-visible {
-      border-color: var(--accent-border);
+      border-color: var(--border-strong);
       color: var(--text);
-      transform: translateY(-1px);
-    }
-
-    .hero,
-    .section-card,
-    .tool-card {
-      border: 1px solid var(--border);
-      background: var(--surface);
-      box-shadow: 0 24px 80px var(--shadow);
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.06);
+      outline: none;
     }
 
     .hero {
-      padding: clamp(28px, 6vw, 64px);
-      border-radius: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+      gap: clamp(24px, 5vw, 46px);
+      align-items: center;
+      padding: clamp(30px, 6vw, 64px);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      background:
+        linear-gradient(140deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.03)),
+        var(--surface);
+      box-shadow: 0 28px 90px var(--shadow);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       margin: 0 0 18px;
       padding: 6px 12px;
-      border: 1px solid var(--accent-border);
+      border: 1px solid rgba(236, 72, 153, 0.42);
       border-radius: 999px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      color: #f9a8d4;
+      background: rgba(236, 72, 153, 0.12);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
     }
 
@@ -117,163 +163,226 @@
     h1,
     h2,
     h3 {
-      line-height: 1.15;
+      line-height: 1.12;
     }
 
     h1 {
       margin-bottom: 12px;
-      font-size: clamp(2.8rem, 9vw, 6rem);
-      letter-spacing: -0.07em;
+      font-size: clamp(3rem, 10vw, 6.4rem);
+      letter-spacing: -0.08em;
     }
 
     h2 {
       margin-bottom: 10px;
-      font-size: clamp(1.6rem, 4vw, 2.35rem);
-      letter-spacing: -0.035em;
+      font-size: clamp(1.55rem, 4vw, 2.2rem);
+      letter-spacing: -0.04em;
     }
 
     h3 {
-      margin-bottom: 10px;
-      font-size: 1.35rem;
+      margin-bottom: 0;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
-      margin-bottom: 22px;
-      color: var(--accent);
-      font-size: clamp(1.15rem, 3vw, 1.65rem);
+      max-width: 760px;
+      margin-bottom: 18px;
+      color: #f3e8ff;
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
       font-weight: 800;
     }
 
-    .description,
+    .hero-text,
     .section-intro,
     .card-description,
+    .small-note,
     footer p {
       color: var(--muted);
     }
 
-    .description {
-      max-width: 800px;
+    .hero-text {
+      max-width: 760px;
       margin-bottom: 0;
-      font-size: 1.08rem;
+      font-size: 1.07rem;
     }
 
-    .section-card {
-      margin-top: 28px;
-      padding: clamp(24px, 5vw, 40px);
+    .hero-panel {
+      padding: 22px;
+      border: 1px solid rgba(249, 115, 22, 0.28);
       border-radius: 24px;
+      background:
+        linear-gradient(155deg, rgba(249, 115, 22, 0.14), rgba(168, 85, 247, 0.1)),
+        rgba(7, 9, 20, 0.34);
+    }
+
+    .hero-panel strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1.02rem;
+    }
+
+    .hero-panel p {
+      margin-bottom: 0;
+      color: #d7deea;
+    }
+
+    .section {
+      padding-top: 26px;
+      scroll-margin-top: 16px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
     }
 
     .section-intro {
-      max-width: 740px;
-      margin-bottom: 22px;
+      max-width: 680px;
+      margin-bottom: 0;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 16px;
     }
 
-    .tool-card {
+    .card {
       display: flex;
       min-height: 100%;
       flex-direction: column;
       padding: 22px;
-      border-radius: 20px;
-      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+        var(--surface-strong);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.18);
     }
 
     .card-header {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 12px;
+      gap: 14px;
+      margin-bottom: 14px;
     }
 
-    .label {
+    .badge {
       display: inline-flex;
       flex-shrink: 0;
       align-items: center;
       justify-content: center;
       padding: 5px 10px;
-      border: 1px solid var(--accent-border);
+      border: 1px solid rgba(249, 115, 22, 0.36);
       border-radius: 999px;
-      color: var(--accent);
-      background: var(--accent-soft);
-      font-size: 0.78rem;
-      font-weight: 800;
+      color: #fed7aa;
+      background: rgba(249, 115, 22, 0.12);
+      font-size: 0.76rem;
+      font-weight: 900;
       white-space: nowrap;
     }
 
     .card-description {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
-    .note {
+    .small-note {
       margin-top: auto;
-      padding: 14px 16px;
-      border: 1px solid var(--accent-border);
+      margin-bottom: 0;
+      padding: 13px 14px;
+      border: 1px solid rgba(168, 85, 247, 0.32);
       border-radius: 16px;
-      color: var(--text);
-      background: var(--accent-soft);
-      font-size: 0.96rem;
+      background: rgba(168, 85, 247, 0.1);
+      font-size: 0.94rem;
     }
 
     .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 18px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 11px 16px;
-      border: 1px solid var(--accent-border);
+      min-height: 44px;
+      padding: 10px 15px;
+      border: 1px solid rgba(236, 72, 153, 0.5);
       border-radius: 999px;
-      color: #07111f;
-      background: var(--accent);
+      color: #fff7fb;
+      background: linear-gradient(135deg, var(--purple), var(--magenta));
+      box-shadow: 0 12px 28px rgba(236, 72, 153, 0.18);
       font-weight: 800;
       text-decoration: none;
-      transition: transform 160ms ease, box-shadow 160ms ease;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
     }
 
     .button:hover,
     .button:focus-visible {
+      border-color: rgba(255, 255, 255, 0.4);
       transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(126, 240, 170, 0.18);
+      box-shadow: 0 16px 34px rgba(236, 72, 153, 0.28);
+      outline: none;
     }
 
     .button.secondary {
       color: var(--text);
-      background: transparent;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: none;
+    }
+
+    .contact-link {
+      color: #f9a8d4;
+      font-weight: 800;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
     }
 
     footer {
-      padding: 28px 0 0;
+      padding: 30px 0 0;
       text-align: center;
       font-size: 0.95rem;
     }
 
     footer p {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     footer p:last-child {
       margin-bottom: 0;
     }
 
-    @media (max-width: 640px) {
-      .page {
-        width: min(100% - 24px, 1120px);
+    @media (max-width: 780px) {
+      .topbar,
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
       .top-nav {
         justify-content: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        width: min(100% - 24px, 1100px);
+      }
+
+      .hero,
+      .card {
+        border-radius: 22px;
       }
 
       .card-header,
@@ -290,43 +399,63 @@
 </head>
 <body>
   <main class="page">
-    <nav class="top-nav" aria-label="Main navigation">
-      <a class="nav-link" href="#apps">Apps</a>
-      <a class="nav-link" href="#revit-tools">Revit Tools</a>
-      <a class="nav-link" href="#learning">Learning</a>
-      <a class="nav-link" href="#support">Support</a>
-    </nav>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="pyMenvic home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>pyMenvic</span>
+      </a>
+
+      <nav class="top-nav" aria-label="Main navigation">
+        <a class="nav-link" href="#apps">Apps</a>
+        <a class="nav-link" href="#revit-tools">Revit Tools</a>
+        <a class="nav-link" href="#learning">Learning</a>
+        <a class="nav-link" href="#support">Support</a>
+      </nav>
+    </header>
 
     <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">Digital tools by Menvic</p>
-      <h1 id="page-title">pyMenvic</h1>
-      <p class="subtitle">Practical apps, Revit tools, and learning resources by Menvic</p>
-      <p class="description">
-        pyMenvic is a small collection of practical digital tools, apps, Revit/pyRevit utilities,
-        documentation, and learning resources developed by Menvic.
-      </p>
+      <div>
+        <p class="eyebrow">Digital tools by Menvic</p>
+        <h1 id="page-title">pyMenvic</h1>
+        <p class="subtitle">Practical apps, Revit tools, and learning resources by Menvic</p>
+        <p class="hero-text">
+          pyMenvic is a small collection of practical digital tools, apps, Revit/pyRevit utilities,
+          documentation, and learning resources developed by Menvic.
+        </p>
+      </div>
+
+      <aside class="hero-panel" aria-label="Site note">
+        <strong>Public information hub</strong>
+        <p>
+          This site is currently used to provide public information, support pages, and privacy
+          policies for Menvic digital tools.
+        </p>
+      </aside>
     </section>
 
-    <section class="section-card" id="apps" aria-labelledby="apps-title">
-      <h2 id="apps-title">Apps</h2>
-      <p class="section-intro">
-        Current mobile and wearable apps published by Menvic, with direct access to support
-        information and privacy resources.
-      </p>
+    <section class="section" id="apps" aria-labelledby="apps-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="apps-title">Apps</h2>
+          <p class="section-intro">
+            Small practical apps with public support information and privacy resources.
+          </p>
+        </div>
+      </div>
 
       <div class="cards">
-        <article class="tool-card">
+        <article class="card">
           <div class="card-header">
             <h3>PadelScoreGT5</h3>
-            <span class="label">Huawei Watch app</span>
+            <span class="badge">Huawei Watch app</span>
           </div>
           <p class="card-description">
             A simple standalone padel scorekeeper for Huawei Watch. It helps users track points,
             games, sets, tie-breaks, and super tie-breaks directly from the watch.
           </p>
-          <p class="note">
-            PadelScoreGT5 does not require login, account registration, payments, network access,
-            or personal data collection.
+          <p class="small-note">
+            No login, no account registration, no payments, no network access, and no personal data
+            collection.
           </p>
           <nav class="links" aria-label="PadelScoreGT5 links">
             <a class="button" href="/padelscoregt5/privacy/">Privacy Policy</a>
@@ -336,55 +465,73 @@
       </div>
     </section>
 
-    <section class="section-card" id="revit-tools" aria-labelledby="revit-title">
-      <h2 id="revit-title">Revit Tools</h2>
-      <p class="section-intro">
-        Future pyMenvic utilities for BIM, documentation, and architectural production workflows
-        will be listed here as they become available.
-      </p>
+    <section class="section" id="revit-tools" aria-labelledby="revit-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="revit-title">Revit Tools</h2>
+          <p class="section-intro">
+            Productivity utilities planned for architectural workflows, BIM support, and office standards.
+          </p>
+        </div>
+      </div>
 
       <div class="cards">
-        <article class="tool-card">
+        <article class="card">
           <div class="card-header">
             <h3>pyMenvic for Revit</h3>
-            <span class="label">Coming soon</span>
+            <span class="badge">In development</span>
           </div>
           <p class="card-description">
             A collection of Revit and pyRevit productivity tools for architectural workflows,
             documentation, auditing, BIM support, and office standards.
           </p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section-card" id="learning" aria-labelledby="learning-title">
-      <h2 id="learning-title">Learning</h2>
-      <p class="section-intro">
-        Practical documentation and educational material for current and future pyMenvic tools.
-      </p>
-
-      <div class="cards">
-        <article class="tool-card">
-          <div class="card-header">
-            <h3>Learning resources</h3>
-            <span class="label">In preparation</span>
-          </div>
-          <p class="card-description">
-            Guides, notes, examples, and practical workflows for Revit, BIM, pyRevit, and digital
-            productivity.
+          <p class="small-note">
+            Documentation and public release information will be added later.
           </p>
         </article>
       </div>
     </section>
 
-    <section class="section-card" id="support" aria-labelledby="support-title">
-      <h2 id="support-title">Support</h2>
+    <section class="section" id="learning" aria-labelledby="learning-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="learning-title">Learning</h2>
+          <p class="section-intro">
+            Practical references and examples for current and future pyMenvic tools.
+          </p>
+        </div>
+      </div>
+
       <div class="cards">
-        <article class="tool-card">
+        <article class="card">
+          <div class="card-header">
+            <h3>Learning resources</h3>
+            <span class="badge">In preparation</span>
+          </div>
+          <p class="card-description">
+            Guides, notes, examples, and practical workflows for Revit, BIM, pyRevit, app development,
+            and digital productivity.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="support" aria-labelledby="support-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="support-title">Support</h2>
+          <p class="section-intro">
+            Contact and public policy links for Menvic digital tools.
+          </p>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
           <h3>Support</h3>
           <p class="card-description">
             For app support, privacy questions, or general inquiries, contact
-            <a href="mailto:contacto@menvic.com">contacto@menvic.com</a>.
+            <a class="contact-link" href="mailto:contacto@menvic.com">contacto@menvic.com</a>.
           </p>
           <nav class="links" aria-label="Support links">
             <a class="button" href="/padelscoregt5/privacy/">PadelScoreGT5 Privacy Policy</a>
@@ -396,7 +543,7 @@
 
     <footer>
       <p>&copy; Menvic. pyMenvic is a collection of independent tools and resources by Menvic.</p>
-      <p>For support: <a href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
+      <p>Support: <a class="contact-link" href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
     </footer>
   </main>
 </body>

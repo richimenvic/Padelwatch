@@ -51,7 +51,6 @@ struct Index {
   @State prevFinalLine2: string = 'Set 2: -'
   @State prevFinalLine3: string = 'Set 3: -'
   @State hayDeshacer: boolean = false
-  @State showResetConfirm: boolean = false
 
   saveUndoState(): void {
     this.prevPuntosNosotros = this.puntosNosotros
@@ -348,24 +347,6 @@ struct Index {
     this.hayDeshacer = false
   }
 
-  requestReset(): void {
-    if (this.partidoTerminado) {
-      this.resetMatch()
-      return
-    }
-
-    this.showResetConfirm = true
-  }
-
-  cancelReset(): void {
-    this.showResetConfirm = false
-  }
-
-  confirmReset(): void {
-    this.showResetConfirm = false
-    this.resetMatch()
-  }
-
   resetMatch(): void {
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
@@ -442,55 +423,7 @@ struct Index {
         .width('100%')
         .height(16)
 
-      if (this.showResetConfirm) {
-        Column() {
-          Text('¿Reiniciar partido?')
-            .fontSize(18)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(Color.White)
-            .maxLines(1)
-            .textAlign(TextAlign.Center)
-            .width('100%')
-            .height(28)
-
-          Text('Mantén presionado')
-            .fontSize(11)
-            .fontColor('#CCCCCC')
-            .maxLines(1)
-            .textAlign(TextAlign.Center)
-            .width('100%')
-            .height(18)
-
-          Button('RESET')
-            .fontSize(18)
-            .fontWeight(FontWeight.Bold)
-            .width(150)
-            .height(48)
-            .borderRadius(24)
-            .backgroundColor('#D64545')
-            .margin({ top: 8, bottom: 8 })
-            .gesture(
-              LongPressGesture({ repeat: false, duration: 1600 })
-                .onAction(() => {
-                  this.confirmReset()
-                })
-            )
-
-          Button('Cancelar')
-            .fontSize(11)
-            .width(92)
-            .height(24)
-            .borderRadius(12)
-            .backgroundColor('#3A3A3A')
-            .onClick(() => {
-              this.cancelReset()
-            })
-        }
-        .width('100%')
-        .height(150)
-        .justifyContent(FlexAlign.Center)
-        .alignItems(HorizontalAlign.Center)
-      } else if (this.partidoTerminado) {
+      if (this.partidoTerminado) {
         Column() {
           Column() {
             Text(this.mensaje)
@@ -663,7 +596,6 @@ struct Index {
         .alignItems(VerticalAlign.Center)
       }
 
-      if (!this.showResetConfirm) {
       Row() {
         Button('Undo')
           .fontSize(10)
@@ -678,27 +610,19 @@ struct Index {
 
         Button(this.partidoTerminado ? 'Nuevo' : 'Reset')
           .fontSize(10)
-          .width(82)
-          .height(24)
-          .borderRadius(12)
+          .width(80)
+          .height(20)
+          .borderRadius(10)
           .backgroundColor('#3A3A3A')
-          .margin({ left: 10 })
+          .margin({ left: 8 })
           .onClick(() => {
-            if (this.partidoTerminado) {
-              this.resetMatch()
-            } else {
-              this.requestReset()
-            }
+            this.resetMatch()
           })
       }
       .width('100%')
       .height(26)
       .justifyContent(FlexAlign.Center)
       .margin({ top: 2 })
-      } else {
-        Blank()
-          .height(28)
-      }
     }
     .width('100%')
     .height('100%')
@@ -706,10 +630,6 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
-
-
-
-
 
 
 

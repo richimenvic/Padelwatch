@@ -51,7 +51,6 @@ struct Index {
   @State prevFinalLine2: string = 'Set 2: -'
   @State prevFinalLine3: string = 'Set 3: -'
   @State hayDeshacer: boolean = false
-  @State showResetConfirm: boolean = false
 
   saveUndoState(): void {
     this.prevPuntosNosotros = this.puntosNosotros
@@ -348,24 +347,6 @@ struct Index {
     this.hayDeshacer = false
   }
 
-  requestReset(): void {
-    if (this.partidoTerminado) {
-      this.resetMatch()
-      return
-    }
-
-    this.showResetConfirm = true
-  }
-
-  cancelReset(): void {
-    this.showResetConfirm = false
-  }
-
-  confirmReset(): void {
-    this.showResetConfirm = false
-    this.resetMatch()
-  }
-
   resetMatch(): void {
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
@@ -435,107 +416,45 @@ struct Index {
         .height(20)
 
       Text(this.estadoJuegos())
-        .fontSize(12)
+        .fontSize(11)
         .fontColor(Color.White)
         .maxLines(1)
         .textAlign(TextAlign.Center)
         .width('100%')
         .height(16)
 
-      if (this.showResetConfirm) {
+      if (this.partidoTerminado) {
         Column() {
-          Text('¿Reiniciar partido?')
+          Text(this.mensaje)
             .fontSize(18)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.White)
             .maxLines(1)
-            .textAlign(TextAlign.Center)
-            .width('100%')
-            .height(28)
+            .margin({ bottom: 4 })
 
-          Text('Mantén presionado')
+          Text(this.finalLine1)
             .fontSize(11)
-            .fontColor('#CCCCCC')
-            .maxLines(1)
-            .textAlign(TextAlign.Center)
-            .width('100%')
-            .height(18)
+            .fontColor(Color.White)
 
-          Button('RESET')
-            .fontSize(18)
-            .fontWeight(FontWeight.Bold)
-            .width(150)
-            .height(48)
-            .borderRadius(24)
-            .backgroundColor('#D64545')
-            .margin({ top: 8, bottom: 8 })
-            .gesture(
-              LongPressGesture({ repeat: false, duration: 1600 })
-                .onAction(() => {
-                  this.confirmReset()
-                })
-            )
-
-          Button('Cancelar')
+          Text(this.finalLine2)
             .fontSize(11)
-            .width(92)
+            .fontColor(Color.White)
+
+          Text(this.finalLine3)
+            .fontSize(11)
+            .fontColor(Color.White)
+
+          Button('Nuevo')
+            .fontSize(11)
+            .width(86)
             .height(24)
-            .borderRadius(12)
-            .backgroundColor('#3A3A3A')
+            .margin({ top: 4 })
             .onClick(() => {
-              this.cancelReset()
+              this.resetMatch()
             })
         }
         .width('100%')
-        .height(150)
-        .justifyContent(FlexAlign.Center)
-        .alignItems(HorizontalAlign.Center)
-      } else if (this.partidoTerminado) {
-        Column() {
-          Column() {
-            Text(this.mensaje)
-              .fontSize(22)
-              .fontWeight(FontWeight.Bold)
-              .fontColor(Color.White)
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(30)
-
-            Text(this.finalLine1)
-              .fontSize(12)
-              .fontColor(Color.White)
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(18)
-
-            Text(this.finalLine2)
-              .fontSize(12)
-              .fontColor(Color.White)
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(18)
-
-            Text(this.finalLine3)
-              .fontSize(12)
-              .fontColor(Color.White)
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(18)
-          }
-          .width(172)
-          .height(104)
-          .padding({ left: 8, right: 8, top: 10, bottom: 8 })
-          .borderRadius(18)
-          .backgroundColor(this.setsNosotros === 2 ? '#0FA968' : '#D45A2A')
-          .justifyContent(FlexAlign.Center)
-          .alignItems(HorizontalAlign.Center)
-        }
-        .width('100%')
-        .height(120)
+        .height(102)
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center)
       } else if (this.decidirModoSet) {
@@ -547,24 +466,24 @@ struct Index {
             .margin({ bottom: 4 })
 
           Button('Tie-break')
-            .fontSize(10)
+            .fontSize(11)
             .width(86)
-            .height(20)
+            .height(24)
             .margin({ bottom: 3 })
             .onClick(() => {
               this.chooseTieBreak()
             })
 
           Button('Dif. 2')
-            .fontSize(10)
+            .fontSize(11)
             .width(86)
-            .height(20)
+            .height(24)
             .onClick(() => {
               this.chooseDifferenceTwo()
             })
         }
         .width('100%')
-        .height(108)
+        .height(102)
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center)
       } else if (this.showMatchModeDecision) {
@@ -576,144 +495,133 @@ struct Index {
             .margin({ bottom: 4 })
 
           Button('3er Set')
-            .fontSize(10)
+            .fontSize(11)
             .width(86)
-            .height(20)
+            .height(24)
             .margin({ bottom: 3 })
             .onClick(() => {
               this.chooseThirdSet()
             })
 
           Button('Super TB')
-            .fontSize(10)
+            .fontSize(11)
             .width(86)
-            .height(20)
+            .height(24)
             .onClick(() => {
               this.chooseSuperTieBreak()
             })
         }
         .width('100%')
-        .height(108)
+        .height(102)
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center)
       } else {
-        Row() {
-          Column() {
+        Column() {
+          Row() {
             Text('Nosotros')
               .fontSize(12)
               .fontColor(Color.White)
+              .width(88)
               .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(20)
 
             Text(this.puntosNosotros)
-              .fontSize(40)
-              .fontWeight(FontWeight.Bold)
+              .fontSize(28)
               .fontColor(Color.White)
+              .fontWeight(FontWeight.Bold)
+              .width(58)
               .maxLines(1)
               .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(54)
+
+            Button('+')
+              .fontSize(22)
+              .width(44)
+              .height(34)
+              .borderRadius(15)
+              .backgroundColor('#D83BE8')
+              .onClick(() => {
+                this.addPoint('nosotros')
+              })
           }
-          .width(80)
-          .height(100)
-          .padding({ left: 3, right: 3, top: 8, bottom: 5 })
+          .width(210)
+          .height(48)
+          .padding({ left: 12, right: 8, top: 6, bottom: 5 })
           .borderRadius(18)
           .backgroundColor('#C600D9')
           .justifyContent(FlexAlign.Center)
-          .alignItems(HorizontalAlign.Center)
-          .onClick(() => {
-            this.addPoint('nosotros')
-          })
+          .alignItems(VerticalAlign.Center)
+          .margin({ bottom: 6 })
 
-          Column() {
+          Row() {
             Text('Rivales')
               .fontSize(12)
               .fontColor(Color.White)
+              .width(88)
               .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(20)
 
             Text(this.puntosRivales)
-              .fontSize(40)
-              .fontWeight(FontWeight.Bold)
+              .fontSize(28)
               .fontColor(Color.White)
+              .fontWeight(FontWeight.Bold)
+              .width(58)
               .maxLines(1)
               .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(54)
+
+            Button('+')
+              .fontSize(22)
+              .width(44)
+              .height(34)
+              .borderRadius(15)
+              .backgroundColor('#FFA51E')
+              .onClick(() => {
+                this.addPoint('rivales')
+              })
           }
-          .width(80)
-          .height(100)
-          .padding({ left: 3, right: 3, top: 8, bottom: 5 })
+          .width(210)
+          .height(48)
+          .padding({ left: 12, right: 8, top: 6, bottom: 5 })
           .borderRadius(18)
           .backgroundColor('#FF9300')
           .justifyContent(FlexAlign.Center)
-          .alignItems(HorizontalAlign.Center)
-          .margin({ left: 8 })
-          .onClick(() => {
-            this.addPoint('rivales')
-          })
+          .alignItems(VerticalAlign.Center)
         }
         .width('100%')
-        .height(108)
+        .height(102)
         .justifyContent(FlexAlign.Center)
-        .alignItems(VerticalAlign.Center)
+        .alignItems(HorizontalAlign.Center)
       }
 
-      if (!this.showResetConfirm) {
       Row() {
         Button('Undo')
-          .fontSize(10)
-          .width(80)
-          .height(20)
-          .borderRadius(10)
+          .fontSize(11)
+          .width(70)
+          .height(24)
+          .borderRadius(12)
           .backgroundColor('#3A3A3A')
           .enabled(this.hayDeshacer)
           .onClick(() => {
             this.undoPoint()
           })
 
-        Button(this.partidoTerminado ? 'Nuevo' : 'Reset')
-          .fontSize(10)
-          .width(82)
+        Button('Reset')
+          .fontSize(11)
+          .width(70)
           .height(24)
           .borderRadius(12)
           .backgroundColor('#3A3A3A')
           .margin({ left: 10 })
           .onClick(() => {
-            if (this.partidoTerminado) {
-              this.resetMatch()
-            } else {
-              this.requestReset()
-            }
+            this.resetMatch()
           })
       }
       .width('100%')
       .height(26)
       .justifyContent(FlexAlign.Center)
-      .margin({ top: 2 })
-      } else {
-        Blank()
-          .height(28)
-      }
+      .margin({ top: 4 })
     }
     .width('100%')
     .height('100%')
-    .padding({ left: 0, right: 0, top: 28, bottom: 30 })
+    .padding({ left: 36, right: 36, top: 44, bottom: 24 })
     .backgroundColor('#000000')
   }
 }
-
-
-
-
-
-
-
-
-
-
 

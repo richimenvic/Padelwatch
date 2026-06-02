@@ -159,7 +159,7 @@
       font-weight: 800;
     }
 
-    .hero-text, .section-intro, .card-description, .small-note, footer p { color: var(--muted); }
+    .hero-text, .section-intro, .card-description, footer p { color: var(--muted); }
     .hero-text { max-width: 760px; margin-bottom: 0; font-size: 1.07rem; }
 
     .hero-panel {
@@ -195,32 +195,7 @@
 
     .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
 
-    .badge {
-      display: inline-flex;
-      flex-shrink: 0;
-      align-items: center;
-      justify-content: center;
-      padding: 5px 10px;
-      border: 1px solid rgba(249, 115, 22, 0.36);
-      border-radius: 999px;
-      color: #fed7aa;
-      background: rgba(249, 115, 22, 0.12);
-      font-size: 0.76rem;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
     .card-description { margin-bottom: 16px; }
-
-    .small-note {
-      margin-top: auto;
-      margin-bottom: 0;
-      padding: 13px 14px;
-      border: 1px solid rgba(168, 85, 247, 0.32);
-      border-radius: 16px;
-      background: rgba(168, 85, 247, 0.1);
-      font-size: 0.94rem;
-    }
 
     .links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 
@@ -247,8 +222,6 @@
       outline: none;
     }
 
-    .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.05); box-shadow: none; }
-    .contact-link { color: #f9a8d4; font-weight: 800; text-decoration-thickness: 2px; text-underline-offset: 3px; }
     footer { padding: 30px 0 0; text-align: center; font-size: 0.95rem; }
     footer p { margin-bottom: 6px; }
     footer p:last-child { margin-bottom: 0; }
@@ -298,69 +271,51 @@
       </aside>
     </section>
 
-    <section class="section" id="apps-overview" aria-labelledby="apps-overview-title">
-      <div class="section-heading">
-        <div>
-          <h2 id="apps-overview-title">Apps</h2>
-          <p class="section-intro">Small practical apps with public support information and privacy resources.</p>
-        </div>
-      </div>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card-header">
-            <h3>PadelScoreGT5</h3>
-            <span class="badge">Huawei Watch app</span>
-          </div>
-          <p class="card-description">A simple standalone padel scorekeeper for Huawei Watch. It helps users track points, games, sets, tie-breaks, and super tie-breaks directly from the watch.</p>
-          <p class="small-note">No login, no account registration, no payments, no network access, and no personal data collection.</p>
-          <nav class="links" aria-label="Related links">
-            <a class="button" href="/apps/">View apps</a>
-            <a class="button secondary" href="/padelscoregt5/privacy/">Privacy Policy</a>
-          </nav>
-        </article>
-      </div>
-    </section>
-
     <section class="section" id="site-areas" aria-labelledby="site-areas-title">
       <div class="section-heading">
         <div>
           <h2 id="site-areas-title">Explore pyMenvic</h2>
-          <p class="section-intro">Use the main sections below to browse app information, Revit tool plans, learning resources, and support links.</p>
+          <p class="section-intro">Choose one of the main sections to find app information, Revit tools, learning material, or support resources.</p>
         </div>
       </div>
 
-      <div class="cards">
+      <div class="cards" aria-label="pyMenvic sections">
+        <article class="card">
+          <div class="card-header">
+            <h3>Apps</h3>
+          </div>
+          <p class="card-description">Apps and public support information.</p>
+          <nav class="links" aria-label="Apps links">
+            <a class="button" href="/apps/">View Apps</a>
+          </nav>
+        </article>
+
         <article class="card">
           <div class="card-header">
             <h3>Revit Tools</h3>
-            <span class="badge">In development</span>
           </div>
-          <p class="card-description">Productivity utilities planned for architectural workflows, BIM support, and office standards.</p>
-          <p class="small-note">Documentation and public release information will be added later.</p>
-          <nav class="links" aria-label="Related links">
+          <p class="card-description">Revit and pyRevit productivity tools.</p>
+          <nav class="links" aria-label="Revit Tools links">
             <a class="button" href="/revit-tools/">View Revit Tools</a>
           </nav>
         </article>
+
         <article class="card">
           <div class="card-header">
             <h3>Learning</h3>
-            <span class="badge">In preparation</span>
           </div>
-          <p class="card-description">Guides, notes, examples, and practical workflows for Revit, BIM, pyRevit, app development, and digital productivity.</p>
-
-          <nav class="links" aria-label="Related links">
+          <p class="card-description">Guides, notes, examples, and workflows.</p>
+          <nav class="links" aria-label="Learning links">
             <a class="button" href="/learning/">View Learning</a>
           </nav>
         </article>
+
         <article class="card">
           <div class="card-header">
             <h3>Support</h3>
-            <span class="badge">Contact</span>
           </div>
-          <p class="card-description">Contact and public policy links for Menvic digital tools.</p>
-          <p class="small-note">For support, privacy questions, or general inquiries, contact contacto@menvic.com.</p>
-          <nav class="links" aria-label="Related links">
+          <p class="card-description">Contact, privacy policies, and support links.</p>
+          <nav class="links" aria-label="Support links">
             <a class="button" href="/support/">View Support</a>
           </nav>
         </article>
@@ -369,7 +324,6 @@
 
     <footer>
       <p>&copy; Menvic. pyMenvic is a collection of independent tools and resources by Menvic.</p>
-      <p>Support: <a class="contact-link" href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
     </footer>
   </main>
 </body>

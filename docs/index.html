@@ -46,7 +46,35 @@
     .page {
       width: min(1120px, calc(100% - 32px));
       margin: 0 auto;
-      padding: clamp(32px, 6vw, 72px) 0 32px;
+      padding: clamp(24px, 5vw, 56px) 0 32px;
+    }
+
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 18px;
+    }
+
+    .nav-link {
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(15, 27, 45, 0.58);
+      font-size: 0.94rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      border-color: var(--accent-border);
+      color: var(--text);
+      transform: translateY(-1px);
     }
 
     .hero,
@@ -124,7 +152,7 @@
     }
 
     .description {
-      max-width: 760px;
+      max-width: 800px;
       margin-bottom: 0;
       font-size: 1.08rem;
     }
@@ -232,12 +260,20 @@
     }
 
     footer p {
+      margin-bottom: 8px;
+    }
+
+    footer p:last-child {
       margin-bottom: 0;
     }
 
     @media (max-width: 640px) {
       .page {
         width: min(100% - 24px, 1120px);
+      }
+
+      .top-nav {
+        justify-content: flex-start;
       }
 
       .card-header,
@@ -254,18 +290,24 @@
 </head>
 <body>
   <main class="page">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="nav-link" href="#apps">Apps</a>
+      <a class="nav-link" href="#revit-tools">Revit Tools</a>
+      <a class="nav-link" href="#learning">Learning</a>
+      <a class="nav-link" href="#support">Support</a>
+    </nav>
+
     <section class="hero" aria-labelledby="page-title">
       <p class="eyebrow">Digital tools by Menvic</p>
       <h1 id="page-title">pyMenvic</h1>
-      <p class="subtitle">Practical apps and digital tools by Menvic</p>
+      <p class="subtitle">Practical apps, Revit tools, and learning resources by Menvic</p>
       <p class="description">
-        pyMenvic is a small collection of practical apps, digital tools, and Revit/pyRevit
-        utilities developed by Menvic. This page provides access to app information, support
-        pages, privacy policies, and future tool documentation.
+        pyMenvic is a small collection of practical digital tools, apps, Revit/pyRevit utilities,
+        documentation, and learning resources developed by Menvic.
       </p>
     </section>
 
-    <section class="section-card" aria-labelledby="apps-title">
+    <section class="section-card" id="apps" aria-labelledby="apps-title">
       <h2 id="apps-title">Apps</h2>
       <p class="section-intro">
         Current mobile and wearable apps published by Menvic, with direct access to support
@@ -294,8 +336,8 @@
       </div>
     </section>
 
-    <section class="section-card" aria-labelledby="revit-title">
-      <h2 id="revit-title">Revit / pyRevit Tools</h2>
+    <section class="section-card" id="revit-tools" aria-labelledby="revit-title">
+      <h2 id="revit-title">Revit Tools</h2>
       <p class="section-intro">
         Future pyMenvic utilities for BIM, documentation, and architectural production workflows
         will be listed here as they become available.
@@ -308,15 +350,53 @@
             <span class="label">Coming soon</span>
           </div>
           <p class="card-description">
-            A collection of Revit and pyRevit productivity tools developed for architectural
-            workflows, documentation, auditing, and BIM support.
+            A collection of Revit and pyRevit productivity tools for architectural workflows,
+            documentation, auditing, BIM support, and office standards.
           </p>
         </article>
       </div>
     </section>
 
+    <section class="section-card" id="learning" aria-labelledby="learning-title">
+      <h2 id="learning-title">Learning</h2>
+      <p class="section-intro">
+        Practical documentation and educational material for current and future pyMenvic tools.
+      </p>
+
+      <div class="cards">
+        <article class="tool-card">
+          <div class="card-header">
+            <h3>Learning resources</h3>
+            <span class="label">In preparation</span>
+          </div>
+          <p class="card-description">
+            Guides, notes, examples, and practical workflows for Revit, BIM, pyRevit, and digital
+            productivity.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="support" aria-labelledby="support-title">
+      <h2 id="support-title">Support</h2>
+      <div class="cards">
+        <article class="tool-card">
+          <h3>Support</h3>
+          <p class="card-description">
+            For app support, privacy questions, or general inquiries, contact
+            <a href="mailto:contacto@menvic.com">contacto@menvic.com</a>.
+          </p>
+          <nav class="links" aria-label="Support links">
+            <a class="button" href="/padelscoregt5/privacy/">PadelScoreGT5 Privacy Policy</a>
+            <a class="button secondary" href="/padelscoregt5/support/">PadelScoreGT5 Support and Data Requests</a>
+          </nav>
+        </article>
+      </div>
+    </section>
+
     <footer>
-      <p>&copy; Menvic. For support: <a href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
+      <p>&copy; Menvic. pyMenvic is a collection of independent tools and resources by Menvic.</p>
+      <p>For support: <a href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
     </footer>
   </main>
 </body>

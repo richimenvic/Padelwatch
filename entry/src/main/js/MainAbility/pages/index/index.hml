@@ -1,0 +1,94 @@
+<div class="page">
+  <div class="welcome" if="{{screen === 'welcome'}}">
+    <text class="title">PadelScoreGT5</text>
+    <input class="mainButton" type="button" value="INICIAR PARTIDO" onclick="startSetup"></input>
+    <input class="smallButton" type="button" value="Ajustes" onclick="openSettings"></input>
+    <text class="credit">by pyMENVIC</text>
+  </div>
+
+  <div class="settings" if="{{screen === 'settings'}}">
+    <text class="titleSmall">Ajustes</text>
+    <input class="settingButton deuceButton" type="button" value="{{deuceText}}" onclick="cycleDeuceRule"></input>
+    <input class="settingButton vibrationButton" if="{{vibrationOnVisible}}" type="button" value="{{vibrationText}}" onclick="toggleVibration"></input>
+    <input class="settingButton vibrationButtonOff" if="{{vibrationOffVisible}}" type="button" value="{{vibrationText}}" onclick="toggleVibration"></input>
+    <input class="settingButton backButton" type="button" value="Volver" onclick="backToWelcome"></input>
+  </div>
+
+  <div class="serverPage" if="{{screen === 'server'}}">
+    <div class="teamTop" onclick="startNosotros">
+      <text class="serverTeam">NOSOTROS</text>
+      <text class="hint">Tocar para elegir saque</text>
+    </div>
+
+    <div class="centerBar" onclick="openSettings">
+      <text class="serverCenterText">¿QUIÉN SACA PRIMERO?</text>
+    </div>
+
+    <div class="teamBottom" onclick="startRivales">
+      <text class="serverTeam">RIVALES</text>
+      <text class="hint">Tocar para elegir saque</text>
+    </div>
+  </div>
+
+  <div class="decision" if="{{screen === 'deuce'}}">
+    <text class="titleSmall">Sistema 40-40</text>
+    <input class="decisionButton" type="button" value="Ventaja" onclick="chooseAdvantage"></input>
+    <input class="decisionButton magenta" type="button" value="Bola de oro" onclick="chooseGolden"></input>
+    <input class="decisionButton orange" type="button" value="Star Point" onclick="chooseStar"></input>
+  </div>
+
+  <div class="decision" if="{{screen === 'setMode'}}">
+    <text class="titleSmall">6 - 6</text>
+    <input class="decisionButton magenta" type="button" value="Tie-break" onclick="chooseTieBreak"></input>
+    <input class="decisionButton" type="button" value="Dif. 2" onclick="chooseDifferenceTwo"></input>
+  </div>
+
+  <div class="decision" if="{{screen === 'matchMode'}}">
+    <text class="titleSmall">Sets 1 - 1</text>
+    <input class="decisionButton magenta" type="button" value="3er Set" onclick="chooseThirdSet"></input>
+    <input class="decisionButton orange" type="button" value="Super TB" onclick="chooseSuperTieBreak"></input>
+  </div>
+
+  <div class="decision" if="{{screen === 'resetConfirm'}}">
+    <text class="titleSmall">¿Reiniciar?</text>
+    <text class="hint">Confirmar reset</text>
+    <input class="resetBig" type="button" value="RESET" onclick="confirmReset"></input>
+    <input class="smallButton" type="button" value="Cancelar" onclick="cancelReset"></input>
+  </div>
+
+  <div class="decision finalPage finalWin" if="{{finalNosotrosVisible}}">
+    <text class="titleSmall">{{winnerText}}</text>
+    <text class="finalLine">{{finalLine1}}</text>
+    <text class="finalLine">{{finalLine2}}</text>
+    <text class="finalLine">{{finalLine3}}</text>
+    <input class="smallButton" type="button" value="Nuevo" onclick="resetMatch"></input>
+  </div>
+
+  <div class="decision finalPage finalLoss" if="{{finalRivalesVisible}}">
+    <text class="titleSmall">{{winnerText}}</text>
+    <text class="finalLine">{{finalLine1}}</text>
+    <text class="finalLine">{{finalLine2}}</text>
+    <text class="finalLine">{{finalLine3}}</text>
+    <input class="smallButton" type="button" value="Nuevo" onclick="resetMatch"></input>
+  </div>
+
+  <div class="game" if="{{screen === 'game'}}">
+    <div class="scoreTop" onclick="pointNosotros">
+      <text class="teamName">{{nameNosotros}}</text>
+      <text class="setsLine">Sets {{setsNosotros}} | Juegos {{gamesNosotros}}</text>
+      <text class="score">{{pointsNosotros}}</text>
+    </div>
+
+    <div class="gameCenter">
+      <input class="barButton" type="button" value="Undo" onclick="undoPoint"></input>
+      <input class="setButton" type="button" value="{{centerText}}" onclick="noopSet"></input>
+      <input class="barButton" type="button" value="Reset" onclick="requestReset"></input>
+    </div>
+
+    <div class="scoreBottom" onclick="pointRivales">
+      <text class="teamName">{{nameRivales}}</text>
+      <text class="setsLine">Sets {{setsRivales}} | Juegos {{gamesRivales}}</text>
+      <text class="score">{{pointsRivales}}</text>
+    </div>
+  </div>
+</div>

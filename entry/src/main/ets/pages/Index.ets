@@ -577,7 +577,7 @@ struct Index {
             .maxLines(1)
             .textAlign(TextAlign.Center)
             .width('100%')
-            .height(28)
+            .height(22)
 
           Text('Mantén presionado')
             .fontSize(10)
@@ -590,7 +590,7 @@ struct Index {
           Button('RESET')
             .fontSize(18)
             .fontWeight(FontWeight.Bold)
-            .width(150)
+            .width(115)
             .height(48)
             .borderRadius(24)
             .backgroundColor('#D64545')
@@ -605,9 +605,9 @@ struct Index {
           Button('Cancelar')
             .fontSize(10)
             .width(92)
-            .height(24)
-            .borderRadius(12)
-            .backgroundColor('#3A3A3A')
+            .height(22)
+                .borderRadius(11)
+                .backgroundColor('#3A3A3A')
             .onClick(() => {
               this.cancelReset()
             })
@@ -626,7 +626,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(34)
+              .height(22)
 
             Text(this.finalLine1)
               .fontSize(12)
@@ -662,10 +662,10 @@ struct Index {
 
           Button('Nuevo')
             .fontSize(10)
-            .width(90)
-            .height(24)
-            .borderRadius(12)
-            .backgroundColor('#3A3A3A')
+            .width(78)
+            .height(22)
+                .borderRadius(11)
+                .backgroundColor('#3A3A3A')
             .margin({ top: 8 })
             .onClick(() => {
               this.resetMatch()
@@ -684,15 +684,15 @@ struct Index {
             .maxLines(1)
             .textAlign(TextAlign.Center)
             .width('100%')
-            .height(28)
+            .height(22)
 
           Button('Ventaja')
             .fontSize(13)
             .fontWeight(FontWeight.Bold)
             .width(138)
-            .height(34)
-            .borderRadius(17)
-            .backgroundColor('#3A3A3A')
+            .height(22)
+                .borderRadius(11)
+                .backgroundColor('#3A3A3A')
             .margin({ top: 4 })
             .onClick(() => {
               this.chooseAdvantageRule()
@@ -702,8 +702,8 @@ struct Index {
             .fontSize(13)
             .fontWeight(FontWeight.Bold)
             .width(138)
-            .height(34)
-            .borderRadius(17)
+            .height(22)
+            .borderRadius(12)
             .backgroundColor('#C600D9')
             .margin({ top: 5 })
             .onClick(() => {
@@ -714,8 +714,8 @@ struct Index {
             .fontSize(13)
             .fontWeight(FontWeight.Bold)
             .width(138)
-            .height(34)
-            .borderRadius(17)
+            .height(22)
+            .borderRadius(12)
             .backgroundColor('#FF9300')
             .margin({ top: 5 })
             .onClick(() => {
@@ -737,7 +737,7 @@ struct Index {
           Button('Tie-break')
             .fontSize(10)
             .width(106)
-            .height(28)
+            .height(22)
             .margin({ bottom: 6 })
             .onClick(() => {
               this.chooseTieBreak()
@@ -746,7 +746,7 @@ struct Index {
           Button('Dif. 2')
             .fontSize(10)
             .width(106)
-            .height(28)
+            .height(22)
             .onClick(() => {
               this.chooseDifferenceTwo()
             })
@@ -766,7 +766,7 @@ struct Index {
           Button('3er Set')
             .fontSize(10)
             .width(106)
-            .height(28)
+            .height(22)
             .margin({ bottom: 6 })
             .onClick(() => {
               this.chooseThirdSet()
@@ -775,7 +775,7 @@ struct Index {
           Button('Super TB')
             .fontSize(10)
             .width(106)
-            .height(28)
+            .height(22)
             .onClick(() => {
               this.chooseSuperTieBreak()
             })
@@ -811,7 +811,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(86)
+              .height(60)
           }
           .width('100%')
           .layoutWeight(1)
@@ -827,9 +827,9 @@ struct Index {
           Row() {
             Button('Undo')
               .fontSize(10)
-              .width(90)
+              .width(78)
               .height(20)
-              .borderRadius(17)
+              .borderRadius(12)
               .backgroundColor('#3A3A3A')
               .enabled(this.hayDeshacer)
               .onClick(() => {
@@ -843,34 +843,34 @@ struct Index {
                 .fontColor('#FFFFFF')
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
-                .width(90)
-                .height(12)
+                .width(78)
+                .height(11)
 
               Text(this.estadoCentroSecundario())
                 .fontSize(7)
                 .fontColor('#DDDDDD')
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
-                .width(90)
-                .height(8)
+                .width(78)
+                .height(7)
             }
-            .width(90)
+            .width(78)
             .height(20)
             .justifyContent(FlexAlign.Center)
             .alignItems(HorizontalAlign.Center)
 
             Button('Reset')
               .fontSize(10)
-              .width(90)
+              .width(78)
               .height(20)
-              .borderRadius(17)
+              .borderRadius(12)
               .backgroundColor('#3A3A3A')
               .onClick(() => {
                 this.requestReset()
               })
           }
           .width('100%')
-          .height(86)
+          .height(40)
           .justifyContent(FlexAlign.SpaceBetween)
           .alignItems(VerticalAlign.Center)
           .margin({ top: 0, bottom: 0 })
@@ -900,7 +900,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(86)
+              .height(60)
           }
           .width('100%')
           .layoutWeight(1)
@@ -925,6 +925,14 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
+
+
+
+
+
+
+
 
 
 

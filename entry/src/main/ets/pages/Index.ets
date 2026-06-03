@@ -439,8 +439,24 @@ struct Index {
     this.partidoTerminado = true
   }
 
+  canReturnToServerSelection(): boolean {
+    return this.appScreen === 'match' &&
+      !this.hayDeshacer &&
+      this.puntosNosotros === '0' &&
+      this.puntosRivales === '0' &&
+      this.juegosNosotros === 0 &&
+      this.juegosRivales === 0 &&
+      this.setsNosotros === 0 &&
+      this.setsRivales === 0 &&
+      !this.enTieBreak &&
+      !this.enSuperTieBreak &&
+      !this.partidoTerminado
+  }
   undoPoint(): void {
     if (!this.hayDeshacer) {
+      if (this.canReturnToServerSelection()) {
+        this.appScreen = 'server'
+      }
       return
     }
 
@@ -474,6 +490,7 @@ struct Index {
   requestReset(): void {
     if (this.partidoTerminado) {
       this.resetMatch()
+      this.appScreen = 'server'
       return
     }
     this.showResetConfirm = true
@@ -486,6 +503,7 @@ struct Index {
   confirmReset(): void {
     this.showResetConfirm = false
     this.resetMatch()
+    this.appScreen = 'server'
   }
 
   resetMatch(): void {
@@ -556,9 +574,9 @@ struct Index {
   sacadorActual(): string {
     let totalJuegos: number = this.juegosNosotros + this.juegosRivales
     if (totalJuegos % 2 === 0) {
-      return 'nosotros'
+      return this.sacadorInicial
     }
-    return 'rivales'
+    return this.oppositeTeam(this.sacadorInicial)
   }
 
   nombreEquipo(equipo: string): string {
@@ -591,7 +609,146 @@ struct Index {
   }
   build() {
     Column() {
-      if (this.showResetConfirm) {
+      if (this.appScreen === 'welcome') {
+        Column() {
+          Text('PadelScoreGT5')
+            .fontSize(20)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(Color.White)
+            .textAlign(TextAlign.Center)
+            .width('100%')
+            .height(34)
+
+          Button('INICIAR PARTIDO')
+            .fontSize(17)
+            .fontWeight(FontWeight.Bold)
+            .width(176)
+            .height(54)
+            .borderRadius(27)
+            .backgroundColor('#C600D9')
+            .margin({ top: 18, bottom: 12 })
+            .onClick(() => {
+              this.startSetupFromWelcome()
+            })
+
+          Button('Configuración')
+            .fontSize(11)
+            .width(118)
+            .height(28)
+            .borderRadius(14)
+            .backgroundColor('#3A3A3A')
+            .onClick(() => {
+              this.openSettings()
+            })
+        }
+        .width('100%')
+        .height('100%')
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      } else if (this.appScreen === 'settings') {
+        Column() {
+          Text('Configuración')
+            .fontSize(18)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(Color.White)
+            .height(30)
+
+          Text('40-40 se elige en partido')
+            .fontSize(11)
+            .fontColor('#DDDDDD')
+            .textAlign(TextAlign.Center)
+            .width('100%')
+            .height(28)
+            .margin({ top: 6, bottom: 12 })
+
+          Button('Volver')
+            .fontSize(12)
+            .width(100)
+            .height(30)
+            .borderRadius(15)
+            .backgroundColor('#3A3A3A')
+            .onClick(() => {
+              this.backToWelcome()
+            })
+        }
+        .width('100%')
+        .height('100%')
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      } else if (this.appScreen === 'server') {
+        Column() {
+          Column() {
+            Text('NOSOTROS')
+              .fontSize(26)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(38)
+
+            Text('Tocar para elegir saque')
+              .fontSize(11)
+              .fontColor('#F0F0F0')
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(18)
+          }
+          .width('100%')
+          .layoutWeight(1)
+          .padding({ left: 8, right: 8, top: 8, bottom: 6 })
+          .backgroundColor('#C600D9')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .onClick(() => {
+            this.startMatchWithServer('nosotros')
+          })
+
+          Row() {
+            Text('¿QUIÉN SACA PRIMERO?')
+              .fontSize(12)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(40)
+          }
+          .width('100%')
+          .height(40)
+          .justifyContent(FlexAlign.Center)
+          .alignItems(VerticalAlign.Center)
+          .backgroundColor('#000000')
+
+          Column() {
+            Text('RIVALES')
+              .fontSize(26)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(38)
+
+            Text('Tocar para elegir saque')
+              .fontSize(11)
+              .fontColor('#F0F0F0')
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(18)
+          }
+          .width('100%')
+          .layoutWeight(1)
+          .padding({ left: 8, right: 8, top: 8, bottom: 6 })
+          .backgroundColor('#FF9300')
+          .justifyContent(FlexAlign.Center)
+          .alignItems(HorizontalAlign.Center)
+          .onClick(() => {
+            this.startMatchWithServer('rivales')
+          })
+        }
+        .width('100%')
+        .height('100%')
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      } else if (this.showResetConfirm) {
         Column() {
           Text('¿Reiniciar partido?')
             .fontSize(18)
@@ -854,7 +1011,7 @@ struct Index {
               .height(20)
               .borderRadius(12)
               .backgroundColor('#3A3A3A')
-              .enabled(this.hayDeshacer)
+              .enabled(this.hayDeshacer || this.canReturnToServerSelection())
               .onClick(() => {
                 this.undoPoint()
               })
@@ -950,6 +1107,13 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
+
+
+
+
+
+
 
 
 

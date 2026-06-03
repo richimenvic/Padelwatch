@@ -805,17 +805,17 @@ struct Index {
               .height(14)
 
             Text(this.puntosNosotros)
-              .fontSize(52)
+              .fontSize(44)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(64)
+              .height(50)
           }
           .width('100%')
-          .height(204)
-          .padding({ left: 8, right: 8, top: 24, bottom: 10 })
+          .layoutWeight(1)
+          .padding({ left: 8, right: 8, top: 8, bottom: 6 })
           .borderRadius(0)
           .backgroundColor('#C600D9')
           .justifyContent(FlexAlign.Center)
@@ -828,7 +828,7 @@ struct Index {
             Button('Undo')
               .fontSize(10)
               .width(58)
-              .height(22)
+              .height(20)
               .borderRadius(11)
               .backgroundColor('#3A3A3A')
               .enabled(this.hayDeshacer)
@@ -844,7 +844,7 @@ struct Index {
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
                 .width(58)
-                .height(13)
+                .height(12)
 
               Text(this.estadoCentroSecundario())
                 .fontSize(7)
@@ -852,17 +852,17 @@ struct Index {
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
                 .width(58)
-                .height(9)
+                .height(8)
             }
             .width(58)
-            .height(22)
+            .height(20)
             .justifyContent(FlexAlign.Center)
             .alignItems(HorizontalAlign.Center)
 
             Button('Reset')
               .fontSize(10)
               .width(58)
-              .height(22)
+              .height(20)
               .borderRadius(11)
               .backgroundColor('#3A3A3A')
               .onClick(() => {
@@ -870,7 +870,7 @@ struct Index {
               })
           }
           .width('100%')
-          .height(58)
+          .height(34)
           .justifyContent(FlexAlign.SpaceBetween)
           .alignItems(VerticalAlign.Center)
           .margin({ top: 0, bottom: 0 })
@@ -894,17 +894,17 @@ struct Index {
               .height(14)
 
             Text(this.puntosRivales)
-              .fontSize(52)
+              .fontSize(44)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(64)
+              .height(50)
           }
           .width('100%')
-          .height(204)
-          .padding({ left: 8, right: 8, top: 20, bottom: 14 })
+          .layoutWeight(1)
+          .padding({ left: 8, right: 8, top: 8, bottom: 6 })
           .borderRadius(0)
           .backgroundColor('#FF9300')
           .justifyContent(FlexAlign.Center)
@@ -925,6 +925,7 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
 
 
 

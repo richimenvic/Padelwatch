@@ -716,9 +716,6 @@ struct Index {
             .height(28)
             .borderRadius(14)
             .backgroundColor('#3A3A3A')
-            .onClick(() => {
-              this.openSettings()
-            })
         }
         .width('100%')
         .height('100%')
@@ -1202,6 +1199,11 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
+
+
+
+
 
 
 

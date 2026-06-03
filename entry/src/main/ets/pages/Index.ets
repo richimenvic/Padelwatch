@@ -423,25 +423,42 @@ struct Index {
     return 'Juegos ' + this.juegosNosotros + '-' + this.juegosRivales
   }
 
+  estadoCentro(): string {
+    if (this.enSuperTieBreak) {
+      return 'SUPER TB'
+    }
+
+    if (this.enTieBreak) {
+      return 'TIE-BREAK'
+    }
+
+    if (this.jugarConDiferenciaDos) {
+      return 'DIF. 2'
+    }
+
+    return 'SET ' + this.setActual
+  }
+
+  sacadorActual(): string {
+    let totalJuegos: number = this.juegosNosotros + this.juegosRivales
+
+    if (totalJuegos % 2 === 0) {
+      return 'nosotros'
+    }
+
+    return 'rivales'
+  }
+
+  nombreEquipo(equipo: string): string {
+    if (equipo === this.sacadorActual()) {
+      return equipo === 'nosotros' ? '🎾 NOSOTROS' : '🎾 RIVALES'
+    }
+
+    return equipo === 'nosotros' ? 'NOSOTROS' : 'RIVALES'
+  }
+
   build() {
     Column() {
-      Text(this.estadoSuperior() + '   Sets ' + this.setsNosotros + '-' + this.setsRivales)
-        .fontSize(14)
-        .fontWeight(FontWeight.Bold)
-        .fontColor(Color.White)
-        .maxLines(1)
-        .textAlign(TextAlign.Center)
-        .width('100%')
-        .height(20)
-
-      Text(this.estadoJuegos())
-        .fontSize(12)
-        .fontColor(Color.White)
-        .maxLines(1)
-        .textAlign(TextAlign.Center)
-        .width('100%')
-        .height(16)
-
       if (this.showResetConfirm) {
         Column() {
           Text('¿Reiniciar partido?')
@@ -487,7 +504,7 @@ struct Index {
             })
         }
         .width('100%')
-        .height(150)
+        .height('100%')
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center)
       } else if (this.partidoTerminado) {
@@ -533,9 +550,20 @@ struct Index {
           .backgroundColor(this.setsNosotros === 2 ? '#0FA968' : '#D45A2A')
           .justifyContent(FlexAlign.Center)
           .alignItems(HorizontalAlign.Center)
+
+          Button('Nuevo')
+            .fontSize(10)
+            .width(82)
+            .height(24)
+            .borderRadius(12)
+            .backgroundColor('#3A3A3A')
+            .margin({ top: 8 })
+            .onClick(() => {
+              this.resetMatch()
+            })
         }
         .width('100%')
-        .height(120)
+        .height('100%')
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center)
       } else if (this.decidirModoSet) {
@@ -544,27 +572,27 @@ struct Index {
             .fontSize(18)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.White)
-            .margin({ bottom: 4 })
+            .margin({ bottom: 6 })
 
           Button('Tie-break')
-            .fontSize(10)
-            .width(86)
-            .height(20)
-            .margin({ bottom: 3 })
+            .fontSize(11)
+            .width(106)
+            .height(28)
+            .margin({ bottom: 6 })
             .onClick(() => {
               this.chooseTieBreak()
             })
 
           Button('Dif. 2')
-            .fontSize(10)
-            .width(86)
-            .height(20)
+            .fontSize(11)
+            .width(106)
+            .height(28)
             .onClick(() => {
               this.chooseDifferenceTwo()
             })
         }
         .width('100%')
-        .height(108)
+        .height('100%')
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center)
       } else if (this.showMatchModeDecision) {
@@ -573,53 +601,62 @@ struct Index {
             .fontSize(18)
             .fontWeight(FontWeight.Bold)
             .fontColor(Color.White)
-            .margin({ bottom: 4 })
+            .margin({ bottom: 6 })
 
           Button('3er Set')
-            .fontSize(10)
-            .width(86)
-            .height(20)
-            .margin({ bottom: 3 })
+            .fontSize(11)
+            .width(106)
+            .height(28)
+            .margin({ bottom: 6 })
             .onClick(() => {
               this.chooseThirdSet()
             })
 
           Button('Super TB')
-            .fontSize(10)
-            .width(86)
-            .height(20)
+            .fontSize(11)
+            .width(106)
+            .height(28)
             .onClick(() => {
               this.chooseSuperTieBreak()
             })
         }
         .width('100%')
-        .height(108)
+        .height('100%')
         .justifyContent(FlexAlign.Center)
         .alignItems(HorizontalAlign.Center)
       } else {
-        Row() {
+        Column() {
           Column() {
-            Text('Nosotros')
-              .fontSize(12)
-              .fontColor(Color.White)
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(20)
-
-            Text(this.puntosNosotros)
-              .fontSize(40)
+            Text(this.nombreEquipo('nosotros'))
+              .fontSize(13)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(54)
+              .height(18)
+
+            Text('Sets ' + this.setsNosotros + ' | Juegos ' + this.juegosNosotros)
+              .fontSize(10)
+              .fontColor('#F0F0F0')
+              .maxLines(1)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(14)
+
+            Text(this.puntosNosotros)
+              .fontSize(38)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+              .maxLines(1)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(44)
           }
-          .width(80)
-          .height(100)
-          .padding({ left: 3, right: 3, top: 8, bottom: 5 })
-          .borderRadius(18)
+          .width(176)
+          .height(82)
+          .padding({ left: 8, right: 8, top: 6, bottom: 4 })
+          .borderRadius(20)
           .backgroundColor('#C600D9')
           .justifyContent(FlexAlign.Center)
           .alignItems(HorizontalAlign.Center)
@@ -627,93 +664,90 @@ struct Index {
             this.addPoint('nosotros')
           })
 
-          Column() {
-            Text('Rivales')
-              .fontSize(12)
-              .fontColor(Color.White)
+          Row() {
+            Button('Undo')
+              .fontSize(10)
+              .width(58)
+              .height(22)
+              .borderRadius(11)
+              .backgroundColor('#3A3A3A')
+              .enabled(this.hayDeshacer)
+              .onClick(() => {
+                this.undoPoint()
+              })
+
+            Text(this.estadoCentro())
+              .fontSize(11)
+              .fontWeight(FontWeight.Bold)
+              .fontColor('#FFFFFF')
               .maxLines(1)
               .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(20)
+              .width(58)
+              .height(22)
 
-            Text(this.puntosRivales)
-              .fontSize(40)
+            Button('Reset')
+              .fontSize(10)
+              .width(58)
+              .height(22)
+              .borderRadius(11)
+              .backgroundColor('#3A3A3A')
+              .onClick(() => {
+                this.requestReset()
+              })
+          }
+          .width(182)
+          .height(28)
+          .justifyContent(FlexAlign.SpaceBetween)
+          .alignItems(VerticalAlign.Center)
+          .margin({ top: 4, bottom: 4 })
+
+          Column() {
+            Text(this.nombreEquipo('rivales'))
+              .fontSize(13)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(54)
+              .height(18)
+
+            Text('Sets ' + this.setsRivales + ' | Juegos ' + this.juegosRivales)
+              .fontSize(10)
+              .fontColor('#F0F0F0')
+              .maxLines(1)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(14)
+
+            Text(this.puntosRivales)
+              .fontSize(38)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+              .maxLines(1)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(44)
           }
-          .width(80)
-          .height(100)
-          .padding({ left: 3, right: 3, top: 8, bottom: 5 })
-          .borderRadius(18)
+          .width(176)
+          .height(82)
+          .padding({ left: 8, right: 8, top: 6, bottom: 4 })
+          .borderRadius(20)
           .backgroundColor('#FF9300')
           .justifyContent(FlexAlign.Center)
           .alignItems(HorizontalAlign.Center)
-          .margin({ left: 8 })
           .onClick(() => {
             this.addPoint('rivales')
           })
         }
         .width('100%')
-        .height(108)
+        .height('100%')
         .justifyContent(FlexAlign.Center)
-        .alignItems(VerticalAlign.Center)
-      }
-
-      if (!this.showResetConfirm) {
-      Row() {
-        Button('Undo')
-          .fontSize(10)
-          .width(80)
-          .height(20)
-          .borderRadius(10)
-          .backgroundColor('#3A3A3A')
-          .enabled(this.hayDeshacer)
-          .onClick(() => {
-            this.undoPoint()
-          })
-
-        Button(this.partidoTerminado ? 'Nuevo' : 'Reset')
-          .fontSize(10)
-          .width(82)
-          .height(24)
-          .borderRadius(12)
-          .backgroundColor('#3A3A3A')
-          .margin({ left: 10 })
-          .onClick(() => {
-            if (this.partidoTerminado) {
-              this.resetMatch()
-            } else {
-              this.requestReset()
-            }
-          })
-      }
-      .width('100%')
-      .height(26)
-      .justifyContent(FlexAlign.Center)
-      .margin({ top: 2 })
-      } else {
-        Blank()
-          .height(28)
+        .alignItems(HorizontalAlign.Center)
       }
     }
     .width('100%')
     .height('100%')
-    .padding({ left: 0, right: 0, top: 28, bottom: 30 })
+    .padding({ left: 0, right: 0, top: 18, bottom: 18 })
     .backgroundColor('#000000')
   }
 }
-
-
-
-
-
-
-
-
-
-
-

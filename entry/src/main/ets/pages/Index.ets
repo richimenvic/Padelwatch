@@ -839,13 +839,13 @@ struct Index {
 
             Column() {
               Text(this.estadoCentro())
-                .fontSize(10)
+                .fontSize(12)
                 .fontWeight(FontWeight.Bold)
                 .fontColor('#FFFFFF')
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
-                .width(78)
-                .height(11)
+                .width(90)
+                .height(13)
 
               Text(this.estadoCentroSecundario())
                 .fontSize(7)
@@ -853,7 +853,7 @@ struct Index {
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
                 .width(78)
-                .height(7)
+                .height(0)
             }
             .width(78)
             .height(20)
@@ -927,6 +927,8 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
+
 
 
 

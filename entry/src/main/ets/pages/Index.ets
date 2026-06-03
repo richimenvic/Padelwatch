@@ -783,7 +783,7 @@ struct Index {
               .fontColor('#F0F0F0')
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(18)
+              .height(20)
           }
           .width('100%')
           .layoutWeight(1)
@@ -824,7 +824,7 @@ struct Index {
               .fontColor('#F0F0F0')
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(18)
+              .height(20)
           }
           .width('100%')
           .layoutWeight(1)
@@ -857,7 +857,7 @@ struct Index {
             .maxLines(1)
             .textAlign(TextAlign.Center)
             .width('100%')
-            .height(18)
+            .height(20)
 
           Button('RESET')
             .fontSize(18)
@@ -906,7 +906,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(18)
+              .height(20)
 
             Text(this.finalLine2)
               .fontSize(12)
@@ -914,7 +914,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(18)
+              .height(20)
 
             Text(this.finalLine3)
               .fontSize(12)
@@ -922,7 +922,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(18)
+              .height(20)
           }
           .width(172)
           .height(104)
@@ -1060,30 +1060,31 @@ struct Index {
         Column() {
           Column() {
             Text(this.nombreEquipo('nosotros'))
-              .fontSize(13)
+              .fontSize(11)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(18)
-
-            Text('Sets ' + this.setsNosotros + ' | Juegos ' + this.juegosNosotros)
-              .fontSize(10)
-              .fontColor('#F0F0F0')
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
               .height(14)
 
+            Text('Sets ' + this.setsNosotros + ' | Juegos ' + this.juegosNosotros)
+              .fontSize(15)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#F0F0F0')
+              .maxLines(1)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(17)
+
             Text(this.puntosNosotros)
-              .fontSize(44)
+              .fontSize(46)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(60)
+              .height(52)
           }
           .width('100%')
           .layoutWeight(1)
@@ -1103,11 +1104,12 @@ struct Index {
               .height(20)
               .borderRadius(12)
               .backgroundColor('#3A3A3A')
+              .fontColor(Color.White)
               .enabled(this.hayDeshacer || this.canReturnToServerSelection())
               .onClick(() => {
                 this.undoPoint()
               })
-              .responseRegion({ x: -35, y: -35, width: 150, height: 95 })
+              .responseRegion({ x: -20, y: -10, width: 118, height: 40 })
 
             Column() {
               Text(this.estadoCentro())
@@ -1138,10 +1140,11 @@ struct Index {
               .height(20)
               .borderRadius(12)
               .backgroundColor('#3A3A3A')
+              .fontColor(Color.White)
               .onClick(() => {
                 this.requestReset()
               })
-              .responseRegion({ x: -35, y: -35, width: 150, height: 95 })
+              .responseRegion({ x: -20, y: -10, width: 118, height: 40 })
           }
           .width('100%')
           .height(40)
@@ -1151,30 +1154,31 @@ struct Index {
 
           Column() {
             Text(this.nombreEquipo('rivales'))
-              .fontSize(13)
+              .fontSize(11)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width('100%')
-              .height(18)
-
-            Text('Sets ' + this.setsRivales + ' | Juegos ' + this.juegosRivales)
-              .fontSize(10)
-              .fontColor('#F0F0F0')
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
               .height(14)
 
+            Text('Sets ' + this.setsRivales + ' | Juegos ' + this.juegosRivales)
+              .fontSize(15)
+              .fontWeight(FontWeight.Medium)
+              .fontColor('#F0F0F0')
+              .maxLines(1)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(17)
+
             Text(this.puntosRivales)
-              .fontSize(44)
+              .fontSize(46)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(60)
+              .height(52)
           }
           .width('100%')
           .layoutWeight(1)
@@ -1199,6 +1203,12 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
+
+
+
+
+
 
 
 

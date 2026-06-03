@@ -626,7 +626,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(30)
+              .height(34)
 
             Text(this.finalLine1)
               .fontSize(12)
@@ -662,7 +662,7 @@ struct Index {
 
           Button('Nuevo')
             .fontSize(10)
-            .width(86)
+            .width(90)
             .height(24)
             .borderRadius(12)
             .backgroundColor('#3A3A3A')
@@ -690,8 +690,8 @@ struct Index {
             .fontSize(13)
             .fontWeight(FontWeight.Bold)
             .width(138)
-            .height(30)
-            .borderRadius(15)
+            .height(34)
+            .borderRadius(17)
             .backgroundColor('#3A3A3A')
             .margin({ top: 4 })
             .onClick(() => {
@@ -702,8 +702,8 @@ struct Index {
             .fontSize(13)
             .fontWeight(FontWeight.Bold)
             .width(138)
-            .height(30)
-            .borderRadius(15)
+            .height(34)
+            .borderRadius(17)
             .backgroundColor('#C600D9')
             .margin({ top: 5 })
             .onClick(() => {
@@ -714,8 +714,8 @@ struct Index {
             .fontSize(13)
             .fontWeight(FontWeight.Bold)
             .width(138)
-            .height(30)
-            .borderRadius(15)
+            .height(34)
+            .borderRadius(17)
             .backgroundColor('#FF9300')
             .margin({ top: 5 })
             .onClick(() => {
@@ -811,7 +811,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(50)
+              .height(86)
           }
           .width('100%')
           .layoutWeight(1)
@@ -827,9 +827,9 @@ struct Index {
           Row() {
             Button('Undo')
               .fontSize(10)
-              .width(74)
+              .width(90)
               .height(20)
-              .borderRadius(15)
+              .borderRadius(17)
               .backgroundColor('#3A3A3A')
               .enabled(this.hayDeshacer)
               .onClick(() => {
@@ -843,7 +843,7 @@ struct Index {
                 .fontColor('#FFFFFF')
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
-                .width(74)
+                .width(90)
                 .height(12)
 
               Text(this.estadoCentroSecundario())
@@ -851,26 +851,26 @@ struct Index {
                 .fontColor('#DDDDDD')
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
-                .width(74)
+                .width(90)
                 .height(8)
             }
-            .width(74)
+            .width(90)
             .height(20)
             .justifyContent(FlexAlign.Center)
             .alignItems(HorizontalAlign.Center)
 
             Button('Reset')
               .fontSize(10)
-              .width(74)
+              .width(90)
               .height(20)
-              .borderRadius(15)
+              .borderRadius(17)
               .backgroundColor('#3A3A3A')
               .onClick(() => {
                 this.requestReset()
               })
           }
           .width('100%')
-          .height(34)
+          .height(86)
           .justifyContent(FlexAlign.SpaceBetween)
           .alignItems(VerticalAlign.Center)
           .margin({ top: 0, bottom: 0 })
@@ -900,7 +900,7 @@ struct Index {
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(50)
+              .height(86)
           }
           .width('100%')
           .layoutWeight(1)
@@ -925,6 +925,7 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
 
 
 

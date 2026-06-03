@@ -835,6 +835,7 @@ struct Index {
               .onClick(() => {
                 this.undoPoint()
               })
+              .responseRegion({ x: -35, y: -35, width: 150, height: 95 })
 
             Column() {
               Text(this.estadoCentro())
@@ -868,6 +869,7 @@ struct Index {
               .onClick(() => {
                 this.requestReset()
               })
+              .responseRegion({ x: -35, y: -35, width: 150, height: 95 })
           }
           .width('100%')
           .height(40)
@@ -925,6 +927,7 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
 
 
 

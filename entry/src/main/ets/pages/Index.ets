@@ -662,7 +662,7 @@ struct Index {
 
           Button('Nuevo')
             .fontSize(10)
-            .width(82)
+            .width(86)
             .height(24)
             .borderRadius(12)
             .backgroundColor('#3A3A3A')
@@ -827,9 +827,9 @@ struct Index {
           Row() {
             Button('Undo')
               .fontSize(10)
-              .width(58)
+              .width(74)
               .height(20)
-              .borderRadius(11)
+              .borderRadius(15)
               .backgroundColor('#3A3A3A')
               .enabled(this.hayDeshacer)
               .onClick(() => {
@@ -843,7 +843,7 @@ struct Index {
                 .fontColor('#FFFFFF')
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
-                .width(58)
+                .width(74)
                 .height(12)
 
               Text(this.estadoCentroSecundario())
@@ -851,19 +851,19 @@ struct Index {
                 .fontColor('#DDDDDD')
                 .maxLines(1)
                 .textAlign(TextAlign.Center)
-                .width(58)
+                .width(74)
                 .height(8)
             }
-            .width(58)
+            .width(74)
             .height(20)
             .justifyContent(FlexAlign.Center)
             .alignItems(HorizontalAlign.Center)
 
             Button('Reset')
               .fontSize(10)
-              .width(58)
+              .width(74)
               .height(20)
-              .borderRadius(11)
+              .borderRadius(15)
               .backgroundColor('#3A3A3A')
               .onClick(() => {
                 this.requestReset()
@@ -925,6 +925,9 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
+
+
 
 
 

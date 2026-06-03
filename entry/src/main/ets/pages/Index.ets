@@ -22,6 +22,10 @@ struct Index {
 
   @State decidirModoSet: boolean = false
   @State showMatchModeDecision: boolean = false
+  @State decidirReglaDeuce: boolean = false
+  @State reglaDeuceDecidida: boolean = false
+  @State reglaDeuce: string = 'advantage'
+  @State deuceReturns: number = 0
   @State partidoTerminado: boolean = false
   @State jugarConDiferenciaDos: boolean = false
 
@@ -45,6 +49,10 @@ struct Index {
   @State prevSuperTieRivales: number = 0
   @State prevDecidirModoSet: boolean = false
   @State prevShowMatchModeDecision: boolean = false
+  @State prevDecidirReglaDeuce: boolean = false
+  @State prevReglaDeuceDecidida: boolean = false
+  @State prevReglaDeuce: string = 'advantage'
+  @State prevDeuceReturns: number = 0
   @State prevPartidoTerminado: boolean = false
   @State prevJugarConDiferenciaDos: boolean = false
   @State prevFinalLine1: string = 'Set 1: -'
@@ -69,6 +77,10 @@ struct Index {
     this.prevSuperTieRivales = this.superTieRivales
     this.prevDecidirModoSet = this.decidirModoSet
     this.prevShowMatchModeDecision = this.showMatchModeDecision
+    this.prevDecidirReglaDeuce = this.decidirReglaDeuce
+    this.prevReglaDeuceDecidida = this.reglaDeuceDecidida
+    this.prevReglaDeuce = this.reglaDeuce
+    this.prevDeuceReturns = this.deuceReturns
     this.prevPartidoTerminado = this.partidoTerminado
     this.prevJugarConDiferenciaDos = this.jugarConDiferenciaDos
     this.prevFinalLine1 = this.finalLine1
@@ -78,7 +90,7 @@ struct Index {
   }
 
   addPoint(equipo: string): void {
-    if (this.partidoTerminado || this.decidirModoSet || this.showMatchModeDecision) {
+    if (this.partidoTerminado || this.decidirModoSet || this.showMatchModeDecision || this.decidirReglaDeuce) {
       return
     }
 
@@ -98,37 +110,114 @@ struct Index {
   }
 
   addNormalPoint(equipo: string): void {
+    if (this.puntosNosotros === 'AD') {
+      if (equipo === 'nosotros') {
+        this.winGame('nosotros')
+      } else {
+        this.puntosNosotros = '40'
+        this.puntosRivales = '40'
+        if (this.reglaDeuce === 'star') {
+          this.deuceReturns++
+        }
+      }
+      return
+    }
+
+    if (this.puntosRivales === 'AD') {
+      if (equipo === 'rivales') {
+        this.winGame('rivales')
+      } else {
+        this.puntosNosotros = '40'
+        this.puntosRivales = '40'
+        if (this.reglaDeuce === 'star') {
+          this.deuceReturns++
+        }
+      }
+      return
+    }
+
+    if (this.puntosNosotros === '40' && this.puntosRivales === '40') {
+      if (!this.reglaDeuceDecidida) {
+        this.decidirReglaDeuce = true
+        this.mensaje = 'Elige 40-40'
+        return
+      }
+
+      if (this.reglaDeuce === 'golden') {
+        this.winGame(equipo)
+        return
+      }
+
+      if (this.reglaDeuce === 'star' && this.deuceReturns >= 2) {
+        this.winGame(equipo)
+        return
+      }
+
+      if (equipo === 'nosotros') {
+        this.puntosNosotros = 'AD'
+      } else {
+        this.puntosRivales = 'AD'
+      }
+      return
+    }
+
     if (equipo === 'nosotros') {
       if (this.puntosNosotros === '40') {
         this.winGame('nosotros')
         return
       }
-
       this.puntosNosotros = this.nextPoint(this.puntosNosotros)
-      return
+    } else {
+      if (this.puntosRivales === '40') {
+        this.winGame('rivales')
+        return
+      }
+      this.puntosRivales = this.nextPoint(this.puntosRivales)
     }
 
-    if (this.puntosRivales === '40') {
-      this.winGame('rivales')
-      return
+    if (this.puntosNosotros === '40' && this.puntosRivales === '40' && !this.reglaDeuceDecidida) {
+      this.decidirReglaDeuce = true
+      this.mensaje = 'Elige 40-40'
     }
+  }
 
-    this.puntosRivales = this.nextPoint(this.puntosRivales)
+  chooseAdvantageRule(): void {
+    this.saveUndoState()
+    this.decidirReglaDeuce = false
+    this.reglaDeuceDecidida = true
+    this.reglaDeuce = 'advantage'
+    this.deuceReturns = 0
+    this.mensaje = ''
+  }
+
+  chooseGoldenPoint(): void {
+    this.saveUndoState()
+    this.decidirReglaDeuce = false
+    this.reglaDeuceDecidida = true
+    this.reglaDeuce = 'golden'
+    this.deuceReturns = 0
+    this.mensaje = ''
+  }
+
+  chooseStarPoint(): void {
+    this.saveUndoState()
+    this.decidirReglaDeuce = false
+    this.reglaDeuceDecidida = true
+    this.reglaDeuce = 'star'
+    this.deuceReturns = 0
+    this.mensaje = ''
   }
 
   nextPoint(punto: string): string {
     if (punto === '0') {
       return '15'
     }
-
     if (punto === '15') {
       return '30'
     }
-
     if (punto === '30') {
       return '40'
     }
-
     return '0'
   }
 
@@ -141,6 +230,7 @@ struct Index {
 
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
+    this.deuceReturns = 0
 
     if (this.juegosNosotros === 6 && this.juegosRivales === 6 && !this.jugarConDiferenciaDos) {
       this.decidirModoSet = true
@@ -160,6 +250,7 @@ struct Index {
     this.tieBreakRivales = 0
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
+    this.deuceReturns = 0
     this.mensaje = ''
   }
 
@@ -170,6 +261,7 @@ struct Index {
     this.jugarConDiferenciaDos = true
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
+    this.deuceReturns = 0
     this.mensaje = ''
   }
 
@@ -235,11 +327,9 @@ struct Index {
     if (this.setActual === 1) {
       this.finalLine1 = 'Set 1: ' + this.juegosNosotros + '-' + this.juegosRivales
     }
-
     if (this.setActual === 2) {
       this.finalLine2 = 'Set 2: ' + this.juegosNosotros + '-' + this.juegosRivales
     }
-
     if (this.setActual === 3) {
       this.finalLine3 = 'Set 3: ' + this.juegosNosotros + '-' + this.juegosRivales
     }
@@ -260,6 +350,7 @@ struct Index {
     this.jugarConDiferenciaDos = false
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
+    this.deuceReturns = 0
 
     if (this.setsNosotros === 2 || this.setsRivales === 2) {
       this.partidoTerminado = true
@@ -286,6 +377,7 @@ struct Index {
     this.juegosRivales = 0
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
+    this.deuceReturns = 0
     this.mensaje = ''
   }
 
@@ -300,6 +392,7 @@ struct Index {
     this.superTieRivales = 0
     this.puntosNosotros = '0'
     this.puntosRivales = '0'
+    this.deuceReturns = 0
     this.mensaje = ''
   }
 
@@ -340,6 +433,10 @@ struct Index {
     this.superTieRivales = this.prevSuperTieRivales
     this.decidirModoSet = this.prevDecidirModoSet
     this.showMatchModeDecision = this.prevShowMatchModeDecision
+    this.decidirReglaDeuce = this.prevDecidirReglaDeuce
+    this.reglaDeuceDecidida = this.prevReglaDeuceDecidida
+    this.reglaDeuce = this.prevReglaDeuce
+    this.deuceReturns = this.prevDeuceReturns
     this.partidoTerminado = this.prevPartidoTerminado
     this.jugarConDiferenciaDos = this.prevJugarConDiferenciaDos
     this.finalLine1 = this.prevFinalLine1
@@ -353,7 +450,6 @@ struct Index {
       this.resetMatch()
       return
     }
-
     this.showResetConfirm = true
   }
 
@@ -382,6 +478,10 @@ struct Index {
     this.superTieRivales = 0
     this.decidirModoSet = false
     this.showMatchModeDecision = false
+    this.decidirReglaDeuce = false
+    this.reglaDeuceDecidida = false
+    this.reglaDeuce = 'advantage'
+    this.deuceReturns = 0
     this.partidoTerminado = false
     this.jugarConDiferenciaDos = false
     this.finalLine1 = 'Set 1: -'
@@ -389,63 +489,49 @@ struct Index {
     this.finalLine3 = 'Set 3: -'
     this.mensaje = ''
     this.hayDeshacer = false
-  }
-
-  estadoSuperior(): string {
-    if (this.partidoTerminado) {
-      return 'Resultado'
-    }
-
-    if (this.enSuperTieBreak) {
-      return 'Super TB'
-    }
-
-    if (this.enTieBreak) {
-      return 'Tie-break'
-    }
-
-    return 'Set ' + this.setActual
-  }
-
-  estadoJuegos(): string {
-    if (this.enSuperTieBreak) {
-      return 'Super TB ' + this.superTieNosotros + '-' + this.superTieRivales
-    }
-
-    if (this.enTieBreak) {
-      return 'Tie-break ' + this.tieBreakNosotros + '-' + this.tieBreakRivales
-    }
-
-    if (this.jugarConDiferenciaDos) {
-      return 'Dif. 2  ' + this.juegosNosotros + '-' + this.juegosRivales
-    }
-
-    return 'Juegos ' + this.juegosNosotros + '-' + this.juegosRivales
+    this.showResetConfirm = false
   }
 
   estadoCentro(): string {
     if (this.enSuperTieBreak) {
       return 'SUPER TB'
     }
-
     if (this.enTieBreak) {
       return 'TIE-BREAK'
     }
-
+    if (this.puntosNosotros === 'AD' || this.puntosRivales === 'AD') {
+      return 'VENTAJA'
+    }
+    if (this.puntosNosotros === '40' && this.puntosRivales === '40') {
+      if (this.reglaDeuce === 'golden') {
+        return 'BOLA ORO'
+      }
+      if (this.reglaDeuce === 'star') {
+        if (this.deuceReturns >= 2) {
+          return 'STAR POINT'
+        }
+        return 'DEUCE ' + (this.deuceReturns + 1).toString() + '/2'
+      }
+      return 'DEUCE'
+    }
     if (this.jugarConDiferenciaDos) {
       return 'DIF. 2'
     }
-
     return 'SET ' + this.setActual
+  }
+
+  estadoCentroSecundario(): string {
+    if (this.puntosNosotros === '40' && this.puntosRivales === '40' && this.reglaDeuce === 'star' && this.deuceReturns >= 2) {
+      return 'Recibe elige lado'
+    }
+    return ''
   }
 
   sacadorActual(): string {
     let totalJuegos: number = this.juegosNosotros + this.juegosRivales
-
     if (totalJuegos % 2 === 0) {
       return 'nosotros'
     }
-
     return 'rivales'
   }
 
@@ -453,7 +539,6 @@ struct Index {
     if (equipo === this.sacadorActual()) {
       return equipo === 'nosotros' ? '🎾 NOSOTROS' : '🎾 RIVALES'
     }
-
     return equipo === 'nosotros' ? 'NOSOTROS' : 'RIVALES'
   }
 
@@ -560,6 +645,57 @@ struct Index {
             .margin({ top: 8 })
             .onClick(() => {
               this.resetMatch()
+            })
+        }
+        .width('100%')
+        .height('100%')
+        .justifyContent(FlexAlign.Center)
+        .alignItems(HorizontalAlign.Center)
+      } else if (this.decidirReglaDeuce) {
+        Column() {
+          Text('Sistema 40-40')
+            .fontSize(17)
+            .fontWeight(FontWeight.Bold)
+            .fontColor(Color.White)
+            .maxLines(1)
+            .textAlign(TextAlign.Center)
+            .width('100%')
+            .height(28)
+
+          Button('Ventaja')
+            .fontSize(13)
+            .fontWeight(FontWeight.Bold)
+            .width(138)
+            .height(30)
+            .borderRadius(15)
+            .backgroundColor('#3A3A3A')
+            .margin({ top: 4 })
+            .onClick(() => {
+              this.chooseAdvantageRule()
+            })
+
+          Button('Bola de oro')
+            .fontSize(13)
+            .fontWeight(FontWeight.Bold)
+            .width(138)
+            .height(30)
+            .borderRadius(15)
+            .backgroundColor('#C600D9')
+            .margin({ top: 5 })
+            .onClick(() => {
+              this.chooseGoldenPoint()
+            })
+
+          Button('Star Point')
+            .fontSize(13)
+            .fontWeight(FontWeight.Bold)
+            .width(138)
+            .height(30)
+            .borderRadius(15)
+            .backgroundColor('#FF9300')
+            .margin({ top: 5 })
+            .onClick(() => {
+              this.chooseStarPoint()
             })
         }
         .width('100%')
@@ -676,14 +812,28 @@ struct Index {
                 this.undoPoint()
               })
 
-            Text(this.estadoCentro())
-              .fontSize(11)
-              .fontWeight(FontWeight.Bold)
-              .fontColor('#FFFFFF')
-              .maxLines(1)
-              .textAlign(TextAlign.Center)
-              .width(58)
-              .height(22)
+            Column() {
+              Text(this.estadoCentro())
+                .fontSize(10)
+                .fontWeight(FontWeight.Bold)
+                .fontColor('#FFFFFF')
+                .maxLines(1)
+                .textAlign(TextAlign.Center)
+                .width(58)
+                .height(13)
+
+              Text(this.estadoCentroSecundario())
+                .fontSize(7)
+                .fontColor('#DDDDDD')
+                .maxLines(1)
+                .textAlign(TextAlign.Center)
+                .width(58)
+                .height(9)
+            }
+            .width(58)
+            .height(22)
+            .justifyContent(FlexAlign.Center)
+            .alignItems(HorizontalAlign.Center)
 
             Button('Reset')
               .fontSize(10)

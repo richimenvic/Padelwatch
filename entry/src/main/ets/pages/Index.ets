@@ -580,7 +580,7 @@ struct Index {
             .height(28)
 
           Text('Mantén presionado')
-            .fontSize(11)
+            .fontSize(10)
             .fontColor('#CCCCCC')
             .maxLines(1)
             .textAlign(TextAlign.Center)
@@ -603,7 +603,7 @@ struct Index {
             )
 
           Button('Cancelar')
-            .fontSize(11)
+            .fontSize(10)
             .width(92)
             .height(24)
             .borderRadius(12)
@@ -735,7 +735,7 @@ struct Index {
             .margin({ bottom: 6 })
 
           Button('Tie-break')
-            .fontSize(11)
+            .fontSize(10)
             .width(106)
             .height(28)
             .margin({ bottom: 6 })
@@ -744,7 +744,7 @@ struct Index {
             })
 
           Button('Dif. 2')
-            .fontSize(11)
+            .fontSize(10)
             .width(106)
             .height(28)
             .onClick(() => {
@@ -764,7 +764,7 @@ struct Index {
             .margin({ bottom: 6 })
 
           Button('3er Set')
-            .fontSize(11)
+            .fontSize(10)
             .width(106)
             .height(28)
             .margin({ bottom: 6 })
@@ -773,7 +773,7 @@ struct Index {
             })
 
           Button('Super TB')
-            .fontSize(11)
+            .fontSize(10)
             .width(106)
             .height(28)
             .onClick(() => {
@@ -805,18 +805,18 @@ struct Index {
               .height(14)
 
             Text(this.puntosNosotros)
-              .fontSize(38)
+              .fontSize(52)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(44)
+              .height(64)
           }
-          .width(176)
-          .height(82)
-          .padding({ left: 8, right: 8, top: 6, bottom: 4 })
-          .borderRadius(20)
+          .width('100%')
+          .height(204)
+          .padding({ left: 8, right: 8, top: 24, bottom: 10 })
+          .borderRadius(0)
           .backgroundColor('#C600D9')
           .justifyContent(FlexAlign.Center)
           .alignItems(HorizontalAlign.Center)
@@ -869,11 +869,11 @@ struct Index {
                 this.requestReset()
               })
           }
-          .width(182)
-          .height(28)
+          .width('100%')
+          .height(58)
           .justifyContent(FlexAlign.SpaceBetween)
           .alignItems(VerticalAlign.Center)
-          .margin({ top: 4, bottom: 4 })
+          .margin({ top: 0, bottom: 0 })
 
           Column() {
             Text(this.nombreEquipo('rivales'))
@@ -894,18 +894,18 @@ struct Index {
               .height(14)
 
             Text(this.puntosRivales)
-              .fontSize(38)
+              .fontSize(52)
               .fontWeight(FontWeight.Bold)
               .fontColor(Color.White)
               .maxLines(1)
               .textAlign(TextAlign.Center)
               .width('100%')
-              .height(44)
+              .height(64)
           }
-          .width(176)
-          .height(82)
-          .padding({ left: 8, right: 8, top: 6, bottom: 4 })
-          .borderRadius(20)
+          .width('100%')
+          .height(204)
+          .padding({ left: 8, right: 8, top: 20, bottom: 14 })
+          .borderRadius(0)
           .backgroundColor('#FF9300')
           .justifyContent(FlexAlign.Center)
           .alignItems(HorizontalAlign.Center)
@@ -921,8 +921,17 @@ struct Index {
     }
     .width('100%')
     .height('100%')
-    .padding({ left: 0, right: 0, top: 18, bottom: 18 })
+    .padding({ left: 0, right: 0, top: 0, bottom: 0 })
     .backgroundColor('#000000')
   }
 }
+
+
+
+
+
+
+
+
+
 

@@ -1,3 +1,5 @@
+import vibrator from '@ohos.vibrator'
+
 @Entry
 @Component
 struct Index {
@@ -89,11 +91,33 @@ struct Index {
     this.hayDeshacer = true
   }
 
+  vibratePoint(): void {
+    try {
+      vibrator.startVibration(
+        {
+          type: 'time',
+          duration: 45
+        },
+        {
+          id: 0,
+          usage: 'touch'
+        },
+        (error) => {
+          if (error) {
+            console.error('Vibration failed: ' + JSON.stringify(error))
+          }
+        }
+      )
+    } catch (err) {
+      console.error('Vibration exception: ' + JSON.stringify(err))
+    }
+  }
   addPoint(equipo: string): void {
     if (this.partidoTerminado || this.decidirModoSet || this.showMatchModeDecision || this.decidirReglaDeuce) {
       return
     }
 
+    this.vibratePoint()
     this.saveUndoState()
 
     if (this.enSuperTieBreak) {
@@ -901,3 +925,4 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+

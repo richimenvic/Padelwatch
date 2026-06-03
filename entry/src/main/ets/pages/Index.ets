@@ -62,6 +62,8 @@ struct Index {
   @State prevFinalLine3: string = 'Set 3: -'
   @State hayDeshacer: boolean = false
   @State showResetConfirm: boolean = false
+  @State appScreen: string = 'welcome'
+  @State sacadorInicial: string = 'nosotros'
 
   saveUndoState(): void {
     this.prevPuntosNosotros = this.puntosNosotros
@@ -566,6 +568,27 @@ struct Index {
     return equipo === 'nosotros' ? 'NOSOTROS' : 'RIVALES'
   }
 
+  startSetupFromWelcome(): void {
+    this.resetMatch()
+    this.appScreen = 'server'
+  }
+
+  openSettings(): void {
+    this.appScreen = 'settings'
+  }
+
+  backToWelcome(): void {
+    this.appScreen = 'welcome'
+  }
+
+  startMatchWithServer(equipo: string): void {
+    this.sacadorInicial = equipo
+    this.appScreen = 'match'
+  }
+
+  oppositeTeam(equipo: string): string {
+    return equipo === 'nosotros' ? 'rivales' : 'nosotros'
+  }
   build() {
     Column() {
       if (this.showResetConfirm) {
@@ -927,6 +950,9 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
+
+
+
 
 
 

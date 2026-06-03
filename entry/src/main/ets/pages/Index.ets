@@ -795,17 +795,20 @@ struct Index {
             this.startMatchWithServer('nosotros')
           })
 
-          Button('¿QUIÉN SACA PRIMERO?')
-            .fontSize(12)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(Color.White)
-            .width('100%')
-            .height(40)
-            .borderRadius(0)
-            .backgroundColor('#000000')
-            .onClick(() => {
-              this.openSettings()
-            })
+          Row() {
+            Text('¿QUIÉN SACA PRIMERO?')
+              .fontSize(12)
+              .fontWeight(FontWeight.Bold)
+              .fontColor(Color.White)
+              .textAlign(TextAlign.Center)
+              .width('100%')
+              .height(40)
+          }
+          .width('100%')
+          .height(40)
+          .justifyContent(FlexAlign.Center)
+          .alignItems(VerticalAlign.Center)
+          .backgroundColor('#000000')
 
           Column() {
             Text('RIVALES')
@@ -1104,7 +1107,7 @@ struct Index {
               .onClick(() => {
                 this.undoPoint()
               })
-              .responseRegion({ x: -25, y: -25, width: 128, height: 105 })
+              .responseRegion({ x: -35, y: -35, width: 150, height: 95 })
 
             Column() {
               Text(this.estadoCentro())
@@ -1138,7 +1141,7 @@ struct Index {
               .onClick(() => {
                 this.requestReset()
               })
-              .responseRegion({ x: -25, y: -25, width: 128, height: 105 })
+              .responseRegion({ x: -35, y: -35, width: 150, height: 95 })
           }
           .width('100%')
           .height(40)
@@ -1196,17 +1199,6 @@ struct Index {
     .backgroundColor('#000000')
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

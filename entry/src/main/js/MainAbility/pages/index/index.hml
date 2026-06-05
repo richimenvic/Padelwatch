@@ -234,7 +234,10 @@
           </div>
         </div>
       </div>
-      <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
+      <div class="finalButtonRow">
+        <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
+        <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
+      </div>
     </div>
   </div>
 
@@ -271,7 +274,10 @@
           </div>
         </div>
       </div>
-      <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
+      <div class="finalButtonRow">
+        <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
+        <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
+      </div>
     </div>
   </div>
 

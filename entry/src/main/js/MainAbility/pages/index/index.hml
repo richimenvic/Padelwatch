@@ -204,16 +204,29 @@
   <div class="decision finalPage" if="{{finalNosotrosVisible}}">
     <div class="finalContent">
       <div class="finalWinnerPanel finalWinnerPanelWin">
-        <text class="finalCup">COPA</text>
-        <text class="finalWinnerLabel">VICTORIA</text>
+        <text class="finalWinnerLabel">GANADOR</text>
         <text class="finalWinnerName">NOSOTROS</text>
       </div>
       <text class="finalSubTitle">RESULTADO FINAL</text>
-      <text class="finalTeamsLine">NOSOTROS / RIVALES</text>
-      <div class="finalRawScoreBlock">
-        <text class="finalRawScoreLine">{{finalLine1}}</text>
-        <text class="finalRawScoreLine">{{finalLine2}}</text>
-        <text class="finalRawScoreLine">{{finalLine3}}</text>
+      <div class="finalBoard">
+        <div class="finalBoardRow finalBoardHeader">
+          <text class="finalBoardLabel"></text>
+          <text class="finalBoardCell">S1</text>
+          <text class="finalBoardCell">S2</text>
+          <text class="finalBoardCell">S3</text>
+        </div>
+        <div class="finalBoardRow">
+          <text class="finalBoardLabel finalBoardNosLabel">NOS</text>
+          <text class="finalBoardCell">{{finalNosSet1}}</text>
+          <text class="finalBoardCell">{{finalNosSet2}}</text>
+          <text class="finalBoardCell">{{finalNosSet3}}</text>
+        </div>
+        <div class="finalBoardRow">
+          <text class="finalBoardLabel finalBoardRivLabel">RIV</text>
+          <text class="finalBoardCell">{{finalRivSet1}}</text>
+          <text class="finalBoardCell">{{finalRivSet2}}</text>
+          <text class="finalBoardCell">{{finalRivSet3}}</text>
+        </div>
       </div>
       <div class="finalButtonRow">
         <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
@@ -225,16 +238,29 @@
   <div class="decision finalPage" if="{{finalRivalesVisible}}">
     <div class="finalContent">
       <div class="finalWinnerPanel finalWinnerPanelLoss">
-        <text class="finalCup">COPA</text>
-        <text class="finalWinnerLabel">VICTORIA</text>
+        <text class="finalWinnerLabel">GANADOR</text>
         <text class="finalWinnerName">RIVALES</text>
       </div>
       <text class="finalSubTitle">RESULTADO FINAL</text>
-      <text class="finalTeamsLine">NOSOTROS / RIVALES</text>
-      <div class="finalRawScoreBlock">
-        <text class="finalRawScoreLine">{{finalLine1}}</text>
-        <text class="finalRawScoreLine">{{finalLine2}}</text>
-        <text class="finalRawScoreLine">{{finalLine3}}</text>
+      <div class="finalBoard">
+        <div class="finalBoardRow finalBoardHeader">
+          <text class="finalBoardLabel"></text>
+          <text class="finalBoardCell">S1</text>
+          <text class="finalBoardCell">S2</text>
+          <text class="finalBoardCell">S3</text>
+        </div>
+        <div class="finalBoardRow">
+          <text class="finalBoardLabel finalBoardNosLabel">NOS</text>
+          <text class="finalBoardCell">{{finalNosSet1}}</text>
+          <text class="finalBoardCell">{{finalNosSet2}}</text>
+          <text class="finalBoardCell">{{finalNosSet3}}</text>
+        </div>
+        <div class="finalBoardRow">
+          <text class="finalBoardLabel finalBoardRivLabel">RIV</text>
+          <text class="finalBoardCell">{{finalRivSet1}}</text>
+          <text class="finalBoardCell">{{finalRivSet2}}</text>
+          <text class="finalBoardCell">{{finalRivSet3}}</text>
+        </div>
       </div>
       <div class="finalButtonRow">
         <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>

@@ -132,6 +132,12 @@ export default {
     finalOppSet1: '-',
     finalOppSet2: '-',
     finalOppSet3: '-',
+    finalNosSet1: '-',
+    finalNosSet2: '-',
+    finalNosSet3: '-',
+    finalRivSet1: '-',
+    finalRivSet2: '-',
+    finalRivSet3: '-',
 
     undoHistoryText: '',
     undoCount: 0,
@@ -558,6 +564,7 @@ export default {
     if (this.finalLine3 === '') {
       this.finalLine3 = 'Set 3: -'
     }
+    this.applyFinalScoreboard()
     this.updateFinalResultGrid()
     this.finalScoreLine1 = this.finalResultLineText(this.finalLine1)
     this.finalScoreLine2 = this.finalResultLineText(this.finalLine2)
@@ -1365,6 +1372,49 @@ export default {
     this.finalOppSet2 = set2[1]
     this.finalMineSet3 = set3[0]
     this.finalOppSet3 = set3[1]
+  },
+
+  applyFinalScoreboard: function () {
+    this.finalNosSet1 = '-'
+    this.finalNosSet2 = '-'
+    this.finalNosSet3 = '-'
+    this.finalRivSet1 = '-'
+    this.finalRivSet2 = '-'
+    this.finalRivSet3 = '-'
+
+    this.applyFinalScoreLine(1, this.finalLine1)
+    this.applyFinalScoreLine(2, this.finalLine2)
+    this.applyFinalScoreLine(3, this.finalLine3)
+  },
+
+  applyFinalScoreLine: function (setNo, line) {
+    if (!line || line.indexOf(': ') < 0) {
+      return
+    }
+
+    var score = line.substring(line.indexOf(': ') + 2)
+    if (!score || score === '-') {
+      return
+    }
+
+    var dash = score.indexOf('-')
+    if (dash < 0) {
+      return
+    }
+
+    var nos = score.substring(0, dash)
+    var riv = score.substring(dash + 1)
+
+    if (setNo === 1) {
+      this.finalNosSet1 = nos
+      this.finalRivSet1 = riv
+    } else if (setNo === 2) {
+      this.finalNosSet2 = nos
+      this.finalRivSet2 = riv
+    } else {
+      this.finalNosSet3 = nos
+      this.finalRivSet3 = riv
+    }
   },
 
   historySetParts: function (value) {

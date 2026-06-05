@@ -16,11 +16,17 @@
         <text class="resultDate"></text>
       </div>
       <div class="resultDivider"></div>
-      <div class="resultBody">
-        <text class="historyRawLine">05/06 18:40   NOS</text>
-        <text class="historyRawLine">6-3   6-4   -</text>
-        <text class="historyRawLine">05/06 19:25   RIV</text>
-        <text class="historyRawLine">0-6   1-6   10-8</text>
+
+      <div class="resultBody historyMatchList">
+        <div class="historyMatchCard">
+          <text class="historyMatchMeta">05/06 18:40   NOS</text>
+          <text class="historyMatchScore">6-3   6-4   -</text>
+        </div>
+
+        <div class="historyMatchCard">
+          <text class="historyMatchMeta">05/06 19:25   RIV</text>
+          <text class="historyMatchScore">0-6   1-6   10-8</text>
+        </div>
       </div>
     </div>
 
@@ -256,3 +262,6 @@
   </div>
 
 </div>
+
+
+

@@ -13,13 +13,12 @@
     <div class="resultCard">
       <div class="resultHeader">
         <text class="resultTitle">HISTORIAL</text>
-        <text class="resultDate">3 últimos</text>
+        <text class="resultDate">05/06 · 18:40</text>
       </div>
       <div class="resultDivider"></div>
       <div class="resultBody">
-        <text class="historyRawLine">05/06   NOS   6-3  6-4</text>
-        <text class="historyRawLine">05/06   RIV   0-6  1-6</text>
-        <text class="historyRawLine">05/06   NOS   6-7  6-4</text>
+        <text class="historyRawLine">NOS       6-3   6-4</text>
+        <text class="historyRawLine">RIV       0-6   1-6</text>
       </div>
     </div>
 
@@ -255,3 +254,4 @@
   </div>
 
 </div>
+

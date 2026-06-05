@@ -8,11 +8,11 @@
 }
 
 .welcome,
+.history,
 .settings,
 .serverPage,
 .decision,
-.game,
-.finished {
+.game {
   width: 100%;
   height: 100%;
   background-color: #000000;
@@ -21,10 +21,27 @@
   justify-content: center;
 }
 
+.serverPage,
+.game {
+  justify-content: flex-start;
+}
+
+.serverPage {
+  background-color: #c600d9;
+}
+
+.welcome {
+  padding-top: 12px;
+}
+
+.game {
+  background-color: #c600d9;
+}
+
 .title {
   width: 100%;
-  height: 68px;
-  font-size: 43px;
+  height: 42px;
+  font-size: 30px;
   color: #ffffff;
   text-align: center;
   margin-bottom: 8px;
@@ -40,35 +57,188 @@
 }
 
 .mainButton {
-  width: 330px;
-  height: 100px;
-  border-radius: 50px;
+  width: 316px;
+  height: 80px;
+  border-radius: 40px;
   background-color: #c600d9;
   color: #ffffff;
-  font-size: 34px;
+  font-size: 29px;
   text-align: center;
   margin-top: 0px;
   margin-bottom: 10px;
 }
 
 .smallButton {
-  width: 286px;
-  height: 78px;
-  border-radius: 39px;
+  width: 280px;
+  height: 64px;
+  border-radius: 32px;
   background-color: #3a3a3a;
   color: #ffffff;
-  font-size: 31px;
+  font-size: 26px;
   text-align: center;
-  margin-top: 2px;
+  margin-top: 5px;
+}
+
+.history {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyEmpty {
+  width: 100%;
+  height: 42px;
+  font-size: 26px;
+  color: #cccccc;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.resultCard {
+  width: 306px;
+  height: 190px;
+  border-radius: 16px;
+  background-color: #263064;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.resultHeader {
+  width: 286px;
+  height: 48px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultDivider {
+  width: 286px;
+  height: 2px;
+  background-color: #101843;
+}
+
+.resultTitle {
+  width: 116px;
+  height: 32px;
+  font-size: 25px;
+  color: #fff05a;
+  text-align: left;
+}
+
+.resultDate {
+  width: 150px;
+  height: 28px;
+  font-size: 19px;
+  color: #ffffff;
+  text-align: right;
+}
+
+.resultBody {
+  width: 286px;
+  height: 132px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultNames {
+  width: 150px;
+  height: 112px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.resultName {
+  width: 146px;
+  height: 44px;
+  font-size: 25px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.resultNameMine {
+  color: #fff05a;
+}
+
+.resultScores {
+  width: 126px;
+  height: 112px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultScoreColumn {
+  width: 40px;
+  height: 104px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultScore {
+  width: 36px;
+  height: 42px;
+  font-size: 31px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.resultMineScore {
+  color: #25e66a;
+}
+
+.historyNav {
+  width: 316px;
+  height: 62px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.pagerButton {
+  width: 58px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 26px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.pagerButtonGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyBackButton {
+  width: 176px;
+  height: 54px;
+  border-radius: 27px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .credit {
   width: 100%;
-  height: 34px;
-  font-size: 23px;
+  height: 22px;
+  font-size: 16px;
   color: #cccccc;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 14px;
 }
 
 .settingButton,
@@ -77,11 +247,19 @@
   height: 78px;
   border-radius: 39px;
   background-color: #c600d9;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.settingButtonText {
+  width: 300px;
+  height: 36px;
   color: #ffffff;
   font-size: 25px;
   text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .vibrationButton {
@@ -96,40 +274,64 @@
   background-color: #3a3a3a;
 }
 
-.teamTop,
-.scoreTop {
+.serverTopMain {
   width: 100%;
-  height: 44%;
-  background-color: #c600d9;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.teamBottom,
-.scoreBottom {
-  width: 100%;
-  height: 44%;
+  height: 35%;
   background-color: #ff9300;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.teamTop {
   justify-content: flex-end;
-  padding-bottom: 26px;
+  padding-bottom: 0px;
 }
 
-.teamBottom {
+.serverTopCenterTouch {
+  width: 100%;
+  height: 9%;
+  background-color: #ff9300;
+}
+
+.serverBottomCenterTouch {
+  width: 100%;
+  height: 9%;
+  background-color: #c600d9;
+}
+
+.serverBottomMain {
+  width: 100%;
+  height: 35%;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
   justify-content: flex-start;
-  padding-top: 26px;
+  padding-top: 0px;
+}
+
+.scoreTopMain {
+  width: 100%;
+  height: 40%;
+  background-color: #ff9300;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0px;
+  padding-bottom: 2px;
+}
+
+.scoreBottomMain {
+  width: 100%;
+  height: 40%;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .serverTeam {
   width: 100%;
-  height: 62px;
-  font-size: 43px;
+  height: 76px;
+  font-size: 52px;
   color: #ffffff;
   text-align: center;
 }
@@ -143,23 +345,42 @@
   margin-top: 0px;
 }
 
-.centerBar,
-.gameCenter {
+.centerBar {
   width: 100%;
-  height: 62px;
+  height: 12%;
   background-color: #000000;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-.centerText,
-.barText {
-  width: 220px;
-  height: 28px;
-  font-size: 18px;
-  color: #ffffff;
-  text-align: center;
+.gameCenter {
+  width: 100%;
+  height: 20%;
+  background-color: #c600d9;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barZoneLeft,
+.barZoneMiddle,
+.barZoneRight {
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barZoneLeft,
+.barZoneRight {
+  width: 27%;
+  background-color: #000000;
+}
+
+.barZoneMiddle {
+  width: 46%;
+  background-color: #000000;
 }
 
 .serverCenterText {
@@ -172,52 +393,142 @@
 
 .teamName {
   width: 100%;
-  height: 28px;
-  font-size: 21px;
+  height: 25px;
+  font-size: 23px;
   color: #ffffff;
   text-align: center;
 }
 
-.setsLine,
-.gamesText,
-.setsText {
+.setsLine {
   width: 100%;
-  height: 28px;
-  font-size: 21px;
+  height: 23px;
+  font-size: 20px;
   color: #f0f0f0;
   text-align: center;
 }
 
-.score,
-.pointText {
-  width: 100%;
-  height: 86px;
-  font-size: 78px;
+.score {
+  width: 150px;
+  height: 96px;
+  font-size: 96px;
   color: #ffffff;
   text-align: center;
 }
 
-.barButton,
-.centerButton {
-  width: 118px;
-  height: 46px;
-  border-radius: 23px;
+.scoreRow {
+  width: 226px;
+  height: 96px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreRivales {
+  margin-bottom: 18px;
+}
+
+.scoreNosotros {
+  margin-top: 0px;
+}
+
+.scoreSpacer {
+  width: 38px;
+  height: 50px;
+  font-size: 1px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.ballSlot {
+  width: 38px;
+  height: 54px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.tennisBall {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #d7ff00;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ballSeam {
+  width: 12px;
+  height: 30px;
+  font-size: 25px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.barButton {
+  width: 88px;
+  height: 54px;
+  border-radius: 27px;
   background-color: #3a3a3a;
   color: #ffffff;
-  font-size: 19px;
+  font-size: 20px;
   text-align: center;
   margin-left: 2px;
   margin-right: 2px;
 }
 
-.setButton {
-  width: 130px;
-  height: 46px;
-  border-radius: 23px;
+.undoButton {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.setScoreGrid {
+  width: 160px;
+  height: 88px;
+  border-radius: 18px;
   background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.setScoreColumn {
+  width: 48px;
+  height: 78px;
+  border-radius: 16px;
+  background-color: #202020;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-width: 2px;
+  border-color: #111111;
+}
+
+.setScoreNeutral {
+  background-color: #202020;
+}
+
+.setScoreRivales {
+  background-color: #ff9300;
+}
+
+.setScoreNosotros {
+  background-color: #c600d9;
+}
+
+.setScoreCell {
+  width: 44px;
+  height: 36px;
+  font-size: 25px;
   color: #ffffff;
-  font-size: 22px;
   text-align: center;
+}
+
+.resetButton {
   margin-left: 0px;
   margin-right: 0px;
 }
@@ -232,6 +543,90 @@
   text-align: center;
   margin-top: 4px;
   margin-bottom: 4px;
+}
+
+.deucePage {
+  justify-content: center;
+  padding-top: 0px;
+}
+
+.deuceChoiceAdvantage,
+.deuceChoiceGolden {
+  width: 336px;
+  height: 132px;
+  border-radius: 28px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.deuceChoiceAdvantage {
+  background-color: #3a3a3a;
+}
+
+.deuceChoiceGolden {
+  background-color: #c600d9;
+}
+
+.deuceChoiceTitle {
+  width: 100%;
+  height: 36px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.deuceChoiceText {
+  width: 100%;
+  height: 42px;
+  color: #ffffff;
+  font-size: 29px;
+  text-align: center;
+}
+
+.setModePage {
+  justify-content: center;
+  padding-top: 0px;
+}
+
+.setModeChoiceTie,
+.setModeChoiceDiff {
+  width: 336px;
+  height: 132px;
+  border-radius: 28px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.setModeChoiceTie {
+  background-color: #c600d9;
+}
+
+.setModeChoiceDiff {
+  background-color: #3a3a3a;
+}
+
+.setModeChoiceTitle {
+  width: 100%;
+  height: 36px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.setModeChoiceText {
+  width: 100%;
+  height: 42px;
+  color: #ffffff;
+  font-size: 29px;
+  text-align: center;
 }
 
 .resetBig {
@@ -254,40 +649,242 @@
   background-color: #ff9300;
 }
 
-.winnerTitle {
-  width: 100%;
-  height: 22px;
-  font-size: 22px;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.winnerName {
-  width: 100%;
-  height: 28px;
-  font-size: 24px;
-  color: #ffffff;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
 .finalPage {
-  background-color: #0fa968;
+  background-color: #050505;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 96px;
+}
+
+.finalContent {
+  width: 100%;
+  height: 230px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .finalWin {
-  background-color: #0fa968;
+  background-color: #050505;
 }
 
 .finalLoss {
-  background-color: #d64545;
+  background-color: #050505;
 }
 
-.finalLine {
+.finalWinnerPanel {
+  width: 260px;
+  height: 76px;
+  border-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.finalWinnerPanelWin {
+  background-color: #0fa968;
+}
+
+.finalWinnerPanelLoss {
+  background-color: #ff5b2e;
+}
+
+.finalCup {
   width: 100%;
-  height: 26px;
+  height: 16px;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalWinnerLabel {
+  width: 100%;
+  height: 20px;
   font-size: 17px;
   color: #ffffff;
   text-align: center;
 }
+
+.finalWinnerName {
+  width: 100%;
+  height: 30px;
+  font-size: 27px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalSubTitle {
+  width: 286px;
+  height: 20px;
+  font-size: 15px;
+  color: #8d879f;
+  text-align: center;
+}
+
+.finalTeamsLine {
+  width: 300px;
+  height: 24px;
+  font-size: 17px;
+  color: #fff05a;
+  text-align: center;
+}
+
+.finalScoreLine {
+  width: 300px;
+  height: 26px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalResultTable {
+  width: 286px;
+  height: 104px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.finalResultNames {
+  width: 146px;
+  height: 94px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.finalResultDivider {
+  width: 2px;
+  height: 92px;
+  background-color: #b9b4d7;
+}
+
+.finalResultName {
+  width: 140px;
+  height: 40px;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.finalMineName {
+  color: #ffffff;
+}
+
+.finalResultScores {
+  width: 124px;
+  height: 94px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalResultColumn {
+  width: 40px;
+  height: 94px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalResultScore {
+  width: 36px;
+  height: 36px;
+  border-radius: 16px;
+  background-color: #262638;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+}
+
+.finalSetHeader {
+  width: 40px;
+  height: 20px;
+  font-size: 12px;
+  color: #8d879f;
+  text-align: center;
+}
+
+.finalMineScore {
+  color: #25e66a;
+}
+
+.finalHomeButton {
+  width: 250px;
+  height: 54px;
+  border-radius: 27px;
+  background-color: #fff000;
+  color: #202020;
+  font-size: 22px;
+  text-align: center;
+  margin-top: 26px;
+}
+
+.resultPage {
+  width: 100%;
+  height: 100%;
+  background-color: #050505;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 28px;
+}
+
+.resultVictory {
+  width: 100%;
+  height: 30px;
+  font-size: 21px;
+  color: #fff05a;
+  text-align: center;
+}
+
+.resultWinner {
+  width: 306px;
+  height: 58px;
+  border-radius: 18px;
+  background-color: #ff5b2e;
+  color: #ffffff;
+  font-size: 39px;
+  text-align: center;
+}
+
+.resultTitleText {
+  width: 100%;
+  height: 28px;
+  font-size: 17px;
+  color: #8d879f;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.resultTeams {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.resultSetLine {
+  width: 100%;
+  height: 32px;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.resultHomeButton {
+  width: 230px;
+  height: 58px;
+  border-radius: 29px;
+  background-color: #fff000;
+  color: #202020;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 8px;
+}
+

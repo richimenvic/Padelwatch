@@ -11,15 +11,10 @@
     <text class="historyEmpty" if="{{historyEmptyVisible}}">Sin partidos</text>
 
     <div class="resultCard">
-      <div class="resultHeader">
-        <text class="resultTitle">GANADOR</text>
-        <text class="resultDate">{{historyResultDate}}</text>
-      </div>
-      <div class="resultDivider"></div>
       <div class="resultBody">
-        <text class="historyRawLine">{{historyLine1}}</text>
-        <text class="historyRawLine">{{historyLine2}}</text>
-        <text class="historyRawLine">{{historyLine3}}</text>
+        <text class="historyRawLine">05/06  NOS  6-3 6-4</text>
+        <text class="historyRawLine">05/06  RIV  0-6 1-6</text>
+        <text class="historyRawLine">05/06  NOS  6-7 6-4 ST 10-8</text>
       </div>
     </div>
 

@@ -102,10 +102,10 @@
     </div>
   </div>
 
-  <div class="decision" if="{{screen === 'matchMode'}}">
+  <div class="decision matchModePage" if="{{screen === 'matchMode'}}">
     <text class="titleSmall">Sets 1 - 1</text>
-    <input class="decisionButton magenta" type="button" value="3er Set" onclick="chooseThirdSet"></input>
-    <input class="decisionButton orange" type="button" value="Super TB" onclick="chooseSuperTieBreak"></input>
+    <input class="decisionButton magenta" type="button" value="TERCER SET" onclick="chooseThirdSet"></input>
+    <input class="decisionButton orange" type="button" value="SUPER TB" onclick="chooseSuperTieBreak"></input>
   </div>
 
   <div class="decision" if="{{screen === 'changeEnds'}}">
@@ -120,7 +120,7 @@
     <input class="smallButton" type="button" value="Cancelar" onclick="cancelReset"></input>
   </div>
 
-  <div class="game" if="{{gameScreenVisible}}">
+  <div class="game" if="{{screen === 'game'}}">
     <div class="scoreTopMain" onclick="pointRivales">
       <text class="teamName">{{nameRivales}}</text>
       <text class="setsLine">{{topInfoLine}}</text>
@@ -234,7 +234,7 @@
           </div>
         </div>
       </div>
-      <input class="finalHomeButton" type="button" value="VOLVER AL INICIO" onclick="resetMatch"></input>
+      <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
     </div>
   </div>
 
@@ -271,7 +271,7 @@
           </div>
         </div>
       </div>
-      <input class="finalHomeButton" type="button" value="VOLVER AL INICIO" onclick="resetMatch"></input>
+      <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
     </div>
   </div>
 

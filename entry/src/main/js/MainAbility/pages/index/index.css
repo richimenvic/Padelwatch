@@ -85,7 +85,8 @@
   background-color: #000000;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 54px;
 }
 
 .historyEmpty {
@@ -98,66 +99,74 @@
 }
 
 .resultCard {
-  width: 306px;
-  height: 190px;
-  border-radius: 16px;
+  width: 264px;
+  height: 156px;
+  border-radius: 12px;
   background-color: #263064;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .resultHeader {
-  width: 286px;
-  height: 48px;
+  width: 244px;
+  height: 36px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
 .resultDivider {
-  width: 286px;
+  width: 244px;
   height: 2px;
   background-color: #101843;
 }
 
 .resultTitle {
-  width: 116px;
-  height: 32px;
-  font-size: 25px;
+  width: 112px;
+  height: 26px;
+  font-size: 19px;
   color: #fff05a;
   text-align: left;
 }
 
 .resultDate {
-  width: 150px;
-  height: 28px;
-  font-size: 19px;
+  width: 118px;
+  height: 24px;
+  font-size: 15px;
   color: #ffffff;
   text-align: right;
 }
 
 .resultBody {
-  width: 286px;
-  height: 132px;
-  flex-direction: row;
+  width: 244px;
+  height: 112px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
+.historyRawLine {
+  width: 236px;
+  height: 30px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
 .resultNames {
-  width: 150px;
-  height: 112px;
+  width: 76px;
+  height: 88px;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 }
 
 .resultName {
-  width: 146px;
-  height: 44px;
-  font-size: 25px;
+  width: 72px;
+  height: 34px;
+  font-size: 22px;
   color: #ffffff;
   text-align: left;
 }
@@ -167,25 +176,25 @@
 }
 
 .resultScores {
-  width: 126px;
-  height: 112px;
+  width: 132px;
+  height: 88px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
 .resultScoreColumn {
-  width: 40px;
-  height: 104px;
+  width: 42px;
+  height: 88px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
 .resultScore {
-  width: 36px;
-  height: 42px;
-  font-size: 31px;
+  width: 38px;
+  height: 34px;
+  font-size: 25px;
   color: #ffffff;
   text-align: center;
 }
@@ -195,21 +204,21 @@
 }
 
 .historyNav {
-  width: 316px;
-  height: 62px;
+  width: 286px;
+  height: 54px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 .pagerButton {
-  width: 58px;
-  height: 50px;
-  border-radius: 25px;
+  width: 48px;
+  height: 44px;
+  border-radius: 22px;
   background-color: #3a3a3a;
   color: #ffffff;
-  font-size: 26px;
+  font-size: 23px;
   text-align: center;
   margin-left: 3px;
   margin-right: 3px;
@@ -221,12 +230,12 @@
 }
 
 .historyBackButton {
-  width: 176px;
-  height: 54px;
-  border-radius: 27px;
+  width: 154px;
+  height: 46px;
+  border-radius: 23px;
   background-color: #3a3a3a;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 21px;
   text-align: center;
   margin-left: 4px;
   margin-right: 4px;

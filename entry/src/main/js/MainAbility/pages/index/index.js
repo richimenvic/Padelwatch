@@ -175,7 +175,10 @@ export default {
     historyMineSet3: '-',
     historyOppSet1: '-',
     historyOppSet2: '-',
-    historyOppSet3: '-'
+    historyOppSet3: '-',
+    historyLine1: '',
+    historyLine2: '',
+    historyLine3: ''
   },
 
   onInit: function () {
@@ -193,7 +196,16 @@ export default {
     this.screen = 'history'
     this.historyPage = 0
     this.hideHistoryDeletes()
-    this.loadMatchHistory(true)
+
+    // TEMP DEMO HISTORY - remove before release
+    var demo = this.demoHistoryItems()
+    var item = demo[0]
+    this.historyLine1 = item.line1
+    this.historyLine2 = item.line2
+    this.historyLine3 = item.line3
+    this.historyResultDate = item.date
+    this.historyCardVisible = true
+    this.historyEmptyVisible = false
   },
 
   closeHistory: function () {
@@ -579,6 +591,7 @@ export default {
     this.updateResultSetFlags()
     this.finalVisible = true
     this.resultVisible = true
+    this.saveFinishedMatch(winner)
   },
 
   resultLineText: function (line) {
@@ -811,7 +824,7 @@ export default {
     if (history.length > 10) {
       history = history.slice(0, 10)
     }
-    this.storeHistory(history, true)
+    this.storeHistory(history, false)
   },
 
   todayText: function () {
@@ -1456,6 +1469,50 @@ export default {
     this.historyOppSet3 = set3[1]
   },
 
+  applyCurrentHistoryPage: function () {
+    var history = []
+    try {
+      history = JSON.parse(this.historyText)
+      if (Object.prototype.toString.call(history) !== '[object Array]') {
+        history = []
+      }
+    } catch (e) {
+      history = []
+    }
+
+    var item = history[this.historyPage]
+    if (!item) {
+      this.historyCardVisible = false
+      this.historyResultDate = ''
+      this.historyMineSet1 = '-'
+      this.historyMineSet2 = '-'
+      this.historyMineSet3 = '-'
+      this.historyOppSet1 = '-'
+      this.historyOppSet2 = '-'
+      this.historyOppSet3 = '-'
+      this.historyLine1 = ''
+      this.historyLine2 = ''
+      this.historyLine3 = ''
+      return
+    }
+
+    var set1 = this.historySetParts(item.line1)
+    var set2 = this.historySetParts(item.line2)
+    var set3 = this.historySetParts(item.line3)
+    this.historyEmptyVisible = false
+    this.historyCardVisible = true
+    this.historyResultDate = item.date || ''
+    this.historyMineSet1 = set1[0]
+    this.historyOppSet1 = set1[1]
+    this.historyMineSet2 = set2[0]
+    this.historyOppSet2 = set2[1]
+    this.historyMineSet3 = set3[0]
+    this.historyOppSet3 = set3[1]
+    this.historyLine1 = item.line1 || ''
+    this.historyLine2 = item.line2 || ''
+    this.historyLine3 = item.line3 || ''
+  },
+
   updateHistoryLabels: function () {
     var history = this.parseHistory()
     if (history.length.toString() !== this.parseHistoryRawLength().toString()) {
@@ -1474,21 +1531,28 @@ export default {
     this.historyEmptyVisible = history.length === 0
     this.historyPrevVisible = this.historyPage > 0
     this.historyNextVisible = offset + 1 < history.length
+    var item = history.length > 0 ? history[offset] : null
+    if (item) {
+      this.historyEmptyVisible = false
+      this.historyCardVisible = true
+      this.applyHistoryResultCard(item)
+    } else {
+      this.applyHistoryResultCard(null)
+    }
 
     this.history1Visible = history.length > offset
     this.history2Visible = false
     this.history3Visible = false
 
-    this.history1Text = this.history1Visible ? this.historyLine(history[offset]) : ''
+    this.history1Text = item ? this.historyLine(item) : ''
     this.history2Text = ''
     this.history3Text = ''
-    this.history1ScoreText = this.history1Visible ? this.historyScoreLine(history[offset]) : ''
+    this.history1ScoreText = item ? this.historyScoreLine(item) : ''
     this.history2ScoreText = ''
     this.history3ScoreText = ''
-    this.applyHistoryResultCard(this.history1Visible ? history[offset] : null)
 
-    this.history1RivalesVisible = this.history1Visible && history[offset].winner === 'RIVALES'
-    this.history1NosotrosVisible = this.history1Visible && history[offset].winner === 'NOSOTROS'
+    this.history1RivalesVisible = item && item.winner === 'RIVALES'
+    this.history1NosotrosVisible = item && item.winner === 'NOSOTROS'
     this.history2RivalesVisible = false
     this.history2NosotrosVisible = false
     this.history3RivalesVisible = false
@@ -1551,6 +1615,7 @@ export default {
       this.historyPage--
       this.hideHistoryDeletes()
       this.updateHistoryLabels()
+      this.applyCurrentHistoryPage()
     }
   },
 
@@ -1560,43 +1625,46 @@ export default {
       this.historyPage++
       this.hideHistoryDeletes()
       this.updateHistoryLabels()
+      this.applyCurrentHistoryPage()
     }
   },
 
   demoHistoryItems: function () {
-    var demo = []
-    var scores = [
-      ['NOSOTROS', '6-4', '6-3', '-'],
-      ['RIVALES', '4-6', '3-6', '-'],
-      ['NOSOTROS', '6-0', '0-6', 'ST 11-9'],
-      ['RIVALES', '0-6', '6-0', 'ST 10-12'],
-      ['NOSOTROS', '7-6', '6-4', '-'],
-      ['RIVALES', '6-7', '4-6', '-'],
-      ['NOSOTROS', '6-2', '5-7', '6-3'],
-      ['RIVALES', '2-6', '7-5', '3-6'],
-      ['NOSOTROS', '6-1', '6-1', '-'],
-      ['RIVALES', '1-6', '1-6', '-']
+    return [
+      {
+        id: 'demo-1',
+        date: '2026-06-05',
+        time: '10:00',
+        winner: 'NOSOTROS',
+        line1: 'Set 1: 6-3',
+        line2: 'Set 2: 6-4',
+        line3: 'Set 3: -'
+      },
+      {
+        id: 'demo-2',
+        date: '2026-06-05',
+        time: '10:15',
+        winner: 'RIVALES',
+        line1: 'Set 1: 0-6',
+        line2: 'Set 2: 1-6',
+        line3: 'Set 3: -'
+      },
+      {
+        id: 'demo-3',
+        date: '2026-06-05',
+        time: '10:30',
+        winner: 'NOSOTROS',
+        line1: 'Set 1: 6-7',
+        line2: 'Set 2: 6-4',
+        line3: 'Super TB: 10-8'
+      }
     ]
-    for (var i = 0; i < scores.length; i++) {
-      var row = scores[i]
-      var third = row[3].indexOf('ST ') === 0 ? 'Super TB: ' + row[3].replace('ST ', '') : 'Set 3: ' + row[3]
-      demo.push({
-        id: 'demo-' + i.toString(),
-        date: '2026-06-' + (i < 9 ? '0' + (i + 1).toString() : '10'),
-        time: (10 + i).toString() + ':0' + (i % 6).toString(),
-        winner: row[0],
-        line1: 'Set 1: ' + row[1],
-        line2: 'Set 2: ' + row[2],
-        line3: third
-      })
-    }
-    return demo
   },
 
   loadDemoHistory: function () {
+    // TEMP DEMO HISTORY: remove this fallback after Previewer history testing.
     this.historyDemoLoaded = true
-    this.historyText = JSON.stringify(this.demoHistoryItems())
-    this.updateHistoryLabels()
+    this.storeHistory(this.demoHistoryItems().slice(0, 10), false)
   },
 
   handleHistorySwipe: function (event, index) {

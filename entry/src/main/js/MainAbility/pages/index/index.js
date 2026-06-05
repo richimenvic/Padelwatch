@@ -1610,6 +1610,14 @@ export default {
     }
   },
 
+  showHistoryDelete1: function () {
+    this.showHistoryDelete(0)
+  },
+
+  showHistoryDelete2: function () {
+    this.showHistoryDelete(1)
+  },
+
   historyPrevPage: function () {
     if (this.historyPage > 0) {
       this.historyPage--
@@ -1863,3 +1871,5 @@ export default {
     this.serverBallRivalesVisible = activeServer === 'rivales'
   }
 }
+
+

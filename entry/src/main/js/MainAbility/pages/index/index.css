@@ -86,7 +86,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 105px;
+  padding-top: 82px;
 }
 
 .historyEmpty {
@@ -100,7 +100,7 @@
 
 .resultCard {
   width: 264px;
-  height: 156px;
+  height: 184px;
   border-radius: 12px;
   background-color: #263064;
   flex-direction: column;
@@ -141,7 +141,7 @@
 
 .resultBody {
   width: 244px;
-  height: 112px;
+  height: 140px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -974,7 +974,7 @@
 
 .historyMatchCard {
   width: 232px;
-  height: 48px;
+  height: 40px;
   border-radius: 10px;
   background-color: #1d2552;
   flex-direction: column;
@@ -986,16 +986,16 @@
 
 .historyMatchMeta {
   width: 214px;
-  height: 21px;
-  font-size: 16px;
+  height: 18px;
+  font-size: 14px;
   color: #fff05a;
   text-align: center;
 }
 
 .historyMatchScore {
   width: 214px;
-  height: 21px;
-  font-size: 17px;
+  height: 18px;
+  font-size: 15px;
   color: #ffffff;
   text-align: center;
 }
@@ -1015,6 +1015,92 @@
 
 
 /* History independent match cards */
+.historyMatchList {
+  width: 244px;
+  height: 140px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyMatchCard {
+  width: 232px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #1d2552;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.historyMatchMeta {
+  width: 214px;
+  height: 18px;
+  font-size: 14px;
+  color: #fff05a;
+  text-align: center;
+}
+
+.historyMatchScore {
+  width: 214px;
+  height: 18px;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+/* History 5 compact independent cards */
+.resultCard {
+  height: 206px;
+}
+
+.resultBody,
+.historyMatchList {
+  width: 244px;
+  height: 164px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyMatchCard {
+  width: 232px;
+  height: 28px;
+  border-radius: 8px;
+  background-color: #1d2552;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.historyMatchOneLine {
+  width: 224px;
+  height: 24px;
+  font-size: 13px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* FINAL OVERRIDE - History independent match cards only */
+.history {
+  justify-content: flex-start;
+  padding-top: 86px;
+}
+
+.resultCard {
+  width: 264px;
+  height: 156px;
+  border-radius: 12px;
+  background-color: #263064;
+  margin-bottom: 8px;
+}
+
+.resultBody,
 .historyMatchList {
   width: 244px;
   height: 112px;
@@ -1049,4 +1135,211 @@
   font-size: 17px;
   color: #ffffff;
   text-align: center;
+}
+
+/* FINAL OVERRIDE - History 3 independent match cards only */
+.history {
+  justify-content: flex-start;
+  padding-top: 70px;
+}
+
+.history .resultCard {
+  width: 264px;
+  height: 194px;
+  border-radius: 12px;
+  background-color: #263064;
+  margin-bottom: 8px;
+}
+
+.history .resultBody,
+.history .historyMatchList {
+  width: 244px;
+  height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.history .historyMatchCard {
+  width: 232px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: #1d2552;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.history .historyMatchMeta {
+  width: 214px;
+  height: 18px;
+  font-size: 14px;
+  color: #fff05a;
+  text-align: center;
+}
+
+.history .historyMatchScore {
+  width: 214px;
+  height: 18px;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.history .historyNav {
+  margin-top: 8px;
+}
+
+/* FINAL OVERRIDE - lower only history navigation */
+.history .historyNav {
+  margin-top: 24px;
+}
+
+/* FIX - History 3 cards visible and lower nav only */
+.history {
+  justify-content: flex-start;
+  padding-top: 78px;
+}
+
+.history .resultCard {
+  height: 210px;
+  margin-bottom: 0px;
+}
+
+.history .resultBody,
+.history .historyMatchList {
+  height: 166px;
+  justify-content: center;
+}
+
+.history .historyMatchCard {
+  height: 44px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.history .historyMatchMeta {
+  height: 18px;
+  font-size: 14px;
+}
+
+.history .historyMatchScore {
+  height: 18px;
+  font-size: 15px;
+}
+
+.history .historyNav {
+  margin-top: 22px;
+}
+
+/* FINAL STABLE HISTORY LAYOUT */
+.history {
+  justify-content: flex-start;
+  padding-top: 88px;
+}
+
+.history .resultCard {
+  width: 264px;
+  height: 156px;
+  border-radius: 12px;
+  background-color: #263064;
+  margin-bottom: 10px;
+}
+
+.history .resultBody,
+.history .historyMatchList {
+  width: 244px;
+  height: 112px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.history .historyMatchCard {
+  width: 232px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: #1d2552;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.history .historyMatchMeta {
+  width: 214px;
+  height: 21px;
+  font-size: 16px;
+  color: #fff05a;
+  text-align: center;
+}
+
+.history .historyMatchScore {
+  width: 214px;
+  height: 21px;
+  font-size: 17px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.history .historyNav {
+  margin-top: 8px;
+}
+
+/* FINAL STABLE HISTORY LAYOUT */
+.history {
+  justify-content: flex-start;
+  padding-top: 88px;
+}
+
+.history .resultCard {
+  width: 264px;
+  height: 156px;
+  border-radius: 12px;
+  background-color: #263064;
+  margin-bottom: 10px;
+}
+
+.history .resultBody,
+.history .historyMatchList {
+  width: 244px;
+  height: 112px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.history .historyMatchCard {
+  width: 232px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: #1d2552;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.history .historyMatchMeta {
+  width: 214px;
+  height: 21px;
+  font-size: 16px;
+  color: #fff05a;
+  text-align: center;
+}
+
+.history .historyMatchScore {
+  width: 214px;
+  height: 21px;
+  font-size: 17px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.history .historyNav {
+  margin-top: 8px;
 }

@@ -210,29 +210,10 @@
       </div>
       <text class="finalSubTitle">RESULTADO FINAL</text>
       <text class="finalTeamsLine">NOSOTROS / RIVALES</text>
-      <div class="finalResultTable">
-        <div class="finalResultNames">
-          <text class="finalSetHeader"></text>
-          <text class="finalResultName finalMineName">NOSOTROS</text>
-          <text class="finalResultName">RIVALES</text>
-        </div>
-        <div class="finalResultScores">
-          <div class="finalResultColumn">
-            <text class="finalSetHeader">Set 1</text>
-            <text class="finalResultScore finalMineScore">{{finalMineSet1}}</text>
-            <text class="finalResultScore">{{finalOppSet1}}</text>
-          </div>
-          <div class="finalResultColumn">
-            <text class="finalSetHeader">Set 2</text>
-            <text class="finalResultScore finalMineScore">{{finalMineSet2}}</text>
-            <text class="finalResultScore">{{finalOppSet2}}</text>
-          </div>
-          <div class="finalResultColumn">
-            <text class="finalSetHeader">Set 3</text>
-            <text class="finalResultScore finalMineScore">{{finalMineSet3}}</text>
-            <text class="finalResultScore">{{finalOppSet3}}</text>
-          </div>
-        </div>
+      <div class="finalRawScoreBlock">
+        <text class="finalRawScoreLine">{{finalLine1}}</text>
+        <text class="finalRawScoreLine">{{finalLine2}}</text>
+        <text class="finalRawScoreLine">{{finalLine3}}</text>
       </div>
       <div class="finalButtonRow">
         <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
@@ -250,29 +231,10 @@
       </div>
       <text class="finalSubTitle">RESULTADO FINAL</text>
       <text class="finalTeamsLine">NOSOTROS / RIVALES</text>
-      <div class="finalResultTable">
-        <div class="finalResultNames">
-          <text class="finalSetHeader"></text>
-          <text class="finalResultName finalMineName">NOSOTROS</text>
-          <text class="finalResultName">RIVALES</text>
-        </div>
-        <div class="finalResultScores">
-          <div class="finalResultColumn">
-            <text class="finalSetHeader">Set 1</text>
-            <text class="finalResultScore finalMineScore">{{finalMineSet1}}</text>
-            <text class="finalResultScore">{{finalOppSet1}}</text>
-          </div>
-          <div class="finalResultColumn">
-            <text class="finalSetHeader">Set 2</text>
-            <text class="finalResultScore finalMineScore">{{finalMineSet2}}</text>
-            <text class="finalResultScore">{{finalOppSet2}}</text>
-          </div>
-          <div class="finalResultColumn">
-            <text class="finalSetHeader">Set 3</text>
-            <text class="finalResultScore finalMineScore">{{finalMineSet3}}</text>
-            <text class="finalResultScore">{{finalOppSet3}}</text>
-          </div>
-        </div>
+      <div class="finalRawScoreBlock">
+        <text class="finalRawScoreLine">{{finalLine1}}</text>
+        <text class="finalRawScoreLine">{{finalLine2}}</text>
+        <text class="finalRawScoreLine">{{finalLine3}}</text>
       </div>
       <div class="finalButtonRow">
         <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>

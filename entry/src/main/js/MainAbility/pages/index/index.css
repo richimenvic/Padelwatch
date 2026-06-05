@@ -86,7 +86,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 54px;
+  padding-top: 105px;
 }
 
 .historyEmpty {
@@ -971,3 +971,44 @@
   margin-top: 8px;
 }
 
+
+.historyMatchCard {
+  width: 232px;
+  height: 48px;
+  border-radius: 10px;
+  background-color: #1d2552;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.historyMatchMeta {
+  width: 214px;
+  height: 21px;
+  font-size: 16px;
+  color: #fff05a;
+  text-align: center;
+}
+
+.historyMatchScore {
+  width: 214px;
+  height: 21px;
+  font-size: 17px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.historyDeleteButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: #ff3b30;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  margin-left: 196px;
+  margin-top: -3px;
+  margin-bottom: -25px;
+}

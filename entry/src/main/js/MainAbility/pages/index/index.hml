@@ -18,22 +18,40 @@
       <div class="resultDivider"></div>
 
       <div class="resultBody historyMatchList">
-        <div class="historyMatchCard">
+        <div class="historyMatchCard" if="{{history1Visible && !history1DeleteVisible}}" onlongpress="showHistoryDelete1">
           <text class="historyMatchMeta">05/06 18:40   NOS</text>
           <text class="historyMatchScore">6-3   6-4   -</text>
         </div>
+        <div class="historyMatchCardDelete" if="{{history1Visible && history1DeleteVisible}}">
+          <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory1"></input>
+          <text class="historyMatchDeleteText">05/06 18:40   NOS   6-3 6-4</text>
+        </div>
 
-        <div class="historyMatchCard">
+        <div class="historyMatchCard" if="{{history2Visible && !history2DeleteVisible}}" onlongpress="showHistoryDelete2">
           <text class="historyMatchMeta">05/06 19:25   RIV</text>
           <text class="historyMatchScore">0-6   1-6   10-8</text>
         </div>
-        <div class="historyMatchCard">
+        <div class="historyMatchCardDelete" if="{{history2Visible && history2DeleteVisible}}">
+          <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory2"></input>
+          <text class="historyMatchDeleteText">05/06 19:25   RIV   0-6 1-6</text>
+        </div>
+
+        <div class="historyMatchCard" if="{{history3Visible && !history3DeleteVisible}}" onlongpress="showHistoryDelete3">
           <text class="historyMatchMeta">05/06 20:10   NOS</text>
           <text class="historyMatchScore">6-7   6-4   10-8</text>
         </div>
-        <div class="historyMatchCard">
+        <div class="historyMatchCardDelete" if="{{history3Visible && history3DeleteVisible}}">
+          <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory3"></input>
+          <text class="historyMatchDeleteText">05/06 20:10   NOS   6-7 6-4</text>
+        </div>
+
+        <div class="historyMatchCard" if="{{history4Visible && !history4DeleteVisible}}" onlongpress="showHistoryDelete4">
           <text class="historyMatchMeta">05/06 21:00   RIV</text>
           <text class="historyMatchScore">4-6   4-6   -</text>
+        </div>
+        <div class="historyMatchCardDelete" if="{{history4Visible && history4DeleteVisible}}">
+          <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory4"></input>
+          <text class="historyMatchDeleteText">05/06 21:00   RIV   4-6 4-6</text>
         </div>
       </div>
     </div>

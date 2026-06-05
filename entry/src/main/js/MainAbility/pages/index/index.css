@@ -1587,3 +1587,37 @@
 .historyBottomPush {
   height: 8px;
 }
+
+
+/* FINAL - History delete mode */
+.historyMatchCardDelete {
+  width: 232px;
+  height: 54px;
+  border-radius: 10px;
+  background-color: #b00020;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.historyDeleteButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ff3b30;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 6px;
+}
+
+.historyMatchDeleteText {
+  width: 184px;
+  height: 26px;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: left;
+}

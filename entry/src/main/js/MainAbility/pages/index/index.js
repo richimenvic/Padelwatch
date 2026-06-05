@@ -163,6 +163,8 @@ export default {
     history1DeleteVisible: false,
     history2DeleteVisible: false,
     history3DeleteVisible: false,
+    history4Visible: true,
+    history4DeleteVisible: false,
     history1Text: '',
     history2Text: '',
     history3Text: '',
@@ -206,6 +208,10 @@ export default {
     this.historyResultDate = item.date
     this.historyCardVisible = true
     this.historyEmptyVisible = false
+    this.history1Visible = true
+    this.history2Visible = true
+    this.history3Visible = true
+    this.history4Visible = true
   },
 
   closeHistory: function () {
@@ -1597,6 +1603,7 @@ export default {
     this.history1DeleteVisible = false
     this.history2DeleteVisible = false
     this.history3DeleteVisible = false
+    this.history4DeleteVisible = false
   },
 
   showHistoryDelete: function (index) {
@@ -1607,7 +1614,25 @@ export default {
       this.history2DeleteVisible = true
     } else if (index === 2) {
       this.history3DeleteVisible = true
+    } else if (index === 3) {
+      this.history4DeleteVisible = true
     }
+  },
+
+  showHistoryDelete1: function () {
+    this.showHistoryDelete(0)
+  },
+
+  showHistoryDelete2: function () {
+    this.showHistoryDelete(1)
+  },
+
+  showHistoryDelete3: function () {
+    this.showHistoryDelete(2)
+  },
+
+  showHistoryDelete4: function () {
+    this.showHistoryDelete(3)
   },
 
   historyPrevPage: function () {
@@ -1697,6 +1722,12 @@ export default {
 
   deleteHistory3: function () {
     this.deleteHistoryAt(2)
+    this.history3Visible = false
+  },
+
+  deleteHistory4: function () {
+    this.history4Visible = false
+    this.history4DeleteVisible = false
   },
 
   noopSet: function () {

@@ -165,7 +165,7 @@
 
 .resultName {
   width: 72px;
-  height: 34px;
+  height: 6px;
   font-size: 22px;
   color: #ffffff;
   text-align: left;
@@ -193,7 +193,7 @@
 
 .resultScore {
   width: 38px;
-  height: 34px;
+  height: 6px;
   font-size: 25px;
   color: #ffffff;
   text-align: center;
@@ -729,7 +729,7 @@
 
 .finalWinnerName {
   width: 100%;
-  height: 34px;
+  height: 6px;
   font-size: 29px;
   color: #ffffff;
   text-align: center;
@@ -1342,4 +1342,248 @@
 
 .history .historyNav {
   margin-top: 8px;
+}
+
+/* FINAL FIX - bajar solo botones de historial */
+.history .historyNav {
+  margin-top: 86px;
+}
+
+/* FINAL FIX - real spacer before history buttons */
+.history .historyNavSpacer {
+  width: 100%;
+  height: 58px;
+}
+
+.history .historyNav {
+  margin-top: 0px;
+}
+
+/* FINAL FIX - History proportional layout */
+.history {
+  justify-content: flex-start;
+  padding-top: 72px;
+}
+
+.history .resultCard {
+  height: 150px;
+  margin-bottom: 48px;
+}
+
+.history .resultBody,
+.history .historyMatchList {
+  height: 112px;
+}
+
+.history .historyNav {
+  margin-top: 0px;
+}
+
+/* FINAL FIX - History proportional layout */
+.history {
+  justify-content: flex-start;
+  padding-top: 72px;
+}
+
+.history .resultCard {
+  height: 150px;
+  margin-bottom: 48px;
+}
+
+.history .resultBody,
+.history .historyMatchList {
+  height: 112px;
+}
+
+.history .historyNav {
+  margin-top: 0px;
+}
+
+
+/* FINAL TEST - real text spacer before history buttons */
+.historyBottomPush {
+  width: 100%;
+  height: 8px;
+  font-size: 1px;
+  color: #000000;
+  text-align: center;
+}
+
+.historyNav {
+  margin-top: 0px;
+}
+
+
+
+
+
+
+/* FINAL FIX - fit 3 history cards */
+.resultCard {
+  height: 196px;
+}
+
+.resultBody,
+.historyMatchList {
+  height: 150px;
+}
+
+.historyMatchCard {
+  height: 42px;
+}
+
+.historyMatchMeta {
+  height: 18px;
+  font-size: 14px;
+}
+
+.historyMatchScore {
+  height: 18px;
+  font-size: 15px;
+}
+
+.historyBottomPush {
+  width: 100%;
+  height: 8px;
+  font-size: 1px;
+  color: #000000;
+  text-align: center;
+}
+
+
+/* FINAL FIX - fit 4 history cards */
+.resultCard {
+  height: 224px;
+}
+
+.resultBody,
+.historyMatchList {
+  height: 184px;
+}
+
+.historyMatchCard {
+  height: 39px;
+}
+
+.historyMatchMeta {
+  height: 17px;
+  font-size: 13px;
+}
+
+.historyMatchScore {
+  height: 17px;
+  font-size: 14px;
+}
+
+.historyBottomPush {
+  width: 100%;
+  height: 8px;
+  font-size: 1px;
+  color: #000000;
+  text-align: center;
+}
+
+
+
+
+
+
+/* FINAL LOCK - History rows and lower navigation */
+.resultCard {
+  height: 252px;
+}
+
+.resultBody,
+.historyMatchList {
+  height: 210px;
+}
+
+.historyMatchCard {
+  height: 45px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.historyMatchMeta {
+  height: 19px;
+  font-size: 13px;
+}
+
+.historyMatchScore {
+  height: 19px;
+  font-size: 15px;
+}
+
+.historyBottomPush {
+  width: 100%;
+  height: 34px;
+  font-size: 1px;
+  color: #000000;
+  text-align: center;
+}
+
+.historyNav {
+  margin-top: 0px;
+}
+
+
+/* FINAL TUNE - more vertical space for history rows */
+.resultCard {
+  height: 266px;
+}
+
+.resultBody,
+.historyMatchList {
+  height: 224px;
+}
+
+.historyMatchCard {
+  height: 50px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.historyMatchMeta {
+  height: 21px;
+  font-size: 13px;
+}
+
+.historyMatchScore {
+  height: 21px;
+  font-size: 15px;
+}
+
+.historyBottomPush {
+  height: 8px;
+}
+
+
+/* FINAL TUNE - more vertical space for history rows */
+.resultCard {
+  height: 266px;
+}
+
+.resultBody,
+.historyMatchList {
+  height: 224px;
+}
+
+.historyMatchCard {
+  height: 50px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.historyMatchMeta {
+  height: 21px;
+  font-size: 13px;
+}
+
+.historyMatchScore {
+  height: 21px;
+  font-size: 15px;
+}
+
+.historyBottomPush {
+  height: 8px;
 }

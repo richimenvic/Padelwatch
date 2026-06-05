@@ -27,8 +27,18 @@
           <text class="historyMatchMeta">05/06 19:25   RIV</text>
           <text class="historyMatchScore">0-6   1-6   10-8</text>
         </div>
+        <div class="historyMatchCard">
+          <text class="historyMatchMeta">05/06 20:10   NOS</text>
+          <text class="historyMatchScore">6-7   6-4   10-8</text>
+        </div>
+        <div class="historyMatchCard">
+          <text class="historyMatchMeta">05/06 21:00   RIV</text>
+          <text class="historyMatchScore">4-6   4-6   -</text>
+        </div>
       </div>
     </div>
+
+    <text class="historyBottomPush">.</text>
 
     <div class="historyNav">
       <input class="pagerButton" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
@@ -262,6 +272,7 @@
   </div>
 
 </div>
+
 
 
 

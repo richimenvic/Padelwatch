@@ -146,6 +146,7 @@ export default {
 
     historyText: '[]',
     historyDemoLoaded: false,
+    historyDemoRowsInitialized: false,
     historyDeleteRowsEnabled: false,
     historyPage: 0,
     historyCardVisible: false,
@@ -217,29 +218,25 @@ export default {
     this.historyPage = 0
     this.hideHistoryDeletes()
 
-    // TEMP DEMO HISTORY - FORCE PREVIEWER TEST - remove before release
-    this.historyEmptyVisible = false
-    this.historyDemoLoaded = true
+    // TEMP DEMO HISTORY - remove before release
+    if (!this.historyDemoRowsInitialized) {
+      this.historyDemoRowsInitialized = true
+      this.historyEmptyVisible = false
+      this.historyDemoLoaded = true
 
-    this.history1Visible = true
-    this.history2Visible = true
-    this.history3Visible = true
-    this.history4Visible = true
+      this.history1Visible = true
+      this.history2Visible = true
+      this.history3Visible = true
+      this.history4Visible = true
 
-    this.history1DisplayText = '05/06 10:00 NOS  6-3 6-4'
-    this.history2DisplayText = '05/06 10:15 RIV  0-6 1-6'
-    this.history3DisplayText = '05/06 10:30 NOS  6-7 6-4'
-    this.history4DisplayText = '05/06 10:45 RIV  4-6 4-6'
+      this.history1DisplayText = '05/06 10:00 NOS  6-3  6-4  -'
+      this.history2DisplayText = '05/06 10:15 RIV  0-6  1-6  -'
+      this.history3DisplayText = '05/06 10:30 NOS  6-7  6-4  10-8'
+      this.history4DisplayText = '05/06 10:45 RIV  4-6  4-6  -'
+    }
 
-    this.history1NormalVisible = true
-    this.history2NormalVisible = true
-    this.history3NormalVisible = true
-    this.history4NormalVisible = true
-
-    this.history1DeleteRowVisible = false
-    this.history2DeleteRowVisible = false
-    this.history3DeleteRowVisible = false
-    this.history4DeleteRowVisible = false
+    this.historyEmptyVisible = !(this.history1Visible || this.history2Visible || this.history3Visible || this.history4Visible)
+    this.updateHistoryRowVisibility()
 
     this.historyDebugText = ''
   },
@@ -1422,6 +1419,24 @@ export default {
     return score
   },
 
+  historyDisplayLine: function (item) {
+    var base = this.historyLine(item)
+    var set1 = this.cleanHistorySet(item.line1, 'Set 1: ')
+    var set2 = this.cleanHistorySet(item.line2, 'Set 2: ')
+    var set3 = this.cleanHistorySet(item.line3, 'Set 3: ')
+    if (set1 === '' || set1 === undefined || set1 === null) {
+      set1 = '-'
+    }
+    if (set2 === '' || set2 === undefined || set2 === null) {
+      set2 = '-'
+    }
+    set3 = set3.replace('Super TB: ', '')
+    if (set3 === '' || set3 === undefined || set3 === null) {
+      set3 = '-'
+    }
+    return base + '  ' + set1 + '  ' + set2 + '  ' + set3
+  },
+
   cleanHistorySet: function (value, prefix) {
     if (value === undefined || value === null) {
       return ''
@@ -1608,10 +1623,10 @@ export default {
     this.history3ScoreText = item3 ? this.historyScoreLine(item3) : ''
     this.history4ScoreText = item4 ? this.historyScoreLine(item4) : ''
 
-    this.history1DisplayText = item1 ? this.history1Text + '  ' + this.history1ScoreText : ''
-    this.history2DisplayText = item2 ? this.history2Text + '  ' + this.history2ScoreText : ''
-    this.history3DisplayText = item3 ? this.history3Text + '  ' + this.history3ScoreText : ''
-    this.history4DisplayText = item4 ? this.history4Text + '  ' + this.history4ScoreText : ''
+    this.history1DisplayText = item1 ? this.historyDisplayLine(item1) : ''
+    this.history2DisplayText = item2 ? this.historyDisplayLine(item2) : ''
+    this.history3DisplayText = item3 ? this.historyDisplayLine(item3) : ''
+    this.history4DisplayText = item4 ? this.historyDisplayLine(item4) : ''
 
     this.historyEmptyVisible = !(this.history1Visible || this.history2Visible || this.history3Visible || this.history4Visible)
     this.historyPrevVisible = offset > 0
@@ -1658,6 +1673,7 @@ export default {
       this.history4Visible = false
       this.history4DeleteVisible = false
     }
+    this.historyEmptyVisible = !(this.history1Visible || this.history2Visible || this.history3Visible || this.history4Visible)
     this.updateHistoryRowVisibility()
   },
 
@@ -1690,6 +1706,7 @@ export default {
     this.history2DeleteRowVisible = this.history2Visible && this.history2DeleteVisible
     this.history3DeleteRowVisible = this.history3Visible && this.history3DeleteVisible
     this.history4DeleteRowVisible = this.history4Visible && this.history4DeleteVisible
+    this.historyEmptyVisible = !(this.history1Visible || this.history2Visible || this.history3Visible || this.history4Visible)
   },
 
   showHistoryDelete: function (index) {

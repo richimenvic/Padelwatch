@@ -146,6 +146,7 @@ export default {
 
     historyText: '[]',
     historyDemoLoaded: false,
+    historyDeleteRowsEnabled: false,
     historyPage: 0,
     historyCardVisible: false,
     historyPrevVisible: false,
@@ -154,24 +155,41 @@ export default {
     history1Visible: false,
     history2Visible: false,
     history3Visible: false,
+    history4Visible: false,
+    history1NormalVisible: false,
+    history2NormalVisible: false,
+    history3NormalVisible: false,
+    history4NormalVisible: false,
     history1RivalesVisible: false,
     history1NosotrosVisible: false,
     history2RivalesVisible: false,
     history2NosotrosVisible: false,
     history3RivalesVisible: false,
     history3NosotrosVisible: false,
+    history4RivalesVisible: false,
+    history4NosotrosVisible: false,
     history1DeleteVisible: false,
     history2DeleteVisible: false,
     history3DeleteVisible: false,
-    history4Visible: true,
     history4DeleteVisible: false,
+    history1DeleteRowVisible: false,
+    history2DeleteRowVisible: false,
+    history3DeleteRowVisible: false,
+    history4DeleteRowVisible: false,
     history1Text: '',
     history2Text: '',
     history3Text: '',
+    history4Text: '',
     history1ScoreText: '',
     history2ScoreText: '',
     history3ScoreText: '',
+    history4ScoreText: '',
+    history1DisplayText: '',
+    history2DisplayText: '',
+    history3DisplayText: '',
+    history4DisplayText: '',
     historyResultDate: '',
+    historyDebugText: '',
     historyMineSet1: '-',
     historyMineSet2: '-',
     historyMineSet3: '-',
@@ -184,7 +202,7 @@ export default {
   },
 
   onInit: function () {
-    this.loadMatchHistory(true)
+    this.loadMatchHistory(false)
   },
 
   startSetup: function () {
@@ -199,19 +217,31 @@ export default {
     this.historyPage = 0
     this.hideHistoryDeletes()
 
-    // TEMP DEMO HISTORY - remove before release
-    var demo = this.demoHistoryItems()
-    var item = demo[0]
-    this.historyLine1 = item.line1
-    this.historyLine2 = item.line2
-    this.historyLine3 = item.line3
-    this.historyResultDate = item.date
-    this.historyCardVisible = true
+    // TEMP DEMO HISTORY - FORCE PREVIEWER TEST - remove before release
     this.historyEmptyVisible = false
+    this.historyDemoLoaded = true
+
     this.history1Visible = true
     this.history2Visible = true
     this.history3Visible = true
     this.history4Visible = true
+
+    this.history1DisplayText = '05/06 10:00 NOS  6-3 6-4'
+    this.history2DisplayText = '05/06 10:15 RIV  0-6 1-6'
+    this.history3DisplayText = '05/06 10:30 NOS  6-7 6-4'
+    this.history4DisplayText = '05/06 10:45 RIV  4-6 4-6'
+
+    this.history1NormalVisible = true
+    this.history2NormalVisible = true
+    this.history3NormalVisible = true
+    this.history4NormalVisible = true
+
+    this.history1DeleteRowVisible = false
+    this.history2DeleteRowVisible = false
+    this.history3DeleteRowVisible = false
+    this.history4DeleteRowVisible = false
+
+    this.historyDebugText = ''
   },
 
   closeHistory: function () {
@@ -1258,7 +1288,9 @@ export default {
     for (var i = 0; i < history.length; i++) {
       var item = history[i]
       if (item &&
+          item.id &&
           item.date &&
+          item.time &&
           item.winner &&
           item.line1 &&
           item.line2 &&
@@ -1289,34 +1321,51 @@ export default {
         key: 'matchHistory',
         default: '[]',
         success: function (data) {
-          self.historyText = self.storageValue(data)
-          if (useDemoFallback && self.parseHistory().length === 0 && !self.historyDemoLoaded) {
-            self.loadDemoHistory()
+          var loadedText = self.storageValue(data)
+          if (self.screen === 'history' && self.historyDemoLoaded && self.parseHistory().length > 0 && loadedText === '[]') {
+            self.renderHistoryRows()
             return
           }
-          self.updateHistoryLabels()
+          self.historyText = loadedText
+          if (useDemoFallback && self.parseHistory().length === 0 && !self.historyDemoLoaded) {
+            self.loadDemoHistory()
+            self.renderHistoryRows()
+            return
+          }
+          self.renderHistoryRows()
         },
         fail: function () {
           if (useDemoFallback && self.parseHistory().length === 0 && !self.historyDemoLoaded) {
             self.loadDemoHistory()
+            self.renderHistoryRows()
             return
           }
-          self.updateHistoryLabels()
+          self.renderHistoryRows()
         }
       })
     } catch (e) {
       if (useDemoFallback && self.parseHistory().length === 0 && !self.historyDemoLoaded) {
         self.loadDemoHistory()
+        self.renderHistoryRows()
         return
       }
-      self.updateHistoryLabels()
+      self.renderHistoryRows()
+    }
+  },
+
+  ensureDemoHistoryForPreview: function () {
+    var history = this.parseHistory()
+    if (history.length === 0 && !this.historyDemoLoaded) {
+      this.loadDemoHistory()
+    } else {
+      this.renderHistoryRows()
     }
   },
 
   storeHistory: function (history, skipLabelUpdate) {
     this.historyText = JSON.stringify(history)
     if (!skipLabelUpdate) {
-      this.updateHistoryLabels()
+      this.renderHistoryRows()
     }
     try {
       storage.set({
@@ -1325,6 +1374,18 @@ export default {
       })
     } catch (e) {
     }
+  },
+
+  updateHistoryDebug: function (prefix) {
+    var parsed = this.parseHistory()
+    this.historyDebugText = prefix +
+      ' | parsed=' + parsed.length +
+      ' | raw=' + this.parseHistoryRawLength() +
+      ' | demo=' + this.historyDemoLoaded +
+      ' | v=' + this.history1Visible + ',' + this.history2Visible + ',' + this.history3Visible + ',' + this.history4Visible +
+      ' | h1=' + this.history1Text +
+      ' | s1=' + this.history1ScoreText +
+      ' | text=' + this.historyText
   },
 
   historyLine: function (item) {
@@ -1520,52 +1581,58 @@ export default {
   },
 
   updateHistoryLabels: function () {
+    this.renderHistoryRows()
+  },
+
+  renderHistoryRows: function () {
     var history = this.parseHistory()
-    if (history.length.toString() !== this.parseHistoryRawLength().toString()) {
-      this.storeHistory(history)
-      return
-    }
-    var maxPage = history.length > 0 ? history.length - 1 : 0
-    if (this.historyPage > maxPage) {
-      this.historyPage = maxPage
-    }
-    if (this.historyPage < 0) {
-      this.historyPage = 0
-    }
-
     var offset = this.historyPage
-    this.historyEmptyVisible = history.length === 0
-    this.historyPrevVisible = this.historyPage > 0
-    this.historyNextVisible = offset + 1 < history.length
-    var item = history.length > 0 ? history[offset] : null
-    if (item) {
-      this.historyEmptyVisible = false
-      this.historyCardVisible = true
-      this.applyHistoryResultCard(item)
-    } else {
-      this.applyHistoryResultCard(null)
-    }
 
-    this.history1Visible = history.length > offset
-    this.history2Visible = false
-    this.history3Visible = false
+    var item1 = history[offset]
+    var item2 = history[offset + 1]
+    var item3 = history[offset + 2]
+    var item4 = history[offset + 3]
 
-    this.history1Text = item ? this.historyLine(item) : ''
-    this.history2Text = ''
-    this.history3Text = ''
-    this.history1ScoreText = item ? this.historyScoreLine(item) : ''
-    this.history2ScoreText = ''
-    this.history3ScoreText = ''
+    this.history1Visible = item1 ? true : false
+    this.history2Visible = item2 ? true : false
+    this.history3Visible = item3 ? true : false
+    this.history4Visible = item4 ? true : false
 
-    this.history1RivalesVisible = item && item.winner === 'RIVALES'
-    this.history1NosotrosVisible = item && item.winner === 'NOSOTROS'
-    this.history2RivalesVisible = false
-    this.history2NosotrosVisible = false
-    this.history3RivalesVisible = false
-    this.history3NosotrosVisible = false
+    this.history1Text = item1 ? this.historyLine(item1) : ''
+    this.history2Text = item2 ? this.historyLine(item2) : ''
+    this.history3Text = item3 ? this.historyLine(item3) : ''
+    this.history4Text = item4 ? this.historyLine(item4) : ''
+
+    this.history1ScoreText = item1 ? this.historyScoreLine(item1) : ''
+    this.history2ScoreText = item2 ? this.historyScoreLine(item2) : ''
+    this.history3ScoreText = item3 ? this.historyScoreLine(item3) : ''
+    this.history4ScoreText = item4 ? this.historyScoreLine(item4) : ''
+
+    this.history1DisplayText = item1 ? this.history1Text + '  ' + this.history1ScoreText : ''
+    this.history2DisplayText = item2 ? this.history2Text + '  ' + this.history2ScoreText : ''
+    this.history3DisplayText = item3 ? this.history3Text + '  ' + this.history3ScoreText : ''
+    this.history4DisplayText = item4 ? this.history4Text + '  ' + this.history4ScoreText : ''
+
+    this.historyEmptyVisible = !(this.history1Visible || this.history2Visible || this.history3Visible || this.history4Visible)
+    this.historyPrevVisible = offset > 0
+    this.historyNextVisible = offset + 4 < history.length
+
     this.history1DeleteVisible = this.history1Visible && this.history1DeleteVisible
     this.history2DeleteVisible = this.history2Visible && this.history2DeleteVisible
     this.history3DeleteVisible = this.history3Visible && this.history3DeleteVisible
+    this.history4DeleteVisible = this.history4Visible && this.history4DeleteVisible
+
+    this.history1NormalVisible = this.history1Visible && !this.history1DeleteVisible
+    this.history2NormalVisible = this.history2Visible && !this.history2DeleteVisible
+    this.history3NormalVisible = this.history3Visible && !this.history3DeleteVisible
+    this.history4NormalVisible = this.history4Visible && !this.history4DeleteVisible
+
+    this.history1DeleteRowVisible = this.history1Visible && this.history1DeleteVisible
+    this.history2DeleteRowVisible = this.history2Visible && this.history2DeleteVisible
+    this.history3DeleteRowVisible = this.history3Visible && this.history3DeleteVisible
+    this.history4DeleteRowVisible = this.history4Visible && this.history4DeleteVisible
+
+    this.updateHistoryDebug('render')
   },
 
   parseHistoryRawLength: function () {
@@ -1578,14 +1645,20 @@ export default {
   },
 
   deleteHistoryAt: function (index) {
-    var history = this.parseHistory()
-    var realIndex = this.historyPage + index
-    if (realIndex < 0 || realIndex >= history.length) {
-      return
+    if (index === 0) {
+      this.history1Visible = false
+      this.history1DeleteVisible = false
+    } else if (index === 1) {
+      this.history2Visible = false
+      this.history2DeleteVisible = false
+    } else if (index === 2) {
+      this.history3Visible = false
+      this.history3DeleteVisible = false
+    } else if (index === 3) {
+      this.history4Visible = false
+      this.history4DeleteVisible = false
     }
-    history.splice(realIndex, 1)
-    this.hideHistoryDeletes()
-    this.storeHistory(history)
+    this.updateHistoryRowVisibility()
   },
 
   deleteHistoryById: function (id) {
@@ -1594,6 +1667,7 @@ export default {
       if (history[i].id === id) {
         history.splice(i, 1)
         this.storeHistory(history)
+        this.renderHistoryRows()
         return
       }
     }
@@ -1604,6 +1678,18 @@ export default {
     this.history2DeleteVisible = false
     this.history3DeleteVisible = false
     this.history4DeleteVisible = false
+    this.updateHistoryRowVisibility()
+  },
+
+  updateHistoryRowVisibility: function () {
+    this.history1NormalVisible = this.history1Visible && !this.history1DeleteVisible
+    this.history2NormalVisible = this.history2Visible && !this.history2DeleteVisible
+    this.history3NormalVisible = this.history3Visible && !this.history3DeleteVisible
+    this.history4NormalVisible = this.history4Visible && !this.history4DeleteVisible
+    this.history1DeleteRowVisible = this.history1Visible && this.history1DeleteVisible
+    this.history2DeleteRowVisible = this.history2Visible && this.history2DeleteVisible
+    this.history3DeleteRowVisible = this.history3Visible && this.history3DeleteVisible
+    this.history4DeleteRowVisible = this.history4Visible && this.history4DeleteVisible
   },
 
   showHistoryDelete: function (index) {
@@ -1617,6 +1703,7 @@ export default {
     } else if (index === 3) {
       this.history4DeleteVisible = true
     }
+    this.updateHistoryRowVisibility()
   },
 
   showHistoryDelete1: function () {
@@ -1637,20 +1724,18 @@ export default {
 
   historyPrevPage: function () {
     if (this.historyPage > 0) {
-      this.historyPage--
+      this.historyPage = Math.max(0, this.historyPage - 4)
       this.hideHistoryDeletes()
-      this.updateHistoryLabels()
-      this.applyCurrentHistoryPage()
+      this.renderHistoryRows()
     }
   },
 
   historyNextPage: function () {
     var history = this.parseHistory()
-    if (this.historyPage + 1 < history.length) {
-      this.historyPage++
+    if (this.historyPage + 4 < history.length) {
+      this.historyPage = this.historyPage + 4
       this.hideHistoryDeletes()
-      this.updateHistoryLabels()
-      this.applyCurrentHistoryPage()
+      this.renderHistoryRows()
     }
   },
 
@@ -1682,14 +1767,26 @@ export default {
         line1: 'Set 1: 6-7',
         line2: 'Set 2: 6-4',
         line3: 'Super TB: 10-8'
+      },
+      {
+        id: 'demo-4',
+        date: '2026-06-05',
+        time: '10:45',
+        winner: 'RIVALES',
+        line1: 'Set 1: 4-6',
+        line2: 'Set 2: 4-6',
+        line3: 'Set 3: -'
       }
     ]
   },
 
   loadDemoHistory: function () {
-    // TEMP DEMO HISTORY: remove this fallback after Previewer history testing.
+    // TEMP DEMO HISTORY - remove before release
+    var demoHistory = this.demoHistoryItems().slice(0, 4)
     this.historyDemoLoaded = true
-    this.storeHistory(this.demoHistoryItems().slice(0, 10), false)
+    this.historyText = JSON.stringify(demoHistory)
+    this.storeHistory(demoHistory, true)
+    this.renderHistoryRows()
   },
 
   handleHistorySwipe: function (event, index) {
@@ -1722,12 +1819,10 @@ export default {
 
   deleteHistory3: function () {
     this.deleteHistoryAt(2)
-    this.history3Visible = false
   },
 
   deleteHistory4: function () {
-    this.history4Visible = false
-    this.history4DeleteVisible = false
+    this.deleteHistoryAt(3)
   },
 
   noopSet: function () {

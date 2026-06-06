@@ -98,6 +98,14 @@
   margin-bottom: 8px;
 }
 
+.historyDebug {
+  width: 300px;
+  height: 24px;
+  font-size: 9px;
+  color: #666666;
+  text-align: center;
+}
+
 .resultCard {
   width: 264px;
   height: 184px;
@@ -1620,4 +1628,18 @@
   font-size: 12px;
   color: #ffffff;
   text-align: left;
+}
+
+.history .historyMatchCardDelete {
+  height: 50px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.history .historyMatchOneLine {
+  width: 224px;
+  height: 26px;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
 }

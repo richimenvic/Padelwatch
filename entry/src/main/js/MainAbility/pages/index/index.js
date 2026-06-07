@@ -1753,6 +1753,15 @@ export default {
     this.history3Visible = this.history3DisplayText !== ''
     this.history4Visible = this.history4DisplayText !== ''
 
+    this.history1RivalesVisible = item1 && item1.winner === 'RIVALES'
+    this.history1NosotrosVisible = item1 && item1.winner === 'NOSOTROS'
+    this.history2RivalesVisible = item2 && item2.winner === 'RIVALES'
+    this.history2NosotrosVisible = item2 && item2.winner === 'NOSOTROS'
+    this.history3RivalesVisible = item3 && item3.winner === 'RIVALES'
+    this.history3NosotrosVisible = item3 && item3.winner === 'NOSOTROS'
+    this.history4RivalesVisible = item4 && item4.winner === 'RIVALES'
+    this.history4NosotrosVisible = item4 && item4.winner === 'NOSOTROS'
+
     this.historyEmptyVisible = !(this.history1Visible || this.history2Visible || this.history3Visible || this.history4Visible)
 
     this.historyPrevVisible = offset > 0

@@ -18,7 +18,10 @@
       <div class="historyFlatPanel">
         <text class="historyEmptyText" if="{{historyEmptyVisible}}">Sin partidos</text>
 
-        <div class="historyRow" if="{{history1NormalVisible}}" onlongpress="showHistoryDelete1">
+        <div class="historyRow historyRowRivales" if="{{history1NormalVisible && history1RivalesVisible}}" onlongpress="showHistoryDelete1">
+          <text class="historyRowText">{{history1DisplayText}}</text>
+        </div>
+        <div class="historyRow historyRowNosotros" if="{{history1NormalVisible && history1NosotrosVisible}}" onlongpress="showHistoryDelete1">
           <text class="historyRowText">{{history1DisplayText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history1DeleteRowVisible}}">
@@ -26,7 +29,10 @@
           <text class="historyDeleteText">{{history1DisplayText}}</text>
         </div>
 
-        <div class="historyRow" if="{{history2NormalVisible}}" onlongpress="showHistoryDelete2">
+        <div class="historyRow historyRowRivales" if="{{history2NormalVisible && history2RivalesVisible}}" onlongpress="showHistoryDelete2">
+          <text class="historyRowText">{{history2DisplayText}}</text>
+        </div>
+        <div class="historyRow historyRowNosotros" if="{{history2NormalVisible && history2NosotrosVisible}}" onlongpress="showHistoryDelete2">
           <text class="historyRowText">{{history2DisplayText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history2DeleteRowVisible}}">
@@ -34,7 +40,10 @@
           <text class="historyDeleteText">{{history2DisplayText}}</text>
         </div>
 
-        <div class="historyRow" if="{{history3NormalVisible}}" onlongpress="showHistoryDelete3">
+        <div class="historyRow historyRowRivales" if="{{history3NormalVisible && history3RivalesVisible}}" onlongpress="showHistoryDelete3">
+          <text class="historyRowText">{{history3DisplayText}}</text>
+        </div>
+        <div class="historyRow historyRowNosotros" if="{{history3NormalVisible && history3NosotrosVisible}}" onlongpress="showHistoryDelete3">
           <text class="historyRowText">{{history3DisplayText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history3DeleteRowVisible}}">
@@ -42,7 +51,10 @@
           <text class="historyDeleteText">{{history3DisplayText}}</text>
         </div>
 
-        <div class="historyRow" if="{{history4NormalVisible}}" onlongpress="showHistoryDelete4">
+        <div class="historyRow historyRowRivales" if="{{history4NormalVisible && history4RivalesVisible}}" onlongpress="showHistoryDelete4">
+          <text class="historyRowText">{{history4DisplayText}}</text>
+        </div>
+        <div class="historyRow historyRowNosotros" if="{{history4NormalVisible && history4NosotrosVisible}}" onlongpress="showHistoryDelete4">
           <text class="historyRowText">{{history4DisplayText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history4DeleteRowVisible}}">
@@ -202,8 +214,8 @@
       <div class="scoreRow">
         <text class="scoreSpacer"></text>
         <text class="score scoreNosotros">{{pointsNosotros}}</text>
-        <div class="ballSlot">
-          <div class="tennisBall" if="{{serverBallNosotrosVisible}}">
+        <div class="ballSlot ballSlotNosotros">
+          <div class="tennisBall tennisBallNosotros" if="{{serverBallNosotrosVisible}}">
             <text class="ballSeam">(</text>
             <text class="ballSeam">)</text>
           </div>

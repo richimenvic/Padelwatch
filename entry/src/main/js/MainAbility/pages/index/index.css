@@ -2150,3 +2150,36 @@
 .history {
   padding-top: 72px;
 }
+
+
+/* Winner color rows in History */
+.historyRowRivales {
+  background-color: #ff5933;
+}
+
+.historyRowNosotros {
+  background-color: #c600d9;
+}
+
+.historyRowRivales .historyRowText,
+.historyRowNosotros .historyRowText {
+  color: #ffffff;
+}
+
+
+/* Lower NOSOTROS server ball slightly */
+.serverBallNosotros,
+.bottomServerBall,
+.nosotrosServerBall {
+  margin-top: 18px;
+}
+
+
+/* Align NOSOTROS server ball with lower score */
+.ballSlotNosotros {
+  margin-top: 20px;
+}
+
+.tennisBallNosotros {
+  margin-top: 6px;
+}

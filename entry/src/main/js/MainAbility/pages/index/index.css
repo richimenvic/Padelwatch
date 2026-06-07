@@ -2183,3 +2183,324 @@
 .tennisBallNosotros {
   margin-top: 6px;
 }
+
+
+/* Cleaner delete confirmation in History */
+.historyDeleteRow {
+  width: 260px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #ff3333;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 6px;
+  margin-right: 8px;
+}
+
+.historyDeleteText {
+  width: 190px;
+  height: 28px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+}
+
+
+/* Center X inside delete circle */
+.historyDeleteButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #ff3333;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 1px;
+  margin-left: 6px;
+  margin-right: 8px;
+}
+
+
+/* Delete X as div+text for better Lite vertical alignment */
+.historyDeleteButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #ff3333;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  margin-right: 8px;
+}
+
+.historyDeleteButtonText {
+  width: 36px;
+  height: 26px;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+/* Delete row final polish */
+.historyDeleteRow {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteText {
+  width: 180px;
+  height: 26px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 2px;
+}
+
+
+/* Keep delete X circle inside red bar */
+.historyDeleteRow {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ff3333;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  margin-right: 10px;
+}
+
+.historyDeleteButtonText {
+  width: 30px;
+  height: 22px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+
+.historyDeleteText {
+  width: 180px;
+  height: 26px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 2px;
+}
+
+
+/* Delete row: integrated X, no protruding circle */
+.historyDeleteRow {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteButton {
+  width: 42px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  margin-right: 4px;
+}
+
+.historyDeleteButtonText {
+  width: 42px;
+  height: 28px;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}
+
+.historyDeleteText {
+  width: 190px;
+  height: 28px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 2px;
+}
+
+
+/* Align delete X and delete text on same baseline */
+.historyDeleteRow {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  margin-right: 4px;
+}
+
+.historyDeleteButtonText {
+  width: 40px;
+  height: 24px;
+  color: #ffffff;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 1px;
+}
+
+.historyDeleteText {
+  width: 190px;
+  height: 24px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 1px;
+}
+
+
+/* Delete row as one aligned text */
+.historyDeleteRow {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteFullText {
+  width: 230px;
+  height: 26px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 12px;
+}
+
+
+/* Delete row: clickable X button, aligned text */
+.historyDeleteRow {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteButton {
+  width: 42px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0px;
+  margin-right: 6px;
+}
+
+.historyDeleteButtonText {
+  width: 42px;
+  height: 28px;
+  color: #ffffff;
+  font-size: 17px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.historyDeleteText {
+  width: 185px;
+  height: 28px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 2px;
+}
+
+.historyDeleteFullText {
+  width: 0px;
+  height: 0px;
+  font-size: 1px;
+  color: #d0002f;
+}
+
+
+/* Stable delete row: single aligned text */
+.historyDeleteRow {
+  width: 250px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #d0002f;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteFullText {
+  width: 230px;
+  height: 26px;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 12px;
+}

@@ -1664,3 +1664,489 @@
   color: #cccccc;
   text-align: center;
 }
+
+
+/* History side navigation: arrows flank the whole history panel */
+.historyMainRow {
+  width: 356px;
+  height: 196px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.historySideButton {
+  width: 38px;
+  height: 128px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 34px;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.historySideGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyNav {
+  width: 180px;
+  height: 54px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+
+.historyPanelTitle {
+  width: 292px;
+  height: 30px;
+  font-size: 23px;
+  color: #fff05a;
+  text-align: left;
+  margin-top: 0px;
+}
+
+.historyPanelDivider {
+  width: 292px;
+  height: 2px;
+  background-color: #101843;
+  margin-bottom: 4px;
+}
+
+.historyMainRow {
+  width: 356px;
+  height: 178px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* History panel final layout */
+.historyPanelTitle {
+  width: 310px;
+  height: 32px;
+  font-size: 25px;
+  color: #fff05a;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.historyPanelDivider {
+  width: 310px;
+  height: 2px;
+  background-color: #101843;
+  margin-bottom: 2px;
+}
+
+.historyMainRow {
+  width: 360px;
+  height: 224px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.history .resultCard {
+  width: 286px;
+  height: 224px;
+  border-radius: 10px;
+  background-color: #263064;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0px;
+}
+
+.history .resultHeader {
+  display: none;
+}
+
+.history .resultDivider {
+  display: none;
+}
+
+.history .resultBody {
+  width: 270px;
+  height: 212px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+}
+
+.historyRow,
+.historyDeleteRow {
+  width: 260px;
+  height: 42px;
+  border-radius: 8px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.historyRowText {
+  width: 246px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.historySideButton {
+  width: 38px;
+  height: 132px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 34px;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.historyBackButton {
+  width: 170px;
+  height: 54px;
+  border-radius: 27px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+}
+
+
+/* History final top-aligned list fix for Lite */
+.history .resultCard {
+  width: 286px;
+  height: 224px;
+  border-radius: 0px;
+  background-color: #263064;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0px;
+}
+
+.history .resultHeader {
+  width: 0px;
+  height: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.history .resultTitle,
+.history .resultDate {
+  width: 0px;
+  height: 0px;
+  font-size: 1px;
+  color: #263064;
+}
+
+.history .resultDivider {
+  width: 0px;
+  height: 0px;
+  background-color: #263064;
+}
+
+.history .resultBody {
+  width: 270px;
+  height: 210px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+}
+
+.historyRow,
+.historyDeleteRow {
+  width: 260px;
+  height: 42px;
+  border-radius: 8px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.historyRowText {
+  width: 246px;
+  height: 28px;
+  font-size: 15px;
+  text-align: center;
+}
+
+
+/* Final history list: start from top and fit 4 rows */
+.historyMainRow {
+  width: 360px;
+  height: 222px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.history .resultCard {
+  width: 286px;
+  height: 222px;
+  border-radius: 0px;
+  background-color: #263064;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.history .resultHeader {
+  width: 0px;
+  height: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.history .resultTitle,
+.history .resultDate {
+  width: 0px;
+  height: 0px;
+  font-size: 1px;
+  color: #263064;
+}
+
+.history .resultDivider {
+  width: 0px;
+  height: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  background-color: #263064;
+}
+
+.history .resultBody {
+  width: 272px;
+  height: 206px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4px;
+  margin-top: 0px;
+}
+
+.historyRow,
+.historyDeleteRow {
+  width: 260px;
+  height: 38px;
+  border-radius: 8px;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyRowText {
+  width: 246px;
+  height: 26px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.historyEmptyPanel .resultBody {
+  justify-content: center;
+}
+
+
+/* Clean flat History screen for Lite */
+.history {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyPanelTitle {
+  width: 310px;
+  height: 32px;
+  font-size: 25px;
+  color: #fff05a;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.historyPanelDivider {
+  width: 310px;
+  height: 2px;
+  background-color: #101843;
+  margin-bottom: 4px;
+}
+
+.historyMainRow {
+  width: 360px;
+  height: 210px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyFlatPanel {
+  width: 286px;
+  height: 210px;
+  background-color: #263064;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+}
+
+.historyEmptyText {
+  width: 260px;
+  height: 120px;
+  color: #ffffff;
+  font-size: 23px;
+  text-align: center;
+  margin-top: 44px;
+}
+
+.historyRow,
+.historyDeleteRow {
+  width: 260px;
+  height: 40px;
+  border-radius: 8px;
+  margin-top: 3px;
+  margin-bottom: 4px;
+}
+
+.historyRow {
+  background-color: #202957;
+}
+
+.historyRowText {
+  width: 246px;
+  height: 28px;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.historyDeleteRow {
+  background-color: #d0002f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.historyDeleteButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #ff3333;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 5px;
+}
+
+.historyDeleteText {
+  width: 205px;
+  height: 28px;
+  color: #ffffff;
+  font-size: 13px;
+  text-align: left;
+}
+
+.historySideButton {
+  width: 38px;
+  height: 132px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 34px;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.historySideGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyNav {
+  width: 180px;
+  height: 58px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.historyBackButton {
+  width: 170px;
+  height: 54px;
+  border-radius: 27px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+}
+
+
+/* Move full History menu upward */
+.history {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 54px;
+}
+
+.historyPanelTitle {
+  width: 310px;
+  height: 32px;
+  font-size: 25px;
+  color: #fff05a;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.historyPanelDivider {
+  width: 310px;
+  height: 2px;
+  background-color: #101843;
+  margin-bottom: 4px;
+}
+
+.historyMainRow {
+  width: 360px;
+  height: 210px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyFlatPanel {
+  width: 286px;
+  height: 210px;
+  background-color: #263064;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+}
+
+.historyNav {
+  width: 180px;
+  height: 58px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+
+/* Fine tune History vertical position */
+.history {
+  padding-top: 72px;
+}

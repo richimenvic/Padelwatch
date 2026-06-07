@@ -8,69 +8,55 @@
   </div>
 
   <div class="history" if="{{screen === 'history'}}">
-    <text class="historyDebug">{{historyDebugText}}</text>
+    <text class="historyPanelTitle">HISTORIAL</text>
+    <div class="historyPanelDivider"></div>
 
-    <div class="resultCard historyEmptyPanel" if="{{historyEmptyVisible}}">
-      <div class="resultHeader">
-        <text class="resultTitle">HISTORIAL</text>
-        <text class="resultDate">{{historyResultDate}}</text>
-      </div>
-      <div class="resultDivider"></div>
-      <div class="historyEmptyInside">
-        <text class="historyEmptyText">Sin partidos</text>
-      </div>
-    </div>
+    <div class="historyMainRow">
+      <input class="historySideButton" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
+      <input class="historySideButton historySideGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
 
-    <div class="resultCard" if="{{!historyEmptyVisible}}">
-      <div class="resultHeader">
-        <text class="resultTitle">HISTORIAL</text>
-        <text class="resultDate">{{historyResultDate}}</text>
-      </div>
-      <div class="resultDivider"></div>
+      <div class="historyFlatPanel">
+        <text class="historyEmptyText" if="{{historyEmptyVisible}}">Sin partidos</text>
 
-      <div class="resultBody historyMatchList" if="{{!historyEmptyVisible}}">
-        <div class="historyMatchCard" if="{{history1NormalVisible}}" onlongpress="showHistoryDelete1">
-          <text class="historyMatchOneLine">{{history1DisplayText}}</text>
+        <div class="historyRow" if="{{history1NormalVisible}}" onlongpress="showHistoryDelete1">
+          <text class="historyRowText">{{history1DisplayText}}</text>
         </div>
-        <div class="historyMatchCardDelete" if="{{history1DeleteRowVisible}}">
+        <div class="historyDeleteRow" if="{{history1DeleteRowVisible}}">
           <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory1"></input>
-          <text class="historyMatchDeleteText">{{history1DisplayText}}</text>
+          <text class="historyDeleteText">{{history1DisplayText}}</text>
         </div>
 
-        <div class="historyMatchCard" if="{{history2NormalVisible}}" onlongpress="showHistoryDelete2">
-          <text class="historyMatchOneLine">{{history2DisplayText}}</text>
+        <div class="historyRow" if="{{history2NormalVisible}}" onlongpress="showHistoryDelete2">
+          <text class="historyRowText">{{history2DisplayText}}</text>
         </div>
-        <div class="historyMatchCardDelete" if="{{history2DeleteRowVisible}}">
+        <div class="historyDeleteRow" if="{{history2DeleteRowVisible}}">
           <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory2"></input>
-          <text class="historyMatchDeleteText">{{history2DisplayText}}</text>
+          <text class="historyDeleteText">{{history2DisplayText}}</text>
         </div>
 
-        <div class="historyMatchCard" if="{{history3NormalVisible}}" onlongpress="showHistoryDelete3">
-          <text class="historyMatchOneLine">{{history3DisplayText}}</text>
+        <div class="historyRow" if="{{history3NormalVisible}}" onlongpress="showHistoryDelete3">
+          <text class="historyRowText">{{history3DisplayText}}</text>
         </div>
-        <div class="historyMatchCardDelete" if="{{history3DeleteRowVisible}}">
+        <div class="historyDeleteRow" if="{{history3DeleteRowVisible}}">
           <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory3"></input>
-          <text class="historyMatchDeleteText">{{history3DisplayText}}</text>
+          <text class="historyDeleteText">{{history3DisplayText}}</text>
         </div>
 
-        <div class="historyMatchCard" if="{{history4NormalVisible}}" onlongpress="showHistoryDelete4">
-          <text class="historyMatchOneLine">{{history4DisplayText}}</text>
+        <div class="historyRow" if="{{history4NormalVisible}}" onlongpress="showHistoryDelete4">
+          <text class="historyRowText">{{history4DisplayText}}</text>
         </div>
-        <div class="historyMatchCardDelete" if="{{history4DeleteRowVisible}}">
+        <div class="historyDeleteRow" if="{{history4DeleteRowVisible}}">
           <input class="historyDeleteButton" type="button" value="X" onclick="deleteHistory4"></input>
-          <text class="historyMatchDeleteText">{{history4DisplayText}}</text>
+          <text class="historyDeleteText">{{history4DisplayText}}</text>
         </div>
       </div>
-    </div>
 
-    <text class="historyBottomPush">.</text>
+      <input class="historySideButton" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
+      <input class="historySideButton historySideGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
+    </div>
 
     <div class="historyNav">
-      <input class="pagerButton" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
-      <input class="pagerButton pagerButtonGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
       <input class="historyBackButton" type="button" value="Volver" onclick="closeHistory"></input>
-      <input class="pagerButton" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
-      <input class="pagerButton pagerButtonGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
     </div>
   </div>
 

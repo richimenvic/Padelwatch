@@ -153,7 +153,7 @@
         <input class="barButton undoButton" type="button" value="Undo" onclick="noopSet"></input>
       </div>
       <div class="barZoneMiddle" onclick="noopSet">
-        <div class="setScoreGrid" onclick="noopSet">
+        <div class="setScoreGrid" onclick="noopSet" onlongpress="requestReset">
           <div class="setScoreColumn setScoreNeutral" if="{{setGrid1NeutralVisible}}" onclick="noopSet">
             <text class="setScoreCell">{{setBox1TopText}}</text>
             <text class="setScoreCell">{{setBox1BottomText}}</text>
@@ -192,8 +192,8 @@
           </div>
         </div>
       </div>
-      <div class="barZoneRight" onclick="noopSet" onlongpress="requestReset">
-        <input class="barButton resetButton" type="button" value="Reset" onclick="noopSet" onlongpress="requestReset"></input>
+      <div class="barZoneRight" onclick="noopSet">
+        <text class="barClockText">{{clockText}}</text>
       </div>
     </div>
 
@@ -244,7 +244,7 @@
       <div class="finalButtonRow">
         <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
         <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
-        <input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input>
+        <text class="barClockText">{{clockText}}</text>
       </div>
     </div>
   </div>

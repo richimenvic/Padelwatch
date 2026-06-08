@@ -17,6 +17,7 @@ export default {
     vibrationOnVisible: true,
     vibrationOffVisible: false,
     vibrationText: 'Vibración: ON',
+    clockText: '',
 
     nameNosotros: 'NOSOTROS',
     nameRivales: 'RIVALES',
@@ -2266,6 +2267,7 @@ export default {
   },
 
   updateLabels: function () {
+    this.clockText = this.timeText()
     if (this.screen === 'final') {
       return
     }

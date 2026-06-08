@@ -2504,3 +2504,21 @@
   text-align: left;
   margin-left: 12px;
 }
+
+
+/* Final history row vertical centering */
+.historyRow {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0px;
+}
+
+.historyRowText {
+  width: 246px;
+  height: 24px;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 4px;
+}

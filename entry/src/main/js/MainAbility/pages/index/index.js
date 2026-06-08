@@ -358,9 +358,9 @@ export default {
     this.finalWinnerNameText = ''
     this.finalNosotrosVisible = false
     this.finalRivalesVisible = false
-    this.finalLine1 = 'Set 1: -'
-    this.finalLine2 = 'Set 2: -'
-    this.finalLine3 = 'Set 3: -'
+    this.finalLine1 = 'S1: -'
+    this.finalLine2 = 'S2: -'
+    this.finalLine3 = 'S3: -'
     this.finalScoreLine1 = ''
     this.finalScoreLine2 = ''
     this.finalScoreLine3 = ''
@@ -567,11 +567,11 @@ export default {
 
   saveSetResult: function () {
     if (this.setActual === 1) {
-      this.finalLine1 = 'Set 1: ' + this.gamesNosotros + '-' + this.gamesRivales
+      this.finalLine1 = 'S1: ' + this.gamesNosotros + '-' + this.gamesRivales
     } else if (this.setActual === 2) {
-      this.finalLine2 = 'Set 2: ' + this.gamesNosotros + '-' + this.gamesRivales
+      this.finalLine2 = 'S2: ' + this.gamesNosotros + '-' + this.gamesRivales
     } else {
-      this.finalLine3 = 'Set 3: ' + this.gamesNosotros + '-' + this.gamesRivales
+      this.finalLine3 = 'S3: ' + this.gamesNosotros + '-' + this.gamesRivales
     }
   },
 
@@ -605,9 +605,9 @@ export default {
       date: this.todayText(),
       time: this.timeText(),
       winner: winner,
-      line1: this.finalLine1 || 'Set 1: -',
-      line2: this.finalLine2 || 'Set 2: -',
-      line3: this.finalLine3 || 'Set 3: -'
+      line1: this.finalLine1 || 'S1: -',
+      line2: this.finalLine2 || 'S2: -',
+      line3: this.finalLine3 || 'S3: -'
     }
 
     var oldHistory = this.historyItems || []
@@ -633,13 +633,13 @@ export default {
     this.finalRivalesVisible = winner === 'RIVALES'
 
     if (this.finalLine1 === '') {
-      this.finalLine1 = 'Set 1: -'
+      this.finalLine1 = 'S1: -'
     }
     if (this.finalLine2 === '') {
-      this.finalLine2 = 'Set 2: -'
+      this.finalLine2 = 'S2: -'
     }
     if (this.finalLine3 === '') {
-      this.finalLine3 = 'Set 3: -'
+      this.finalLine3 = 'S3: -'
     }
 
     this.applyFinalScoreboard()
@@ -652,8 +652,8 @@ export default {
     this.resultSet2 = this.shortResultLineText(this.finalLine2)
     this.resultSet3 = this.shortResultLineText(this.finalLine3)
     this.finalScoreR006006Visible = winner === 'RIVALES' &&
-      this.finalLine1 === 'Set 1: 0-6' &&
-      this.finalLine2 === 'Set 2: 0-6'
+      this.finalLine1 === 'S1: 0-6' &&
+      this.finalLine2 === 'S2: 0-6'
     this.updateResultSetFlags()
 
     this.finalDebugText = ''
@@ -805,13 +805,13 @@ export default {
 
   prepareFinishedMatchResult: function (winner) {
     if (this.finalLine1 === '') {
-      this.finalLine1 = 'Set 1: -'
+      this.finalLine1 = 'S1: -'
     }
     if (this.finalLine2 === '') {
-      this.finalLine2 = 'Set 2: -'
+      this.finalLine2 = 'S2: -'
     }
     if (this.finalLine3 === '') {
-      this.finalLine3 = 'Set 3: -'
+      this.finalLine3 = 'S3: -'
     }
     this.finalScoreLine1 = this.finalResultLineText(this.finalLine1)
     this.finalScoreLine2 = this.finalResultLineText(this.finalLine2)
@@ -897,9 +897,9 @@ export default {
         date: this.todayText(),
         time: this.timeText(),
         winner: winner,
-        line1: this.finalLine1 || 'Set 1: -',
-        line2: this.finalLine2 || 'Set 2: -',
-        line3: this.finalLine3 || 'Set 3: -'
+        line1: this.finalLine1 || 'S1: -',
+        line2: this.finalLine2 || 'S2: -',
+        line3: this.finalLine3 || 'S3: -'
       }
 
       var oldHistory = this.historyItems || []
@@ -1046,7 +1046,7 @@ export default {
     }
 
     if (this.superTieNosotros >= 10 && this.superTieNosotros - this.superTieRivales >= 2) {
-      this.finalLine3 = 'Super TB: ' + this.superTieNosotros + '-' + this.superTieRivales
+      this.finalLine3 = 'STB: ' + this.superTieNosotros + '-' + this.superTieRivales
       this.setsNosotros = 2
       this.setsRivales = 1
       this.enSuperTieBreak = false
@@ -1054,7 +1054,7 @@ export default {
       this.finishMatchDirect('NOSOTROS')
       return true
     } else if (this.superTieRivales >= 10 && this.superTieRivales - this.superTieNosotros >= 2) {
-      this.finalLine3 = 'Super TB: ' + this.superTieNosotros + '-' + this.superTieRivales
+      this.finalLine3 = 'STB: ' + this.superTieNosotros + '-' + this.superTieRivales
       this.setsNosotros = 1
       this.setsRivales = 2
       this.enSuperTieBreak = false
@@ -1247,7 +1247,7 @@ export default {
       this.gamesRivales = 0
       this.pointIndexNosotros = 0
       this.pointIndexRivales = 0
-      this.finalLine3 = 'Set 3: -'
+      this.finalLine3 = 'S3: -'
     }
 
     this.resultVisible = this.screen === 'final'
@@ -1414,7 +1414,7 @@ export default {
         winner: item.winner,
         line1: item.line1,
         line2: item.line2,
-        line3: item.line3 || 'Set 3: -'
+        line3: item.line3 || 'S3: -'
       })
     }
     return valid
@@ -1543,10 +1543,10 @@ export default {
   },
 
   historyScoreLine: function (item) {
-    var set1 = this.cleanHistorySet(item.line1, 'Set 1: ')
-    var set2 = this.cleanHistorySet(item.line2, 'Set 2: ')
-    var set3 = this.cleanHistorySet(item.line3, 'Set 3: ')
-    set3 = set3.replace('Super TB: ', 'ST ')
+    var set1 = this.cleanHistorySet(item.line1, 'S1: ')
+    var set2 = this.cleanHistorySet(item.line2, 'S2: ')
+    var set3 = this.cleanHistorySet(item.line3, 'S3: ')
+    set3 = set3.replace('STB: ', 'ST ')
     var score = set1 + ' ' + set2
     if (set3 !== '' && set3 !== '-') {
       score = score + ' ' + set3
@@ -1561,9 +1561,9 @@ export default {
     if (!item) { return '' }
 
     var winner = item.winner === 'NOSOTROS' ? 'NOS' : (item.winner === 'RIVALES' ? 'RIV' : item.winner)
-    var set1 = item.line1 ? item.line1.replace('Set 1: ', '') : '-'
-    var set2 = item.line2 ? item.line2.replace('Set 2: ', '') : '-'
-    var set3 = item.line3 ? item.line3.replace('Set 3: ', '').replace('Super TB: ', '') : '-'
+    var set1 = item.line1 ? item.line1.replace('S1: ', '') : '-'
+    var set2 = item.line2 ? item.line2.replace('S2: ', '') : '-'
+    var set3 = item.line3 ? item.line3.replace('S3: ', '').replace('STB: ', '') : '-'
 
     if (!set1 || set1 === '') { set1 = '-' }
     if (!set2 || set2 === '') { set2 = '-' }
@@ -1581,10 +1581,10 @@ export default {
 
   finalSetParts: function (value) {
     var clean = value === undefined || value === null ? '-' : value.toString()
-    clean = clean.replace('Set 1: ', '')
-    clean = clean.replace('Set 2: ', '')
-    clean = clean.replace('Set 3: ', '')
-    clean = clean.replace('Super TB: ', '')
+    clean = clean.replace('S1: ', '')
+    clean = clean.replace('S2: ', '')
+    clean = clean.replace('S3: ', '')
+    clean = clean.replace('STB: ', '')
     var dash = clean.indexOf('-')
     if (clean === '-' || dash < 0) {
       return ['-', '-']
@@ -1649,10 +1649,10 @@ export default {
 
   historySetParts: function (value) {
     var clean = value === undefined || value === null ? '-' : value.toString()
-    clean = clean.replace('Set 1: ', '')
-    clean = clean.replace('Set 2: ', '')
-    clean = clean.replace('Set 3: ', '')
-    clean = clean.replace('Super TB: ', '')
+    clean = clean.replace('S1: ', '')
+    clean = clean.replace('S2: ', '')
+    clean = clean.replace('S3: ', '')
+    clean = clean.replace('STB: ', '')
     var dash = clean.indexOf('-')
     if (clean === '-' || dash < 0) {
       return ['-', '-']
@@ -1902,36 +1902,36 @@ export default {
         date: '2026-06-05',
         time: '10:00',
         winner: 'NOSOTROS',
-        line1: 'Set 1: 6-3',
-        line2: 'Set 2: 6-4',
-        line3: 'Set 3: -'
+        line1: 'S1: 6-3',
+        line2: 'S2: 6-4',
+        line3: 'S3: -'
       },
       {
         id: 'demo-2',
         date: '2026-06-05',
         time: '10:15',
         winner: 'RIVALES',
-        line1: 'Set 1: 0-6',
-        line2: 'Set 2: 1-6',
-        line3: 'Set 3: -'
+        line1: 'S1: 0-6',
+        line2: 'S2: 1-6',
+        line3: 'S3: -'
       },
       {
         id: 'demo-3',
         date: '2026-06-05',
         time: '10:30',
         winner: 'NOSOTROS',
-        line1: 'Set 1: 6-7',
-        line2: 'Set 2: 6-4',
-        line3: 'Super TB: 10-8'
+        line1: 'S1: 6-7',
+        line2: 'S2: 6-4',
+        line3: 'STB: 10-8'
       },
       {
         id: 'demo-4',
         date: '2026-06-05',
         time: '10:45',
         winner: 'RIVALES',
-        line1: 'Set 1: 4-6',
-        line2: 'Set 2: 4-6',
-        line3: 'Set 3: -'
+        line1: 'S1: 4-6',
+        line2: 'S2: 4-6',
+        line3: 'S3: -'
       }
     ]
   },
@@ -2045,7 +2045,7 @@ export default {
   },
 
   setFinishedBox: function (box, line) {
-    if (line.indexOf('Super TB: ') === 0) {
+    if (line.indexOf('STB: ') === 0) {
       return false
     }
 

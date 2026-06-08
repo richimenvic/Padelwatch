@@ -26,7 +26,9 @@
 
         <div class="historySummaryCard" if="{{history1NormalVisible}}" onlongpress="showHistoryDelete1">
           <text class="historySummaryTitle">{{history1TitleText}}</text>
-          <text class="historySummaryScore">{{history1ScoreLargeText}}</text>
+          <text class="historySummaryScore historySummaryScoreNos" if="{{history1NosotrosVisible}}">{{history1ScoreLargeText}}</text>
+          <text class="historySummaryScore historySummaryScoreRiv" if="{{history1RivalesVisible}}">{{history1ScoreLargeText}}</text>
+          <text class="historySummaryScore" if="{{!history1NosotrosVisible && !history1RivalesVisible}}">{{history1ScoreLargeText}}</text>
           <text class="historySummaryMeta">{{history1MetaText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history1DeleteRowVisible}}" onclick="deleteHistory1">
@@ -35,7 +37,9 @@
 
         <div class="historySummaryCard" if="{{history2NormalVisible}}" onlongpress="showHistoryDelete2">
           <text class="historySummaryTitle">{{history2TitleText}}</text>
-          <text class="historySummaryScore">{{history2ScoreLargeText}}</text>
+          <text class="historySummaryScore historySummaryScoreNos" if="{{history2NosotrosVisible}}">{{history2ScoreLargeText}}</text>
+          <text class="historySummaryScore historySummaryScoreRiv" if="{{history2RivalesVisible}}">{{history2ScoreLargeText}}</text>
+          <text class="historySummaryScore" if="{{!history2NosotrosVisible && !history2RivalesVisible}}">{{history2ScoreLargeText}}</text>
           <text class="historySummaryMeta">{{history2MetaText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history2DeleteRowVisible}}" onclick="deleteHistory2">

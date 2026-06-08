@@ -3689,3 +3689,163 @@
   font-size: 17px;
   text-align: center;
 }
+
+
+/* RESTORE POLISHED HISTORY LAYOUT - centered, large arrows, large back */
+.history {
+  justify-content: flex-start;
+  padding-top: 66px;
+}
+
+.historyTitleFix,
+.titleSmall {
+  margin-top: 0px;
+  margin-bottom: 14px;
+}
+
+.historyPanelDivider {
+  height: 8px;
+}
+
+.historyMainRow {
+  width: 340px;
+  height: 198px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.historyFlatPanel {
+  width: 252px;
+  height: 190px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historySummaryCard {
+  width: 248px;
+  height: 78px;
+  border-radius: 10px;
+  background-color: #202020;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.historySummaryTitle {
+  width: 242px;
+  height: 18px;
+  font-size: 11px;
+  color: #d0d0d0;
+  text-align: center;
+}
+
+.historySummaryScore {
+  width: 242px;
+  height: 34px;
+  font-size: 32px;
+  color: #248cff;
+  text-align: center;
+}
+
+.historySummaryMeta {
+  width: 242px;
+  height: 18px;
+  font-size: 11px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.historySideButton,
+.historyLeftSideArrow,
+.historyRightSideArrow {
+  width: 42px;
+  height: 74px;
+  border-radius: 12px;
+  background-color: #777777;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+}
+
+.historySideLeft,
+.historyLeftSideArrow {
+  margin-right: 4px;
+}
+
+.historySideRight,
+.historyRightSideArrow {
+  margin-left: 4px;
+}
+
+.historySideGhost {
+  width: 42px;
+  height: 74px;
+  border-radius: 12px;
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyNav {
+  width: 180px;
+  height: 58px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.historyBackButton {
+  width: 150px;
+  height: 48px;
+  border-radius: 16px;
+  background-color: #555555;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+/* HISTORY FINAL POSITION - move whole history block up */
+.history {
+  justify-content: flex-start;
+  padding-top: 66px;
+}
+
+.historyTitleFix {
+  margin-top: 0px;
+  margin-bottom: 14px;
+}
+
+.historyPanelDivider {
+  height: 8px;
+}
+
+.historyMainRow {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  height: 198px;
+}
+
+.historyFlatPanel {
+  height: 190px;
+}
+
+.historyNav {
+  margin-top: 6px;
+  height: 54px;
+}
+
+/* HISTORY POLISH - winner score colors */
+.historySummaryScoreNos {
+  color: #43d66b;
+}
+
+.historySummaryScoreRiv {
+  color: #ff8a3d;
+}

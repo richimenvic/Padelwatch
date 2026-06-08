@@ -3267,3 +3267,425 @@
   background-color: #000000;
   color: #000000;
 }
+
+
+/* FINAL FIX - show existing history arrows from HML */
+.historySideNavLayer {
+  width: 250px;
+  height: 28px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: -4px;
+}
+
+.historyLeftSideArrow {
+  width: 32px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 160px;
+}
+
+.historyRightSideArrow {
+  width: 32px;
+  height: 28px;
+  border-radius: 14px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 0px;
+}
+
+.historySideGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+
+/* FINAL TUNE - center existing history arrows beside cards */
+.historySideNavLayer {
+  width: 270px;
+  height: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 58px;
+  margin-bottom: -88px;
+}
+
+.historyLeftSideArrow {
+  width: 32px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  margin-right: 184px;
+}
+
+.historyRightSideArrow {
+  width: 32px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 0px;
+}
+
+.historySideGhost {
+  width: 32px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #000000;
+  color: #000000;
+}
+
+
+/* ============================================================
+   FINAL HISTORY CROSS LAYOUT
+   ============================================================ */
+
+.historyMainRow {
+  width: 320px;
+  height: 190px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyFlatPanel {
+  width: 248px;
+  height: 176px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historySideButton {
+  width: 26px;
+  height: 64px;
+  border-radius: 13px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+}
+
+.historySideLeft {
+  margin-right: 6px;
+}
+
+.historySideRight {
+  margin-left: 6px;
+}
+
+.historySideGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyNav {
+  width: 180px;
+  height: 44px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.historyBackButton {
+  width: 136px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #4a4a4a;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Neutralizar overlays o flechas viejas si todavía existen */
+.historySideNavLayer,
+.historyPagerRow,
+.historyBottomNav,
+.historyCleanNav {
+  width: 0px;
+  height: 0px;
+}
+
+.historyLeftSideArrow,
+.historyRightSideArrow,
+.historyNavArrow,
+.historyPagerButton {
+  width: 0px;
+  height: 0px;
+  font-size: 1px;
+  color: #000000;
+  background-color: #000000;
+}
+
+/* Tarjetas */
+.historySummaryCard {
+  width: 244px;
+  height: 74px;
+  border-radius: 10px;
+  background-color: #202020;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.historySummaryTitle {
+  width: 236px;
+  height: 18px;
+  font-size: 12px;
+  color: #d0d0d0;
+  text-align: center;
+}
+
+.historySummaryScore {
+  width: 236px;
+  height: 32px;
+  font-size: 30px;
+  color: #248cff;
+  text-align: center;
+}
+
+.historySummaryMeta {
+  width: 236px;
+  height: 16px;
+  font-size: 10px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+
+/* ============================================================
+   FINAL HISTORY CROSS LAYOUT
+   ============================================================ */
+
+.historyMainRow {
+  width: 320px;
+  height: 190px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyFlatPanel {
+  width: 248px;
+  height: 176px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historySideButton {
+  width: 26px;
+  height: 64px;
+  border-radius: 13px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+}
+
+.historySideLeft {
+  margin-right: 6px;
+}
+
+.historySideRight {
+  margin-left: 6px;
+}
+
+.historySideGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyNav {
+  width: 180px;
+  height: 44px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.historyBackButton {
+  width: 136px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #4a4a4a;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}
+
+/* Neutralizar overlays o flechas viejas si todavía existen */
+.historySideNavLayer,
+.historyPagerRow,
+.historyBottomNav,
+.historyCleanNav {
+  width: 0px;
+  height: 0px;
+}
+
+.historyLeftSideArrow,
+.historyRightSideArrow,
+.historyNavArrow,
+.historyPagerButton {
+  width: 0px;
+  height: 0px;
+  font-size: 1px;
+  color: #000000;
+  background-color: #000000;
+}
+
+/* Tarjetas */
+.historySummaryCard {
+  width: 244px;
+  height: 74px;
+  border-radius: 10px;
+  background-color: #202020;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.historySummaryTitle {
+  width: 236px;
+  height: 18px;
+  font-size: 12px;
+  color: #d0d0d0;
+  text-align: center;
+}
+
+.historySummaryScore {
+  width: 236px;
+  height: 32px;
+  font-size: 30px;
+  color: #248cff;
+  text-align: center;
+}
+
+.historySummaryMeta {
+  width: 236px;
+  height: 16px;
+  font-size: 10px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+
+/* FINAL POLISH - history cross layout */
+.historyMainRow {
+  width: 318px;
+  height: 182px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 2px;
+}
+
+.historyFlatPanel {
+  width: 242px;
+  height: 172px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.historySideButton {
+  width: 24px;
+  height: 58px;
+  border-radius: 12px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 19px;
+  text-align: center;
+}
+
+.historySideLeft {
+  margin-right: 4px;
+}
+
+.historySideRight {
+  margin-left: 4px;
+}
+
+.historySideGhost {
+  width: 24px;
+  height: 58px;
+  border-radius: 12px;
+  background-color: #000000;
+  color: #000000;
+}
+
+.historySummaryCard {
+  width: 240px;
+  height: 72px;
+  border-radius: 10px;
+  background-color: #202020;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.historySummaryTitle {
+  width: 232px;
+  height: 17px;
+  font-size: 11px;
+  color: #d0d0d0;
+  text-align: center;
+}
+
+.historySummaryScore {
+  width: 232px;
+  height: 32px;
+  font-size: 30px;
+  color: #248cff;
+  text-align: center;
+}
+
+.historySummaryMeta {
+  width: 232px;
+  height: 16px;
+  font-size: 10px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.historyNav {
+  width: 180px;
+  height: 42px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.historyBackButton {
+  width: 132px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #4a4a4a;
+  color: #ffffff;
+  font-size: 17px;
+  text-align: center;
+}

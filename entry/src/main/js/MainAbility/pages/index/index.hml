@@ -11,9 +11,12 @@
     <text class="historyPanelTitle">HISTORIAL</text>
     <div class="historyPanelDivider"></div>
 
-    <div class="historyMainRow">
+            <div class="historyMainRow">
+      <input class="historySideButton historySideLeft" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
+      <input class="historySideButton historySideGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
+
       <div class="historyFlatPanel">
-      <div class="historySideNavLayer">
+<div class="historySideNavLayer">
         <input class="historyLeftSideArrow" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
         <input class="historyLeftSideArrow historySideGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
         <input class="historyRightSideArrow" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
@@ -39,12 +42,15 @@
           <text class="historyDeleteFullText">X    Eliminar partido</text>
         </div>
       </div>
+
+      <input class="historySideButton historySideRight" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
+      <input class="historySideButton historySideGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
     </div>
 
     
 
     
-      <div class="historyNav">
+              <div class="historyNav">
       <input class="historyBackButton" type="button" value="Volver" onclick="closeHistory"></input>
     </div>
 </div>

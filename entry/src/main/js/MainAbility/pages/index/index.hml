@@ -2,7 +2,7 @@
   <div class="welcome" if="{{screen === 'welcome'}}">
     <text class="title">PadelScoreGT5</text>
     <input class="mainButton" type="button" value="INICIAR PARTIDO" onclick="startSetup"></input>
-    <input class="smallButton" type="button" value="Historial" onclick="openHistory"></input>
+    <input class="smallButton" type="button" value="Historial" onclick="openFinalHistory"></input>
     <input class="smallButton" type="button" value="Ajustes" onclick="openSettings"></input>
     <text class="credit">by pyMENVIC</text>
   </div>
@@ -12,55 +12,35 @@
     <div class="historyPanelDivider"></div>
 
     <div class="historyMainRow">
-      <input class="historySideButton" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
-      <input class="historySideButton historySideGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
-
       <div class="historyFlatPanel">
         <text class="historyEmptyText" if="{{historyEmptyVisible}}">Sin partidos</text>
 
-        <div class="historyRow historyRowRivales" if="{{history1NormalVisible && history1RivalesVisible}}" onlongpress="showHistoryDelete1">
-          <text class="historyRowText">{{history1DisplayText}}</text>
-        </div>
-        <div class="historyRow historyRowNosotros" if="{{history1NormalVisible && history1NosotrosVisible}}" onlongpress="showHistoryDelete1">
-          <text class="historyRowText">{{history1DisplayText}}</text>
+        <div class="historySummaryCard" if="{{history1NormalVisible}}" onlongpress="showHistoryDelete1">
+          <text class="historySummaryTitle">{{history1TitleText}}</text>
+          <text class="historySummaryScore">{{history1ScoreLargeText}}</text>
+          <text class="historySummaryMeta">{{history1MetaText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history1DeleteRowVisible}}" onclick="deleteHistory1">
           <text class="historyDeleteFullText">X    Eliminar partido</text>
         </div>
 
-        <div class="historyRow historyRowRivales" if="{{history2NormalVisible && history2RivalesVisible}}" onlongpress="showHistoryDelete2">
-          <text class="historyRowText">{{history2DisplayText}}</text>
-        </div>
-        <div class="historyRow historyRowNosotros" if="{{history2NormalVisible && history2NosotrosVisible}}" onlongpress="showHistoryDelete2">
-          <text class="historyRowText">{{history2DisplayText}}</text>
+        <div class="historySummaryCard" if="{{history2NormalVisible}}" onlongpress="showHistoryDelete2">
+          <text class="historySummaryTitle">{{history2TitleText}}</text>
+          <text class="historySummaryScore">{{history2ScoreLargeText}}</text>
+          <text class="historySummaryMeta">{{history2MetaText}}</text>
         </div>
         <div class="historyDeleteRow" if="{{history2DeleteRowVisible}}" onclick="deleteHistory2">
           <text class="historyDeleteFullText">X    Eliminar partido</text>
         </div>
-
-        <div class="historyRow historyRowRivales" if="{{history3NormalVisible && history3RivalesVisible}}" onlongpress="showHistoryDelete3">
-          <text class="historyRowText">{{history3DisplayText}}</text>
-        </div>
-        <div class="historyRow historyRowNosotros" if="{{history3NormalVisible && history3NosotrosVisible}}" onlongpress="showHistoryDelete3">
-          <text class="historyRowText">{{history3DisplayText}}</text>
-        </div>
-        <div class="historyDeleteRow" if="{{history3DeleteRowVisible}}" onclick="deleteHistory3">
-          <text class="historyDeleteFullText">X    Eliminar partido</text>
-        </div>
-
-        <div class="historyRow historyRowRivales" if="{{history4NormalVisible && history4RivalesVisible}}" onlongpress="showHistoryDelete4">
-          <text class="historyRowText">{{history4DisplayText}}</text>
-        </div>
-        <div class="historyRow historyRowNosotros" if="{{history4NormalVisible && history4NosotrosVisible}}" onlongpress="showHistoryDelete4">
-          <text class="historyRowText">{{history4DisplayText}}</text>
-        </div>
-        <div class="historyDeleteRow" if="{{history4DeleteRowVisible}}" onclick="deleteHistory4">
-          <text class="historyDeleteFullText">X    Eliminar partido</text>
-        </div>
       </div>
+    </div>
 
-      <input class="historySideButton" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
-      <input class="historySideButton historySideGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
+    <div class="historyPagerRow">
+      <input class="historyPagerButton" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
+      <input class="historyPagerButton historyPagerGhost" if="{{!historyPrevVisible}}" type="button" value=""></input>
+      <text class="historySwipeHint">Swipe / usa flechas</text>
+      <input class="historyPagerButton" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
+      <input class="historyPagerButton historyPagerGhost" if="{{!historyNextVisible}}" type="button" value=""></input>
     </div>
 
     <div class="historyNav">
@@ -252,7 +232,8 @@
       <text class="historyDebug">{{finalDebugText}}</text>
       <div class="finalButtonRow">
         <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
-        <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
+        <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
+        <input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input>
       </div>
     </div>
   </div>
@@ -287,7 +268,8 @@
       <text class="historyDebug">{{finalDebugText}}</text>
       <div class="finalButtonRow">
         <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
-        <input class="finalHomeButton" type="button" value="JUEGO NUEVO" onclick="resetMatch"></input>
+        <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
+        <input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input>
       </div>
     </div>
   </div>

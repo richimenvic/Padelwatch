@@ -190,11 +190,18 @@ export default {
     history2DisplayText: '',
     history3DisplayText: '',
     history4DisplayText: '',
+    history1TitleText: '',
+    history2TitleText: '',
+    history1ScoreLargeText: '',
+    history2ScoreLargeText: '',
+    history1MetaText: '',
+    history2MetaText: '',
     historyResultDate: '',
     historyDebugText: '',
     finalDebugText: '',
     lastSaveDebug: '',
     lastFinishedHistoryItemText: '',
+    finalHistoryCacheText: '[]',
     historyMineSet1: '-',
     historyMineSet2: '-',
     historyMineSet3: '-',
@@ -217,11 +224,150 @@ export default {
     this.screen = 'server'
   },
 
+  openFinalHistory: function () {
+    var winner = this.finalWinnerNameText || this.resultWinner || ''
+
+    if (this.finalNosotrosVisible) {
+      winner = 'NOSOTROS'
+    }
+    if (this.finalRivalesVisible) {
+      winner = 'RIVALES'
+    }
+    if (winner !== 'NOSOTROS' && winner !== 'RIVALES') {
+      winner = 'RIVALES'
+    }
+
+    var itemId = this.lastSavedMatchId
+    if (!itemId || itemId === '') {
+      itemId = new Date().getTime().toString()
+    }
+
+    var item = {
+      id: itemId,
+      date: this.todayText(),
+      time: this.timeText(),
+      winner: winner,
+      line1: this.finalLine1 || 'S1: -',
+      line2: this.finalLine2 || 'S2: -',
+      line3: this.finalLine3 || 'S3: -'
+    }
+
+    var history = []
+
+    try {
+      if (this.finalHistoryCacheText && this.finalHistoryCacheText !== '[]') {
+        history = JSON.parse(this.finalHistoryCacheText)
+      }
+    } catch (e) {
+      history = []
+    }
+
+    history.unshift(item)
+
+    if (history.length > 20) {
+      history = history.slice(0, 20)
+    }
+
+    this.historyItems = history
+    this.historyText = JSON.stringify(history)
+    this.finalHistoryCacheText = this.historyText
+    this.lastFinishedHistoryItemText = JSON.stringify(item)
+    this.matchSaved = true
+    this.lastSavedMatchId = item.id
+
+    this.screen = 'history'
+    this.gameVisible = false
+    this.gameScreenVisible = false
+    this.finalVisible = false
+    this.resultVisible = false
+    this.finalNosotrosVisible = false
+    this.finalRivalesVisible = false
+
+    this.historyPage = 0
+    this.hideHistoryDeletes()
+
+    var item1 = history.length > 0 ? history[0] : null
+    var item2 = history.length > 1 ? history[1] : null
+
+    this.historyEmptyVisible = item1 === null
+
+    this.history1Visible = item1 !== null
+    this.history2Visible = item2 !== null
+    this.history3Visible = false
+    this.history4Visible = false
+
+    this.history1NormalVisible = item1 !== null
+    this.history2NormalVisible = item2 !== null
+    this.history3NormalVisible = false
+    this.history4NormalVisible = false
+
+    this.history1RivalesVisible = item1 && item1.winner === 'RIVALES'
+    this.history1NosotrosVisible = item1 && item1.winner === 'NOSOTROS'
+    this.history2RivalesVisible = item2 && item2.winner === 'RIVALES'
+    this.history2NosotrosVisible = item2 && item2.winner === 'NOSOTROS'
+
+    this.history1TitleText = item1 ? 'NOSOTROS vs RIVALES' : ''
+    this.history2TitleText = item2 ? 'NOSOTROS vs RIVALES' : ''
+
+    this.history1ScoreLargeText = item1 ? this.safeHistoryScoreText(item1) : ''
+    this.history2ScoreLargeText = item2 ? this.safeHistoryScoreText(item2) : ''
+
+    this.history1MetaText = item1 ? this.historyMetaText(item1) : ''
+    this.history2MetaText = item2 ? this.historyMetaText(item2) : ''
+
+    this.history1DisplayText = item1 ? 'CARD 1' : ''
+    this.history2DisplayText = item2 ? 'CARD 2' : ''
+
+    this.historyPrevVisible = false
+    this.historyNextVisible = history.length > 2
+
+    this.storeHistory(this.historyItems, false)
+    return
+  },
+
   openHistory: function () {
     this.ensureFinalMatchSaved()
     this.screen = 'history'
+    this.gameVisible = false
+    this.gameScreenVisible = false
+    this.finalVisible = false
+    this.resultVisible = false
+    this.finalNosotrosVisible = false
+    this.finalRivalesVisible = false
     this.historyPage = 0
     this.hideHistoryDeletes()
+
+    // SAFETY RESTORE - keep real finished match visible
+    if ((!this.historyItems || this.historyItems.length === 0) && this.historyText && this.historyText !== '[]') {
+      try {
+        var parsedHistory = JSON.parse(this.historyText)
+        var validParsed = this.validHistory(parsedHistory)
+        if (validParsed.length > 0) {
+          this.historyItems = validParsed
+          this.historyText = JSON.stringify(validParsed)
+          this.renderHistoryRows()
+          return
+        }
+      } catch (e) {
+        this.historyDebugText = 'historyText restore error ' + e
+      }
+    }
+
+    if ((!this.historyItems || this.historyItems.length === 0) && this.lastFinishedHistoryItemText !== '') {
+      try {
+        var lastFinished = JSON.parse(this.lastFinishedHistoryItemText)
+        var validLast = this.validHistory([lastFinished])
+        if (validLast.length > 0) {
+          this.historyItems = validLast
+          this.historyText = JSON.stringify(validLast)
+          this.storeHistory(this.historyItems, false)
+          this.renderHistoryRows()
+          return
+        }
+      } catch (e2) {
+        this.historyDebugText = 'last restore error ' + e2
+      }
+    }
 
     if ((!this.historyItems || this.historyItems.length === 0) && this.lastFinishedHistoryItemText !== '') {
       try {
@@ -656,11 +802,12 @@ export default {
       this.finalLine2 === 'S2: 0-6'
     this.updateResultSetFlags()
 
-    this.finalDebugText = ''
-    this.historyDebugText = ''
-    this.lastSaveDebug = ''
+    this.finalDebugText = 'SAVED len=' + this.historyItems.length + ' | ' + this.historyDisplayLine(item)
+    this.historyDebugText = this.finalDebugText
+    this.lastSaveDebug = this.finalDebugText
 
-    this.storeHistory(this.historyItems, true)
+    this.storeHistory(this.historyItems, false)
+    this.renderHistoryRows()
 
     this.finalVisible = true
     this.resultVisible = true
@@ -1505,18 +1652,17 @@ export default {
         success: function () {
           if (!skipLabelUpdate) {
             self.historyDebugText = 'saved ok | len=' + self.historyItems.length
+            self.lastSaveDebug = self.historyDebugText
           }
         },
         fail: function () {
-          if (!skipLabelUpdate) {
-            self.historyDebugText = 'saved fail | len=' + self.historyItems.length
-          }
+          self.historyDebugText = 'saved fail | len=' + self.historyItems.length
+          self.lastSaveDebug = self.historyDebugText
         }
       })
     } catch (e) {
-      if (!skipLabelUpdate) {
-        this.historyDebugText = 'saved catch | len=' + this.historyItems.length
-      }
+      this.historyDebugText = 'saved catch | len=' + this.historyItems.length
+      this.lastSaveDebug = this.historyDebugText
     }
   },
 
@@ -1734,48 +1880,124 @@ export default {
     this.renderHistoryRows()
   },
 
+  historyWinnerShort: function (winner) {
+    if (winner === 'NOSOTROS') {
+      return 'NOS'
+    }
+    if (winner === 'RIVALES') {
+      return 'RIV'
+    }
+    return winner || '-'
+  },
+
+  historyMatchWinsText: function (item) {
+    if (!item) { return '-' }
+
+    var nosWins = 0
+    var rivWins = 0
+    var s1 = this.historySetParts(item.line1)
+    var s2 = this.historySetParts(item.line2)
+    var s3 = this.historySetParts(item.line3)
+    var sets = [s1, s2, s3]
+
+    for (var i = 0; i < sets.length; i++) {
+      var nos = parseInt(sets[i][0])
+      var riv = parseInt(sets[i][1])
+      if (!isNaN(nos) && !isNaN(riv)) {
+        if (nos > riv) {
+          nosWins = nosWins + 1
+        } else if (riv > nos) {
+          rivWins = rivWins + 1
+        }
+      }
+    }
+
+    return nosWins + '-' + rivWins
+  },
+
+  safeHistoryScoreText: function (item) {
+    if (!item) { return '' }
+
+    var hasThird = false
+    if (item.line3 &&
+        item.line3.indexOf(': -') < 0 &&
+        item.line3.indexOf('-') >= 0) {
+      hasThird = true
+    }
+
+    if (item.winner === 'NOSOTROS') {
+      return hasThird ? '2-1' : '2-0'
+    }
+
+    if (item.winner === 'RIVALES') {
+      return hasThird ? '1-2' : '0-2'
+    }
+
+    return '-'
+  },
+
+  historyMetaText: function (item) {
+    if (!item) { return '' }
+    return this.shortDate(item.date) + '  •  ' + this.shortTime(item.time) + '  •  gana ' + this.historyWinnerShort(item.winner)
+  },
+
   renderHistoryRows: function () {
     var history = this.historyItems || []
     var offset = this.historyPage || 0
 
+    if (history.length > 0 && offset >= history.length) {
+      offset = Math.max(0, history.length - 1)
+      this.historyPage = offset
+    }
+
     var item1 = history.length > offset ? history[offset] : null
     var item2 = history.length > offset + 1 ? history[offset + 1] : null
-    var item3 = history.length > offset + 2 ? history[offset + 2] : null
-    var item4 = history.length > offset + 3 ? history[offset + 3] : null
 
-    this.history1DisplayText = item1 ? (item1.winner + ' ' + item1.line1 + ' ' + item1.line2 + ' ' + item1.line3) : ''
-    this.history2DisplayText = item2 ? (item2.winner + ' ' + item2.line1 + ' ' + item2.line2 + ' ' + item2.line3) : ''
-    this.history3DisplayText = item3 ? (item3.winner + ' ' + item3.line1 + ' ' + item3.line2 + ' ' + item3.line3) : ''
-    this.history4DisplayText = item4 ? (item4.winner + ' ' + item4.line1 + ' ' + item4.line2 + ' ' + item4.line3) : ''
+    this.history1TitleText = item1 ? 'NOSOTROS vs RIVALES' : ''
+    this.history2TitleText = item2 ? 'NOSOTROS vs RIVALES' : ''
+    this.history1ScoreLargeText = item1 ? this.historyMatchWinsText(item1) : ''
+    this.history2ScoreLargeText = item2 ? this.historyMatchWinsText(item2) : ''
+    this.history1MetaText = item1 ? this.historyMetaText(item1) : ''
+    this.history2MetaText = item2 ? this.historyMetaText(item2) : ''
 
-    this.history1Visible = this.history1DisplayText !== ''
-    this.history2Visible = this.history2DisplayText !== ''
-    this.history3Visible = this.history3DisplayText !== ''
-    this.history4Visible = this.history4DisplayText !== ''
+    this.history1DisplayText = item1 ? this.historyDisplayLine(item1) : ''
+    this.history2DisplayText = item2 ? this.historyDisplayLine(item2) : ''
+    this.history3DisplayText = ''
+    this.history4DisplayText = ''
+
+    this.history1Visible = item1 !== null
+    this.history2Visible = item2 !== null
+    this.history3Visible = false
+    this.history4Visible = false
+
+    this.history1NormalVisible = this.history1Visible
+    this.history2NormalVisible = this.history2Visible
+    this.history3NormalVisible = false
+    this.history4NormalVisible = false
 
     this.history1RivalesVisible = item1 && item1.winner === 'RIVALES'
     this.history1NosotrosVisible = item1 && item1.winner === 'NOSOTROS'
     this.history2RivalesVisible = item2 && item2.winner === 'RIVALES'
     this.history2NosotrosVisible = item2 && item2.winner === 'NOSOTROS'
-    this.history3RivalesVisible = item3 && item3.winner === 'RIVALES'
-    this.history3NosotrosVisible = item3 && item3.winner === 'NOSOTROS'
-    this.history4RivalesVisible = item4 && item4.winner === 'RIVALES'
-    this.history4NosotrosVisible = item4 && item4.winner === 'NOSOTROS'
+    this.history3RivalesVisible = false
+    this.history3NosotrosVisible = false
+    this.history4RivalesVisible = false
+    this.history4NosotrosVisible = false
 
-    this.historyEmptyVisible = !(this.history1Visible || this.history2Visible || this.history3Visible || this.history4Visible)
+    this.historyEmptyVisible = !(this.history1Visible || this.history2Visible)
 
     this.historyPrevVisible = offset > 0
-    this.historyNextVisible = offset + 4 < history.length
+    this.historyNextVisible = offset + 2 < history.length
 
     this.history1NormalVisible = this.history1Visible && !this.history1DeleteVisible
     this.history2NormalVisible = this.history2Visible && !this.history2DeleteVisible
-    this.history3NormalVisible = this.history3Visible && !this.history3DeleteVisible
-    this.history4NormalVisible = this.history4Visible && !this.history4DeleteVisible
+    this.history3NormalVisible = false
+    this.history4NormalVisible = false
 
     this.history1DeleteRowVisible = this.history1Visible && this.history1DeleteVisible
     this.history2DeleteRowVisible = this.history2Visible && this.history2DeleteVisible
-    this.history3DeleteRowVisible = this.history3Visible && this.history3DeleteVisible
-    this.history4DeleteRowVisible = this.history4Visible && this.history4DeleteVisible
+    this.history3DeleteRowVisible = false
+    this.history4DeleteRowVisible = false
 
     this.historyDebugText = ''
   },
@@ -1801,7 +2023,7 @@ export default {
       this.lastFinishedHistoryItemText = ''
       this.historyPage = 0
     } else if (this.historyPage >= this.historyItems.length) {
-      this.historyPage = Math.max(0, this.historyItems.length - 4)
+      this.historyPage = Math.max(0, this.historyItems.length - 2)
     }
     this.historyText = JSON.stringify(this.historyItems)
     this.storeHistory(this.historyItems, true)
@@ -1818,7 +2040,7 @@ export default {
           this.lastFinishedHistoryItemText = ''
           this.historyPage = 0
         } else if (this.historyPage >= this.historyItems.length) {
-          this.historyPage = Math.max(0, this.historyItems.length - 4)
+          this.historyPage = Math.max(0, this.historyItems.length - 2)
         }
         this.historyText = JSON.stringify(this.historyItems)
         this.storeHistory(this.historyItems, true)
@@ -1880,7 +2102,7 @@ export default {
 
   historyPrevPage: function () {
     if (this.historyPage > 0) {
-      this.historyPage = Math.max(0, this.historyPage - 4)
+      this.historyPage = Math.max(0, this.historyPage - 2)
       this.hideHistoryDeletes()
       this.renderHistoryRows()
     }
@@ -1888,8 +2110,8 @@ export default {
 
   historyNextPage: function () {
     var history = this.historyItems || []
-    if (this.historyPage + 4 < history.length) {
-      this.historyPage = this.historyPage + 4
+    if (this.historyPage + 2 < history.length) {
+      this.historyPage = this.historyPage + 2
       this.hideHistoryDeletes()
       this.renderHistoryRows()
     }

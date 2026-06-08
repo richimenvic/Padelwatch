@@ -2522,3 +2522,191 @@
   text-align: center;
   margin-top: 4px;
 }
+
+
+/* FINAL - History summary cards like GT5 reference */
+.history {
+  padding-top: 66px;
+  background-color: #000000;
+}
+
+.historyPanelTitle {
+  width: 300px;
+  height: 38px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 6px;
+}
+
+.historyPanelDivider {
+  width: 1px;
+  height: 1px;
+  background-color: #000000;
+  margin-bottom: 0px;
+}
+
+.historyMainRow {
+  width: 320px;
+  height: 218px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.historyFlatPanel {
+  width: 286px;
+  height: 218px;
+  background-color: #000000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 0px;
+}
+
+.historySummaryCard {
+  width: 270px;
+  height: 94px;
+  border-radius: 16px;
+  background-color: #202020;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  padding-top: 8px;
+}
+
+.historySummaryTitle {
+  width: 250px;
+  height: 24px;
+  color: #f0f0f0;
+  font-size: 18px;
+  text-align: center;
+}
+
+.historySummaryScore {
+  width: 250px;
+  height: 38px;
+  color: #1e88ff;
+  font-size: 34px;
+  text-align: center;
+}
+
+.historySummaryMeta {
+  width: 250px;
+  height: 22px;
+  color: #aaaaaa;
+  font-size: 14px;
+  text-align: center;
+}
+
+.historyDeleteRow {
+  width: 270px;
+  height: 94px;
+  border-radius: 16px;
+  background-color: #b00020;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteFullText {
+  width: 250px;
+  height: 36px;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.historyEmptyText {
+  width: 260px;
+  height: 90px;
+  color: #cccccc;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 54px;
+}
+
+.historyPagerRow {
+  width: 300px;
+  height: 34px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.historyPagerButton {
+  width: 42px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #303030;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.historyPagerGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historySwipeHint {
+  width: 172px;
+  height: 26px;
+  color: #aaaaaa;
+  font-size: 14px;
+  text-align: center;
+}
+
+.historyNav {
+  width: 180px;
+  height: 44px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.historyBackButton {
+  width: 140px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+/* FINAL FIX - final screen history button */
+.finalHistoryButton {
+  width: 72px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-right: 8px;
+}
+
+.finalHomeButton {
+  width: 112px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #fff000;
+  color: #202020;
+  font-size: 17px;
+  text-align: center;
+}
+
+.finalButtonRow {
+  width: 286px;
+}

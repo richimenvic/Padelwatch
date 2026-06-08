@@ -2710,3 +2710,319 @@
 .finalButtonRow {
   width: 286px;
 }
+
+
+/* FINAL FIX - history clear button */
+.historyClearButton {
+  width: 118px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #5a1f1f;
+  color: #ffffff;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+
+/* FINAL FIX - compact history bottom buttons */
+.historyClearButton {
+  width: 96px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #5a1f1f;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  margin-right: 6px;
+}
+
+.historyBackButton {
+  width: 118px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 17px;
+  text-align: center;
+}
+
+
+/* FINAL POLISH - history bottom area */
+.historyHint {
+  width: 220px;
+  height: 18px;
+  font-size: 1px;
+  color: #000000;
+  text-align: center;
+}
+
+.historyClearButton {
+  width: 86px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #5a1f1f;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 4px;
+}
+
+.historyBackButton {
+  width: 108px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 4px;
+}
+
+.historySideButton,
+.pagerButton {
+  width: 38px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+/* FINAL POLISH - visible side arrows beside history cards */
+.historyLeftArrow {
+  width: 42px;
+  height: 72px;
+  border-radius: 21px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+  margin-right: 242px;
+  margin-bottom: -86px;
+}
+
+.historyRightArrow {
+  width: 42px;
+  height: 72px;
+  border-radius: 21px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+  margin-left: 242px;
+  margin-top: -104px;
+  margin-bottom: 20px;
+}
+
+.historySideGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyClearButton {
+  width: 86px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #5a1f1f;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  margin-right: 4px;
+}
+
+.historyBackButton {
+  width: 108px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 4px;
+}
+
+
+/* FINAL FIX - reliable history navigation row */
+.historyBottomNav {
+  width: 300px;
+  height: 42px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.historyNavArrow {
+  width: 38px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.historyNavGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyClearButton {
+  width: 76px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #5a1f1f;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.historyBackButton {
+  width: 92px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.historyHint {
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  color: #000000;
+}
+
+
+/* FINAL FIX - reliable history navigation row */
+.historyBottomNav {
+  width: 300px;
+  height: 42px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.historyNavArrow {
+  width: 38px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.historyNavGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyClearButton {
+  width: 76px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #5a1f1f;
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.historyBackButton {
+  width: 92px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.historyHint {
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  color: #000000;
+}
+
+
+/* FINAL FIX - side arrows, no accidental delete */
+.historySideNavLayer {
+  width: 300px;
+  height: 1px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 58px;
+  margin-bottom: -58px;
+}
+
+.historyLeftSideArrow {
+  width: 40px;
+  height: 76px;
+  border-radius: 20px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+  margin-right: 214px;
+}
+
+.historyRightSideArrow {
+  width: 40px;
+  height: 76px;
+  border-radius: 20px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+  margin-left: -40px;
+}
+
+.historySideGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyBottomNav {
+  width: 220px;
+  height: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.historyBackButton {
+  width: 118px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+
+.historyHint {
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  color: #000000;
+}

@@ -13,7 +13,13 @@
 
     <div class="historyMainRow">
       <div class="historyFlatPanel">
-        <text class="historyEmptyText" if="{{historyEmptyVisible}}">Sin partidos</text>
+      <div class="historySideNavLayer">
+        <input class="historyLeftSideArrow" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
+        <input class="historyLeftSideArrow historySideGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
+        <input class="historyRightSideArrow" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
+        <input class="historyRightSideArrow historySideGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
+      </div>
+<text class="historyEmptyText" if="{{historyEmptyVisible}}">Sin partidos</text>
 
         <div class="historySummaryCard" if="{{history1NormalVisible}}" onlongpress="showHistoryDelete1">
           <text class="historySummaryTitle">{{history1TitleText}}</text>
@@ -38,13 +44,19 @@
     <div class="historyPagerRow">
       <input class="historyPagerButton" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
       <input class="historyPagerButton historyPagerGhost" if="{{!historyPrevVisible}}" type="button" value=""></input>
-      <text class="historySwipeHint">Swipe / usa flechas</text>
+<text class="historySwipeHint">Swipe / usa flechas</text>
       <input class="historyPagerButton" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
       <input class="historyPagerButton historyPagerGhost" if="{{!historyNextVisible}}" type="button" value=""></input>
     </div>
 
     <div class="historyNav">
-      <input class="historyBackButton" type="button" value="Volver" onclick="closeHistory"></input>
+      <div class="historyBottomNav">
+        <input class="historyNavArrow" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
+        <input class="historyNavArrow historyNavGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
+        <input class="historyBackButton" type="button" value="Volver" onclick="closeHistory"></input>
+        <input class="historyNavArrow" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
+        <input class="historyNavArrow historyNavGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
+      </div>
     </div>
   </div>
 

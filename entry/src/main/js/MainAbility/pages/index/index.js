@@ -263,74 +263,7 @@ export default {
   },
 
   openFinalHistory: function () {
-    if (this.screen !== 'final' && !this.finalVisible) {
-      this.openHistory()
-      return
-    }
-
-    var winner = this.finalWinnerNameText || this.resultWinner || ''
-
-    if (this.finalNosotrosVisible) {
-      winner = 'NOSOTROS'
-    }
-    if (this.finalRivalesVisible) {
-      winner = 'RIVALES'
-    }
-    if (winner !== 'NOSOTROS' && winner !== 'RIVALES') {
-      winner = 'RIVALES'
-    }
-
-    var item = {
-      id: new Date().getTime().toString(),
-      date: this.todayText(),
-      time: this.timeText(),
-      winner: winner,
-      line1: this.finalLine1 || 'S1: -',
-      line2: this.finalLine2 || 'S2: -',
-      line3: this.finalLine3 || 'S3: -'
-    }
-
-    var oldHistory = []
-
-    try {
-      if (this.finalHistoryCacheText && this.finalHistoryCacheText !== '[]') {
-        oldHistory = JSON.parse(this.finalHistoryCacheText)
-      } else if (this.historyText && this.historyText !== '[]') {
-        oldHistory = JSON.parse(this.historyText)
-      } else if (this.historyItems && this.historyItems.length > 0) {
-        oldHistory = this.historyItems
-      }
-    } catch (e) {
-      oldHistory = []
-    }
-
-    var history = [item]
-
-    for (var i = 0; i < oldHistory.length && history.length < 20; i++) {
-      history.push(oldHistory[i])
-    }
-
-    this.historyItems = history
-    this.historyText = JSON.stringify(history)
-    this.finalHistoryCacheText = this.historyText
-    this.lastFinishedHistoryItemText = JSON.stringify(item)
-    this.currentFinalHistoryItemText = JSON.stringify(item)
-    this.matchSaved = true
-    this.lastSavedMatchId = item.id
-
-    this.screen = 'history'
-    this.gameVisible = false
-    this.gameScreenVisible = false
-    this.finalVisible = false
-    this.resultVisible = false
-    this.finalNosotrosVisible = false
-    this.finalRivalesVisible = false
-
-    this.historyPage = 0
-    this.hideHistoryDeletes()
-    this.renderHistoryRows()
-    this.storeHistory(this.historyItems, false)
-    return
+    this.openHistory()
   },
 
   openHistory: function () {

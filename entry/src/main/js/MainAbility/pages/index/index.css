@@ -3026,3 +3026,97 @@
   font-size: 1px;
   color: #000000;
 }
+
+
+/* FINAL POLISH - clean history navigation */
+.historyCleanNav {
+  width: 260px;
+  height: 42px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.historyNavArrow {
+  width: 42px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.historyNavGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyBackButton {
+  width: 118px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.historyHint {
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  color: #000000;
+}
+
+
+/* FINAL POLISH - clean history navigation */
+.historyCleanNav {
+  width: 260px;
+  height: 42px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.historyNavArrow {
+  width: 42px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.historyNavGhost {
+  background-color: #000000;
+  color: #000000;
+}
+
+.historyBackButton {
+  width: 118px;
+  height: 38px;
+  border-radius: 19px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.historyHint {
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+  color: #000000;
+}

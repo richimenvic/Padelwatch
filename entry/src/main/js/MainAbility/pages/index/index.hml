@@ -44,7 +44,7 @@
     <div class="historyPagerRow">
       <input class="historyPagerButton" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
       <input class="historyPagerButton historyPagerGhost" if="{{!historyPrevVisible}}" type="button" value=""></input>
-<text class="historySwipeHint">Swipe / usa flechas</text>
+<text class="historySwipeHint"></text>
       <input class="historyPagerButton" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
       <input class="historyPagerButton historyPagerGhost" if="{{!historyNextVisible}}" type="button" value=""></input>
     </div>
@@ -53,7 +53,13 @@
       <div class="historyBottomNav">
         <input class="historyNavArrow" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
         <input class="historyNavArrow historyNavGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
+        <div class="historyCleanNav">
+        <input class="historyNavArrow" if="{{historyPrevVisible}}" type="button" value="<" onclick="historyPrevPage"></input>
+        <input class="historyNavArrow historyNavGhost" if="{{!historyPrevVisible}}" type="button" value="" onclick="noopSet"></input>
         <input class="historyBackButton" type="button" value="Volver" onclick="closeHistory"></input>
+        <input class="historyNavArrow" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
+        <input class="historyNavArrow historyNavGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
+      </div>
         <input class="historyNavArrow" if="{{historyNextVisible}}" type="button" value=">" onclick="historyNextPage"></input>
         <input class="historyNavArrow historyNavGhost" if="{{!historyNextVisible}}" type="button" value="" onclick="noopSet"></input>
       </div>

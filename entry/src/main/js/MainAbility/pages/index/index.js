@@ -18,6 +18,7 @@ export default {
     vibrationOffVisible: false,
     vibrationText: 'Vibración: ON',
     clockText: '',
+    clockTimer: 0,
 
     nameNosotros: 'NOSOTROS',
     nameRivales: 'RIVALES',
@@ -216,7 +217,32 @@ export default {
   },
 
   onInit: function () {
+    this.startClock()
     this.loadMatchHistory(false)
+  },
+
+  startClock: function () {
+    var self = this
+    this.clockText = this.timeText()
+
+    if (this.clockTimer) {
+      clearInterval(this.clockTimer)
+    }
+
+    this.clockTimer = setInterval(function () {
+      self.clockText = self.timeText()
+    }, 15000)
+  },
+
+  stopClock: function () {
+    if (this.clockTimer) {
+      clearInterval(this.clockTimer)
+      this.clockTimer = 0
+    }
+  },
+
+  onDestroy: function () {
+    this.stopClock()
   },
 
   startSetup: function () {

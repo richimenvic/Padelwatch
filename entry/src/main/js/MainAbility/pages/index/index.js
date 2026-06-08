@@ -1831,10 +1831,34 @@ export default {
     return '-'
   },
 
+  historySetsTitleText: function (item) {
+    if (!item) { return '' }
+
+    var text = this.shortTime(item.time)
+    var scores = []
+
+    if (item.line1 && item.line1.indexOf(': ') >= 0 && item.line1.indexOf(': -') < 0) {
+      scores.push(item.line1.substring(item.line1.indexOf(': ') + 2))
+    }
+    if (item.line2 && item.line2.indexOf(': ') >= 0 && item.line2.indexOf(': -') < 0) {
+      scores.push(item.line2.substring(item.line2.indexOf(': ') + 2))
+    }
+    if (item.line3 && item.line3.indexOf(': ') >= 0 && item.line3.indexOf(': -') < 0) {
+      scores.push(item.line3.substring(item.line3.indexOf(': ') + 2))
+    }
+
+    if (scores.length > 0) {
+      text = text + '   ' + scores.join(' | ')
+    }
+
+    return text
+  },
+
   historyMetaText: function (item) {
     if (!item) { return '' }
-    return this.shortDate(item.date) + '  •  ' + this.shortTime(item.time) + '  •  gana ' + this.historyWinnerShort(item.winner)
+    return this.shortDate(item.date) + ' · gana ' + this.historyWinnerShort(item.winner)
   },
+
 
   renderHistoryRows: function () {
     var history = this.historyItems || []
@@ -1874,8 +1898,8 @@ export default {
     this.history4RivalesVisible = false
     this.history4NosotrosVisible = false
 
-    this.history1TitleText = item1 ? 'NOSOTROS vs RIVALES' : ''
-    this.history2TitleText = item2 ? 'NOSOTROS vs RIVALES' : ''
+    this.history1TitleText = item1 ? this.historySetsTitleText(item1) : ''
+    this.history2TitleText = item2 ? this.historySetsTitleText(item2) : ''
 
     this.history1ScoreLargeText = item1 ? this.safeHistoryScoreText(item1) : ''
     this.history2ScoreLargeText = item2 ? this.safeHistoryScoreText(item2) : ''

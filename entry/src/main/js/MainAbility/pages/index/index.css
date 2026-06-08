@@ -4002,3 +4002,35 @@
   margin-left: 0px;
   margin-right: 0px;
 }
+
+
+/* GAME CENTER FINAL ALIGN - keep sets centered with large clock */
+.barZoneLeft {
+  width: 27%;
+}
+
+.barZoneMiddle {
+  width: 46%;
+}
+
+.barZoneRight {
+  width: 27%;
+}
+
+.setScoreGrid {
+  width: 160px;
+  height: 88px;
+  border-width: 0px;
+}
+
+.barClockText {
+  width: 98px;
+  height: 68px;
+  color: #ffffff;
+  font-size: 34px;
+  text-align: center;
+  background-color: #000000;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}

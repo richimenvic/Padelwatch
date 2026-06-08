@@ -3849,3 +3849,25 @@
 .historySummaryScoreRiv {
   color: #ff8a3d;
 }
+
+
+/* HISTORY DELETE - visible delete card on long press */
+.historyDeleteRow {
+  width: 248px;
+  height: 78px;
+  border-radius: 10px;
+  background-color: #7a1f1f;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.historyDeleteFullText {
+  width: 236px;
+  height: 42px;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+}

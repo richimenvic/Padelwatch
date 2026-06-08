@@ -2003,11 +2003,11 @@ export default {
   },
 
   showHistoryDelete1: function () {
-    this.deleteHistoryAt(0)
+    this.showHistoryDelete(0)
   },
 
   showHistoryDelete2: function () {
-    this.deleteHistoryAt(1)
+    this.showHistoryDelete(1)
   },
 
   showHistoryDelete3: function () {

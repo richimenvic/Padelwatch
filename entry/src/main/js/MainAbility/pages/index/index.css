@@ -293,34 +293,36 @@
 
 .serverTopMain {
   width: 100%;
-  height: 35%;
+  height: 39%;
   background-color: #ff9300;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
+  padding-top: 26px;
   padding-bottom: 0px;
 }
 
 .serverTopCenterTouch {
   width: 100%;
-  height: 9%;
+  height: 5%;
   background-color: #ff9300;
 }
 
 .serverBottomCenterTouch {
   width: 100%;
-  height: 9%;
+  height: 5%;
   background-color: #c600d9;
 }
 
 .serverBottomMain {
   width: 100%;
-  height: 35%;
+  height: 39%;
   background-color: #c600d9;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   padding-top: 0px;
+  padding-bottom: 28px;
 }
 
 .scoreTopMain {
@@ -347,8 +349,8 @@
 
 .serverTeam {
   width: 100%;
-  height: 76px;
-  font-size: 52px;
+  height: 70px;
+  font-size: 48px;
   color: #ffffff;
   text-align: center;
 }
@@ -4164,33 +4166,35 @@
 
 .serverTopMain {
   width: 100%;
-  height: 36%;
+  height: 39%;
   background-color: #ff9300;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 8px;
+  justify-content: center;
+  padding-top: 26px;
+  padding-bottom: 0px;
 }
 
 .serverBottomMain {
   width: 100%;
-  height: 36%;
+  height: 39%;
   background-color: #c600d9;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 8px;
+  justify-content: center;
+  padding-top: 0px;
+  padding-bottom: 28px;
 }
 
 .serverTopCenterTouch {
   width: 100%;
-  height: 8%;
+  height: 5%;
   background-color: #ff9300;
 }
 
 .serverBottomCenterTouch {
   width: 100%;
-  height: 8%;
+  height: 5%;
   background-color: #c600d9;
 }
 
@@ -4234,8 +4238,8 @@
 
 .serverTeam {
   width: 100%;
-  height: 60px;
-  font-size: 46px;
+  height: 70px;
+  font-size: 48px;
   color: #ffffff;
   text-align: center;
 }
@@ -4388,6 +4392,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 26px;
   padding-bottom: 0px;
 }
 
@@ -4399,6 +4404,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 0px;
+  padding-bottom: 28px;
 }
 
 .serverTopCenterTouch {
@@ -4614,4 +4620,72 @@
 }
 
 
+/* Serve screen proportional layout + bottom gap fix */
+.serverPage {
+  width: 100%;
+  height: 100%;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.serverTopMain {
+  width: 100%;
+  height: 39%;
+  background-color: #ff9300;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 26px;
+  padding-bottom: 0px;
+}
+
+.serverTopCenterTouch {
+  width: 100%;
+  height: 5%;
+  background-color: #ff9300;
+}
+
+.centerBar {
+  width: 100%;
+  height: 12%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.serverBottomCenterTouch {
+  width: 100%;
+  height: 5%;
+  background-color: #c600d9;
+}
+
+.serverBottomMain {
+  width: 100%;
+  height: 39%;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0px;
+  padding-bottom: 28px;
+}
+
+.serverTeam {
+  width: 100%;
+  height: 72px;
+  font-size: 50px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.serverCenterText {
+  width: 100%;
+  height: 42px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
 

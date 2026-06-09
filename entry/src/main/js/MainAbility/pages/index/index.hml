@@ -84,7 +84,7 @@
     <div class="serverTopCenterTouch" onclick="openSettings"></div>
 
     <div class="centerBar" onclick="openSettings">
-      <text class="serverCenterText">¿QUIÉN SACA PRIMERO?</text>
+      <text class="serverCenterText">¿QUIÉN SACA?</text>
     </div>
 
     <div class="serverBottomCenterTouch" onclick="openSettings"></div>
@@ -242,7 +242,7 @@
       </div>
       <text class="historyDebug">{{finalDebugText}}</text>
       <div class="finalButtonRow">
-        <input class="finalUndoButton" type="button" value="↶" onclick="undoPoint"></input>
+        <div class="finalUndoButton" onclick="undoPoint"><text class="finalUndoIcon">←</text></div>
         <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
         <text class="barClockText">{{clockText}}</text>
       </div>
@@ -278,7 +278,7 @@
       </div>
       <text class="historyDebug">{{finalDebugText}}</text>
       <div class="finalButtonRow">
-        <input class="finalUndoButton" type="button" value="↶" onclick="undoPoint"></input>
+        <div class="finalUndoButton" onclick="undoPoint"><text class="finalUndoIcon">←</text></div>
         <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
         <input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input>
       </div>
@@ -286,6 +286,9 @@
   </div>
 
 </div>
+
+
+
 
 
 

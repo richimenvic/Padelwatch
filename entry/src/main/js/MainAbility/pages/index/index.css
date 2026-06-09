@@ -575,7 +575,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 7px;
+  margin-top: 8px;
   margin-bottom: 7px;
 }
 
@@ -617,7 +617,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 7px;
+  margin-top: 8px;
   margin-bottom: 7px;
 }
 
@@ -1681,7 +1681,7 @@
   border-radius: 19px;
   background-color: #3a3a3a;
   color: #ffffff;
-  font-size: 34px;
+  font-size: 32px;
   text-align: center;
   margin-left: 2px;
   margin-right: 2px;
@@ -1802,7 +1802,7 @@
   border-radius: 19px;
   background-color: #3a3a3a;
   color: #ffffff;
-  font-size: 34px;
+  font-size: 32px;
   text-align: center;
   margin-left: 2px;
   margin-right: 2px;
@@ -2060,7 +2060,7 @@
   border-radius: 19px;
   background-color: #3a3a3a;
   color: #ffffff;
-  font-size: 34px;
+  font-size: 32px;
   text-align: center;
   margin-left: 2px;
   margin-right: 2px;
@@ -2590,7 +2590,7 @@
   width: 250px;
   height: 38px;
   color: #1e88ff;
-  font-size: 34px;
+  font-size: 32px;
   text-align: center;
 }
 
@@ -4027,7 +4027,7 @@
   width: 98px;
   height: 68px;
   color: #ffffff;
-  font-size: 34px;
+  font-size: 32px;
   text-align: center;
   background-color: #000000;
   margin-top: 0px;
@@ -4046,3 +4046,72 @@
   border-width: 1px;
   border-color: #555555;
 }
+
+
+/* UI premium center bar: undo | sets | clock */
+.gameCenter {
+  width: 100%;
+  height: 20%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barZoneLeft,
+.barZoneRight {
+  width: 27%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barZoneMiddle {
+  width: 46%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barButton {
+  width: 78px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #202020;
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+}
+
+.setScoreGrid {
+  width: 160px;
+  height: 84px;
+  border-radius: 22px;
+  background-color: #111111;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barClockText {
+  width: 84px;
+  height: 42px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.undoIcon {
+  width: 78px;
+  height: 42px;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 8px;
+}
+
+

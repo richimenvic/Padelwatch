@@ -76,7 +76,7 @@
   color: #ffffff;
   font-size: 26px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .history {
@@ -267,7 +267,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 5px;
 }
 
@@ -558,7 +558,7 @@
   color: #ffffff;
   font-size: 27px;
   text-align: center;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -575,7 +575,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 7px;
 }
 
@@ -617,7 +617,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 7px;
 }
 
@@ -949,7 +949,7 @@
   font-size: 17px;
   color: #8d879f;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .resultTeams {
@@ -976,7 +976,7 @@
   color: #202020;
   font-size: 24px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 
@@ -1197,7 +1197,7 @@
 }
 
 .history .historyNav {
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 /* FINAL OVERRIDE - lower only history navigation */
@@ -1224,7 +1224,7 @@
 
 .history .historyMatchCard {
   height: 44px;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -1294,7 +1294,7 @@
 }
 
 .history .historyNav {
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 /* FINAL STABLE HISTORY LAYOUT */
@@ -1349,7 +1349,7 @@
 }
 
 .history .historyNav {
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 /* FINAL FIX - bajar solo botones de historial */
@@ -1508,7 +1508,7 @@
 
 .historyMatchCard {
   height: 45px;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -2077,7 +2077,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .historyBackButton {
@@ -2520,7 +2520,7 @@
   font-size: 14px;
   color: #ffffff;
   text-align: center;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 
@@ -2573,7 +2573,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 4px;
   padding-top: 8px;
 }
@@ -2610,7 +2610,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -2671,7 +2671,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .historyBackButton {
@@ -2852,7 +2852,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .historyNavArrow {
@@ -2911,7 +2911,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .historyNavArrow {
@@ -3007,7 +3007,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .historyBackButton {
@@ -3035,7 +3035,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .historyNavArrow {
@@ -3082,7 +3082,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 .historyNavArrow {
@@ -3174,7 +3174,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .historyBackButton {
@@ -3220,7 +3220,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -3441,7 +3441,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -3561,7 +3561,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -3643,7 +3643,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -3713,7 +3713,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -3733,7 +3733,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -3827,7 +3827,7 @@
 }
 
 .historyMainRow {
-  margin-top: 5px;
+  margin-top: 8px;
   margin-bottom: 4px;
   height: 198px;
 }
@@ -3860,7 +3860,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 4px;
+  margin-top: 8px;
   margin-bottom: 4px;
 }
 
@@ -3916,7 +3916,7 @@
   font-size: 24px;
   text-align: center;
   background-color: #000000;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .barZoneMiddle {
@@ -4111,7 +4111,7 @@
   font-size: 32px;
   color: #ffffff;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 
 
@@ -4169,3 +4169,323 @@
   color: #ffffff;
   text-align: center;
 }
+
+
+/* Premium server selection screen */
+.serverPage {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.serverTopMain {
+  width: 100%;
+  height: 36%;
+  background-color: #ff9300;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 8px;
+}
+
+.serverBottomMain {
+  width: 100%;
+  height: 36%;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8px;
+}
+
+.serverTopCenterTouch {
+  width: 100%;
+  height: 8%;
+  background-color: #ff9300;
+}
+
+.serverBottomCenterTouch {
+  width: 100%;
+  height: 8%;
+  background-color: #c600d9;
+}
+
+.centerBar,
+.serverCenterPremium {
+  width: 100%;
+  height: 12%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.serverCenterCapsule {
+  width: 300px;
+  height: 74px;
+  border-radius: 37px;
+  background-color: #1c1c1c;
+  border-width: 2px;
+  border-color: #3a3a3a;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.serverCenterText {
+  width: 280px;
+  height: 34px;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.serverCenterSubText {
+  width: 260px;
+  height: 24px;
+  font-size: 18px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.serverTeam {
+  width: 100%;
+  height: 60px;
+  font-size: 46px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.serverHintText {
+  width: 100%;
+  height: 26px;
+  font-size: 20px;
+  color: #ffe0b2;
+  text-align: center;
+}
+
+.serverPanelBottom .serverHintText {
+  color: #f2b6ff;
+}
+
+.serverMiniIcon {
+  width: 100%;
+  height: 20px;
+  font-size: 24px;
+  color: #ffc766;
+  text-align: center;
+}
+
+.serverMiniIconBottom {
+  color: #eb74ff;
+}
+
+
+/* Premium match center capsule */
+.scoreTopMain {
+  width: 100%;
+  height: 39%;
+  background-color: #ff9300;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0px;
+  padding-bottom: 4px;
+}
+
+.scoreBottomMain {
+  width: 100%;
+  height: 39%;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4px;
+  padding-bottom: 0px;
+}
+
+.gameCenter {
+  width: 100%;
+  height: 22%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barZoneLeft {
+  width: 28%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barZoneMiddle {
+  width: 44%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barZoneRight {
+  width: 28%;
+  height: 100%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.barButton {
+  width: 82px;
+  height: 58px;
+  border-radius: 29px;
+  background-color: #1d1d1d;
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+  border-width: 1px;
+  border-color: #353535;
+}
+
+.undoIcon {
+  width: 82px;
+  height: 44px;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.setScoreGrid {
+  width: 166px;
+  height: 92px;
+  border-radius: 24px;
+  background-color: #080808;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-width: 1px;
+  border-color: #303030;
+}
+
+.setScoreColumn {
+  width: 48px;
+  height: 80px;
+  border-radius: 16px;
+  background-color: #242424;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-width: 1px;
+  border-color: #3a3a3a;
+}
+
+.barClockText {
+  width: 90px;
+  height: 46px;
+  font-size: 27px;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+/* Premium serve selection fix */
+.serverTopMain {
+  width: 100%;
+  height: 39%;
+  background-color: #ff9300;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0px;
+}
+
+.serverBottomMain {
+  width: 100%;
+  height: 39%;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0px;
+}
+
+.serverTopCenterTouch {
+  width: 100%;
+  height: 5%;
+  background-color: #ff9300;
+}
+
+.serverBottomCenterTouch {
+  width: 100%;
+  height: 5%;
+  background-color: #c600d9;
+}
+
+.centerBar {
+  width: 100%;
+  height: 12%;
+  background-color: #000000;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.serverCenterText {
+  width: 100%;
+  height: 42px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.serverTeam {
+  width: 100%;
+  height: 70px;
+  font-size: 48px;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+/* Undo icon alignment fixes */
+.undoIcon {
+  width: 82px;
+  height: 44px;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.finalUndoButton {
+  width: 82px;
+  height: 58px;
+  border-radius: 29px;
+  background-color: #1d1d1d;
+  border-width: 1px;
+  border-color: #353535;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalUndoIcon {
+  width: 82px;
+  height: 44px;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 8px;
+}
+

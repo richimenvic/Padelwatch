@@ -150,7 +150,7 @@
 
     <div class="gameCenter">
       <div class="barZoneLeft" onclick="undoPoint">
-        <input class="barButton undoButton" type="button" value="Undo" onclick="noopSet"></input>
+        <div class="barButton undoButton" onclick="noopSet"><text class="undoIcon">←</text></div>
       </div>
       <div class="barZoneMiddle" onclick="noopSet">
         <div class="setScoreGrid" onclick="noopSet" onlongpress="requestReset">
@@ -242,7 +242,7 @@
       </div>
       <text class="historyDebug">{{finalDebugText}}</text>
       <div class="finalButtonRow">
-        <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
+        <input class="finalUndoButton" type="button" value="↶" onclick="undoPoint"></input>
         <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
         <text class="barClockText">{{clockText}}</text>
       </div>
@@ -278,7 +278,7 @@
       </div>
       <text class="historyDebug">{{finalDebugText}}</text>
       <div class="finalButtonRow">
-        <input class="finalUndoButton" type="button" value="UNDO" onclick="undoPoint"></input>
+        <input class="finalUndoButton" type="button" value="↶" onclick="undoPoint"></input>
         <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
         <input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input>
       </div>
@@ -286,6 +286,10 @@
   </div>
 
 </div>
+
+
+
+
 
 
 

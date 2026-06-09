@@ -483,15 +483,15 @@
 }
 
 .barButton {
-  width: 88px;
-  height: 54px;
-  border-radius: 27px;
-  background-color: #3a3a3a;
+  width: 76px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #202020;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 32px;
   text-align: center;
-  margin-left: 2px;
-  margin-right: 2px;
+  border-width: 2px;
+  border-color: #3a3a3a;
 }
 
 .undoButton {
@@ -841,13 +841,12 @@
 }
 
 .finalBoard {
-  width: 230px;
-  height: 92px;
+  width: 210px;
+  height: 104px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 4px;
+  margin-right: 36px;
 }
 
 .finalBoardRow {
@@ -3875,12 +3874,11 @@
 
 /* GAME CENTER - replace visible Reset with clock */
 .barClockText {
-  width: 88px;
-  height: 54px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 20px;
   text-align: center;
-  background-color: #000000;
 }
 
 /* Hidden reset touch target is the set grid itself */
@@ -3891,12 +3889,11 @@
 
 /* GAME CENTER FINAL - clock replaces Reset button */
 .barClockText {
-  width: 88px;
-  height: 54px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 20px;
   text-align: center;
-  background-color: #000000;
 }
 
 .barZoneMiddle {
@@ -3911,12 +3908,10 @@
 /* GAME CENTER FINAL TUNE - bigger clock, reset only on set grid */
 .barClockText {
   width: 92px;
-  height: 58px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 24px;
   text-align: center;
-  background-color: #000000;
-  margin-top: 8px;
 }
 
 .barZoneMiddle {
@@ -3930,25 +3925,21 @@
 
 /* GAME CLOCK ACCESSIBILITY SIZE - very large clock */
 .barClockText {
-  width: 96px;
-  height: 64px;
-  color: #ffffff;
+  width: 92px;
+  height: 46px;
   font-size: 28px;
+  color: #ffffff;
   text-align: center;
-  background-color: #000000;
-  margin-top: 0px;
 }
 
 
 /* GAME CLOCK MAX ACCESSIBILITY SIZE */
 .barClockText {
-  width: 104px;
-  height: 68px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 32px;
   text-align: center;
-  background-color: #000000;
-  margin-top: 0px;
 }
 
 
@@ -3966,15 +3957,11 @@
 }
 
 .barClockText {
-  width: 120px;
-  height: 78px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 36px;
   text-align: center;
-  background-color: #000000;
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 
@@ -3992,15 +3979,11 @@
 }
 
 .barClockText {
-  width: 120px;
-  height: 78px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 36px;
   text-align: center;
-  background-color: #000000;
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 
@@ -4024,15 +4007,11 @@
 }
 
 .barClockText {
-  width: 98px;
-  height: 68px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
-  font-size: 32px;
   text-align: center;
-  background-color: #000000;
-  margin-top: 0px;
-  margin-left: 0px;
-  margin-right: 0px;
 }
 
 .btn-undo {
@@ -4078,13 +4057,15 @@
 }
 
 .barButton {
-  width: 78px;
-  height: 52px;
-  border-radius: 26px;
+  width: 76px;
+  height: 60px;
+  border-radius: 30px;
   background-color: #202020;
   color: #ffffff;
   font-size: 32px;
   text-align: center;
+  border-width: 2px;
+  border-color: #3a3a3a;
 }
 
 .setScoreGrid {
@@ -4098,34 +4079,34 @@
 }
 
 .barClockText {
-  width: 84px;
-  height: 42px;
-  font-size: 24px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
   text-align: center;
 }
 
 .undoIcon {
-  width: 78px;
-  height: 42px;
-  font-size: 32px;
+  width: 76px;
+  height: 44px;
+  font-size: 34px;
   color: #ffffff;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 7px;
 }
 
 
 /* Clean premium center bar - compatible */
 .barButton {
-  width: 78px;
-  height: 52px;
-  border-radius: 26px;
-  background-color: #1f1f1f;
+  width: 76px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #202020;
   color: #ffffff;
   font-size: 32px;
   text-align: center;
-  border-width: 1px;
-  border-color: #343434;
+  border-width: 2px;
+  border-color: #3a3a3a;
 }
 
 .setScoreGrid {
@@ -4163,9 +4144,9 @@
 }
 
 .barClockText {
-  width: 84px;
-  height: 42px;
-  font-size: 24px;
+  width: 92px;
+  height: 46px;
+  font-size: 28px;
   color: #ffffff;
   text-align: center;
 }
@@ -4344,24 +4325,24 @@
 }
 
 .barButton {
-  width: 82px;
-  height: 58px;
-  border-radius: 29px;
-  background-color: #1d1d1d;
+  width: 76px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #202020;
   color: #ffffff;
   font-size: 32px;
   text-align: center;
-  border-width: 1px;
-  border-color: #353535;
+  border-width: 2px;
+  border-color: #3a3a3a;
 }
 
 .undoIcon {
-  width: 82px;
+  width: 76px;
   height: 44px;
-  font-size: 32px;
+  font-size: 34px;
   color: #ffffff;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 7px;
 }
 
 .setScoreGrid {
@@ -4391,9 +4372,9 @@
 }
 
 .barClockText {
-  width: 90px;
+  width: 92px;
   height: 46px;
-  font-size: 27px;
+  font-size: 28px;
   color: #ffffff;
   text-align: center;
 }
@@ -4460,12 +4441,12 @@
 
 /* Undo icon alignment fixes */
 .undoIcon {
-  width: 82px;
+  width: 76px;
   height: 44px;
-  font-size: 32px;
+  font-size: 34px;
   color: #ffffff;
   text-align: center;
-  margin-top: 8px;
+  margin-top: 7px;
 }
 
 .finalUndoButton {
@@ -4487,6 +4468,149 @@
   color: #ffffff;
   text-align: center;
   margin-top: 8px;
+}
+
+
+/* Final screen button row polish */
+.finalButtonRow {
+  width: 300px;
+  height: 64px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.finalUndoButton {
+  width: 76px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #202020;
+  border-width: 1px;
+  border-color: #353535;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  margin-right: 6px;
+}
+
+.finalUndoIcon {
+  width: 76px;
+  height: 40px;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.finalHistoryButton {
+  width: 74px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 6px;
+}
+
+.finalNewButton {
+  width: 112px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #fff200;
+  color: #222222;
+  font-size: 21px;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+
+/* Final screen: winner centered, undo beside result, history/new bottom */
+.finalWinnerPanel {
+  width: 260px;
+  height: 76px;
+  border-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.finalResultRow {
+  width: 340px;
+  height: 104px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalResultUndoButton {
+  width: 62px;
+  height: 58px;
+  border-radius: 29px;
+  background-color: #202020;
+  border-width: 1px;
+  border-color: #353535;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: -6px;
+  margin-right: 22px;
+}
+
+.finalResultUndoIcon {
+  width: 62px;
+  height: 44px;
+  font-size: 34px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.finalBoard {
+  width: 210px;
+  height: 104px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 36px;
+}
+
+.finalButtonRow {
+  width: 260px;
+  height: 62px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.finalHistoryButton {
+  width: 110px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #3a3a3a;
+  color: #ffffff;
+  font-size: 19px;
+  text-align: center;
+  margin-left: 5px;
+  margin-right: 8px;
+}
+
+.finalHomeButton {
+  width: 122px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #fff200;
+  color: #222222;
+  font-size: 19px;
+  text-align: center;
+  margin-left: 8px;
+  margin-right: 5px;
 }
 
 

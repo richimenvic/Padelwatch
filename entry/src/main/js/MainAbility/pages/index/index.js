@@ -22,8 +22,8 @@ export default {
 
     nameNosotros: 'NOSOTROS',
     nameRivales: 'RIVALES',
-    topInfoLine: 'Sets 0 | Juegos 0',
-    bottomInfoLine: 'Sets 0 | Juegos 0',
+    topInfoLine: 'S0 | J0',
+    bottomInfoLine: 'S0 | J0',
     serverBallNosotrosVisible: false,
     serverBallRivalesVisible: false,
 
@@ -2308,11 +2308,12 @@ export default {
 
     this.nameNosotros = 'NOSOTROS'
     this.nameRivales = 'RIVALES'
-    this.topInfoLine = 'Sets ' + this.setsRivales + ' | Juegos ' + this.gamesRivales
-    this.bottomInfoLine = 'Sets ' + this.setsNosotros + ' | Juegos ' + this.gamesNosotros
+    this.topInfoLine = 'S' + this.setsRivales + ' | J' + this.gamesRivales
+    this.bottomInfoLine = 'S' + this.setsNosotros + ' | J' + this.gamesNosotros
     var activeServer = this.enTieBreak || this.enSuperTieBreak ? this.activeTieBreakServer() : this.server
     this.serverBallNosotrosVisible = activeServer === 'nosotros'
     this.serverBallRivalesVisible = activeServer === 'rivales'
   }
 }
+
 

@@ -135,7 +135,7 @@
   width: 112px;
   height: 26px;
   font-size: 19px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: left;
 }
 
@@ -180,7 +180,7 @@
 }
 
 .resultNameMine {
-  color: #fff05a;
+  color: #dfff00;
 }
 
 .resultScores {
@@ -470,7 +470,7 @@
   width: 36px;
   height: 36px;
   border-radius: 18px;
-  background-color: #d7ff00;
+  background-color: #dfff00;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -757,7 +757,7 @@
   width: 300px;
   height: 24px;
   font-size: 17px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -871,7 +871,7 @@
 }
 
 .finalBoardNosLabel {
-  color: #fff05a;
+  color: #dfff00;
 }
 
 .finalBoardRivLabel {
@@ -910,7 +910,7 @@
   width: 152px;
   height: 50px;
   border-radius: 25px;
-  background-color: #fff000;
+  background-color: #dfff00;
   color: #202020;
   font-size: 18px;
   text-align: center;
@@ -930,7 +930,7 @@
   width: 100%;
   height: 30px;
   font-size: 21px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -973,7 +973,7 @@
   width: 230px;
   height: 58px;
   border-radius: 29px;
-  background-color: #fff000;
+  background-color: #dfff00;
   color: #202020;
   font-size: 24px;
   text-align: center;
@@ -997,7 +997,7 @@
   width: 214px;
   height: 18px;
   font-size: 14px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -1048,7 +1048,7 @@
   width: 214px;
   height: 18px;
   font-size: 14px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -1134,7 +1134,7 @@
   width: 214px;
   height: 21px;
   font-size: 16px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -1185,7 +1185,7 @@
   width: 214px;
   height: 18px;
   font-size: 14px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -1282,7 +1282,7 @@
   width: 214px;
   height: 21px;
   font-size: 16px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -1337,7 +1337,7 @@
   width: 214px;
   height: 21px;
   font-size: 16px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
 }
 
@@ -1707,7 +1707,7 @@
   width: 292px;
   height: 30px;
   font-size: 23px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: left;
   margin-top: 0px;
 }
@@ -1733,7 +1733,7 @@
   width: 310px;
   height: 32px;
   font-size: 25px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
   margin-top: 0px;
 }
@@ -1968,7 +1968,7 @@
   width: 310px;
   height: 32px;
   font-size: 25px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
   margin-top: 0px;
 }
@@ -2107,7 +2107,7 @@
   width: 310px;
   height: 32px;
   font-size: 25px;
-  color: #fff05a;
+  color: #dfff00;
   text-align: center;
   margin-top: 0px;
 }
@@ -2702,7 +2702,7 @@
   width: 112px;
   height: 50px;
   border-radius: 25px;
-  background-color: #fff000;
+  background-color: #dfff00;
   color: #202020;
   font-size: 17px;
   text-align: center;
@@ -4526,7 +4526,7 @@
   width: 112px;
   height: 52px;
   border-radius: 26px;
-  background-color: #fff200;
+  background-color: #dfff00;
   color: #222222;
   font-size: 21px;
   text-align: center;
@@ -4611,7 +4611,7 @@
   width: 122px;
   height: 52px;
   border-radius: 26px;
-  background-color: #fff200;
+  background-color: #dfff00;
   color: #222222;
   font-size: 19px;
   text-align: center;

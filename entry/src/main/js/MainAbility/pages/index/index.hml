@@ -220,7 +220,7 @@
         <text class="finalWinnerName">NOSOTROS</text>
       </div>
       <text class="finalSubTitle">RESULTADO FINAL</text>
-      <div class="finalBoard">
+      <div class="finalResultRow"><div class="finalResultUndoButton" onclick="undoPoint"><text class="finalResultUndoIcon">←</text></div><div class="finalBoard">
         <div class="finalBoardRow finalBoardHeader">
           <text class="finalBoardLabel"></text>
           <text class="finalBoardCell">S1</text>
@@ -239,13 +239,8 @@
           <text class="finalBoardCell">{{finalRivSet2}}</text>
           <text class="finalBoardCell">{{finalRivSet3}}</text>
         </div>
-      </div>
-      <text class="historyDebug">{{finalDebugText}}</text>
-      <div class="finalButtonRow">
-        <div class="finalUndoButton" onclick="undoPoint"><text class="finalUndoIcon">←</text></div>
-        <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
-        <text class="barClockText">{{clockText}}</text>
-      </div>
+      </div></div><text class="historyDebug">{{finalDebugText}}</text>
+      <div class="finalButtonRow"><input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
     </div>
   </div>
 
@@ -256,7 +251,7 @@
         <text class="finalWinnerName">RIVALES</text>
       </div>
       <text class="finalSubTitle">RESULTADO FINAL</text>
-      <div class="finalBoard">
+      <div class="finalResultRow"><div class="finalResultUndoButton" onclick="undoPoint"><text class="finalResultUndoIcon">←</text></div><div class="finalBoard">
         <div class="finalBoardRow finalBoardHeader">
           <text class="finalBoardLabel"></text>
           <text class="finalBoardCell">S1</text>
@@ -275,17 +270,13 @@
           <text class="finalBoardCell">{{finalRivSet2}}</text>
           <text class="finalBoardCell">{{finalRivSet3}}</text>
         </div>
-      </div>
-      <text class="historyDebug">{{finalDebugText}}</text>
-      <div class="finalButtonRow">
-        <div class="finalUndoButton" onclick="undoPoint"><text class="finalUndoIcon">←</text></div>
-        <input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input>
-        <input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input>
-      </div>
+      </div></div><text class="historyDebug">{{finalDebugText}}</text>
+      <div class="finalButtonRow"><input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
     </div>
   </div>
 
 </div>
+
 
 
 

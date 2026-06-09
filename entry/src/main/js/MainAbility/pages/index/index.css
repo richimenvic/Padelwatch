@@ -4115,4 +4115,57 @@
 }
 
 
+/* Clean premium center bar - compatible */
+.barButton {
+  width: 78px;
+  height: 52px;
+  border-radius: 26px;
+  background-color: #1f1f1f;
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+  border-width: 1px;
+  border-color: #343434;
+}
 
+.setScoreGrid {
+  width: 164px;
+  height: 88px;
+  border-radius: 24px;
+  background-color: #080808;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-width: 1px;
+  border-color: #303030;
+}
+
+.setScoreColumn {
+  width: 48px;
+  height: 78px;
+  border-radius: 16px;
+  background-color: #242424;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-width: 1px;
+  border-color: #3a3a3a;
+}
+
+.setScoreCell {
+  width: 44px;
+  height: 36px;
+  font-size: 25px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.barClockText {
+  width: 84px;
+  height: 42px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}

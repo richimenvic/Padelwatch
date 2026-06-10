@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Private visual preview of Reservas Padel Salchi, a reservation management web app by Menvic.">
+  <title>Reservas Padel Salchi | pyMenvic Apps</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0f14;
+      --bg-elevated: #101820;
+      --surface: rgba(16, 24, 32, 0.92);
+      --surface-strong: rgba(18, 27, 36, 0.96);
+      --border: rgba(197, 211, 224, 0.16);
+      --text: #f8fafc;
+      --muted: #aab7c4;
+      --muted-strong: #d8e1ea;
+      --accent: #7dd3fc;
+      --warm: #f4b26a;
+      --shadow: rgba(0, 0, 0, 0.28);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background:
+        linear-gradient(rgba(125, 211, 252, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 211, 252, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, #0d1319 0%, var(--bg) 48%, #080b10 100%);
+      background-size: 64px 64px, 64px 64px, auto;
+    }
+    a { color: inherit; }
+    .page { width: min(1120px, calc(100% - 32px)); margin: 0 auto; padding: clamp(20px, 4vw, 44px) 0 34px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: clamp(28px, 5vw, 58px); }
+    .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--text); font-weight: 900; letter-spacing: -0.025em; text-decoration: none; }
+    .brand-mark { position: relative; display: inline-block; width: 38px; height: 38px; overflow: hidden; border: 1px solid rgba(255,255,255,.24); border-radius: 10px; background: var(--bg-elevated); }
+    .brand-mark::before { position: absolute; inset: 8px; content: ""; border: 2px solid rgba(255,255,255,.88); border-top: 0; border-right: 0; border-radius: 2px 0 0 8px; transform: skew(-8deg); }
+    .brand-mark::after { position: absolute; right: 7px; bottom: 7px; width: 17px; height: 17px; content: ""; background: linear-gradient(90deg, rgba(255,255,255,.7) 1px, transparent 1px), linear-gradient(rgba(255,255,255,.7) 1px, transparent 1px); background-size: 8px 8px; border-radius: 4px; opacity: .86; }
+    .top-nav { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-end; }
+    .nav-link { padding: 8px 12px; border: 1px solid transparent; border-radius: 999px; color: var(--muted); font-size: .94rem; font-weight: 800; text-decoration: none; }
+    .nav-link:hover, .nav-link:focus-visible, .nav-link[aria-current="page"] { border-color: var(--border); color: var(--text); background: rgba(125,211,252,.07); outline: none; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 360px); gap: clamp(24px, 5vw, 46px); align-items: start; padding: clamp(32px, 6vw, 56px); border: 1px solid var(--border); border-radius: 20px; background: var(--surface); box-shadow: 0 18px 50px var(--shadow); margin-bottom: 28px; }
+    .eyebrow { display: inline-flex; align-items: center; margin: 0 0 18px; padding: 6px 12px; border: 1px solid rgba(125,211,252,.34); border-radius: 999px; color: var(--accent); background: rgba(125,211,252,.08); font-size: .78rem; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.12; }
+    h1 { margin-bottom: 12px; font-size: clamp(2.7rem, 8vw, 5rem); letter-spacing: -.045em; }
+    h2 { margin-bottom: 10px; font-size: clamp(1.45rem, 3.4vw, 2rem); letter-spacing: -.025em; }
+    h3 { margin-bottom: 0; font-size: 1.1rem; letter-spacing: -.015em; }
+    .subtitle { max-width: 780px; margin-bottom: 18px; color: var(--muted-strong); font-size: clamp(1.12rem, 3vw, 1.45rem); font-weight: 850; }
+    .hero-text, .section-intro, .card-description, .small-note, .footer p { color: var(--muted); }
+    .hero-panel { border: 1px solid rgba(125,211,252,.22); border-radius: 18px; background: rgba(8,13,18,.55); padding: 22px; }
+    .hero-panel strong { display: block; margin-bottom: 8px; color: var(--text); font-size: 1.04rem; }
+    .hero-panel p { margin-bottom: 10px; color: var(--muted-strong); }
+    .hero-panel p:last-child { margin-bottom: 0; }
+    .section { padding-top: 28px; }
+    .section-heading { margin-bottom: 16px; }
+    .section-intro { max-width: 760px; margin-bottom: 0; }
+    .cards, .screens { display: grid; gap: 16px; }
+    .cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr)); }
+    .screens { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card, .screen-card, .footer { border: 1px solid var(--border); border-radius: 16px; background: var(--surface-strong); box-shadow: 0 12px 32px rgba(0,0,0,.18); }
+    .card, .screen-card { padding: 20px; }
+    .card-description { margin-bottom: 0; }
+    .shot { display: block; width: 100%; height: auto; border: 1px solid rgba(255,255,255,.10); border-radius: 12px; background: #081018; margin-bottom: 14px; }
+    .small-note { margin-top: 14px; margin-bottom: 0; padding: 13px 14px; border: 1px solid rgba(125,211,252,.22); border-radius: 12px; background: rgba(125,211,252,.06); font-size: .94rem; }
+    .footer { margin-top: 30px; padding: 24px; font-size: .95rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 14px; }
+    .footer-links a { color: var(--muted-strong); font-weight: 800; text-underline-offset: 3px; }
+    .contact-link { color: var(--accent); font-weight: 850; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    @media (max-width: 900px) { .hero, .screens { grid-template-columns: 1fr; } }
+    @media (max-width: 780px) { .topbar { align-items: flex-start; flex-direction: column; } .top-nav { justify-content: flex-start; } }
+    @media (max-width: 560px) { .page { width: min(100% - 24px, 1120px); } .hero, .card, .screen-card, .footer { border-radius: 18px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="pyMenvic home"><span class="brand-mark" aria-hidden="true"></span><span>pyMenvic</span></a>
+      <nav class="top-nav" aria-label="Main navigation">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/apps/" aria-current="page">Apps</a>
+        <a class="nav-link" href="/revit-tools/">Revit Tools</a>
+        <a class="nav-link" href="/learning/">Learning</a>
+        <a class="nav-link" href="/support/">Support</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Private web app</p>
+        <h1 id="page-title">Reservas Padel Salchi</h1>
+        <p class="subtitle">Private reservation system for a community padel court.</p>
+        <p class="hero-text">This page is a visual preview of an internal web application by Menvic. It helps residents reserve court time, manage PIN access, and handle simple administration tasks from a clear browser interface.</p>
+      </div>
+      <aside class="hero-panel" aria-label="Project notes">
+        <strong>Project preview</strong>
+        <p>Private reservation system for the La Salchi community padel court.</p>
+        <p>The live app is not linked from this page.</p>
+        <p>The screenshots show the booking flow, PIN management, administration tools, and reports.</p>
+      </aside>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="section-heading">
+        <h2 id="features-title">What it includes</h2>
+        <p class="section-intro">A simple interface focused on reservation flow, privacy, and lightweight administration.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><h3>Reservation flow</h3><p class="card-description">Residents can select an available day and time slot, then confirm the reservation with their portal, vivienda, and PIN.</p></article>
+        <article class="card"><h3>Cancellation and slot status</h3><p class="card-description">The system distinguishes available, selected, and reserved slots, and supports reservation cancellation.</p></article>
+        <article class="card"><h3>PIN management</h3><p class="card-description">Users can update their vivienda PIN from a dedicated page designed for first access or later changes.</p></article>
+        <article class="card"><h3>Admin and reports</h3><p class="card-description">An internal administration area supports PIN reset, cleanup actions, and simple reservation reporting.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="screens" aria-labelledby="screens-title">
+      <div class="section-heading">
+        <h2 id="screens-title">Screens</h2>
+        <p class="section-intro">Real screenshots from the project, showing the reservation workflow and internal management screens.</p>
+      </div>
+      <div class="screens">
+        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/01-reserva-seleccionada.webp" alt="Reservation calendar and booking interface"><h3>Reservation selection</h3><p class="card-description">Main reservation page with calendar, available slots, and confirmation panel.</p></article>
+        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/02-reservas-disponibles.webp" alt="Reservation page showing available and reserved slots"><h3>Occupied and available slots</h3><p class="card-description">Status-based slot display with selected, free, and reserved time ranges.</p></article>
+        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/03-cancelar-reserva.webp" alt="Reservation cancellation confirmation flow"><h3>Cancellation flow</h3><p class="card-description">Dedicated confirmation state for cancelling an existing reservation.</p></article>
+        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/04-cambiar-pin.webp" alt="Change PIN page"><h3>Change PIN</h3><p class="card-description">Simple PIN update page for vivienda access management.</p></article>
+        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/05-administracion.webp" alt="Administration panel"><h3>Administration</h3><p class="card-description">Internal panel for PIN reset and reservation cleanup operations.</p></article>
+        <article class="screen-card"><img class="shot" src="/assets/apps/padel-salchi/06-informes.webp" alt="Administrative reports page"><h3>Reports</h3><p class="card-description">Administrative reporting view with summary cards and reservation details.</p></article>
+      </div>
+      <p class="small-note">This page is a visual documentation page only. It does not link to the live private app.</p>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; Menvic</p>
+      <p>pyMenvic is a collection of independent tools and resources by Menvic.</p>
+      <p>Support: <a class="contact-link" href="mailto:contacto@menvic.com">contacto@menvic.com</a></p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/apps/">Apps</a>
+        <a href="/apps/padel-score/">Padel Score</a>
+        <a href="/apps/padel-salchi/">Reservas Padel Salchi</a>
+        <a href="/revit-tools/">Revit Tools</a>
+        <a href="/learning/">Learning</a>
+        <a href="/support/">Support</a>
+      </nav>
+    </footer>
+  </main>
+</body>
+</html>

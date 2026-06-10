@@ -245,6 +245,10 @@
       min-height: 350px;
     }
 
+    .watch-preview .app-screenshot {
+      max-width: 310px;
+    }
+
     .watch-frame {
       display: grid;
       place-items: center;
@@ -349,6 +353,20 @@
       text-align: center;
     }
 
+    .app-screenshot {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      background: #03040a;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24);
+    }
+
+    .screen-card h3 {
+      margin-top: 14px;
+    }
+
     .step { padding: 20px; }
     .step-number {
       display: inline-flex;
@@ -431,14 +449,7 @@
       </div>
 
       <aside class="watch-preview" aria-label="Padel Score watch preview">
-        <div class="watch-frame">
-          <div class="score-face">
-            <div class="serve-label">Serving: Team A</div>
-            <div class="score-row"><span class="team">Team A</span><span class="points">40</span></div>
-            <div class="score-row"><span class="team">Team B</span><span class="points">30</span></div>
-            <div class="mini-meta"><span>Set 1</span><span>6-6</span><span>Tie-break</span></div>
-          </div>
-        </div>
+        <img class="app-screenshot" src="/assets/apps/padel-score/03-scoring.webp" alt="Padel Score live scoring screen on Huawei Watch">
       </aside>
     </section>
 
@@ -446,28 +457,40 @@
       <div class="section-heading">
         <div>
           <h2 id="screenshots-title">Screenshots</h2>
-          <p class="section-intro">Prepared for real Huawei Watch captures when production screenshots are ready.</p>
+          <p class="section-intro">Real app screens from Padel Score running on a Huawei Watch-style preview.</p>
         </div>
       </div>
 
       <div class="screens">
         <article class="screen-card">
-          <!-- Replace this placeholder with a real app screenshot, for example:
-               <img src="/apps/padel-score/images/scoring.png" alt="Padel Score scoring screen on Huawei Watch">
-          -->
-          <div class="screenshot-placeholder">Scoring screen</div>
+          <img class="app-screenshot" src="/assets/apps/padel-score/01-home.webp" alt="Padel Score home screen on Huawei Watch">
+          <h3>Start from the watch</h3>
+          <p class="card-description">Open the app, start a match, check history, or adjust match settings.</p>
         </article>
         <article class="screen-card">
-          <!-- Replace this placeholder with a real app screenshot, for example:
-               <img src="/apps/padel-score/images/match-setup.png" alt="Padel Score match setup screen on Huawei Watch">
-          -->
-          <div class="screenshot-placeholder">Match setup</div>
+          <img class="app-screenshot" src="/assets/apps/padel-score/03-scoring.webp" alt="Padel Score live scoring screen on Huawei Watch">
+          <h3>Live scoring</h3>
+          <p class="card-description">Tap the team that wins the point and follow games, sets, time, and serving indicator.</p>
         </article>
         <article class="screen-card">
-          <!-- Replace this placeholder with a real app screenshot, for example:
-               <img src="/apps/padel-score/images/history.png" alt="Padel Score local match history screen on Huawei Watch">
-          -->
-          <div class="screenshot-placeholder">Local history</div>
+          <img class="app-screenshot" src="/assets/apps/padel-score/08-settings.webp" alt="Padel Score settings screen on Huawei Watch">
+          <h3>Match settings</h3>
+          <p class="card-description">Choose 40-40 behavior, 6-6 behavior, and vibration preferences.</p>
+        </article>
+        <article class="screen-card">
+          <img class="app-screenshot" src="/assets/apps/padel-score/02-serve.webp" alt="Padel Score first server selection screen on Huawei Watch">
+          <h3>Serve selection</h3>
+          <p class="card-description">Select who serves first before the match starts.</p>
+        </article>
+        <article class="screen-card">
+          <img class="app-screenshot" src="/assets/apps/padel-score/07-history.webp" alt="Padel Score local match history screen on Huawei Watch">
+          <h3>Local history</h3>
+          <p class="card-description">Review recent matches stored locally on the watch.</p>
+        </article>
+        <article class="screen-card">
+          <img class="app-screenshot" src="/assets/apps/padel-score/06-final.webp" alt="Padel Score final result screen on Huawei Watch">
+          <h3>Final result</h3>
+          <p class="card-description">Finish the match and see the final sets summary clearly.</p>
         </article>
       </div>
     </section>

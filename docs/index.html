@@ -9,23 +9,19 @@
 
     :root {
       color-scheme: dark;
-      --bg: #070914;
-      --bg-elevated: #0d1220;
-      --surface: rgba(15, 20, 35, 0.9);
-      --surface-strong: rgba(22, 28, 46, 0.95);
-      --border: rgba(255, 255, 255, 0.14);
-      --border-strong: rgba(255, 255, 255, 0.22);
+      --bg: #0b0f14;
+      --bg-elevated: #101820;
+      --surface: rgba(16, 24, 32, 0.92);
+      --surface-strong: rgba(18, 27, 36, 0.96);
+      --border: rgba(197, 211, 224, 0.16);
+      --border-strong: rgba(197, 211, 224, 0.28);
       --text: #f8fafc;
-      --muted: #c6cfdd;
-      --muted-strong: #e2e8f0;
-      --purple: #a855f7;
-      --magenta: #ec4899;
-      --orange: #f97316;
-      --cyan: #22d3ee;
-      --green: #34d399;
-      --accent-glow: rgba(236, 72, 153, 0.24);
-      --orange-glow: rgba(249, 115, 22, 0.18);
-      --shadow: rgba(0, 0, 0, 0.36);
+      --muted: #aab7c4;
+      --muted-strong: #d8e1ea;
+      --accent: #7dd3fc;
+      --accent-strong: #38bdf8;
+      --warm: #f4b26a;
+      --shadow: rgba(0, 0, 0, 0.28);
     }
 
     * { box-sizing: border-box; }
@@ -39,10 +35,10 @@
       line-height: 1.6;
       color: var(--text);
       background:
-        radial-gradient(circle at 12% 8%, var(--accent-glow), transparent 30rem),
-        radial-gradient(circle at 88% 14%, var(--orange-glow), transparent 28rem),
-        radial-gradient(circle at 62% 72%, rgba(168, 85, 247, 0.13), transparent 26rem),
-        linear-gradient(135deg, var(--bg) 0%, #0a1020 46%, #111827 100%);
+        linear-gradient(rgba(125, 211, 252, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 211, 252, 0.03) 1px, transparent 1px),
+        linear-gradient(180deg, #0d1319 0%, var(--bg) 48%, #080b10 100%);
+      background-size: 64px 64px, 64px 64px, auto;
     }
 
     body::before {
@@ -54,8 +50,9 @@
       background-image:
         linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-      background-size: 56px 56px;
+      background-size: 64px 64px;
       mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent 76%);
+      opacity: 0.55;
     }
 
     a { color: inherit; }
@@ -91,11 +88,9 @@
       height: 38px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.24);
-      border-radius: 13px;
-      background:
-        linear-gradient(135deg, rgba(168, 85, 247, 0.98), rgba(236, 72, 153, 0.88) 52%, rgba(249, 115, 22, 0.94)),
-        var(--bg-elevated);
-      box-shadow: 0 12px 34px rgba(236, 72, 153, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.24);
+      border-radius: 10px;
+      background: var(--bg-elevated);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .brand-mark::before {
@@ -146,9 +141,9 @@
     .nav-link:hover,
     .nav-link:focus-visible,
     .nav-link[aria-current="page"] {
-      border-color: var(--border-strong);
+      border-color: var(--border);
       color: var(--text);
-      background: rgba(255, 255, 255, 0.07);
+      background: rgba(125, 211, 252, 0.07);
       outline: none;
     }
 
@@ -161,11 +156,9 @@
       overflow: hidden;
       padding: clamp(32px, 6vw, 66px);
       border: 1px solid var(--border);
-      border-radius: 32px;
-      background:
-        linear-gradient(140deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035)),
-        var(--surface);
-      box-shadow: 0 30px 95px var(--shadow);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 18px 50px var(--shadow);
     }
 
     .hero::after {
@@ -175,7 +168,7 @@
       width: 24rem;
       height: 24rem;
       content: "";
-      background: radial-gradient(circle, rgba(249, 115, 22, 0.2), rgba(236, 72, 153, 0.09) 42%, transparent 68%);
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.12), transparent 62%);
       pointer-events: none;
     }
 
@@ -186,10 +179,10 @@
       align-items: center;
       margin: 0 0 18px;
       padding: 6px 12px;
-      border: 1px solid rgba(236, 72, 153, 0.44);
+      border: 1px solid rgba(125, 211, 252, 0.34);
       border-radius: 999px;
-      color: #f9a8d4;
-      background: rgba(236, 72, 153, 0.13);
+      color: var(--accent);
+      background: rgba(125, 211, 252, 0.08);
       font-size: 0.78rem;
       font-weight: 950;
       letter-spacing: 0.12em;
@@ -198,14 +191,14 @@
 
     h1, h2, h3, p { margin-top: 0; }
     h1, h2, h3 { line-height: 1.12; }
-    h1 { margin-bottom: 12px; font-size: clamp(3rem, 10vw, 6.4rem); letter-spacing: -0.08em; }
-    h2 { margin-bottom: 10px; font-size: clamp(1.55rem, 4vw, 2.2rem); letter-spacing: -0.04em; }
-    h3 { margin-bottom: 0; font-size: 1.2rem; letter-spacing: -0.025em; }
+    h1 { margin-bottom: 12px; font-size: clamp(2.7rem, 8vw, 5.1rem); letter-spacing: -0.045em; }
+    h2 { margin-bottom: 10px; font-size: clamp(1.45rem, 3.4vw, 2rem); letter-spacing: -0.025em; }
+    h3 { margin-bottom: 0; font-size: 1.15rem; letter-spacing: -0.015em; }
 
     .subtitle {
       max-width: 780px;
       margin-bottom: 18px;
-      color: #f3e8ff;
+      color: var(--muted-strong);
       font-size: clamp(1.15rem, 3vw, 1.55rem);
       font-weight: 850;
     }
@@ -216,11 +209,9 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
 
     .hero-panel, .feature {
-      border: 1px solid rgba(249, 115, 22, 0.3);
-      border-radius: 24px;
-      background:
-        linear-gradient(155deg, rgba(249, 115, 22, 0.14), rgba(168, 85, 247, 0.1)),
-        rgba(7, 9, 20, 0.36);
+      border: 1px solid rgba(125, 211, 252, 0.22);
+      border-radius: 18px;
+      background: rgba(8, 13, 18, 0.55);
     }
 
     .hero-panel { padding: 22px; }
@@ -232,8 +223,8 @@
     .hub-map-item {
       padding: 13px 14px;
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.055);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.035);
     }
 
     .hub-map-item span { display: block; color: var(--text); font-weight: 900; }
@@ -252,15 +243,13 @@
       min-height: 100%;
       flex-direction: column;
       padding: 22px;
-      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
     }
 
     .card, .identity-card {
       border: 1px solid var(--border);
-      border-radius: 22px;
-      background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.078), rgba(255, 255, 255, 0.026)),
-        var(--surface-strong);
+      border-radius: 16px;
+      background: var(--surface-strong);
     }
 
     .identity-card { position: relative; overflow: hidden; padding: 26px; }
@@ -270,15 +259,15 @@
       inset: 0 0 auto;
       height: 4px;
       content: "";
-      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      background: var(--accent);
     }
 
-    .identity-card.apps::before { background: linear-gradient(90deg, var(--magenta), var(--orange)); }
-    .identity-kicker { margin-bottom: 8px; color: #bae6fd; font-size: 0.78rem; font-weight: 950; letter-spacing: 0.12em; text-transform: uppercase; }
-    .identity-card.apps .identity-kicker { color: #fed7aa; }
+    .identity-card.apps::before { background: var(--warm); }
+    .identity-kicker { margin-bottom: 8px; color: var(--accent); font-size: 0.78rem; font-weight: 950; letter-spacing: 0.12em; text-transform: uppercase; }
+    .identity-card.apps .identity-kicker { color: var(--warm); }
     .identity-list { display: grid; gap: 8px; margin: 18px 0 0; padding: 0; list-style: none; }
     .identity-list li { display: flex; gap: 10px; }
-    .identity-list li::before { flex: 0 0 auto; color: var(--green); content: "•"; font-weight: 950; }
+    .identity-list li::before { flex: 0 0 auto; color: var(--accent); content: "•"; font-weight: 950; }
 
     .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
     .card-description { margin-bottom: 16px; }
@@ -289,10 +278,10 @@
       align-items: center;
       justify-content: center;
       padding: 5px 10px;
-      border: 1px solid rgba(249, 115, 22, 0.38);
+      border: 1px solid rgba(244, 178, 106, 0.34);
       border-radius: 999px;
-      color: #fed7aa;
-      background: rgba(249, 115, 22, 0.13);
+      color: #f8d5a8;
+      background: rgba(244, 178, 106, 0.1);
       font-size: 0.76rem;
       font-weight: 950;
       white-space: nowrap;
@@ -302,9 +291,9 @@
       margin-top: auto;
       margin-bottom: 0;
       padding: 13px 14px;
-      border: 1px solid rgba(168, 85, 247, 0.34);
-      border-radius: 16px;
-      background: rgba(168, 85, 247, 0.11);
+      border: 1px solid rgba(125, 211, 252, 0.22);
+      border-radius: 12px;
+      background: rgba(125, 211, 252, 0.06);
       font-size: 0.94rem;
     }
 
@@ -316,11 +305,11 @@
       justify-content: center;
       min-height: 44px;
       padding: 10px 15px;
-      border: 1px solid rgba(236, 72, 153, 0.52);
-      border-radius: 999px;
-      color: #fff7fb;
-      background: linear-gradient(135deg, var(--purple), var(--magenta));
-      box-shadow: 0 12px 28px rgba(236, 72, 153, 0.2);
+      border: 1px solid rgba(125, 211, 252, 0.36);
+      border-radius: 10px;
+      color: #eaf7ff;
+      background: rgba(125, 211, 252, 0.12);
+      box-shadow: none;
       font-weight: 850;
       text-decoration: none;
       transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
@@ -329,18 +318,18 @@
     .button:hover, .button:focus-visible {
       border-color: rgba(255, 255, 255, 0.42);
       transform: translateY(-1px);
-      box-shadow: 0 16px 34px rgba(236, 72, 153, 0.28);
+      box-shadow: none;
       outline: none;
     }
 
-    .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.06); box-shadow: none; }
-    .contact-link { color: #f9a8d4; font-weight: 850; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .button.secondary { color: var(--text); background: rgba(255, 255, 255, 0.04); box-shadow: none; }
+    .contact-link { color: var(--accent); font-weight: 850; text-decoration-thickness: 2px; text-underline-offset: 3px; }
 
     .footer {
       margin-top: 30px;
       padding: 24px;
       border: 1px solid var(--border);
-      border-radius: 24px;
+      border-radius: 16px;
       background: rgba(15, 20, 35, 0.72);
       font-size: 0.95rem;
     }
@@ -348,7 +337,7 @@
     .footer p { margin-bottom: 8px; }
     .footer p:last-child { margin-bottom: 0; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 14px; }
-    .footer-links a { color: #f3e8ff; font-weight: 800; text-underline-offset: 3px; }
+    .footer-links a { color: var(--muted-strong); font-weight: 800; text-underline-offset: 3px; }
 
     @media (max-width: 780px) {
       .topbar, .section-heading { align-items: flex-start; flex-direction: column; }
@@ -384,10 +373,10 @@
 
     <section class="hero" aria-labelledby="page-title">
       <div>
-        <p class="eyebrow">BIM tools + practical apps</p>
+        <p class="eyebrow">Menvic tools</p>
         <h1 id="page-title">pyMenvic</h1>
-        <p class="subtitle">A professional home for Menvic BIM utilities, Revit workflows, and focused digital products.</p>
-        <p class="hero-text">pyMenvic connects two sides of the same work: dependable BIM / Revit tooling for architectural production and small practical apps that solve everyday problems with clear support and privacy information.</p>
+        <p class="subtitle">Practical Revit utilities, workflow helpers, and small apps by Menvic.</p>
+        <p class="hero-text">A simple public hub for tools that support architectural production: pyRevit utilities, model checking workflows, documentation helpers, and compact apps with clear support information.</p>
         <nav class="hero-actions" aria-label="Primary homepage links">
           <a class="button" href="/revit-tools/">Explore BIM Tools</a>
           <a class="button secondary" href="/apps/">Explore Apps</a>
@@ -395,11 +384,11 @@
       </div>
 
       <aside class="hero-panel" aria-label="What is pyMenvic">
-        <strong>Two focused tracks</strong>
-        <p>A static product hub for BIM workflows, app releases, learning notes, and direct support links.</p>
+        <strong>Current focus</strong>
+        <p>Revit production support remains the technical core. Apps are documented here when they need a public home.</p>
         <div class="hub-map" aria-label="pyMenvic focus areas">
-          <div class="hub-map-item"><span>BIM / Revit tools</span><small>Automation, standards, auditing, documentation.</small></div>
-          <div class="hub-map-item"><span>Apps / digital tools</span><small>PadelScoreGT5 now, more practical tools later.</small></div>
+          <div class="hub-map-item"><span>Revit utilities</span><small>Automation, standards, model review, documentation.</small></div>
+          <div class="hub-map-item"><span>Small apps</span><small>Focused tools such as Padel Score.</small></div>
         </div>
       </aside>
     </section>
@@ -407,32 +396,32 @@
     <section class="section" id="identity" aria-labelledby="identity-title">
       <div class="section-heading">
         <div>
-          <h2 id="identity-title">One hub, two identities</h2>
-          <p class="section-intro">pyMenvic is organized around the technical work Menvic builds for architecture teams and the standalone apps that make specific tasks easier.</p>
+          <h2 id="identity-title">What lives here</h2>
+          <p class="section-intro">The site groups public material for Revit work, workflow notes, support pages, and small apps without turning each item into a large marketing page.</p>
         </div>
       </div>
 
       <div class="identity-grid" aria-label="pyMenvic identity areas">
         <article class="identity-card">
           <p class="identity-kicker">BIM / Revit tools</p>
-          <h3>Production support for architectural workflows</h3>
+          <h3>Production support for Revit teams</h3>
           <p class="card-description">Utilities and guidance for Revit, pyRevit, project documentation, model auditing, and office standards.</p>
           <ul class="identity-list">
             <li>Revit and pyRevit productivity tools.</li>
             <li>Architectural documentation and QA workflows.</li>
-            <li>Auditing patterns for healthier models and repeatable office standards.</li>
+            <li>Auditing patterns for model health and repeatable office standards.</li>
           </ul>
           <nav class="links" aria-label="BIM tools links"><a class="button" href="/revit-tools/">View Revit Tools</a></nav>
         </article>
 
         <article class="identity-card apps">
           <p class="identity-kicker">Apps / digital tools</p>
-          <h3>Focused products for practical everyday use</h3>
-          <p class="card-description">Standalone apps and future digital tools with simple pages, clear support paths, and privacy-first product information.</p>
+          <h3>Small apps with clear support pages</h3>
+          <p class="card-description">Standalone apps are listed with plain descriptions, compatibility notes, privacy links, and support paths.</p>
           <ul class="identity-list">
-            <li>PadelScoreGT5 for tracking padel matches from a Huawei Watch.</li>
-            <li>Future tools aimed at small, useful, well-defined problems.</li>
-            <li>Public support, privacy, and product information without extra tracking.</li>
+            <li>Padel Score for tracking padel and tennis matches from a Huawei Watch.</li>
+            <li>Future tools only when they have a defined use and support path.</li>
+            <li>Public support and privacy information kept easy to find.</li>
           </ul>
           <nav class="links" aria-label="Apps identity links"><a class="button" href="/apps/">View Apps</a></nav>
         </article>
@@ -443,14 +432,14 @@
       <div class="section-heading">
         <div>
           <h2 id="site-areas-title">Navigate the site</h2>
-          <p class="section-intro">Use these separate pages for apps, BIM tools, learning material, and support.</p>
+          <p class="section-intro">Use these pages for the main areas of the site.</p>
         </div>
       </div>
 
       <div class="cards" aria-label="pyMenvic sections">
         <article class="card">
           <div class="card-header"><h3>Apps</h3></div>
-          <p class="card-description">PadelScoreGT5 and future practical digital tools.</p>
+          <p class="card-description">Padel Score and other small tools when they are ready to document.</p>
           <nav class="links" aria-label="Apps links"><a class="button" href="/apps/">View Apps</a></nav>
         </article>
 
@@ -477,11 +466,11 @@
     <section class="section" aria-labelledby="featured-title">
       <article class="feature">
         <p class="eyebrow">Featured app</p>
-        <h2 id="featured-title">PadelScoreGT5</h2>
-        <p class="card-description">A simple standalone padel scorekeeper for Huawei Watch that helps users track points, games, sets, tie-breaks, and super tie-breaks directly from the watch.</p>
+        <h2 id="featured-title">Padel Score</h2>
+        <p class="card-description">A standalone padel and tennis scorekeeper for Huawei Watch / HarmonyOS, built around offline scoring and local match history.</p>
         <p class="small-note">Privacy-focused by design: no login, no account registration, no payments, no network access, and no personal data collection.</p>
         <nav class="links" aria-label="PadelScoreGT5 links">
-          <a class="button" href="/apps/">PadelScoreGT5</a>
+          <a class="button" href="/apps/padel-score/">View Padel Score</a>
           <a class="button secondary" href="/padelscoregt5/privacy/">Privacy Policy</a>
           <a class="button secondary" href="/padelscoregt5/support/">Support</a>
         </nav>

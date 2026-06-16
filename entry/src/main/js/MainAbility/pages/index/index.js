@@ -1,6 +1,7 @@
 import router from '@system.router'
 import app from '@system.app'
 import storage from '@system.storage'
+import vibrator from '@system.vibrator'
 
 export default {
   
@@ -419,11 +420,27 @@ export default {
     this.updateLabels()
   },
 
+  doVibrate: function () {
+    if (!this.vibrationEnabled) {
+      return
+    }
+    try {
+      vibrator.vibrate({
+        mode: 'short',
+        success: function () {},
+        fail: function () {}
+      })
+    } catch (e) {
+    }
+  },
   toggleVibration: function () {
     this.vibrationEnabled = !this.vibrationEnabled
     this.vibrationOnVisible = this.vibrationEnabled
     this.vibrationOffVisible = !this.vibrationEnabled
     this.vibrationText = this.vibrationEnabled ? 'Vibración: ON' : 'Vibración: OFF'
+    if (this.vibrationEnabled) {
+      this.doVibrate()
+    }
   },
 
   startNosotros: function () {
@@ -443,6 +460,7 @@ export default {
     this.gameVisible = true
     this.gameScreenVisible = true
     this.updateLabels()
+    this.doVibrate()
   },
 
   resetState: function () {
@@ -520,6 +538,7 @@ export default {
     }
 
     this.deuceChoiceUndoText = ''
+    this.doVibrate()
     this.saveHistory()
 
     if (this.enSuperTieBreak) {
@@ -1374,6 +1393,7 @@ export default {
   },
 
   undoPoint: function () {
+    this.doVibrate()
     if (this.matchChoiceUndoText !== '' &&
         this.screen === 'game' &&
         this.setActual === 3 &&
@@ -1444,6 +1464,7 @@ export default {
   },
 
   confirmReset: function () {
+    this.doVibrate()
     this.resetMatch()
   },
 
@@ -2537,6 +2558,9 @@ export default {
     this.saveCurrentMatch()
   }
 }
+
+
+
 
 
 

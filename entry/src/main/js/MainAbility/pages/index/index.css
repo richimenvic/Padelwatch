@@ -5530,3 +5530,669 @@
   margin-top: 0px;
   margin-bottom: 10px;
 }
+
+/* Refined final result screen */
+.finalPage {
+  width: 466px;
+  height: 466px;
+  padding-top: 42px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.finalContent {
+  width: 466px;
+  height: 466px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.finalWinnerPanel {
+  width: 310px;
+  height: 92px;
+  border-radius: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.finalWinnerPanelWin {
+  background-color: #39b862;
+}
+
+.finalWinnerPanelLoss {
+  background-color: #ff5722;
+}
+
+.finalWinnerLabel {
+  width: 310px;
+  height: 28px;
+  font-size: 19px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalWinnerName {
+  width: 310px;
+  height: 48px;
+  font-size: 35px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalSubTitle {
+  width: 466px;
+  height: 28px;
+  font-size: 20px;
+  color: #bdbdbd;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.finalResultRow {
+  width: 390px;
+  height: 132px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.finalResultUndoButton {
+  width: 58px;
+  height: 58px;
+  border-radius: 29px;
+  background-color: #3a3a3a;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+.finalResultUndoIcon {
+  width: 58px;
+  height: 48px;
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalBoard {
+  width: 270px;
+  height: 126px;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardRow {
+  width: 270px;
+  height: 38px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardHeader {
+  height: 34px;
+}
+
+.finalBoardLabel {
+  width: 62px;
+  height: 36px;
+  font-size: 22px;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.finalBoardNosLabel {
+  color: #d6ff00;
+}
+
+.finalBoardRivLabel {
+  color: #ff9500;
+}
+
+.finalBoardCell {
+  width: 48px;
+  height: 36px;
+  font-size: 26px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalButtonRow {
+  width: 300px;
+  height: 68px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.finalHistoryButton {
+  width: 132px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #4b5563;
+}
+
+.finalHomeButton {
+  width: 150px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 26px;
+  color: #000000;
+  background-color: #d6ff00;
+}
+
+/* Final result screen polish: bigger score and softer buttons */
+.finalPage {
+  width: 466px;
+  height: 466px;
+  padding-top: 38px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.finalWinnerPanel {
+  width: 318px;
+  height: 90px;
+  border-radius: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.finalWinnerLabel {
+  width: 318px;
+  height: 26px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalWinnerName {
+  width: 318px;
+  height: 50px;
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalSubTitle {
+  width: 466px;
+  height: 30px;
+  font-size: 21px;
+  color: #bdbdbd;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.finalResultRow {
+  width: 410px;
+  height: 148px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.finalResultUndoButton {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: #3a3a3a;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.finalResultUndoIcon {
+  width: 48px;
+  height: 42px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalBoard {
+  width: 310px;
+  height: 144px;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardRow {
+  width: 310px;
+  height: 44px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardHeader {
+  height: 38px;
+}
+
+.finalBoardLabel {
+  width: 68px;
+  height: 40px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.finalBoardCell {
+  width: 54px;
+  height: 40px;
+  font-size: 30px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalButtonRow {
+  width: 310px;
+  height: 70px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.finalHistoryButton {
+  width: 135px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #4b5563;
+}
+
+.finalHomeButton {
+  width: 155px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 26px;
+  color: #ffffff;
+  background-color: #39b862;
+}
+
+/* Final screen without subtitle, larger score board */
+.finalPage {
+  width: 466px;
+  height: 466px;
+  padding-top: 38px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.finalWinnerPanel {
+  width: 318px;
+  height: 92px;
+  border-radius: 24px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.finalWinnerLabel {
+  width: 318px;
+  height: 26px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalWinnerName {
+  width: 318px;
+  height: 52px;
+  font-size: 37px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalSubTitle {
+  width: 466px;
+  height: 0px;
+  font-size: 0px;
+  color: #050505;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.finalResultRow {
+  width: 420px;
+  height: 172px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.finalResultUndoButton {
+  width: 46px;
+  height: 46px;
+  border-radius: 23px;
+  background-color: #3a3a3a;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.finalResultUndoIcon {
+  width: 46px;
+  height: 40px;
+  font-size: 29px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalBoard {
+  width: 330px;
+  height: 166px;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardRow {
+  width: 330px;
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardHeader {
+  height: 42px;
+}
+
+.finalBoardLabel {
+  width: 72px;
+  height: 44px;
+  font-size: 27px;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.finalBoardCell {
+  width: 58px;
+  height: 44px;
+  font-size: 34px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalButtonRow {
+  width: 310px;
+  height: 68px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.finalHistoryButton {
+  width: 135px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #4b5563;
+}
+
+.finalHomeButton {
+  width: 155px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 26px;
+  color: #ffffff;
+  background-color: #39b862;
+}
+
+/* Final result screen: full-width winner and single new button */
+.finalPage {
+  width: 466px;
+  height: 466px;
+  padding-top: 0px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.finalContent {
+  width: 466px;
+  height: 466px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.finalWinnerPanel {
+  width: 466px;
+  height: 130px;
+  border-radius: 0px;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-bottom: 16px;
+  margin-bottom: 8px;
+}
+
+.finalWinnerPanelWin {
+  background-color: #39b862;
+}
+
+.finalWinnerPanelLoss {
+  background-color: #ff5722;
+}
+
+.finalWinnerLabel {
+  width: 466px;
+  height: 28px;
+  font-size: 19px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalWinnerName {
+  width: 466px;
+  height: 56px;
+  font-size: 40px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalSubTitle {
+  width: 466px;
+  height: 0px;
+  font-size: 0px;
+  color: #050505;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.finalResultRow {
+  width: 430px;
+  height: 174px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.finalResultUndoButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  background-color: #3a3a3a;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.finalResultUndoIcon {
+  width: 44px;
+  height: 38px;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalBoard {
+  width: 342px;
+  height: 168px;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardRow {
+  width: 342px;
+  height: 52px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardHeader {
+  height: 44px;
+}
+
+.finalBoardLabel {
+  width: 74px;
+  height: 46px;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.finalBoardNosLabel {
+  color: #d6ff00;
+}
+
+.finalBoardRivLabel {
+  color: #ff9500;
+}
+
+.finalBoardCell {
+  width: 60px;
+  height: 46px;
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalButtonRow {
+  width: 466px;
+  height: 78px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalHomeButton {
+  width: 260px;
+  height: 70px;
+  border-radius: 35px;
+  font-size: 34px;
+  color: #ffffff;
+  background-color: #39b862;
+}
+
+.finalHistoryButton {
+  width: 0px;
+  height: 0px;
+  font-size: 0px;
+  background-color: #050505;
+}
+
+/* Final screen larger undo button */
+.finalResultUndoButton {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  background-color: #3a3a3a;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.finalResultUndoIcon {
+  width: 64px;
+  height: 54px;
+  font-size: 42px;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+/* Final screen undo aligned like in-game center bar */
+.finalResultRow {
+  width: 466px;
+  height: 180px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.finalResultUndoButton {
+  width: 76px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #202020;
+  align-items: center;
+  justify-content: center;
+  margin-left: 38px;
+  margin-right: 14px;
+}
+
+.finalResultUndoIcon {
+  width: 76px;
+  height: 54px;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.finalBoard {
+  width: 300px;
+  height: 170px;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardRow {
+  width: 300px;
+  height: 52px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalBoardHeader {
+  height: 44px;
+}
+
+.finalBoardLabel {
+  width: 70px;
+  height: 46px;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: right;
+  margin-right: 8px;
+}
+
+.finalBoardCell {
+  width: 56px;
+  height: 46px;
+  font-size: 36px;
+  color: #ffffff;
+  text-align: center;
+}

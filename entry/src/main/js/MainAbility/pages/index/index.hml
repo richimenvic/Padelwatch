@@ -263,7 +263,7 @@
           <text class="finalBoardCell">{{finalRivSet3}}</text>
         </div>
       </div></div>
-      <div class="finalButtonRow"><input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
+      <div class="finalButtonRow"><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
     </div>
   </div>
 
@@ -294,11 +294,12 @@
           <text class="finalBoardCell">{{finalRivSet3}}</text>
         </div>
       </div></div>
-      <div class="finalButtonRow"><input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
+      <div class="finalButtonRow"><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
     </div>
   </div>
 
 </div>
+
 
 
 

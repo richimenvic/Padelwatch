@@ -5,13 +5,13 @@
         "name": "default",
         "type": "HarmonyOS",
         "material": {
-          "storeFile": "C:/DATA/DEVECO_SIGN/padelscoregt5_new.p12",
-          "storePassword": "00000019C8229B3EADE3FEB32B21B6B39EC6EB9E1E63EEBE9ED6CE370EF9918C9FADE88EC46BD76E32",
-          "keyAlias": "padelscoregt5",
-          "keyPassword": "00000019CEC1D9643278613768917BE511C24AB7D4853197EFEE8DF7409E1091F326015AB4018B0AF5",
+          "storeFile": "C:/DATA/DEVECO_SIGN/PadelScoreGT5_Release.p12",
+          "storePassword": "00000019A441ACB8E13B70E6192D34272ADE4FB73CC34BC15C99D8D4D73DB2D66EC626D98F598305E0",
+          "keyAlias": "padelscoregt5release",
+          "keyPassword": "000000193750DD234983C70BF35B566D3FC40F78D3BA35FB5A74FE4D9BE99AA8DA2E8A974D6BC615AD",
           "signAlg": "SHA256withECDSA",
-          "profile": "C:/DATA/DEVECO_SIGN/GT5_Ricardo_DebugDebug.p7b",
-          "certpath": "C:/DATA/DEVECO_SIGN/PadelScoreGT5_Debug_New.cer"
+          "profile": "C:/DATA/DEVECO_SIGN/PadelScoreGT5_Release_ProfileRelease.p7b",
+          "certpath": "C:/DATA/DEVECO_SIGN/PadelScoreGT5_Release.cer"
         }
       }
     ],

@@ -99,11 +99,10 @@
 }
 
 .historyDebug {
-  width: 300px;
-  height: 24px;
-  font-size: 9px;
-  color: #666666;
-  text-align: center;
+  width: 0px;
+  height: 0px;
+  font-size: 1px;
+  color: #000000;
 }
 
 .resultCard {
@@ -4688,4 +4687,109 @@
   color: #ffffff;
   text-align: center;
 }
+
+.settings-title {
+  font-size: 34px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 22px;
+}
+
+.settings-btn {
+  width: 300px;
+  height: 78px;
+  border-radius: 39px;
+  margin-top: 18px;
+  background-color: #d000d8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 34px;
+  padding-right: 34px;
+}
+
+.settings-btn-green {
+  background-color: #35b66a;
+}
+
+.settings-btn-back {
+  width: 210px;
+  height: 58px;
+  border-radius: 29px;
+  margin-top: 18px;
+  background-color: #3a3a3a;
+  justify-content: center;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.settings-label {
+  font-size: 26px;
+  color: #ffffff;
+}
+
+.settings-value {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+
+.settings-title {
+  font-size: 34px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.settings-btn {
+  width: 300px;
+  height: 72px;
+  border-radius: 36px;
+  margin-top: 16px;
+  background-color: #d000d8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.settings-btn-green {
+  background-color: #35b66a;
+}
+
+.settings-btn-off {
+  background-color: #555555;
+}
+
+.settings-label {
+  font-size: 25px;
+  color: #ffffff;
+}
+
+.settings-value {
+  font-size: 24px;
+  color: #ffffff;
+  text-align: right;
+}
+
+.settings-back-btn {
+  width: 190px;
+  height: 52px;
+  border-radius: 26px;
+  margin-top: 4px;
+  background-color: #3a3a3a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-back-text {
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+
 

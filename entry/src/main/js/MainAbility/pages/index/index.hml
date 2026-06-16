@@ -60,20 +60,31 @@
 </div>
 
   <div class="settings" if="{{screen === 'settings'}}">
-    <text class="titleSmall">Ajustes</text>
-    <div class="settingButton deuceButton" onclick="cycleDeuceRule">
-      <text class="settingButtonText">{{deuceText}}</text>
+    <text class="settings-title">Ajustes</text>
+
+    <div class="settings-btn" onclick="cycleDeuceRule">
+      <text class="settings-label">40-40</text>
+      <text class="settings-value">{{deuceValueText}}</text>
     </div>
-    <div class="settingButton" onclick="cycleTieBreakRule">
-      <text class="settingButtonText">{{tieBreakText}}</text>
+
+    <div class="settings-btn" onclick="cycleTieBreakRule">
+      <text class="settings-label">6-6</text>
+      <text class="settings-value">{{tieBreakValueText}}</text>
     </div>
-    <div class="settingButton vibrationButton" if="{{vibrationOnVisible}}" onclick="toggleVibration">
-      <text class="settingButtonText">{{vibrationText}}</text>
+
+    <div class="settings-btn settings-btn-green" if="{{vibrationOnVisible}}" onclick="toggleVibration">
+      <text class="settings-label">Vibración</text>
+      <text class="settings-value">ON</text>
     </div>
-    <div class="settingButton vibrationButtonOff" if="{{vibrationOffVisible}}" onclick="toggleVibration">
-      <text class="settingButtonText">{{vibrationText}}</text>
+
+    <div class="settings-btn settings-btn-off" if="{{vibrationOffVisible}}" onclick="toggleVibration">
+      <text class="settings-label">Vibración</text>
+      <text class="settings-value">OFF</text>
     </div>
-    <input class="settingButton backButton" type="button" value="Volver" onclick="backToWelcome"></input>
+
+    <div class="settings-back-btn" onclick="backToWelcome">
+      <text class="settings-back-text">Volver</text>
+    </div>
   </div>
 
   <div class="serverPage" if="{{screen === 'server'}}">
@@ -239,7 +250,7 @@
           <text class="finalBoardCell">{{finalRivSet2}}</text>
           <text class="finalBoardCell">{{finalRivSet3}}</text>
         </div>
-      </div></div><text class="historyDebug">{{finalDebugText}}</text>
+      </div></div>
       <div class="finalButtonRow"><input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
     </div>
   </div>
@@ -270,12 +281,15 @@
           <text class="finalBoardCell">{{finalRivSet2}}</text>
           <text class="finalBoardCell">{{finalRivSet3}}</text>
         </div>
-      </div></div><text class="historyDebug">{{finalDebugText}}</text>
+      </div></div>
       <div class="finalButtonRow"><input class="finalHistoryButton" type="button" value="HIST." onclick="openFinalHistory"></input><input class="finalHomeButton" type="button" value="NUEVO" onclick="resetMatch"></input></div>
     </div>
   </div>
 
 </div>
+
+
+
 
 
 

@@ -10,9 +10,11 @@ export default {
 
     deuceRule: 'ask',
     deuceText: '40-40: Preguntar',
+    deuceValueText: 'Preguntar',
     deuceChoiceMade: false,
     tieBreakRule: 'ask',
     tieBreakText: '6-6: Preguntar',
+    tieBreakValueText: 'Preguntar',
     vibrationEnabled: true,
     vibrationOnVisible: true,
     vibrationOffVisible: false,
@@ -221,6 +223,35 @@ export default {
     this.loadMatchHistory(false)
   },
 
+  onShow: function () {
+    this.startClock()
+    this.loadMatchHistory(false)
+  },
+
+  onBackPress: function () {
+    if (this.screen === 'settings') {
+      this.backToWelcome()
+      return true
+    }
+
+    if (this.screen === 'history') {
+      this.closeHistory()
+      return true
+    }
+
+    if (this.screen === 'server') {
+      this.screen = 'welcome'
+      return true
+    }
+
+    if (this.screen === 'deuce' || this.screen === 'setMode' || this.screen === 'matchMode' || this.screen === 'changeEnds' || this.screen === 'resetConfirm') {
+      this.screen = 'game'
+      return true
+    }
+
+    return false
+  },
+
   startClock: function () {
     var self = this
     this.clockText = this.timeText()
@@ -346,14 +377,17 @@ export default {
     if (this.deuceRule === 'ask') {
       this.deuceRule = 'advantage'
       this.deuceText = '40-40: Ventaja'
+      this.deuceValueText = 'Ventaja'
       this.deuceChoiceMade = true
     } else if (this.deuceRule === 'advantage') {
       this.deuceRule = 'golden'
       this.deuceText = '40-40: Bola de oro'
+      this.deuceValueText = 'Bola oro'
       this.deuceChoiceMade = true
     } else {
       this.deuceRule = 'ask'
       this.deuceText = '40-40: Preguntar'
+      this.deuceValueText = 'Preguntar'
       this.deuceChoiceMade = false
     }
     this.updateLabels()
@@ -363,12 +397,15 @@ export default {
     if (this.tieBreakRule === 'ask') {
       this.tieBreakRule = 'normal'
       this.tieBreakText = '6-6: Tie-break normal'
+      this.tieBreakValueText = 'Tie-break'
     } else if (this.tieBreakRule === 'normal') {
       this.tieBreakRule = 'differenceTwo'
       this.tieBreakText = '6-6: Dif. 2'
+      this.tieBreakValueText = 'Dif. 2'
     } else {
       this.tieBreakRule = 'ask'
       this.tieBreakText = '6-6: Preguntar'
+      this.tieBreakValueText = 'Preguntar'
     }
     this.updateLabels()
   },
@@ -2315,5 +2352,10 @@ export default {
     this.serverBallRivalesVisible = activeServer === 'rivales'
   }
 }
+
+
+
+
+
 
 

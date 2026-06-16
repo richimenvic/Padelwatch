@@ -204,7 +204,7 @@ export default {
     history1MetaText: '',
     history2MetaText: '',
     historyResultDate: '',
-    historyDebugText: '',
+    historyDebugText: 'Storage --',
     finalDebugText: '',
     lastSaveDebug: '',
     lastFinishedHistoryItemText: '',
@@ -225,11 +225,13 @@ export default {
     app.setSwipeToDismiss(true)
     this.startClock()
     this.loadMatchHistory(false)
+    this.loadStorageProbe()
   },
 
   onShow: function () {
     this.startClock()
     this.loadMatchHistory(false)
+    this.loadStorageProbe()
   },
 
   onBackPress: function () {
@@ -1029,7 +1031,7 @@ export default {
       this.historyDebugText = this.finalDebugText
       this.lastSaveDebug = this.finalDebugText
 
-      this.storeHistory(this.historyItems, true)
+      this.storeHistory(this.historyItems, false)
     } catch (e) {
       this.finalDebugText = 'SAVE ERROR ' + e
       this.historyDebugText = this.finalDebugText
@@ -1543,59 +1545,140 @@ export default {
     return '[]'
   },
 
-  loadMatchHistory: function (useDemoFallback) {
+  loadStorageProbe: function () {
     var self = this
     try {
       storage.get({
-        key: 'matchHistory',
-        default: '[]',
+        key: 'storageProbe',
+        default: '',
         success: function (data) {
-          try {
-            var loadedText = self.storageValue(data)
-            self.historyText = loadedText
-            var loaded = self.parseHistory()
-            if (loaded.length === 0 && self.historyItems && self.historyItems.length > 0) {
-              self.historyText = JSON.stringify(self.historyItems)
-              self.renderHistoryRows()
-              return
-            }
-            self.historyItems = loaded
-            self.historyText = JSON.stringify(self.historyItems)
-            self.renderHistoryRows()
-          } catch (e) {
-            if (self.historyItems && self.historyItems.length > 0) {
-              self.historyText = JSON.stringify(self.historyItems)
-              self.renderHistoryRows()
-              return
-            }
-            self.historyItems = []
-            self.historyText = '[]'
-            self.renderHistoryRows()
+          var raw = self.storageValue(data)
+          if (raw && raw !== '[]') {
+            self.historyDebugText = 'LAST OK'
           }
         },
         fail: function () {
-          if (self.historyItems && self.historyItems.length > 0) {
-            self.historyText = JSON.stringify(self.historyItems)
-            self.renderHistoryRows()
-            return
+          self.historyDebugText = 'LAST FAIL'
+        }
+      })
+    } catch (e) {
+      this.historyDebugText = 'LAST CATCH'
+    }
+  },
+
+  testStorage: function () {
+    var self = this
+    var probe = 'P' + new Date().getTime().toString()
+
+    try {
+      storage.set({
+        key: 'storageProbe',
+        value: probe,
+        success: function () {
+          try {
+            storage.get({
+              key: 'storageProbe',
+              default: '',
+              success: function (data) {
+                var raw = self.storageValue(data)
+                if (raw === probe) {
+                  self.historyDebugText = 'TEST OK'
+                } else {
+                  self.historyDebugText = 'TEST DIFF'
+                }
+              },
+              fail: function () {
+                self.historyDebugText = 'TEST GET FAIL'
+              }
+            })
+          } catch (e) {
+            self.historyDebugText = 'TEST GET CATCH'
           }
+        },
+        fail: function () {
+          self.historyDebugText = 'TEST SET FAIL'
+        }
+      })
+    } catch (e) {
+      this.historyDebugText = 'TEST SET CATCH'
+    }
+  },
+  loadMatchHistory: function (useDemoFallback) {
+    var self = this
+
+    var applyLiteHistory = function (raw) {
+      if (!raw || raw === '' || raw === '[]') {
+        self.historyItems = []
+        self.historyText = '[]'
+        self.finalHistoryCacheText = '[]'
+        self.historyDebugText = 'LOAD EMPTY'
+        self.renderHistoryRows()
+        return
+      }
+
+      try {
+        var rows = raw.split('^')
+        var history = []
+
+        for (var i = 0; i < rows.length && history.length < 20; i++) {
+          var row = rows[i]
+          if (!row || row === '') {
+            continue
+          }
+
+          var p = row.split('|')
+          if (p.length < 7) {
+            continue
+          }
+
+          history.push({
+            id: p[0],
+            date: p[1],
+            time: p[2],
+            winner: p[3],
+            line1: p[4],
+            line2: p[5],
+            line3: p[6]
+          })
+        }
+
+        self.historyItems = history
+        self.historyText = JSON.stringify(history)
+        self.finalHistoryCacheText = self.historyText
+        self.historyDebugText = 'LOAD MH H=' + history.length
+        self.renderHistoryRows()
+      } catch (e) {
+        self.historyItems = []
+        self.historyText = '[]'
+        self.finalHistoryCacheText = '[]'
+        self.historyDebugText = 'LOAD MH CATCH'
+        self.renderHistoryRows()
+      }
+    }
+
+    try {
+      storage.get({
+        key: 'mh',
+        default: '',
+        success: function (data) {
+          applyLiteHistory(self.storageValue(data))
+        },
+        fail: function () {
+          self.historyDebugText = 'LOAD MH FAIL'
           self.historyItems = []
           self.historyText = '[]'
+          self.finalHistoryCacheText = '[]'
           self.renderHistoryRows()
         }
       })
     } catch (e) {
-      if (self.historyItems && self.historyItems.length > 0) {
-        self.historyText = JSON.stringify(self.historyItems)
-        self.renderHistoryRows()
-        return
-      }
+      self.historyDebugText = 'LOAD MH CATCH'
       self.historyItems = []
       self.historyText = '[]'
+      self.finalHistoryCacheText = '[]'
       self.renderHistoryRows()
     }
   },
-
   ensureDemoHistoryForPreview: function () {
     var history = this.historyItems || []
     if (history.length === 0 && !this.historyDemoLoaded) {
@@ -1607,28 +1690,51 @@ export default {
 
   storeHistory: function (history, skipLabelUpdate) {
     var self = this
-    this.historyText = JSON.stringify(history)
+
+    try {
+      this.historyItems = this.validHistory(history || [])
+    } catch (e) {
+      this.historyItems = history || []
+    }
+
+    var rows = []
+    for (var i = 0; i < this.historyItems.length && i < 20; i++) {
+      var item = this.historyItems[i]
+      rows.push([
+        item.id || '',
+        item.date || '',
+        item.time || '',
+        item.winner || '',
+        item.line1 || '',
+        item.line2 || '',
+        item.line3 || ''
+      ].join('|'))
+    }
+
+    var savedText = rows.join('^')
+    var len = this.historyItems.length
+
+    this.historyText = JSON.stringify(this.historyItems)
+    this.finalHistoryCacheText = this.historyText
+
     try {
       storage.set({
-        key: 'matchHistory',
-        value: this.historyText,
+        key: 'mh',
+        value: savedText,
         success: function () {
-          if (!skipLabelUpdate) {
-            self.historyDebugText = 'saved ok | len=' + self.historyItems.length
-            self.lastSaveDebug = self.historyDebugText
-          }
+          self.historyDebugText = 'MH OK H=' + len
+          self.lastSaveDebug = self.historyDebugText
         },
         fail: function () {
-          self.historyDebugText = 'saved fail | len=' + self.historyItems.length
+          self.historyDebugText = 'MH FAIL H=' + len
           self.lastSaveDebug = self.historyDebugText
         }
       })
     } catch (e) {
-      this.historyDebugText = 'saved catch | len=' + this.historyItems.length
+      this.historyDebugText = 'MH CATCH H=' + len
       this.lastSaveDebug = this.historyDebugText
     }
   },
-
   updateHistoryDebug: function (prefix) {
   },
 
@@ -1983,7 +2089,7 @@ export default {
     this.historyPrevVisible = offset > 0
     this.historyNextVisible = offset + 2 < history.length
 
-    this.historyDebugText = ''
+    this.historyDebugText = this.lastSaveDebug || this.historyDebugText || 'Storage --'
   },
 
   parseHistoryRawLength: function () {
@@ -2012,7 +2118,7 @@ export default {
     }
     this.historyText = JSON.stringify(this.historyItems)
     this.finalHistoryCacheText = this.historyText
-    this.storeHistory(this.historyItems, true)
+    this.storeHistory(this.historyItems, false)
     this.hideHistoryDeletes()
     this.renderHistoryRows()
   },
@@ -2029,7 +2135,7 @@ export default {
           this.historyPage = Math.max(0, this.historyItems.length - 2)
         }
         this.historyText = JSON.stringify(this.historyItems)
-        this.storeHistory(this.historyItems, true)
+        this.storeHistory(this.historyItems, false)
         this.renderHistoryRows()
         return
       }
@@ -2151,7 +2257,7 @@ export default {
     this.historyItems = this.validHistory(demoHistory)
     this.historyText = JSON.stringify(this.historyItems)
     this.finalHistoryCacheText = this.historyText
-    this.storeHistory(this.historyItems, true)
+    this.storeHistory(this.historyItems, false)
     this.renderHistoryRows()
   },
   handleAppSwipe: function (event) {
@@ -2377,6 +2483,10 @@ export default {
     this.serverBallRivalesVisible = activeServer === 'rivales'
   }
 }
+
+
+
+
 
 
 

@@ -225,13 +225,11 @@ export default {
     app.setSwipeToDismiss(true)
     this.startClock()
     this.loadMatchHistory(false)
-    this.loadStorageProbe()
   },
 
   onShow: function () {
     this.startClock()
     this.loadMatchHistory(false)
-    this.loadStorageProbe()
   },
 
   onBackPress: function () {
@@ -1545,64 +1543,6 @@ export default {
     return '[]'
   },
 
-  loadStorageProbe: function () {
-    var self = this
-    try {
-      storage.get({
-        key: 'storageProbe',
-        default: '',
-        success: function (data) {
-          var raw = self.storageValue(data)
-          if (raw && raw !== '[]') {
-            self.historyDebugText = 'LAST OK'
-          }
-        },
-        fail: function () {
-          self.historyDebugText = 'LAST FAIL'
-        }
-      })
-    } catch (e) {
-      this.historyDebugText = 'LAST CATCH'
-    }
-  },
-
-  testStorage: function () {
-    var self = this
-    var probe = 'P' + new Date().getTime().toString()
-
-    try {
-      storage.set({
-        key: 'storageProbe',
-        value: probe,
-        success: function () {
-          try {
-            storage.get({
-              key: 'storageProbe',
-              default: '',
-              success: function (data) {
-                var raw = self.storageValue(data)
-                if (raw === probe) {
-                  self.historyDebugText = 'TEST OK'
-                } else {
-                  self.historyDebugText = 'TEST DIFF'
-                }
-              },
-              fail: function () {
-                self.historyDebugText = 'TEST GET FAIL'
-              }
-            })
-          } catch (e) {
-            self.historyDebugText = 'TEST GET CATCH'
-          }
-        },
-        fail: function () {
-          self.historyDebugText = 'TEST SET FAIL'
-        }
-      })
-    } catch (e) {
-      this.historyDebugText = 'TEST SET CATCH'
-    }
-  },
   loadMatchHistory: function (useDemoFallback) {
     var self = this
 
@@ -2483,6 +2423,7 @@ export default {
     this.serverBallRivalesVisible = activeServer === 'rivales'
   }
 }
+
 
 
 

@@ -81,13 +81,7 @@
       <text class="settings-label">Vibración</text>
       <text class="settings-value">OFF</text>
     </div>
-
-    <div class="settings-btn" onclick="testStorage">
-      <text class="settings-label">Storage</text>
-      <text class="settings-value">{{historyDebugText}}</text>
-    </div>
-
-    <div class="settings-back-btn" onclick="backToWelcome">
+<div class="settings-back-btn" onclick="backToWelcome">
       <text class="settings-back-text">Volver</text>
     </div>
   </div>
@@ -292,6 +286,7 @@
   </div>
 
 </div>
+
 
 
 

@@ -12,3 +12,9 @@
 /.clang-tidy
 **/.test
 /.appanalyzer
+
+# Local signing files - never commit certificates or profiles
+/cert/
+*.p12
+*.p7b
+*.cer

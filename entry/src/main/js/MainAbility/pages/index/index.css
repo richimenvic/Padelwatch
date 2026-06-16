@@ -4976,3 +4976,557 @@
   font-size: 46px;
   text-align: center;
 }
+
+/* Refined home menu for 466x466 round watch */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 78px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.title {
+  width: 466px;
+  height: 54px;
+  font-size: 33px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.homeStartButton {
+  width: 340px;
+  height: 70px;
+  border-radius: 35px;
+  font-size: 31px;
+  color: #ffffff;
+  background-color: #c600d9;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.homeHistoryButton {
+  width: 312px;
+  height: 62px;
+  border-radius: 31px;
+  font-size: 29px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 9px;
+}
+
+.homeSettingsButton {
+  width: 312px;
+  height: 62px;
+  border-radius: 31px;
+  font-size: 29px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 14px;
+}
+
+.credit {
+  width: 466px;
+  height: 28px;
+  font-size: 19px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+/* Home hero button with app title + start action */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 88px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.homeHeroButton {
+  width: 350px;
+  height: 124px;
+  border-radius: 42px;
+  background-color: #c600d9;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.homeHeroTitle {
+  width: 350px;
+  height: 42px;
+  font-size: 31px;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.homeHeroAction {
+  width: 350px;
+  height: 44px;
+  font-size: 29px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.homeHistoryButton {
+  width: 318px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 29px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+.homeSettingsButton {
+  width: 318px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 29px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+.credit {
+  width: 466px;
+  height: 28px;
+  font-size: 18px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+/* Home menu: app name below credit */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 96px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.homeStartButton {
+  width: 350px;
+  height: 92px;
+  border-radius: 42px;
+  font-size: 32px;
+  color: #ffffff;
+  background-color: #c600d9;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.homeHistoryButton {
+  width: 318px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 29px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+.homeSettingsButton {
+  width: 318px;
+  height: 60px;
+  border-radius: 30px;
+  font-size: 29px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+.credit {
+  width: 466px;
+  height: 24px;
+  font-size: 18px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.homeAppName {
+  width: 466px;
+  height: 30px;
+  font-size: 21px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Home start button bigger and green */
+.homeStartButton {
+  width: 365px;
+  height: 108px;
+  border-radius: 48px;
+  font-size: 34px;
+  color: #ffffff;
+  background-color: #39b862;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+
+/* Home layout with large side-by-side secondary buttons */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 92px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.homeStartButton {
+  width: 365px;
+  height: 108px;
+  border-radius: 48px;
+  font-size: 34px;
+  color: #ffffff;
+  background-color: #39b862;
+  margin-top: 0px;
+  margin-bottom: 14px;
+}
+
+.homeSecondaryRow {
+  width: 370px;
+  height: 88px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.homeHistoryButton {
+  width: 178px;
+  height: 82px;
+  border-radius: 36px;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.homeSettingsButton {
+  width: 178px;
+  height: 82px;
+  border-radius: 36px;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.credit {
+  width: 466px;
+  height: 24px;
+  font-size: 18px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.homeAppName {
+  width: 466px;
+  height: 30px;
+  font-size: 21px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Home secondary buttons larger */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 78px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.homeStartButton {
+  width: 370px;
+  height: 108px;
+  border-radius: 48px;
+  font-size: 34px;
+  color: #ffffff;
+  background-color: #39b862;
+  margin-top: 0px;
+  margin-bottom: 14px;
+}
+
+.homeSecondaryRow {
+  width: 390px;
+  height: 104px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.homeHistoryButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.homeSettingsButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.credit {
+  width: 466px;
+  height: 23px;
+  font-size: 17px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.homeAppName {
+  width: 466px;
+  height: 28px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Home menu moved upward */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 58px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.homeStartButton {
+  width: 370px;
+  height: 108px;
+  border-radius: 48px;
+  font-size: 34px;
+  color: #ffffff;
+  background-color: #39b862;
+  margin-top: 0px;
+  margin-bottom: 14px;
+}
+
+.homeSecondaryRow {
+  width: 390px;
+  height: 104px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.homeHistoryButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.homeSettingsButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.credit {
+  width: 466px;
+  height: 23px;
+  font-size: 17px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.homeAppName {
+  width: 466px;
+  height: 28px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Home menu tighter vertical spacing */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 62px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.homeStartButton {
+  width: 370px;
+  height: 112px;
+  border-radius: 48px;
+  font-size: 34px;
+  color: #ffffff;
+  background-color: #39b862;
+  margin-top: 0px;
+  margin-bottom: 4px;
+}
+
+.homeSecondaryRow {
+  width: 390px;
+  height: 104px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+.homeHistoryButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.homeSettingsButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.credit {
+  width: 466px;
+  height: 22px;
+  font-size: 17px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.homeAppName {
+  width: 466px;
+  height: 28px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Home menu centered between start and secondary buttons */
+.welcome {
+  width: 466px;
+  height: 466px;
+  padding-top: 104px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.homeStartButton {
+  width: 370px;
+  height: 108px;
+  border-radius: 48px;
+  font-size: 34px;
+  color: #ffffff;
+  background-color: #39b862;
+  margin-top: 0px;
+  margin-bottom: 12px;
+}
+
+.homeSecondaryRow {
+  width: 390px;
+  height: 104px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.homeHistoryButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #5b4dff;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.homeSettingsButton {
+  width: 188px;
+  height: 98px;
+  border-radius: 40px;
+  font-size: 27px;
+  color: #ffffff;
+  background-color: #f28c00;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.credit {
+  width: 466px;
+  height: 22px;
+  font-size: 17px;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.homeAppName {
+  width: 466px;
+  height: 28px;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Home start button short label larger */
+.homeStartButton {
+  width: 376px;
+  height: 122px;
+  border-radius: 54px;
+  font-size: 46px;
+  color: #ffffff;
+  background-color: #39b862;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}

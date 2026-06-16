@@ -1,10 +1,12 @@
 <div class="page">
   <div onswipe="handleAppSwipe" class="welcome" if="{{screen === 'welcome'}}">
-    <text class="title">Padel Counter</text>
-    <input class="mainButton" type="button" value="INICIAR PARTIDO" onclick="startSetup"></input>
-    <input class="smallButton" type="button" value="Historial" onclick="openFinalHistory"></input>
-    <input class="smallButton" type="button" value="Ajustes" onclick="openSettings"></input>
+    <input class="mainButton homeStartButton" type="button" value="INICIAR" onclick="startSetup"></input>
+    <div class="homeSecondaryRow">
+      <input class="smallButton homeHistoryButton" type="button" value="Historial" onclick="openFinalHistory"></input>
+      <input class="smallButton homeSettingsButton" type="button" value="Ajustes" onclick="openSettings"></input>
+    </div>
     <text class="credit">by pyMENVIC</text>
+    <text class="homeAppName">Padel Counter</text>
   </div>
 
   <div onswipe="handleAppSwipe" class="history" if="{{screen === 'history'}}">
@@ -297,6 +299,11 @@
   </div>
 
 </div>
+
+
+
+
+
 
 
 

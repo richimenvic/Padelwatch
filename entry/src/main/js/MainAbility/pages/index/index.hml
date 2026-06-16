@@ -1,6 +1,6 @@
 <div class="page">
   <div onswipe="handleAppSwipe" class="welcome" if="{{screen === 'welcome'}}">
-    <text class="title">PadelScoreGT5</text>
+    <text class="title">Padel Counter</text>
     <input class="mainButton" type="button" value="INICIAR PARTIDO" onclick="startSetup"></input>
     <input class="smallButton" type="button" value="Historial" onclick="openFinalHistory"></input>
     <input class="smallButton" type="button" value="Ajustes" onclick="openSettings"></input>

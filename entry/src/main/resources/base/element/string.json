@@ -2,15 +2,15 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "module description"
+      "value": "Padel score counter for compatible smartwatches"
     },
     {
       "name": "MainAbility_desc",
-      "value": "description"
+      "value": "Padel Counter"
     },
     {
       "name": "MainAbility_label",
-      "value": "label"
+      "value": "Padel Counter"
     }
   ]
 }

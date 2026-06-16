@@ -1,5 +1,5 @@
 <div class="page">
-  <div class="welcome" if="{{screen === 'welcome'}}">
+  <div onswipe="handleAppSwipe" class="welcome" if="{{screen === 'welcome'}}">
     <text class="title">PadelScoreGT5</text>
     <input class="mainButton" type="button" value="INICIAR PARTIDO" onclick="startSetup"></input>
     <input class="smallButton" type="button" value="Historial" onclick="openFinalHistory"></input>
@@ -7,7 +7,7 @@
     <text class="credit">by pyMENVIC</text>
   </div>
 
-  <div class="history" if="{{screen === 'history'}}">
+  <div onswipe="handleAppSwipe" class="history" if="{{screen === 'history'}}">
     <text class="historyPanelTitle">HISTORIAL</text>
     <div class="historyPanelDivider"></div>
 
@@ -59,7 +59,7 @@
     </div>
 </div>
 
-  <div class="settings" if="{{screen === 'settings'}}">
+  <div onswipe="handleAppSwipe" class="settings" if="{{screen === 'settings'}}">
     <text class="settings-title">Ajustes</text>
 
     <div class="settings-btn" onclick="cycleDeuceRule">
@@ -87,7 +87,7 @@
     </div>
   </div>
 
-  <div class="serverPage" if="{{screen === 'server'}}">
+  <div onswipe="handleAppSwipe" class="serverPage" if="{{screen === 'server'}}">
     <div class="serverTopMain" onclick="startRivales">
       <text class="serverTeam">RIVALES</text>
     </div>
@@ -143,7 +143,7 @@
     <input class="smallButton" type="button" value="Cancelar" onclick="cancelReset"></input>
   </div>
 
-  <div class="game" if="{{screen === 'game'}}">
+  <div onswipe="handleAppSwipe" class="game" if="{{screen === 'game'}}">
     <div class="scoreTopMain" onclick="pointRivales">
       <text class="teamName">{{nameRivales}}</text>
       <text class="setsLine">{{topInfoLine}}</text>
@@ -287,6 +287,19 @@
   </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

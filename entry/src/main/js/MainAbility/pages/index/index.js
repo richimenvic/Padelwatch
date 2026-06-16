@@ -1,6 +1,9 @@
+import router from '@system.router'
+import app from '@system.app'
 import storage from '@system.storage'
 
 export default {
+  
   data: {
     screen: 'welcome',
     settingsReturnScreen: 'welcome',
@@ -219,6 +222,7 @@ export default {
   },
 
   onInit: function () {
+    app.setSwipeToDismiss(true)
     this.startClock()
     this.loadMatchHistory(false)
   },
@@ -2150,7 +2154,28 @@ export default {
     this.storeHistory(this.historyItems, true)
     this.renderHistoryRows()
   },
+  handleAppSwipe: function (event) {
+    if (!event || event.direction !== 'right') {
+      return
+    }
 
+    try {
+      app.terminate()
+    } catch (e) {
+    }
+
+    try {
+      router.back()
+    } catch (e2) {
+    }
+
+    try {
+      if (this.context && this.context.terminateSelf) {
+        this.context.terminateSelf()
+      }
+    } catch (e3) {
+    }
+  },
   handleHistorySwipe: function (event, index) {
     if (event.direction === 'left') {
       this.showHistoryDelete(index)
@@ -2352,6 +2377,23 @@ export default {
     this.serverBallRivalesVisible = activeServer === 'rivales'
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

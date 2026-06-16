@@ -564,24 +564,37 @@
 }
 
 .deucePage {
-  justify-content: center;
+  width: 466px;
+  height: 466px;
   padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #000000;
 }
 
 .deuceChoiceAdvantage,
 .deuceChoiceGolden {
-  width: 336px;
-  height: 132px;
-  border-radius: 28px;
+  width: 466px;
+  height: 233px;
+  border-radius: 0px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 8px;
-  margin-bottom: 7px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .deuceChoiceAdvantage {
   background-color: #3a3a3a;
+  border-bottom-width: 4px;
+  border-bottom-color: #000000;
 }
 
 .deuceChoiceGolden {
@@ -589,19 +602,19 @@
 }
 
 .deuceChoiceTitle {
-  width: 100%;
-  height: 36px;
-  font-size: 24px;
+  width: 466px;
+  height: 54px;
+  font-size: 40px;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .deuceChoiceText {
-  width: 100%;
-  height: 42px;
+  width: 466px;
+  height: 64px;
   color: #ffffff;
-  font-size: 29px;
+  font-size: 44px;
   text-align: center;
 }
 
@@ -4793,3 +4806,173 @@
 
 
 
+
+
+
+
+/* Refined compact colorful settings menu */
+.settings {
+  width: 466px;
+  height: 466px;
+  padding-top: 34px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #050505;
+}
+
+.settings-title {
+  width: 466px;
+  height: 44px;
+  font-size: 34px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.settings-btn {
+  width: 342px;
+  height: 62px;
+  border-radius: 31px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-btn-deuce {
+  background-color: #c600d9;
+}
+
+.settings-btn-tiebreak {
+  background-color: #5b4dff;
+}
+
+.settings-btn-matchmode {
+  background-color: #f28c00;
+}
+
+.settings-btn-green {
+  width: 342px;
+  height: 62px;
+  border-radius: 31px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #39b862;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-btn-off {
+  width: 342px;
+  height: 62px;
+  border-radius: 31px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #7a7a7a;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-label {
+  width: 118px;
+  height: 46px;
+  font-size: 29px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.settings-value {
+  width: 154px;
+  height: 46px;
+  font-size: 27px;
+  color: #ffffff;
+  text-align: right;
+}
+
+.settings-back-btn {
+  width: 220px;
+  height: 50px;
+  border-radius: 25px;
+  margin-top: 4px;
+  background-color: #4b5563;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-back-text {
+  width: 220px;
+  height: 40px;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Full-screen Sets 1-1 decision page */
+.matchModePage {
+  width: 466px;
+  height: 466px;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #000000;
+}
+
+.matchChoiceThird,
+.matchChoiceSuper {
+  width: 466px;
+  height: 216px;
+  border-radius: 0px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.matchChoiceThird {
+  background-color: #3a3a3a;
+}
+
+.matchChoiceSuper {
+  background-color: #ff9500;
+}
+
+.matchModeDivider {
+  width: 466px;
+  height: 34px;
+  background-color: #000000;
+  align-items: center;
+  justify-content: center;
+}
+
+.matchModeDividerText {
+  width: 466px;
+  height: 30px;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.matchChoiceText {
+  width: 466px;
+  height: 76px;
+  color: #ffffff;
+  font-size: 46px;
+  text-align: center;
+}

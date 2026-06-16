@@ -62,14 +62,19 @@
   <div onswipe="handleAppSwipe" class="settings" if="{{screen === 'settings'}}">
     <text class="settings-title">Ajustes</text>
 
-    <div class="settings-btn" onclick="cycleDeuceRule">
+    <div class="settings-btn settings-btn-deuce" onclick="cycleDeuceRule">
       <text class="settings-label">40-40</text>
       <text class="settings-value">{{deuceValueText}}</text>
     </div>
 
-    <div class="settings-btn" onclick="cycleTieBreakRule">
+    <div class="settings-btn settings-btn-tiebreak" onclick="cycleTieBreakRule">
       <text class="settings-label">6-6</text>
       <text class="settings-value">{{tieBreakValueText}}</text>
+    </div>
+
+    <div class="settings-btn settings-btn-matchmode" onclick="cycleMatchModeRule">
+      <text class="settings-label">1-1</text>
+      <text class="settings-value">{{matchModeValueText}}</text>
     </div>
 
     <div class="settings-btn settings-btn-green" if="{{vibrationOnVisible}}" onclick="toggleVibration">
@@ -125,9 +130,15 @@
   </div>
 
   <div class="decision matchModePage" if="{{screen === 'matchMode'}}">
-    <text class="titleSmall">Sets 1 - 1</text>
-    <input class="decisionButton magenta" type="button" value="TERCER SET" onclick="chooseThirdSet"></input>
-    <input class="decisionButton orange" type="button" value="SUPER TB" onclick="chooseSuperTieBreak"></input>
+    <div class="matchChoiceThird" onclick="chooseThirdSet">
+      <text class="matchChoiceText">TERCER SET</text>
+    </div>
+    <div class="matchModeDivider">
+      <text class="matchModeDividerText">Sets 1 - 1</text>
+    </div>
+    <div class="matchChoiceSuper" onclick="chooseSuperTieBreak">
+      <text class="matchChoiceText">SUPER TB</text>
+    </div>
   </div>
 
   <div class="decision" if="{{screen === 'changeEnds'}}">
@@ -286,6 +297,13 @@
   </div>
 
 </div>
+
+
+
+
+
+
+
 
 
 

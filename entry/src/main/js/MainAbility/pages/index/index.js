@@ -12,13 +12,15 @@ export default {
     gameScreenVisible: false,
     resultVisible: false,
 
-    deuceRule: 'ask',
-    deuceText: '40-40: Preguntar',
-    deuceValueText: 'Preguntar',
-    deuceChoiceMade: false,
-    tieBreakRule: 'ask',
-    tieBreakText: '6-6: Preguntar',
-    tieBreakValueText: 'Preguntar',
+    deuceRule: 'golden',
+    deuceText: '40-40: Bola de oro',
+    deuceValueText: 'Bola oro',
+    deuceChoiceMade: true,
+    tieBreakRule: 'normal',
+    tieBreakText: '6-6: Tie-break',
+    tieBreakValueText: 'Tie-break',
+    matchModeRule: 'super',
+    matchModeValueText: 'Super TB',
     vibrationEnabled: true,
     vibrationOnVisible: true,
     vibrationOffVisible: false,
@@ -403,6 +405,32 @@ export default {
     this.updateLabels()
   },
 
+  resetRulesToAsk: function () {
+    this.deuceRule = 'ask'
+    this.deuceText = '40-40: Preguntar'
+    this.deuceValueText = 'Preguntar'
+    this.deuceChoiceMade = false
+
+    this.tieBreakRule = 'ask'
+    this.tieBreakText = '6-6: Preguntar'
+    this.tieBreakValueText = 'Preguntar'
+
+    this.matchModeRule = 'ask'
+    this.matchModeValueText = 'Preguntar'
+  },
+  cycleMatchModeRule: function () {
+    if (this.matchModeRule === 'super') {
+      this.matchModeRule = 'third'
+      this.matchModeValueText = 'Tercer set'
+    } else if (this.matchModeRule === 'third') {
+      this.matchModeRule = 'ask'
+      this.matchModeValueText = 'Preguntar'
+    } else {
+      this.matchModeRule = 'super'
+      this.matchModeValueText = 'Super TB'
+    }
+    this.updateLabels()
+  },
   cycleTieBreakRule: function () {
     if (this.tieBreakRule === 'ask') {
       this.tieBreakRule = 'normal'
@@ -701,7 +729,15 @@ export default {
     }
 
     if (this.setsNosotros === 1 && this.setsRivales === 1) {
-      this.screen = 'matchMode'
+      if (this.matchModeRule === 'super') {
+        this.chooseSuperTieBreak()
+      } else if (this.matchModeRule === 'third') {
+        this.chooseThirdSet()
+      } else {
+        this.screen = 'matchMode'
+        this.gameVisible = false
+        this.gameScreenVisible = false
+      }
       return
     }
 
@@ -756,6 +792,7 @@ export default {
     }
 
     this.addFinishedHistoryItem(item)
+    this.resetRulesToAsk()
 
     this.winnerText = winner + ' GANAN'
     this.finalWinnerNameText = winner
@@ -2558,6 +2595,15 @@ export default {
     this.saveCurrentMatch()
   }
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.menvic.padelscoregt5",
+    "bundleName": "com.menvic.padelcounter",
     "vendor": "MENVIC",
     "version": {
       "code": 1000002,
@@ -38,6 +38,3 @@
     ]
   }
 }
-
-
-

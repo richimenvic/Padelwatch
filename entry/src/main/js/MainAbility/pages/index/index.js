@@ -225,11 +225,13 @@ export default {
     app.setSwipeToDismiss(true)
     this.startClock()
     this.loadMatchHistory(false)
+    this.loadCurrentMatch()
   },
 
   onShow: function () {
     this.startClock()
     this.loadMatchHistory(false)
+    this.loadCurrentMatch()
   },
 
   onBackPress: function () {
@@ -277,10 +279,12 @@ export default {
   },
 
   onDestroy: function () {
+    this.saveCurrentMatch()
     this.stopClock()
   },
 
   startSetup: function () {
+    this.clearCurrentMatch()
     this.gameVisible = false
     this.screen = 'server'
     this.resetState()
@@ -322,6 +326,7 @@ export default {
     this.lastSavedMatchId = item.id
     this.matchSaved = true
     this.storeHistory(this.historyItems, false)
+    this.clearCurrentMatch()
   },
 
   openFinalHistory: function () {
@@ -770,6 +775,7 @@ export default {
     this.lastSaveDebug = this.finalDebugText
 
     this.storeHistory(this.historyItems, false)
+    this.clearCurrentMatch()
     this.renderHistoryRows()
 
     this.finalVisible = true
@@ -1030,6 +1036,7 @@ export default {
       this.lastSaveDebug = this.finalDebugText
 
       this.storeHistory(this.historyItems, false)
+    this.clearCurrentMatch()
     } catch (e) {
       this.finalDebugText = 'SAVE ERROR ' + e
       this.historyDebugText = this.finalDebugText
@@ -1442,6 +1449,7 @@ export default {
 
   resetMatch: function () {
     this.resetState()
+    this.clearCurrentMatch()
 
     this.finalNosotrosVisible = false
     this.finalRivalesVisible = false
@@ -1543,6 +1551,108 @@ export default {
     return '[]'
   },
 
+  saveCurrentMatch: function () {
+    if (!this.server || this.server === '' || this.finalNosotrosVisible || this.finalRivalesVisible) {
+      return
+    }
+
+    var v = [
+      this.screen,
+      this.setsNosotros,
+      this.setsRivales,
+      this.gamesNosotros,
+      this.gamesRivales,
+      this.pointIndexNosotros,
+      this.pointIndexRivales,
+      this.server,
+      this.tieBreakFirstServer,
+      this.setActual,
+      this.enTieBreak ? '1' : '0',
+      this.tieBreakNosotros,
+      this.tieBreakRivales,
+      this.enSuperTieBreak ? '1' : '0',
+      this.superTieNosotros,
+      this.superTieRivales,
+      this.jugarConDiferenciaDos ? '1' : '0',
+      this.finalLine1 || '',
+      this.finalLine2 || '',
+      this.finalLine3 || ''
+    ].join('|')
+
+    try {
+      storage.set({ key: 'cm', value: v, success: function () {}, fail: function () {} })
+    } catch (e) {
+    }
+  },
+
+  clearCurrentMatch: function () {
+    try {
+      storage.set({ key: 'cm', value: '', success: function () {}, fail: function () {} })
+    } catch (e) {
+    }
+  },
+
+  loadCurrentMatch: function () {
+    var self = this
+    try {
+      storage.get({
+        key: 'cm',
+        default: '',
+        success: function (data) {
+          try {
+            var raw = self.storageValue(data)
+            if (!raw || raw === '' || raw === '[]' || raw.indexOf('|') < 0) {
+              return
+            }
+
+            var p = raw.split('|')
+            if (p.length < 17 || !p[7]) {
+              return
+            }
+
+            self.screen = p[0] || 'game'
+            self.setsNosotros = parseInt(p[1]) || 0
+            self.setsRivales = parseInt(p[2]) || 0
+            self.gamesNosotros = parseInt(p[3]) || 0
+            self.gamesRivales = parseInt(p[4]) || 0
+            self.pointIndexNosotros = parseInt(p[5]) || 0
+            self.pointIndexRivales = parseInt(p[6]) || 0
+            self.server = p[7] || ''
+            self.tieBreakFirstServer = p[8] || ''
+            self.setActual = parseInt(p[9]) || 1
+            self.enTieBreak = p[10] === '1'
+            self.tieBreakNosotros = parseInt(p[11]) || 0
+            self.tieBreakRivales = parseInt(p[12]) || 0
+            self.enSuperTieBreak = p[13] === '1'
+            self.superTieNosotros = parseInt(p[14]) || 0
+            self.superTieRivales = parseInt(p[15]) || 0
+            self.jugarConDiferenciaDos = p[16] === '1'
+            self.finalLine1 = p[17] || ''
+            self.finalLine2 = p[18] || ''
+            self.finalLine3 = p[19] || ''
+
+            if (self.screen !== 'game' &&
+                self.screen !== 'deuce' &&
+                self.screen !== 'setMode' &&
+                self.screen !== 'matchMode' &&
+                self.screen !== 'changeEnds' &&
+                self.screen !== 'resetConfirm') {
+              self.screen = 'game'
+            }
+
+            self.finalNosotrosVisible = false
+            self.finalRivalesVisible = false
+            self.gameVisible = self.screen === 'game'
+            self.gameScreenVisible = self.screen === 'game'
+            self.updateLabels()
+          } catch (e) {
+          }
+        },
+        fail: function () {}
+      })
+    } catch (e) {
+    }
+  },
   loadMatchHistory: function (useDemoFallback) {
     var self = this
 
@@ -2059,6 +2169,7 @@ export default {
     this.historyText = JSON.stringify(this.historyItems)
     this.finalHistoryCacheText = this.historyText
     this.storeHistory(this.historyItems, false)
+    this.clearCurrentMatch()
     this.hideHistoryDeletes()
     this.renderHistoryRows()
   },
@@ -2076,6 +2187,7 @@ export default {
         }
         this.historyText = JSON.stringify(this.historyItems)
         this.storeHistory(this.historyItems, false)
+    this.clearCurrentMatch()
         this.renderHistoryRows()
         return
       }
@@ -2198,6 +2310,7 @@ export default {
     this.historyText = JSON.stringify(this.historyItems)
     this.finalHistoryCacheText = this.historyText
     this.storeHistory(this.historyItems, false)
+    this.clearCurrentMatch()
     this.renderHistoryRows()
   },
   handleAppSwipe: function (event) {
@@ -2421,8 +2534,11 @@ export default {
     var activeServer = this.enTieBreak || this.enSuperTieBreak ? this.activeTieBreakServer() : this.server
     this.serverBallNosotrosVisible = activeServer === 'nosotros'
     this.serverBallRivalesVisible = activeServer === 'rivales'
+    this.saveCurrentMatch()
   }
 }
+
+
 
 
 

@@ -225,7 +225,7 @@ export default {
   },
 
   onInit: function () {
-    app.setSwipeToDismiss(true)
+    this.unlockExitOutsideMatch()
     this.startClock()
     this.loadMatchHistory(false)
     this.loadCurrentMatch()
@@ -249,7 +249,8 @@ export default {
     }
 
     if (this.screen === 'server') {
-      this.screen = 'welcome'
+      this.unlockExitOutsideMatch()
+    this.screen = 'welcome'
       return true
     }
 
@@ -259,6 +260,20 @@ export default {
     }
 
     return false
+  },
+
+  lockExitDuringMatch: function () {
+    try {
+      app.setSwipeToDismiss(false)
+    } catch (e) {
+    }
+  },
+
+  unlockExitOutsideMatch: function () {
+    try {
+      app.setSwipeToDismiss(true)
+    } catch (e) {
+    }
   },
 
   startClock: function () {
@@ -373,6 +388,7 @@ export default {
 
   closeHistory: function () {
     this.hideHistoryDeletes()
+    this.unlockExitOutsideMatch()
     this.screen = 'welcome'
   },
 
@@ -480,6 +496,7 @@ export default {
   },
 
   startMatch: function (team) {
+    this.lockExitDuringMatch()
     this.server = team
     this.screen = 'game'
     this.resetState()
@@ -1521,6 +1538,7 @@ export default {
     this.pendingHistorySave = false
     this.pendingHistoryWinner = ''
 
+    this.unlockExitOutsideMatch()
     this.screen = 'welcome'
   },
 
@@ -1702,6 +1720,7 @@ export default {
             self.finalRivalesVisible = false
             self.gameVisible = self.screen === 'game'
             self.gameScreenVisible = self.screen === 'game'
+            if (self.screen === 'game') { self.lockExitDuringMatch() }
             self.updateLabels()
           } catch (e) {
           }
@@ -2378,6 +2397,10 @@ export default {
       return
     }
 
+    if (!event || event.direction !== 'right') {
+      return
+    }
+
     try {
       app.terminate()
     } catch (e) {
@@ -2585,6 +2608,8 @@ export default {
     this.saveCurrentMatch()
   }
 }
+
+
 
 
 

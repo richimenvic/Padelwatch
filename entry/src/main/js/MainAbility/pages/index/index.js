@@ -2152,7 +2152,7 @@ export default {
     }
 
     var item1 = history.length > offset ? history[offset] : null
-    var item2 = history.length > offset + 1 ? history[offset + 1] : null
+    var item2 = null
 
     this.historyEmptyVisible = item1 === null
 
@@ -2195,7 +2195,7 @@ export default {
     this.history4DisplayText = ''
 
     this.historyPrevVisible = offset > 0
-    this.historyNextVisible = offset + 2 < history.length
+    this.historyNextVisible = offset + 1 < history.length
 
     this.historyDebugText = this.lastSaveDebug || this.historyDebugText || 'Storage --'
   },
@@ -2222,7 +2222,7 @@ export default {
       this.finalHistoryCacheText = '[]'
       this.historyPage = 0
     } else if (this.historyPage >= this.historyItems.length) {
-      this.historyPage = Math.max(0, this.historyItems.length - 2)
+      this.historyPage = Math.max(0, this.historyItems.length - 1)
     }
     this.historyText = JSON.stringify(this.historyItems)
     this.finalHistoryCacheText = this.historyText
@@ -2241,7 +2241,7 @@ export default {
           this.lastFinishedHistoryItemText = ''
           this.historyPage = 0
         } else if (this.historyPage >= this.historyItems.length) {
-          this.historyPage = Math.max(0, this.historyItems.length - 2)
+          this.historyPage = Math.max(0, this.historyItems.length - 1)
         }
         this.historyText = JSON.stringify(this.historyItems)
         this.storeHistory(this.historyItems, false)
@@ -2304,17 +2304,14 @@ export default {
 
   historyPrevPage: function () {
     if (this.historyPage > 0) {
-      this.historyPage = Math.max(0, this.historyPage - 2)
-      this.hideHistoryDeletes()
+      this.historyPage = this.historyPage - 1
       this.renderHistoryRows()
     }
   },
 
   historyNextPage: function () {
-    var history = this.historyItems || []
-    if (this.historyPage + 2 < history.length) {
-      this.historyPage = this.historyPage + 2
-      this.hideHistoryDeletes()
+    if (this.historyItems && this.historyPage + 1 < this.historyItems.length) {
+      this.historyPage = this.historyPage + 1
       this.renderHistoryRows()
     }
   },
@@ -2372,25 +2369,18 @@ export default {
     this.renderHistoryRows()
   },
   handleAppSwipe: function (event) {
-    if (!event || event.direction !== 'right') {
+    if (this.screen === 'game' ||
+        this.screen === 'deuce' ||
+        this.screen === 'setMode' ||
+        this.screen === 'matchMode' ||
+        this.screen === 'changeEnds' ||
+        this.screen === 'resetConfirm') {
       return
     }
 
     try {
       app.terminate()
     } catch (e) {
-    }
-
-    try {
-      router.back()
-    } catch (e2) {
-    }
-
-    try {
-      if (this.context && this.context.terminateSelf) {
-        this.context.terminateSelf()
-      }
-    } catch (e3) {
     }
   },
   handleHistorySwipe: function (event, index) {
@@ -2595,6 +2585,12 @@ export default {
     this.saveCurrentMatch()
   }
 }
+
+
+
+
+
+
 
 
 

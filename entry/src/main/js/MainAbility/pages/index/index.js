@@ -891,104 +891,36 @@ export default {
     this.setResultSetFlag(3, this.finalLine3)
   },
 
+  resultScoreKeys: function () {
+    return ['6_0', '6_1', '6_2', '6_3', '6_4', '7_5', '7_6', '0_6', '1_6', '2_6', '3_6', '4_6', '5_7', '6_7']
+  },
+
   clearResultSetFlags: function () {
-    this.resultSet1_6_0Visible = false
-    this.resultSet1_6_1Visible = false
-    this.resultSet1_6_2Visible = false
-    this.resultSet1_6_3Visible = false
-    this.resultSet1_6_4Visible = false
-    this.resultSet1_7_5Visible = false
-    this.resultSet1_7_6Visible = false
-    this.resultSet1_0_6Visible = false
-    this.resultSet1_1_6Visible = false
-    this.resultSet1_2_6Visible = false
-    this.resultSet1_3_6Visible = false
-    this.resultSet1_4_6Visible = false
-    this.resultSet1_5_7Visible = false
-    this.resultSet1_6_7Visible = false
-    this.resultSet2_6_0Visible = false
-    this.resultSet2_6_1Visible = false
-    this.resultSet2_6_2Visible = false
-    this.resultSet2_6_3Visible = false
-    this.resultSet2_6_4Visible = false
-    this.resultSet2_7_5Visible = false
-    this.resultSet2_7_6Visible = false
-    this.resultSet2_0_6Visible = false
-    this.resultSet2_1_6Visible = false
-    this.resultSet2_2_6Visible = false
-    this.resultSet2_3_6Visible = false
-    this.resultSet2_4_6Visible = false
-    this.resultSet2_5_7Visible = false
-    this.resultSet2_6_7Visible = false
-    this.resultSet3_6_0Visible = false
-    this.resultSet3_6_1Visible = false
-    this.resultSet3_6_2Visible = false
-    this.resultSet3_6_3Visible = false
-    this.resultSet3_6_4Visible = false
-    this.resultSet3_7_5Visible = false
-    this.resultSet3_7_6Visible = false
-    this.resultSet3_0_6Visible = false
-    this.resultSet3_1_6Visible = false
-    this.resultSet3_2_6Visible = false
-    this.resultSet3_3_6Visible = false
-    this.resultSet3_4_6Visible = false
-    this.resultSet3_5_7Visible = false
-    this.resultSet3_6_7Visible = false
+    var keys = this.resultScoreKeys()
+    for (var setNo = 1; setNo <= 3; setNo++) {
+      for (var i = 0; i < keys.length; i++) {
+        this['resultSet' + setNo + '_' + keys[i] + 'Visible'] = false
+      }
+    }
   },
 
   setResultSetFlag: function (setNo, line) {
-    if (!line || line.indexOf(': ') < 0) {
+    if (!line || line.indexOf(': ') < 0 || setNo < 1 || setNo > 3) {
       return
     }
+
     var score = line.substring(line.indexOf(': ') + 2)
     if (score === '-' || score === '') {
       return
     }
-    if (setNo === 1) {
-      if (score === '6-0') { this.resultSet1_6_0Visible = true }
-      if (score === '6-1') { this.resultSet1_6_1Visible = true }
-      if (score === '6-2') { this.resultSet1_6_2Visible = true }
-      if (score === '6-3') { this.resultSet1_6_3Visible = true }
-      if (score === '6-4') { this.resultSet1_6_4Visible = true }
-      if (score === '7-5') { this.resultSet1_7_5Visible = true }
-      if (score === '7-6') { this.resultSet1_7_6Visible = true }
-      if (score === '0-6') { this.resultSet1_0_6Visible = true }
-      if (score === '1-6') { this.resultSet1_1_6Visible = true }
-      if (score === '2-6') { this.resultSet1_2_6Visible = true }
-      if (score === '3-6') { this.resultSet1_3_6Visible = true }
-      if (score === '4-6') { this.resultSet1_4_6Visible = true }
-      if (score === '5-7') { this.resultSet1_5_7Visible = true }
-      if (score === '6-7') { this.resultSet1_6_7Visible = true }
-    } else if (setNo === 2) {
-      if (score === '6-0') { this.resultSet2_6_0Visible = true }
-      if (score === '6-1') { this.resultSet2_6_1Visible = true }
-      if (score === '6-2') { this.resultSet2_6_2Visible = true }
-      if (score === '6-3') { this.resultSet2_6_3Visible = true }
-      if (score === '6-4') { this.resultSet2_6_4Visible = true }
-      if (score === '7-5') { this.resultSet2_7_5Visible = true }
-      if (score === '7-6') { this.resultSet2_7_6Visible = true }
-      if (score === '0-6') { this.resultSet2_0_6Visible = true }
-      if (score === '1-6') { this.resultSet2_1_6Visible = true }
-      if (score === '2-6') { this.resultSet2_2_6Visible = true }
-      if (score === '3-6') { this.resultSet2_3_6Visible = true }
-      if (score === '4-6') { this.resultSet2_4_6Visible = true }
-      if (score === '5-7') { this.resultSet2_5_7Visible = true }
-      if (score === '6-7') { this.resultSet2_6_7Visible = true }
-    } else {
-      if (score === '6-0') { this.resultSet3_6_0Visible = true }
-      if (score === '6-1') { this.resultSet3_6_1Visible = true }
-      if (score === '6-2') { this.resultSet3_6_2Visible = true }
-      if (score === '6-3') { this.resultSet3_6_3Visible = true }
-      if (score === '6-4') { this.resultSet3_6_4Visible = true }
-      if (score === '7-5') { this.resultSet3_7_5Visible = true }
-      if (score === '7-6') { this.resultSet3_7_6Visible = true }
-      if (score === '0-6') { this.resultSet3_0_6Visible = true }
-      if (score === '1-6') { this.resultSet3_1_6Visible = true }
-      if (score === '2-6') { this.resultSet3_2_6Visible = true }
-      if (score === '3-6') { this.resultSet3_3_6Visible = true }
-      if (score === '4-6') { this.resultSet3_4_6Visible = true }
-      if (score === '5-7') { this.resultSet3_5_7Visible = true }
-      if (score === '6-7') { this.resultSet3_6_7Visible = true }
+
+    var key = score.replace('-', '_')
+    var keys = this.resultScoreKeys()
+    for (var i = 0; i < keys.length; i++) {
+      if (key === keys[i]) {
+        this['resultSet' + setNo + '_' + key + 'Visible'] = true
+        return
+      }
     }
   },
 
@@ -2608,6 +2540,7 @@ export default {
     this.saveCurrentMatch()
   }
 }
+
 
 
 
